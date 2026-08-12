@@ -1,0 +1,11 @@
+{
+  "name": "ghost-museum",
+  "private": true,
+  "version": "0.1.0",
+  "description": "A hall of interfaces that outlived their obituaries.",
+  "type": "module",
+  "scripts": {
+    "probe": "node scripts/probe.mjs",
+    "sync-exhibits": "node -e \"import('node:fs').then(fs=>fs.copyFileSync('exhibits/exhibits.json','site/exhibits.json'))\""
+  }
+}
