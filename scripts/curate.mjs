@@ -364,7 +364,7 @@ const deskPayload = {
   byDecision: report.byDecision,
   queue: ranked
     .filter((r) => r.decision === "strong" || r.decision === "consider")
-    .slice(0, Math.max(topN, 60)),
+    .slice(0, Math.min(topN, 80)),
 };
 writeFileSync(deskPath, JSON.stringify(deskPayload, null, 2) + "\n");
 

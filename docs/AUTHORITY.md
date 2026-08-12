@@ -43,10 +43,11 @@ Optional env (host `.env` or process env):
 | Var | Default | Meaning |
 |-----|---------|---------|
 | `GM_AUTHORITY_PERIOD_MS` | `21600000` (6h) | Sleep between passes |
-| `GM_HANG_AUTO_MAX` | `25` | Max new hangs per pass |
+| `GM_HANG_AUTO_MAX` | `80` | Max new hangs per drain |
+| `GM_HANG_DRAIN_MS` | `1800000` (30m) | Hang-only drain between full authority passes |
 | `BRAVE_SEARCH_API_KEY` / Google CSE | — | Enables `search:seed` hits |
 
-Hunt never auto-hangs. Authority loop is what grows hung frames.
+Hunt never auto-hangs. Authority loop + hang drain is what grows hung frames and empties the curate desk.
 
 ## What is authoritative
 
