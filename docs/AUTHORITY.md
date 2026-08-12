@@ -65,7 +65,7 @@ Hunt never auto-hangs. Authority loop is what grows hung frames.
 
 | Path | Why |
 |------|-----|
-| `npm run seed-watchlist:vast` | Google host spam; inflates queue, not breadth |
+| `npm run seed-watchlist:vast` / `--deep` | Invented catalog hosts; floods ENOTFOUND — opt-in only |
 | Deep catalog fan-out alone | Guessed hosts without seed curation |
 | Open-web crawl / search engines | Out of scope — see `docs/DISCOVER.md` |
 | Hang without probe / obituary | Forbidden — invents frames |

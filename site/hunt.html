@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Hunt desk · Still Answering</title>
-  <meta name="description" content="Hunt findings — curator queue only. Nothing auto-hangs." />
+  <meta name="description" content="Hunt findings — signal view. DNS noise hidden. Hangs via hang:auto." />
   <meta name="robots" content="noindex, nofollow" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -41,6 +41,14 @@
     <main class="gm-nominate-main">
       <section class="gm-nominate-hero">
         <h1>Hunt desk.</h1>
+        <p class="gm-lede" id="hunt-meta">Signal view — DNS misses and invented deep hosts stay hidden.</p>
+        <div class="gm-view-modes" id="hunt-filters" role="group" aria-label="Hunt filter">
+          <button type="button" class="gm-filter" data-wall="signal" aria-pressed="true">Signal</button>
+          <button type="button" class="gm-filter" data-wall="still-answering" aria-pressed="false">Still answering</button>
+          <button type="button" class="gm-filter" data-wall="successor-facade" aria-pressed="false">Successor</button>
+          <button type="button" class="gm-filter" data-wall="all" aria-pressed="false">All contacted</button>
+          <button type="button" class="gm-filter" data-wall="noise" aria-pressed="false">DNS noise</button>
+        </div>
       </section>
 
       <div id="hunt-list" class="gm-hunt-list" aria-live="polite"></div>

@@ -23,9 +23,7 @@ function hops(chain) {
 function row(f) {
   const wallKey = f.suggestedWall || "unprobed";
   const wall = WALLS[wallKey] || wallKey;
-  const err = f.probeError
-    ? `<p class="gm-hunt-err">${esc(f.probeError)}</p>`
-    : "";
+  const err = f.probeError ? `<p class="gm-hunt-err">${esc(f.probeError)}</p>` : "";
   return `<article class="gm-hunt-card" id="${esc(f.id)}-${esc(f.huntedAt || "")}" data-wall="${esc(wallKey)}">
     <div class="gm-frame-top">
       <p class="gm-wall">${esc(wall)}</p>
@@ -38,20 +36,58 @@ function row(f) {
     <p class="gm-meta">
       Hunted ${esc(f.huntedAt || "-")}<br />
       Final ${esc(f.finalUrl || "-")}<br />
-      Status ${esc(f.status || "pending-review")} · autoHang ${esc(String(!!f.autoHang))}
-      ${f.obituary ? `<br /><a href="${esc(f.obituary)}" rel="noopener noreferrer">Obituary</a>` : ""}
+      ${f.obituary ? `<a href="${esc(f.obituary)}" rel="noopener noreferrer">Obituary</a>` : "No obituary"}
     </p>
   </article>`;
 }
 
 const list = document.getElementById("hunt-list");
+const filters = document.getElementById("hunt-filters");
+const meta = document.getElementById("hunt-meta");
 
-try {
-  const data = await fetch("/api/hunt/findings").then((r) => r.json());
+const params = new URLSearchParams(location.search);
+let wall = params.get("wall") || "signal";
+
+async function load() {
+  const u = new URL("/api/hunt/findings", location.origin);
+  u.searchParams.set("wall", wall);
+  u.searchParams.set("t", String(Date.now()));
+  const data = await fetch(u, { cache: "no-store" }).then((r) => r.json());
   const findings = data.findings || [];
+  if (meta) {
+    const bits = [];
+    if (data.watchlistSize != null) bits.push(`${data.watchlistSize} watch`);
+    if (data.noiseSkipped) bits.push(`${data.noiseSkipped} DNS-noise hidden`);
+    bits.push(data.note || "signal view");
+    meta.textContent = bits.join(" · ");
+  }
   list.innerHTML = findings.length
     ? findings.map(row).join("")
-    : `<p class="gm-lede">Empty queue. The bot only writes after each GET.</p>`;
+    : `<p class="gm-lede">No signal in this view. Try “All contacted” or wait for hunt.</p>`;
+  if (filters) {
+    for (const b of filters.querySelectorAll("[data-wall]")) {
+      b.setAttribute("aria-pressed", b.getAttribute("data-wall") === wall ? "true" : "false");
+    }
+  }
+}
+
+if (filters) {
+  filters.addEventListener("click", (e) => {
+    const btn = e.target.closest("[data-wall]");
+    if (!btn) return;
+    wall = btn.getAttribute("data-wall") || "signal";
+    const url = new URL(location.href);
+    if (wall === "signal") url.searchParams.delete("wall");
+    else url.searchParams.set("wall", wall);
+    history.replaceState({}, "", url);
+    load().catch(() => {
+      list.innerHTML = `<p class="gm-lede">Could not load hunt findings.</p>`;
+    });
+  });
+}
+
+try {
+  await load();
 } catch {
   list.innerHTML = `<p class="gm-lede">Could not load hunt findings.</p>`;
 }

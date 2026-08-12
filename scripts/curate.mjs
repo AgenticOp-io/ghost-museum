@@ -325,7 +325,7 @@ const ranked = candidates
       finalUrl: c.finalUrl || null,
       huntedAt: c.huntedAt || null,
       note: c.note || null,
-      hangHint: `npm run hang -- --id ${c.id}`,
+      hangHint: `npm run hang:auto  # or: npm run hang -- --id ${c.id} --commit`,
       ...s,
     };
   })

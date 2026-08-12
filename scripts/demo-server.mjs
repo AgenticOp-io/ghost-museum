@@ -275,16 +275,48 @@ async function handleNominate(req, res) {
 }
 
 function handleHuntFindings(req, res) {
+  const u = new URL(req.url || "/", "http://localhost");
+  const includeNoise = u.searchParams.get("noise") === "1" || u.searchParams.get("include") === "noise";
+  const wallFilter = u.searchParams.get("wall") || "signal";
   const findingsPath = join(huntDir, "findings.jsonl");
   const watchPath = join(huntDir, "watchlist.json");
   const lastPassPath = join(huntDir, "last-pass.json");
   const lines = existsSync(findingsPath)
     ? readFileSync(findingsPath, "utf8").split(/\r?\n/).filter(Boolean)
     : [];
+
+  const GHOST = new Set(["still-answering", "auth-ghost", "successor-facade", "buried"]);
+  function isNoise(f) {
+    if (f?.probeError && /ENOTFOUND|EAI_AGAIN|getaddrinfo/i.test(f.probeError)) return true;
+    if (/-deep$|-vast$/.test(String(f?.source || "")) && f?.probeError) return true;
+    return false;
+  }
+  function keep(f) {
+    if (!includeNoise && isNoise(f)) return false;
+    if (wallFilter === "all") return true;
+    if (wallFilter === "noise") return isNoise(f);
+    if (wallFilter === "signal") {
+      if (isNoise(f)) return false;
+      const w = f.suggestedWall || "unprobed";
+      if (GHOST.has(w)) return true;
+      if (f.httpStatus != null && !f.probeError) return true;
+      return false;
+    }
+    return (f.suggestedWall || "unprobed") === wallFilter;
+  }
+
   const parsed = [];
-  for (let i = lines.length - 1; i >= 0 && parsed.length < 40; i--) {
+  let scanned = 0;
+  let noiseSkipped = 0;
+  for (let i = lines.length - 1; i >= 0 && parsed.length < 48; i--) {
+    scanned += 1;
     try {
-      parsed.push(JSON.parse(lines[i]));
+      const f = JSON.parse(lines[i]);
+      if (!keep(f)) {
+        if (isNoise(f)) noiseSkipped += 1;
+        continue;
+      }
+      parsed.push(f);
     } catch {
       /* skip bad line */
     }
@@ -307,7 +339,11 @@ function handleHuntFindings(req, res) {
     findings: parsed,
     watchlistSize,
     lastPass,
-    note: "Curator queue + auto-hang feed. Strong ghosts hang via hang:auto after fresh probe.",
+    wall: wallFilter,
+    includeNoise,
+    scanned,
+    noiseSkipped,
+    note: "Default view hides ENOTFOUND / deep-guess noise. ?wall=signal|all|noise or ?noise=1. Hangs via hang:auto.",
   });
 }
 

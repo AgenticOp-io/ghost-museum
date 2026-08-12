@@ -3,9 +3,9 @@
  * Expand watchlist from curated hints, multi-vendor seeds, and optional catalogs.
  *
  *   node scripts/seed-watchlist.mjs              # probe-hints only (merge)
- *   node scripts/seed-watchlist.mjs --broad      # hints + seeds/* + deep catalogs (REBUILD)
- *   node scripts/seed-watchlist.mjs --deep       # broad + single-host catalog guesses
- *   node scripts/seed-watchlist.mjs --vast       # noisy multi-host fan-out (avoid for census honesty)
+ *   node scripts/seed-watchlist.mjs --broad      # hints + seeds/* only (REBUILD) — no invented hosts
+ *   node scripts/seed-watchlist.mjs --deep       # broad + single guessed catalog host (noisy)
+ *   node scripts/seed-watchlist.mjs --vast       # multi-host fan-out (avoid)
  *
  * Does not invent hung exhibits. Never auto-hangs.
  */
@@ -21,10 +21,10 @@ const extraPath = join(root, "hunt", "extra-hints.json");
 const exhibitsPath = join(root, "exhibits", "exhibits.json");
 
 const broad = process.argv.includes("--broad");
-const deep = process.argv.includes("--deep") || broad;
 const vast = process.argv.includes("--vast");
-const fetchRemote = process.argv.includes("--fetch-graveyard") || deep || vast || broad;
-const rebuild = broad || vast || process.argv.includes("--rebuild");
+const deep = process.argv.includes("--deep") || vast; // NOT implied by --broad
+const fetchRemote = process.argv.includes("--fetch-graveyard") || deep || vast;
+const rebuild = broad || deep || vast || process.argv.includes("--rebuild");
 
 const UA = "StillAnswering-Seed/0.5 (watchlist seed; +https://ghosts.agenticop.io/)";
 
@@ -345,9 +345,9 @@ for (const w of byId.values()) {
 
 watch.museum = "Still Answering";
 watch.purpose =
-  "Curator watchlist (~1 probe/sec). Findings never auto-hang. Prefer --broad (multi-vendor seeds + deep catalogs) over --vast.";
+  "Curator watchlist (~1 probe/sec). Prefer --broad (hints + seeds with real probe URLs). --deep/--vast invent catalog hosts and flood ENOTFOUND — opt-in only.";
 watch.updatedAt = new Date().toISOString();
-watch.seedMode = vast ? "vast" : broad ? "broad" : deep ? "deep" : "hints";
+watch.seedMode = vast ? "vast" : deep ? "deep" : broad ? "broad" : "hints";
 watch.owners = owners;
 watch.sources = sources;
 watch.watchlist = [...byId.values()].sort((a, b) => a.id.localeCompare(b.id));

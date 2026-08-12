@@ -1,7 +1,7 @@
 {
   "museum": "Still Answering",
   "tagline": "Sunset is a press release. Ghosts are a runtime.",
-  "probedAt": "2026-08-12T12:58:53.998Z",
+  "probedAt": "2026-08-12T13:21:39.065Z",
   "userAgent": "GhostMuseum/0.1 (exhibit probe)",
   "exhibits": [
     {
@@ -1093,6 +1093,590 @@
         },
         {
           "url": "https://store.google.com/?hl=es-419",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "amazon-fire-phone",
+      "wall": "still-answering",
+      "title": "Fire Phone support",
+      "owner": "Web",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://en.wikipedia.org/wiki/Fire_Phone",
+      "probeUrl": "https://www.amazon.com/gp/help/customer/display.html?nodeId=201830800",
+      "httpStatus": 200,
+      "finalUrl": "https://www.amazon.com/gp/help/customer/display.html?nodeId=201830800",
+      "titleTag": "Amazon.com Help",
+      "note": "Seed pack web.json. Probe before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://www.amazon.com/gp/help/customer/display.html?nodeId=201830800",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "aws-cloud9-console",
+      "wall": "still-answering",
+      "title": "AWS Cloud9",
+      "owner": "Amazon",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://aws.amazon.com/blogs/aws/aws-cloud9-end-of-support/",
+      "probeUrl": "https://aws.amazon.com/cloud9/",
+      "httpStatus": 200,
+      "finalUrl": "https://aws.amazon.com/cloud9/",
+      "titleTag": "Cloud IDE - AWS Cloud9 - AWS",
+      "note": "Seed pack amazon.json. Probe before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://aws.amazon.com/cloud9/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "bebo",
+      "wall": "still-answering",
+      "title": "Bebo",
+      "owner": "Web",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://en.wikipedia.org/wiki/Bebo",
+      "probeUrl": "https://bebo.com/",
+      "httpStatus": 200,
+      "finalUrl": "https://bebo.com/",
+      "titleTag": "Bebo",
+      "note": "Seed pack web.json. Probe before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://bebo.com/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "bitly-v3-api-note",
+      "wall": "still-answering",
+      "title": "Bitly classic door",
+      "owner": "Web",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://blog.bitly.com/",
+      "probeUrl": "https://bitly.com/",
+      "httpStatus": 200,
+      "finalUrl": "https://bitly.com/",
+      "titleTag": "Bitly | Short URLs, QR Codes, and More",
+      "note": "Seed pack web.json. Probe before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://bitly.com/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "slingshot-facebook",
+      "wall": "still-answering",
+      "title": "Slingshot",
+      "owner": "Meta",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://en.wikipedia.org/wiki/Slingshot_(app)",
+      "probeUrl": "https://www.facebook.com/slingshot",
+      "httpStatus": 200,
+      "finalUrl": "https://www.facebook.com/login/?next=https%3A%2F%2Fwww.facebook.com%2Fslingshot",
+      "note": "Seed pack meta.json. Probe before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://www.facebook.com/slingshot",
+          "status": 302,
+          "location": "https://www.facebook.com/login/?next=https%3A%2F%2Fwww.facebook.com%2Fslingshot"
+        },
+        {
+          "url": "https://www.facebook.com/login/?next=https%3A%2F%2Fwww.facebook.com%2Fslingshot",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "fitbit-api-classic",
+      "wall": "still-answering",
+      "title": "Fitbit developer classic",
+      "owner": "Misc",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://blog.fitbit.com/",
+      "probeUrl": "https://dev.fitbit.com/",
+      "httpStatus": 200,
+      "finalUrl": "https://dev.fitbit.com/",
+      "titleTag": "Fitbit SDK",
+      "note": "Seed pack misc.json. Probe before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://dev.fitbit.com/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "fitbit-os",
+      "wall": "still-answering",
+      "title": "Fitbit OS apps",
+      "owner": "Web",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://blog.fitbit.com/",
+      "probeUrl": "https://gallery.fitbit.com/",
+      "httpStatus": 200,
+      "finalUrl": "https://gallery.fitbit.com/",
+      "titleTag": "Discover apps and clock faces for your smartwatch | Fitbit App Gallery",
+      "note": "Seed pack web.json. Probe before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://gallery.fitbit.com/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "flickr-yahoo-classic",
+      "wall": "still-answering",
+      "title": "Flickr Yahoo-era door",
+      "owner": "Web",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://blog.flickr.net/en/2018/04/17/flickr-free/",
+      "probeUrl": "https://www.flickr.com/",
+      "httpStatus": 200,
+      "finalUrl": "https://www.flickr.com/",
+      "titleTag": "Flickr | The best place to be a photographer online.",
+      "note": "Seed pack web.json. Probe before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://www.flickr.com/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "icloud-find-my-iphone-classic",
+      "wall": "still-answering",
+      "title": "Find My iPhone classic web",
+      "owner": "Apple",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://support.apple.com/guide/find-devices/welcome/web",
+      "probeUrl": "https://www.icloud.com/#find",
+      "httpStatus": 200,
+      "finalUrl": "https://www.icloud.com/#find",
+      "titleTag": "iCloud",
+      "note": "Seed pack apple.json. Probe before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://www.icloud.com/#find",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "imgur-community-sunset-note",
+      "wall": "still-answering",
+      "title": "Imgur community changes door",
+      "owner": "Misc",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://blog.imgur.com/",
+      "probeUrl": "https://imgur.com/",
+      "httpStatus": 200,
+      "finalUrl": "https://imgur.com/",
+      "titleTag": "Imgur: The magic of the Internet",
+      "note": "Seed pack misc.json. Probe before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://imgur.com/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "jsbin",
+      "wall": "still-answering",
+      "title": "JS Bin",
+      "owner": "Web",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://en.wikipedia.org/wiki/JS_Bin",
+      "probeUrl": "https://jsbin.com/",
+      "httpStatus": 200,
+      "finalUrl": "https://jsbin.com/",
+      "titleTag": "JS Bin - Collaborative JavaScript Debugging",
+      "note": "Seed pack web.json. Probe before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://jsbin.com/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "jsfiddle",
+      "wall": "still-answering",
+      "title": "JSFiddle",
+      "owner": "Web",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://en.wikipedia.org/wiki/JSFiddle",
+      "probeUrl": "https://jsfiddle.net/",
+      "httpStatus": 200,
+      "finalUrl": "https://jsfiddle.net/",
+      "titleTag": "JSFiddle - React, Tailwind, and code Playground",
+      "note": "Seed pack web.json. Probe before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://jsfiddle.net/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "napster-web-classic",
+      "wall": "still-answering",
+      "title": "Napster web classic",
+      "owner": "Misc",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://en.wikipedia.org/wiki/Napster",
+      "probeUrl": "https://www.napster.com/",
+      "httpStatus": 200,
+      "finalUrl": "https://www.napster.com/",
+      "titleTag": "Napster | Visible AI Agents with Voice, Video and Memory",
+      "note": "Seed pack misc.json. Probe before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://www.napster.com/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "oculus-home-web",
+      "wall": "still-answering",
+      "title": "Oculus Home web",
+      "owner": "Meta",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://www.meta.com/blog/",
+      "probeUrl": "https://www.oculus.com/home/",
+      "httpStatus": 200,
+      "finalUrl": "https://www.oculus.com/home/",
+      "titleTag": "OK | Oculus",
+      "note": "Seed pack meta.json. Probe before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://www.oculus.com/home/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "photobucket-classic",
+      "wall": "still-answering",
+      "title": "Photobucket",
+      "owner": "Misc",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://en.wikipedia.org/wiki/Photobucket",
+      "probeUrl": "https://photobucket.com/",
+      "httpStatus": 200,
+      "finalUrl": "https://photobucket.com/",
+      "titleTag": "Private Group Photo & Video Sharing",
+      "note": "Seed pack misc.json. Probe before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://photobucket.com/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "hitbox-smashcast",
+      "wall": "still-answering",
+      "title": "Hitbox / Smashcast",
+      "owner": "Web",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://en.wikipedia.org/wiki/Smashcast",
+      "probeUrl": "https://www.smashcast.tv/",
+      "httpStatus": 200,
+      "finalUrl": "https://www.smashcast.tv/",
+      "titleTag": "Level Up the Playlist - Indie Music Elevates Game Soundtracks",
+      "note": "Seed pack web.json. Probe before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://www.smashcast.tv/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "yahoo-upcoming",
+      "wall": "still-answering",
+      "title": "Upcoming.org (Yahoo)",
+      "owner": "Yahoo",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://en.wikipedia.org/wiki/Upcoming",
+      "probeUrl": "https://upcoming.org/",
+      "httpStatus": 200,
+      "finalUrl": "https://upcoming.org/",
+      "titleTag": "Home - Upcoming",
+      "note": "Seed pack yahoo.json. Probe before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://upcoming.org/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "apple-airport-utility-web",
+      "wall": "successor-facade",
+      "title": "AirPort support door",
+      "owner": "Apple",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://www.apple.com/newsroom/2018/11/apple-discontinues-airport-base-stations/",
+      "probeUrl": "https://support.apple.com/airport",
+      "httpStatus": 200,
+      "finalUrl": "https://support.apple.com/en-us/docs",
+      "titleTag": "Manuals, Specs, and Downloads - Apple Support",
+      "note": "Seed pack apple.json. Probe before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://support.apple.com/airport",
+          "status": 301,
+          "location": "https://support.apple.com/manuals/airport"
+        },
+        {
+          "url": "https://support.apple.com/manuals/airport",
+          "status": 301,
+          "location": "https://support.apple.com/docs"
+        },
+        {
+          "url": "https://support.apple.com/docs",
+          "status": 302,
+          "location": "https://support.apple.com/en-us/docs"
+        },
+        {
+          "url": "https://support.apple.com/en-us/docs",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "apple-aworks",
+      "wall": "successor-facade",
+      "title": "AppleWorks",
+      "owner": "Apple",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://en.wikipedia.org/wiki/AppleWorks",
+      "probeUrl": "https://www.apple.com/appleworks/",
+      "httpStatus": 200,
+      "finalUrl": "https://support.apple.com/en-us/docs",
+      "titleTag": "Manuals, Specs, and Downloads - Apple Support",
+      "note": "Seed pack apple.json. Probe before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://www.apple.com/appleworks/",
+          "status": 301,
+          "location": "https://support.apple.com/manuals/appleworks"
+        },
+        {
+          "url": "https://support.apple.com/manuals/appleworks",
+          "status": 301,
+          "location": "https://support.apple.com/docs"
+        },
+        {
+          "url": "https://support.apple.com/docs",
+          "status": 302,
+          "location": "https://support.apple.com/en-us/docs"
+        },
+        {
+          "url": "https://support.apple.com/en-us/docs",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "audible-mobile-web-legacy",
+      "wall": "successor-facade",
+      "title": "Audible legacy mobile web",
+      "owner": "Amazon",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://www.audible.com/",
+      "probeUrl": "https://mobile.audible.com/",
+      "httpStatus": 200,
+      "finalUrl": "https://www.audible.com/",
+      "titleTag": "Audible | Listen to Audiobooks, Podcasts, & Originals",
+      "note": "Seed pack amazon.json. Probe before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://mobile.audible.com/",
+          "status": 301,
+          "location": "https://www.audible.com/"
+        },
+        {
+          "url": "https://www.audible.com/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "dropbox-carousel",
+      "wall": "successor-facade",
+      "title": "Dropbox Carousel",
+      "owner": "Misc",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://blog.dropbox.com/topics/product/carousel-mailbox-shutdown",
+      "probeUrl": "https://www.dropbox.com/carousel",
+      "httpStatus": 200,
+      "finalUrl": "https://www.dropbox.com/login?cont=%2Fphotos",
+      "titleTag": "Login or Sign Up for a Dropbox Account",
+      "note": "Seed pack misc.json. Probe before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://www.dropbox.com/carousel",
+          "status": 301,
+          "location": "https://carousel.dropbox.com/"
+        },
+        {
+          "url": "https://carousel.dropbox.com/",
+          "status": 301,
+          "location": "https://www.dropbox.com/photos"
+        },
+        {
+          "url": "https://www.dropbox.com/photos",
+          "status": 302,
+          "location": "https://www.dropbox.com/login?cont=%2Fphotos"
+        },
+        {
+          "url": "https://www.dropbox.com/login?cont=%2Fphotos",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "codepen-projects-note",
+      "wall": "auth-ghost",
+      "title": "CodePen",
+      "owner": "Web",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://blog.codepen.io/",
+      "probeUrl": "https://codepen.io/",
+      "httpStatus": 403,
+      "finalUrl": "https://codepen.io/",
+      "titleTag": "Just a moment...",
+      "note": "Seed pack web.json. Probe before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://codepen.io/",
+          "status": 403
+        }
+      ]
+    },
+    {
+      "id": "blackberry-messenger",
+      "wall": "successor-facade",
+      "title": "BlackBerry Messenger",
+      "owner": "Web",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://blogs.blackberry.com/en/2019/04/update-on-bbm",
+      "probeUrl": "https://www.bbm.com/",
+      "httpStatus": 200,
+      "finalUrl": "https://www.blackberry.com/en/secure-communications/support/bbm-enterprise",
+      "titleTag": "Secure Instant Messaging and Conferencing – BBM Enterprise",
+      "note": "Seed pack web.json. Probe before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://www.bbm.com/",
+          "status": 301,
+          "location": "https://www.blackberry.com/bbme"
+        },
+        {
+          "url": "https://www.blackberry.com/bbme",
+          "status": 301,
+          "location": "https://www.blackberry.com/en/secure-communications/support/bbm-enterprise"
+        },
+        {
+          "url": "https://www.blackberry.com/en/secure-communications/support/bbm-enterprise",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "ibm-bluemix-console",
+      "wall": "successor-facade",
+      "title": "IBM Bluemix classic",
+      "owner": "Misc",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://www.ibm.com/cloud/blog/announcements/bluemix-is-now-ibm-cloud",
+      "probeUrl": "https://console.bluemix.net/",
+      "httpStatus": 200,
+      "finalUrl": "https://cloud.ibm.com/login",
+      "titleTag": "Log in to IBM Cloud – IBM Cloud",
+      "note": "Seed pack misc.json. Probe before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://console.bluemix.net/",
+          "status": 308,
+          "location": "https://cloud.ibm.com/"
+        },
+        {
+          "url": "https://cloud.ibm.com/",
+          "status": 302,
+          "location": "https://cloud.ibm.com/login"
+        },
+        {
+          "url": "https://cloud.ibm.com/login",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "cloud9-ide",
+      "wall": "successor-facade",
+      "title": "Cloud9 IDE classic",
+      "owner": "Web",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://aws.amazon.com/cloud9/",
+      "probeUrl": "https://c9.io/",
+      "httpStatus": 200,
+      "finalUrl": "https://aws.amazon.com/cloud9/",
+      "titleTag": "Cloud IDE - AWS Cloud9 - AWS",
+      "note": "Seed pack web.json. Probe before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://c9.io/",
+          "status": 302,
+          "location": "https://aws.amazon.com/cloud9"
+        },
+        {
+          "url": "https://aws.amazon.com/cloud9",
+          "status": 301,
+          "location": "https://aws.amazon.com/cloud9/"
+        },
+        {
+          "url": "https://aws.amazon.com/cloud9/",
           "status": 200
         }
       ]
