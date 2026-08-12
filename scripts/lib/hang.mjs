@@ -112,10 +112,20 @@ export async function hangOne({
   const watch = loadWatch(root, id);
   const nom = loadNomination(root, id);
   const ranked = loadRank(root, id);
-  const src = watch || finding || nom;
+  const base = watch || finding || nom || null;
+  const src = base || ranked
+    ? {
+        ...(ranked || {}),
+        ...(base || {}),
+        probeUrl: base?.probeUrl || ranked?.probeUrl,
+        obituary: base?.obituary || ranked?.obituary,
+        title: base?.title || ranked?.title,
+        owner: base?.owner || ranked?.owner,
+      }
+    : null;
 
   if (!src?.probeUrl) return { ok: false, reason: "no probeUrl" };
-  if (!src.obituary && !ranked?.obituary) return { ok: false, reason: "no obituary" };
+  if (!src.obituary) return { ok: false, reason: "no obituary" };
 
   const museum = JSON.parse(readFileSync(exhibitsPath, "utf8"));
   if ((museum.exhibits || []).some((e) => e.id === id)) {

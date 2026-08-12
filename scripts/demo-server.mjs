@@ -414,6 +414,24 @@ function handleCensus(_req, res) {
   return sendJson(res, 200, census);
 }
 
+function liveHungSets() {
+  const exhibitsPath = join(siteRoot, "exhibits.json");
+  const hungIds = new Set();
+  const hungProbes = new Set();
+  try {
+    if (existsSync(exhibitsPath)) {
+      for (const e of JSON.parse(readFileSync(exhibitsPath, "utf8")).exhibits || []) {
+        if (e?.id) hungIds.add(e.id);
+        if (e?.probeUrl) hungProbes.add(e.probeUrl);
+      }
+    }
+  } catch {
+    /* ignore */
+  }
+  return { hungIds, hungProbes, hallSize: hungIds.size };
+}
+
+/** Desk payload with hung frames stripped so the UI tracks hang:auto live. */
 function handleCurate(_req, res) {
   const curatePath = join(siteRoot, "curate.json");
   const rankPath = join(huntDir, "curate-rank.json");
@@ -447,10 +465,32 @@ function handleCurate(_req, res) {
     return sendJson(res, 200, {
       museum: "Still Answering",
       queue: [],
-      note: "Empty desk. Run npm run curate -- --desk",
+      hallSize: liveHungSets().hallSize,
+      byDecision: { strong: 0, consider: 0, review: 0, weak: 0 },
+      note: "Empty desk — hang:auto caught up or curate has not run yet.",
+      live: true,
     });
   }
-  return sendJson(res, 200, payload);
+
+  const { hungIds, hungProbes, hallSize } = liveHungSets();
+  const queue = (payload.queue || []).filter(
+    (r) => r?.id && !hungIds.has(r.id) && !(r.probeUrl && hungProbes.has(r.probeUrl)),
+  );
+  const byDecision = { strong: 0, consider: 0, review: 0, weak: 0 };
+  for (const r of queue) {
+    const d = r.decision || "weak";
+    if (byDecision[d] != null) byDecision[d] += 1;
+  }
+  return sendJson(res, 200, {
+    ...payload,
+    queue,
+    byDecision,
+    hallSize,
+    pendingStrong: byDecision.strong,
+    pendingConsider: byDecision.consider,
+    live: true,
+    refreshedAt: new Date().toISOString(),
+  });
 }
 
 function handleStatic(req, res) {
@@ -464,7 +504,12 @@ function handleStatic(req, res) {
     return res.end("Not found");
   }
   const ext = extname(file).toLowerCase();
-  res.writeHead(200, { "content-type": MIME[ext] || "application/octet-stream" });
+  const headers = { "content-type": MIME[ext] || "application/octet-stream" };
+  // Desk / census JS must not stick in browser cache while hang:auto drains.
+  if (ext === ".html" || ext === ".js" || ext === ".css" || ext === ".json") {
+    headers["cache-control"] = "no-store";
+  }
+  res.writeHead(200, headers);
   res.end(readFileSync(file));
 }
 

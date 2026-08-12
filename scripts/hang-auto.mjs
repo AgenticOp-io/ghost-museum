@@ -143,7 +143,7 @@ if (!dryRun) {
   console.log("Refreshing curate desk…");
   spawnSync(
     process.execPath,
-    [join(root, "scripts", "curate.mjs"), "--desk", "--top", "120"],
+    [join(root, "scripts", "curate.mjs"), "--desk", "--top", "500"],
     { cwd: root, stdio: "inherit", env: process.env },
   );
 }

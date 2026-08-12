@@ -29,7 +29,8 @@ On **chrysalis-test-vm** (`/var/www/ghost-museum`):
 |--------|--------|------|
 | Museum | `gce-restart-museum.sh` | Static hall + APIs |
 | Hunt | `gce-restart-hunt.sh` | GET-probe watchlist forever |
-| Authority | `gce-restart-authority.sh` | discover → autoseed → search → broad → hang:auto every 6h |
+| Authority | `gce-restart-authority.sh` | discover → watchlist → autoseed → search → curate every 6h |
+| Hang drain | `gce-restart-hang-drain.sh` | hang:auto catch-up every 90s while strong pending |
 
 ```bash
 npm run authority:loop
@@ -44,10 +45,11 @@ Optional env (host `.env` or process env):
 |-----|---------|---------|
 | `GM_AUTHORITY_PERIOD_MS` | `21600000` (6h) | Sleep between passes |
 | `GM_HANG_AUTO_MAX` | `80` | Max new hangs per drain |
-| `GM_HANG_DRAIN_MS` | `1800000` (30m) | Hang-only drain between full authority passes |
+| `GM_HANG_DRAIN_MS` | `1800000` (30m) | Hang-drain steady pace when desk is clear |
+| `GM_HANG_CATCHUP_MS` | `90000` (90s) | Hang-drain pace while strong desk still pending |
 | `BRAVE_SEARCH_API_KEY` / Google CSE | — | Enables `search:seed` hits |
 
-Hunt never auto-hangs. Authority loop + hang drain is what grows hung frames and empties the curate desk.
+Hunt never auto-hangs. **Hang-drain loop** grows hung frames; **authority** expands seeds/watchlist so hunt can grow the Ghosts total (hung ∪ ghost-class evidence).
 
 ## What is authoritative
 
@@ -112,4 +114,4 @@ Public desk: `/curate.html` · API: `GET /api/curate`.
 `contacted` = findings with an HTTP status.
 `watchlist` = current hunt queue size (may be smaller than historical evidence).
 
-**Hung grows via `hang:auto`.** The big Ghosts number should not shrink when the queue is rebuilt — only when ghosts are banished.
+**Hung grows via `hang:auto` / hang-drain.** The masthead hero shows **hung** frames. Meta `on wall` = hung ∪ ghost-class evidence (does not shrink on watchlist rebuild; grows when hunt verifies new ghosts).

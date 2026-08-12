@@ -1231,24 +1231,36 @@ a:hover { color: #fff6dd; }
 }
 .gm-hunt-list {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 380px), 1fr));
   gap: 22px;
   padding-bottom: 40px;
+}
+.gm-curate-page .gm-hunt-list {
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 420px), 1fr));
 }
 .gm-hunt-card {
   background: var(--paper);
   border: 8px solid var(--frame-dim);
   box-shadow: 0 0 0 1px var(--frame);
-  padding: 18px 16px 14px;
+  padding: 18px 20px 14px;
   min-height: 240px;
   display: flex;
   flex-direction: column;
+  min-width: 0;
+  overflow: hidden;
 }
 .gm-hunt-card h2 {
   font-family: "Cormorant Garamond", Georgia, serif;
   font-size: 1.55rem;
   font-weight: 500;
   margin: 0 0 4px;
+  overflow-wrap: anywhere;
+}
+.gm-hunt-card .gm-note,
+.gm-hunt-card .gm-meta,
+.gm-hunt-card .gm-owner {
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 .gm-hunt-err { color: var(--stamp); font-size: 0.85rem; }
 

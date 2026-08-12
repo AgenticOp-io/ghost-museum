@@ -1,7 +1,7 @@
 {
   "museum": "Still Answering",
   "tagline": "Sunset is a press release. Ghosts are a runtime.",
-  "probedAt": "2026-08-12T13:21:39.065Z",
+  "probedAt": "2026-08-12T13:39:26.769Z",
   "userAgent": "GhostMuseum/0.1 (exhibit probe)",
   "exhibits": [
     {
@@ -1677,6 +1677,5001 @@
         },
         {
           "url": "https://aws.amazon.com/cloud9/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "lastfm-radio-classic",
+      "wall": "still-answering",
+      "title": "Last.fm radio classic",
+      "owner": "Web",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://blog.last.fm/",
+      "probeUrl": "https://www.last.fm/",
+      "httpStatus": 200,
+      "finalUrl": "https://www.last.fm/",
+      "titleTag": "Last.fm | Play music, find songs, and discover artists",
+      "note": "Seed pack web.json. Probe before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://www.last.fm/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "launchpad-canonical",
+      "wall": "still-answering",
+      "title": "Launchpad",
+      "owner": "Web",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://en.wikipedia.org/wiki/Launchpad_(website)",
+      "probeUrl": "https://launchpad.net/",
+      "httpStatus": 200,
+      "finalUrl": "https://launchpad.net/",
+      "titleTag": "Launchpad",
+      "note": "Seed pack web.json. Probe before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://launchpad.net/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "livejournal",
+      "wall": "still-answering",
+      "title": "LiveJournal",
+      "owner": "Web",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://en.wikipedia.org/wiki/LiveJournal",
+      "probeUrl": "https://www.livejournal.com/",
+      "httpStatus": 200,
+      "finalUrl": "https://www.livejournal.com/",
+      "titleTag": "LiveJournal: Discover global communities of bloggers who share your unique passions and interests.",
+      "note": "Seed pack web.json. Probe before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://www.livejournal.com/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "loom-classic",
+      "wall": "still-answering",
+      "title": "Loom",
+      "owner": "Web",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://www.loom.com/blog",
+      "probeUrl": "https://www.loom.com/",
+      "httpStatus": 200,
+      "finalUrl": "https://www.loom.com/",
+      "titleTag": "Free screen recorder for Mac and PC | Loom",
+      "note": "Seed pack web.json. Probe before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://www.loom.com/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "mixcloud",
+      "wall": "still-answering",
+      "title": "Mixcloud",
+      "owner": "Web",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://en.wikipedia.org/wiki/Mixcloud",
+      "probeUrl": "https://www.mixcloud.com/",
+      "httpStatus": 200,
+      "finalUrl": "https://www.mixcloud.com/",
+      "titleTag": "Mixcloud - This is Audio Culture",
+      "note": "Seed pack web.json. Probe before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://www.mixcloud.com/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "firefox-send",
+      "wall": "successor-facade",
+      "title": "Firefox Send",
+      "owner": "Web",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://blog.mozilla.org/en/mozilla/firefox-send-discontinued/",
+      "probeUrl": "https://send.firefox.com/",
+      "httpStatus": 200,
+      "finalUrl": "https://www.mozilla.org/en-US/",
+      "titleTag": "Mozilla - Internet for people, not profit (US)",
+      "note": "Seed pack web.json. Probe before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://send.firefox.com/",
+          "status": 301,
+          "location": "https://www.mozilla.org/"
+        },
+        {
+          "url": "https://www.mozilla.org/",
+          "status": 302,
+          "location": "https://www.mozilla.org/en-US/"
+        },
+        {
+          "url": "https://www.mozilla.org/en-US/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "hi5",
+      "wall": "successor-facade",
+      "title": "hi5",
+      "owner": "Web",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://en.wikipedia.org/wiki/Hi5",
+      "probeUrl": "https://hi5.com/",
+      "httpStatus": 200,
+      "finalUrl": "https://app.hi5.com/get-started",
+      "titleTag": "TAGGED - Livestreams, real people &amp; endless connections.",
+      "note": "Seed pack web.json. Probe before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://hi5.com/",
+          "status": 301,
+          "location": "https://app.hi5.com/"
+        },
+        {
+          "url": "https://app.hi5.com/",
+          "status": 307,
+          "location": "https://app.hi5.com/get-started"
+        },
+        {
+          "url": "https://app.hi5.com/get-started",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "icq-classic",
+      "wall": "successor-facade",
+      "title": "ICQ",
+      "owner": "Web",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://en.wikipedia.org/wiki/ICQ",
+      "probeUrl": "https://icq.com/",
+      "httpStatus": 200,
+      "finalUrl": "https://icq.com/desktop/en#windows",
+      "titleTag": "ICQ",
+      "note": "Seed pack web.json. Probe before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://icq.com/",
+          "status": 302,
+          "location": "https://icq.com/en"
+        },
+        {
+          "url": "https://icq.com/en",
+          "status": 302,
+          "location": "https://icq.com/desktop/en#windows"
+        },
+        {
+          "url": "https://icq.com/desktop/en#windows",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "openshift-v2",
+      "wall": "successor-facade",
+      "title": "OpenShift Online v2",
+      "owner": "Misc",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://www.redhat.com/en/blog/migrating-applications-openshift-v2-v3",
+      "probeUrl": "https://openshift.com/",
+      "httpStatus": 200,
+      "finalUrl": "https://www.redhat.com/en/technologies/cloud-computing/openshift",
+      "titleTag": "Red Hat OpenShift",
+      "note": "Seed pack misc.json. Probe before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://openshift.com/",
+          "status": 301,
+          "location": "https://www.openshift.com/"
+        },
+        {
+          "url": "https://www.openshift.com/",
+          "status": 301,
+          "location": "https://www.redhat.com/en/technologies/cloud-computing/openshift"
+        },
+        {
+          "url": "https://www.redhat.com/en/technologies/cloud-computing/openshift",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "square-reader-classic",
+      "wall": "successor-facade",
+      "title": "Square Register classic marketing",
+      "owner": "Misc",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://squareup.com/us/en/press",
+      "probeUrl": "https://squareup.com/register",
+      "httpStatus": 200,
+      "finalUrl": "https://squareup.com/us/en/point-of-sale",
+      "note": "Seed pack misc.json. Probe before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://squareup.com/register",
+          "status": 301,
+          "location": "https://squareup.com/us/en/register"
+        },
+        {
+          "url": "https://squareup.com/us/en/register",
+          "status": 301,
+          "location": "https://squareup.com/us/en/point-of-sale"
+        },
+        {
+          "url": "https://squareup.com/us/en/point-of-sale",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "codio-classic",
+      "wall": "successor-facade",
+      "title": "Codio",
+      "owner": "Web",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://en.wikipedia.org/wiki/Codio",
+      "probeUrl": "https://codio.com/",
+      "httpStatus": 200,
+      "finalUrl": "https://www.codio.com/",
+      "titleTag": "Codio | Hands-On Learning Experience Platform | Dev, Data, AI, Cyber",
+      "note": "Seed pack web.json. Probe before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://codio.com/",
+          "status": 301,
+          "location": "https://www.codio.com/"
+        },
+        {
+          "url": "https://www.codio.com/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "ello",
+      "wall": "successor-facade",
+      "title": "Ello",
+      "owner": "Web",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://en.wikipedia.org/wiki/Ello_(social_network)",
+      "probeUrl": "https://ello.co/",
+      "httpStatus": 200,
+      "finalUrl": "https://notgamscasino.co/",
+      "titleTag": "Best Non-GamStop Casinos UK - New Sites Not On GamStop",
+      "note": "Seed pack web.json. Probe before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://ello.co/",
+          "status": 301,
+          "location": "https://notgamscasino.co/"
+        },
+        {
+          "url": "https://notgamscasino.co/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "firebase-legacy-console",
+      "wall": "successor-facade",
+      "title": "Firebase legacy console door",
+      "owner": "Web",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://firebase.googleblog.com/",
+      "probeUrl": "https://www.firebase.com/",
+      "httpStatus": 200,
+      "finalUrl": "https://firebase.google.com/",
+      "titleTag": "Firebase | Google&apos;s Mobile and Web App Development Platform",
+      "note": "Seed pack web.json. Probe before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://www.firebase.com/",
+          "status": 301,
+          "location": "https://firebase.google.com/"
+        },
+        {
+          "url": "https://firebase.google.com/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "friendster",
+      "wall": "successor-facade",
+      "title": "Friendster",
+      "owner": "Misc",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://en.wikipedia.org/wiki/Friendster",
+      "probeUrl": "https://www.friendster.com/",
+      "httpStatus": 200,
+      "finalUrl": "https://friendster.com/",
+      "titleTag": "Friendster",
+      "note": "Seed pack misc.json. Probe before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://www.friendster.com/",
+          "status": 301,
+          "location": "https://friendster.com/"
+        },
+        {
+          "url": "https://friendster.com/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "glitch-classic",
+      "wall": "successor-facade",
+      "title": "Glitch",
+      "owner": "Web",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://blog.glitch.com/",
+      "probeUrl": "https://glitch.com/",
+      "httpStatus": 200,
+      "finalUrl": "https://blog.glitch.com/",
+      "titleTag": "Glitch Blog",
+      "note": "Seed pack web.json. Probe before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://glitch.com/",
+          "status": 307,
+          "location": "https://blog.glitch.com/"
+        },
+        {
+          "url": "https://blog.glitch.com/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "instagram-direct-standalone",
+      "wall": "successor-facade",
+      "title": "Instagram Direct standalone era door",
+      "owner": "Meta",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://about.instagram.com/blog/announcements/",
+      "probeUrl": "https://www.instagram.com/direct/inbox/",
+      "httpStatus": 429,
+      "finalUrl": "https://www.instagram.com/accounts/login/?next=https%3A%2F%2Fwww.instagram.com%2Fdirect%2Finbox%2F%3F__coig_login%3D1",
+      "note": "Seed pack meta.json. Probe before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://www.instagram.com/direct/inbox/",
+          "status": 302,
+          "location": "https://www.instagram.com/accounts/login/?next=https%3A%2F%2Fwww.instagram.com%2Fdirect%2Finbox%2F%3F__coig_login%3D1"
+        },
+        {
+          "url": "https://www.instagram.com/accounts/login/?next=https%3A%2F%2Fwww.instagram.com%2Fdirect%2Finbox%2F%3F__coig_login%3D1",
+          "status": 429
+        }
+      ]
+    },
+    {
+      "id": "jawbone-up",
+      "wall": "successor-facade",
+      "title": "Jawbone UP",
+      "owner": "Web",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://en.wikipedia.org/wiki/Jawbone_(company)",
+      "probeUrl": "https://jawbone.com/",
+      "httpStatus": 200,
+      "finalUrl": "https://www.jawbone.com/",
+      "titleTag": "Jawbone",
+      "note": "Seed pack web.json. Probe before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://jawbone.com/",
+          "status": 301,
+          "location": "https://www.jawbone.com/"
+        },
+        {
+          "url": "https://www.jawbone.com/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "koding",
+      "wall": "successor-facade",
+      "title": "Koding",
+      "owner": "Web",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://en.wikipedia.org/wiki/Koding",
+      "probeUrl": "https://koding.com/",
+      "httpStatus": 200,
+      "finalUrl": "https://www.koding.com/",
+      "titleTag": "Modern Dev Environment Delivered · Koding",
+      "note": "Seed pack web.json. Probe before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://koding.com/",
+          "status": 301,
+          "location": "https://www.koding.com/"
+        },
+        {
+          "url": "https://www.koding.com/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "limewire",
+      "wall": "successor-facade",
+      "title": "LimeWire",
+      "owner": "Misc",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://en.wikipedia.org/wiki/LimeWire",
+      "probeUrl": "https://www.limewire.com/",
+      "httpStatus": 200,
+      "finalUrl": "https://limewire.com/?lmwr-ftv=1",
+      "titleTag": "LimeWire: Share Files - Secure File Upload Platform",
+      "note": "Seed pack misc.json. Probe before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://www.limewire.com/",
+          "status": 301,
+          "location": "https://limewire.com/"
+        },
+        {
+          "url": "https://limewire.com/",
+          "status": 302,
+          "location": "https://limewire.com/?lmwr-ftv=1"
+        },
+        {
+          "url": "https://limewire.com/?lmwr-ftv=1",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "travis-ci-org",
+      "wall": "successor-facade",
+      "title": "Travis CI .org",
+      "owner": "Misc",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://blog.travis-ci.com/2020-11-02-travis-ci-new-plan",
+      "probeUrl": "https://travis-ci.org/",
+      "httpStatus": 200,
+      "finalUrl": "https://www.travis-ci.com/",
+      "titleTag": "Simple, Flexible, Trustworthy CI/CD Tools - Travis CI",
+      "note": "Seed pack misc.json. Probe before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://travis-ci.org/",
+          "status": 301,
+          "location": "https://www.travis-ci.com/"
+        },
+        {
+          "url": "https://www.travis-ci.com/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "microsoft-codeplex",
+      "wall": "successor-facade",
+      "title": "CodePlex",
+      "owner": "Microsoft",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://devblogs.microsoft.com/visualstudio/saying-goodbye-to-codeplex/",
+      "probeUrl": "https://www.codeplex.com/",
+      "httpStatus": 200,
+      "finalUrl": "https://www.microsoft.com/en-us",
+      "titleTag": "Microsoft – AI, Cloud, Productivity, Computing, Gaming &amp; Apps",
+      "note": "Seed pack microsoft.json. Probe before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://www.codeplex.com/",
+          "status": 301,
+          "location": "https://www.microsoft.com/"
+        },
+        {
+          "url": "https://www.microsoft.com/",
+          "status": 302,
+          "location": "https://www.microsoft.com/en-us"
+        },
+        {
+          "url": "https://www.microsoft.com/en-us",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "dropbox-mailbox",
+      "wall": "successor-facade",
+      "title": "Mailbox (Dropbox)",
+      "owner": "Misc",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://blog.dropbox.com/topics/product/carousel-mailbox-shutdown",
+      "probeUrl": "https://www.mailboxapp.com/",
+      "httpStatus": 200,
+      "finalUrl": "https://www.dropbox.com/login?cont=%2Fshare",
+      "titleTag": "Login or Sign Up for a Dropbox Account",
+      "note": "Seed pack misc.json. Probe before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://www.mailboxapp.com/",
+          "status": 301,
+          "location": "https://www.dropbox.com/share"
+        },
+        {
+          "url": "https://www.dropbox.com/share",
+          "status": 302,
+          "location": "https://www.dropbox.com/login?cont=%2Fshare"
+        },
+        {
+          "url": "https://www.dropbox.com/login?cont=%2Fshare",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "workplace-from-meta",
+      "wall": "successor-facade",
+      "title": "Workplace from Meta",
+      "owner": "Meta",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://about.fb.com/news/2024/05/the-future-of-workplace/",
+      "probeUrl": "https://work.facebook.com/",
+      "httpStatus": 200,
+      "finalUrl": "https://work.meta.com/login/landing/",
+      "note": "Seed pack meta.json. Probe before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://work.facebook.com/",
+          "status": 302,
+          "location": "https://work.meta.com/"
+        },
+        {
+          "url": "https://work.meta.com/",
+          "status": 302,
+          "location": "https://work.meta.com/login/landing/"
+        },
+        {
+          "url": "https://work.meta.com/login/landing/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "mobileme",
+      "wall": "successor-facade",
+      "title": "MobileMe",
+      "owner": "Apple",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://www.apple.com/newsroom/2011/06/06Apple-Introduces-iCloud/",
+      "probeUrl": "https://www.me.com/",
+      "httpStatus": 200,
+      "finalUrl": "https://www.icloud.com/",
+      "titleTag": "iCloud",
+      "note": "Seed pack apple.json. Probe before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://www.me.com/",
+          "status": 301,
+          "location": "https://www.icloud.com/"
+        },
+        {
+          "url": "https://www.icloud.com/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "adobe-flash-player-page",
+      "wall": "successor-facade",
+      "title": "Adobe Flash Player product page",
+      "owner": "Adobe",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://www.adobe.com/products/flashplayer/end-of-life.html",
+      "probeUrl": "https://www.adobe.com/products/flashplayer.html",
+      "httpStatus": 200,
+      "finalUrl": "https://www.adobe.com/products/flashplayer/end-of-life-alternative.html",
+      "titleTag": "Adobe Flash Player End of Life",
+      "note": "Seed pack adobe.json. Probe before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://www.adobe.com/products/flashplayer.html",
+          "status": 301,
+          "location": "https://www.adobe.com/products/flashplayer/end-of-life-alternative.html"
+        },
+        {
+          "url": "https://www.adobe.com/products/flashplayer/end-of-life-alternative.html",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "nest-weave",
+      "wall": "successor-facade",
+      "title": "Nest Weave",
+      "owner": "Web",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://nest.com/",
+      "probeUrl": "https://developers.nest.com/",
+      "httpStatus": 200,
+      "finalUrl": "https://developers.home.google.com/ways-to-build/",
+      "titleTag": "Ways to Build &nbsp;|&nbsp; Google Home Developers",
+      "note": "Seed pack web.json. Probe before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://developers.nest.com/",
+          "status": 301,
+          "location": "https://developers.home.google.com/ways-to-build/"
+        },
+        {
+          "url": "https://developers.home.google.com/ways-to-build/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "skype-for-business-online",
+      "wall": "successor-facade",
+      "title": "Skype for Business Online",
+      "owner": "Microsoft",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://techcommunity.microsoft.com/blog/microsoftteamsblog/skype-for-business-online-retirement/2153227",
+      "probeUrl": "https://www.skype.com/en/business/",
+      "httpStatus": 200,
+      "finalUrl": "https://teams.live.com/free?source=skype",
+      "titleTag": "Free Online Meetings & Video Calls | Microsoft Teams",
+      "note": "Seed pack microsoft.json. Probe before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://www.skype.com/en/business/",
+          "status": 301,
+          "location": "https://teams.live.com/free?source=skype"
+        },
+        {
+          "url": "https://teams.live.com/free?source=skype",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "geocities-yahoo",
+      "wall": "successor-facade",
+      "title": "GeoCities",
+      "owner": "Web",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://en.wikipedia.org/wiki/Yahoo!_GeoCities",
+      "probeUrl": "https://geocities.yahoo.com/",
+      "httpStatus": 200,
+      "finalUrl": "https://local.yahoo.com/",
+      "titleTag": "Find local service providers and contractors on Yahoo Local",
+      "note": "Seed pack web.json. Probe before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://geocities.yahoo.com/",
+          "status": 301,
+          "location": "https://local.yahoo.com/"
+        },
+        {
+          "url": "https://local.yahoo.com/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "yahoo-answers",
+      "wall": "successor-facade",
+      "title": "Yahoo Answers",
+      "owner": "Yahoo",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://www.verizon.com/about/news/yahoo-answers-shutting-down",
+      "probeUrl": "https://answers.yahoo.com/",
+      "httpStatus": 200,
+      "finalUrl": "https://search.yahoo.com/",
+      "titleTag": "Yahoo Search - Web Search",
+      "note": "Seed pack yahoo.json. Probe before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://answers.yahoo.com/",
+          "status": 302,
+          "location": "https://search.yahoo.com/"
+        },
+        {
+          "url": "https://search.yahoo.com/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "yahoo-groups",
+      "wall": "successor-facade",
+      "title": "Yahoo Groups",
+      "owner": "Yahoo",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://www.verizon.com/about/news/yahoo-groups-shutting-down",
+      "probeUrl": "https://groups.yahoo.com/",
+      "httpStatus": 200,
+      "finalUrl": "https://www.yahoo.com/",
+      "titleTag": "Yahoo | Mail, Weather, Search, Politics, News, Finance, Sports &amp; Videos",
+      "note": "Seed pack yahoo.json. Probe before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://groups.yahoo.com/",
+          "status": 301,
+          "location": "https://www.yahoo.com/"
+        },
+        {
+          "url": "https://www.yahoo.com/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "yahoo-toolbar",
+      "wall": "successor-facade",
+      "title": "Yahoo Toolbar",
+      "owner": "Yahoo",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://en.wikipedia.org/wiki/Yahoo!_Toolbar",
+      "probeUrl": "https://toolbar.yahoo.com/",
+      "httpStatus": 200,
+      "finalUrl": "https://downloads.yahoo.com/",
+      "note": "Seed pack yahoo.json. Probe before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://toolbar.yahoo.com/",
+          "status": 301,
+          "location": "https://downloads.yahoo.com/"
+        },
+        {
+          "url": "https://downloads.yahoo.com/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "evernote-food",
+      "wall": "successor-facade",
+      "title": "Evernote Food",
+      "owner": "Misc",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://evernote.com/blog/",
+      "probeUrl": "https://www.evernote.com/food",
+      "httpStatus": 404,
+      "finalUrl": "https://evernote.com/food",
+      "titleTag": "Evernote - Best note taking app",
+      "note": "Seed pack misc.json. Probe before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://www.evernote.com/food",
+          "status": 301,
+          "location": "https://evernote.com/food"
+        },
+        {
+          "url": "https://evernote.com/food",
+          "status": 404
+        }
+      ]
+    },
+    {
+      "id": "amazon-smile",
+      "wall": "successor-facade",
+      "title": "Amazon Smile",
+      "owner": "Amazon",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://www.aboutamazon.com/news/company-news/amazon-closing-amazon-smile",
+      "probeUrl": "https://smile.amazon.com/",
+      "httpStatus": 200,
+      "finalUrl": "https://www.amazon.com/",
+      "titleTag": "Amazon.com. Spend less. Smile more.",
+      "note": "Seed pack amazon.json. Probe before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://smile.amazon.com/",
+          "status": 301,
+          "location": "https://www.amazon.com/"
+        },
+        {
+          "url": "https://www.amazon.com/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "disc-wd-the-clergy-journal",
+      "wall": "successor-facade",
+      "title": "The Clergy Journal",
+      "owner": "Unknown",
+      "declaredDead": "2026-08-12",
+      "obituary": "http://www.wikidata.org/entity/Q99583037",
+      "probeUrl": "http://search.ebscohost.com/login.aspx?direct=true&db=aph&jid=6L7/",
+      "httpStatus": 400,
+      "finalUrl": "https://logon.ebsco.zone/api/dispatcher/continue?acr_values=ip%20url%20uid",
+      "titleTag": "400 error | EBSCO",
+      "note": "Wikidata discontinued/dissolved (2011-01-01). Official website cited — verify funeral before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "http://search.ebscohost.com/login.aspx?direct=true&db=aph&jid=6L7/",
+          "status": 301,
+          "location": "https://search.ebscohost.com/login.aspx?direct=true&db=aph&jid=6L7/"
+        },
+        {
+          "url": "https://search.ebscohost.com/login.aspx?direct=true&db=aph&jid=6L7/",
+          "status": 302,
+          "location": "https://logon.ebsco.zone/api/dispatcher/oauth/authorize?client_id=awgycIx57MrwnDQ5h4Ue6yCVEP0r5Mt9&grant_type=authorization_code&scope=openid+email+affiliation&redirect_uri=https%3a%2f%2fsearch.ebscohost.com%2fwebauth%2fPromptedCallback.aspx&response_mode=query&response_type=code&acr_values=cookie+ip+url+uid&state=AxZsXHCu8CifEw2hvYuL7RcFwncR44kcXjoCq9b4X7ssb2KyTryxJjtcvAhyKloIDfkfJC4Zoh2DgFnIZ0ZVcp8_ji9nDo2347CVKn0mR5vGl6vYBAvH0wnKKy-tnPJF5jYYi5TH92xOJ-knkPWgR9k6uLhlWWu2joy8JLJNnjcr0Cu0FrDr6friMgQt-5UtfZr7hHVCxgv6Adt2fyKnB3fqs8dhW2ywTLxDl_b00AbybEkR5-UbKVvnn38XBghp-KV0MGekpBIJup6QHB8SP0Wx9Wk6g8MXwc1mhRT_eNr-mVL7wObcXAyTxtQ48CvsQA_wVi-1TEdN54TS9OBI66yhkd9K1npkGgDlZsCuT0JU3YlhuvUDPrA6WwpFr8_XIvbZ&reqId=fbd4b7d3-2cb3-4c24-9def-85c64defa4d6"
+        },
+        {
+          "url": "https://logon.ebsco.zone/api/dispatcher/oauth/authorize?client_id=awgycIx57MrwnDQ5h4Ue6yCVEP0r5Mt9&grant_type=authorization_code&scope=openid+email+affiliation&redirect_uri=https%3a%2f%2fsearch.ebscohost.com%2fwebauth%2fPromptedCallback.aspx&response_mode=query&response_type=code&acr_values=cookie+ip+url+uid&state=AxZsXHCu8CifEw2hvYuL7RcFwncR44kcXjoCq9b4X7ssb2KyTryxJjtcvAhyKloIDfkfJC4Zoh2DgFnIZ0ZVcp8_ji9nDo2347CVKn0mR5vGl6vYBAvH0wnKKy-tnPJF5jYYi5TH92xOJ-knkPWgR9k6uLhlWWu2joy8JLJNnjcr0Cu0FrDr6friMgQt-5UtfZr7hHVCxgv6Adt2fyKnB3fqs8dhW2ywTLxDl_b00AbybEkR5-UbKVvnn38XBghp-KV0MGekpBIJup6QHB8SP0Wx9Wk6g8MXwc1mhRT_eNr-mVL7wObcXAyTxtQ48CvsQA_wVi-1TEdN54TS9OBI66yhkd9K1npkGgDlZsCuT0JU3YlhuvUDPrA6WwpFr8_XIvbZ&reqId=fbd4b7d3-2cb3-4c24-9def-85c64defa4d6",
+          "status": 302,
+          "location": "https://logon.ebsco.zone/api/dispatcher/continue?acr_values=ip%20url%20uid"
+        },
+        {
+          "url": "https://logon.ebsco.zone/api/dispatcher/continue?acr_values=ip%20url%20uid",
+          "status": 400
+        }
+      ]
+    },
+    {
+      "id": "disc-wd-maqetta",
+      "wall": "successor-facade",
+      "title": "Maqetta",
+      "owner": "Unknown",
+      "declaredDead": "2026-08-12",
+      "obituary": "http://www.wikidata.org/entity/Q6754286",
+      "probeUrl": "http://maqetta.org/",
+      "httpStatus": 403,
+      "finalUrl": "https://ghostalleyespresso.com/",
+      "titleTag": "Attention Required! | Cloudflare",
+      "note": "Wikidata discontinued/dissolved (2013-05-10). Official website cited — verify funeral before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "http://maqetta.org/",
+          "status": 301,
+          "location": "https://maqetta.org/"
+        },
+        {
+          "url": "https://maqetta.org/",
+          "status": 301,
+          "location": "https://ghostalleyespresso.com/"
+        },
+        {
+          "url": "https://ghostalleyespresso.com/",
+          "status": 403
+        }
+      ]
+    },
+    {
+      "id": "disc-wd-sonic-runners",
+      "wall": "successor-facade",
+      "title": "Sonic Runners",
+      "owner": "Unknown",
+      "declaredDead": "2026-08-12",
+      "obituary": "http://www.wikidata.org/entity/Q18754082",
+      "probeUrl": "http://sonicrunners.sega-net.com/",
+      "httpStatus": 403,
+      "finalUrl": "https://www.sega.jp/",
+      "titleTag": "Just a moment...",
+      "note": "Wikidata discontinued/dissolved (2016-07-27). Official website cited — verify funeral before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "http://sonicrunners.sega-net.com/",
+          "status": 302,
+          "location": "https://sega.jp/"
+        },
+        {
+          "url": "https://sega.jp/",
+          "status": 301,
+          "location": "https://www.sega.jp/"
+        },
+        {
+          "url": "https://www.sega.jp/",
+          "status": 403
+        }
+      ]
+    },
+    {
+      "id": "disc-wd-physical-review-a-atomic-molecular-and-optical-p",
+      "wall": "successor-facade",
+      "title": "Physical Review A, Atomic, Molecular, and Optical Physics",
+      "owner": "Unknown",
+      "declaredDead": "2026-08-12",
+      "obituary": "http://www.wikidata.org/entity/Q109300557",
+      "probeUrl": "http://pra.aps.org/",
+      "httpStatus": 403,
+      "finalUrl": "https://journals.aps.org/pra/",
+      "titleTag": "Just a moment...",
+      "note": "Wikidata discontinued/dissolved (2015-12-01). Official website cited — verify funeral before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "http://pra.aps.org/",
+          "status": 302,
+          "location": "https://journals.aps.org/pra/"
+        },
+        {
+          "url": "https://journals.aps.org/pra/",
+          "status": 403
+        }
+      ]
+    },
+    {
+      "id": "disc-wd-physical-review-special-topics-accelerators-and-",
+      "wall": "successor-facade",
+      "title": "Physical Review Special Topics: Accelerators and Beams",
+      "owner": "Unknown",
+      "declaredDead": "2026-08-12",
+      "obituary": "http://www.wikidata.org/entity/Q3382013",
+      "probeUrl": "http://journals.aps.org/prab/",
+      "httpStatus": 403,
+      "finalUrl": "https://journals.aps.org/prab/",
+      "titleTag": "Just a moment...",
+      "note": "Wikidata discontinued/dissolved (2015-12-01). Official website cited — verify funeral before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "http://journals.aps.org/prab/",
+          "status": 301,
+          "location": "https://journals.aps.org/prab/"
+        },
+        {
+          "url": "https://journals.aps.org/prab/",
+          "status": 403
+        }
+      ]
+    },
+    {
+      "id": "disc-wd-google-talk",
+      "wall": "still-answering",
+      "title": "Google Talk",
+      "owner": "Unknown",
+      "declaredDead": "2026-08-12",
+      "obituary": "http://www.wikidata.org/entity/Q51713",
+      "probeUrl": "https://web.archive.org/web/20130514014126/http://www.google.com/talk/",
+      "httpStatus": 200,
+      "finalUrl": "https://web.archive.org/web/20130514014126/http://www.google.com/talk/",
+      "titleTag": "Google Chat - Chat with family and friends",
+      "note": "Wikidata discontinued/dissolved (2013-05-15). Official website cited — verify funeral before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://web.archive.org/web/20130514014126/http://www.google.com/talk/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "disc-wd-q107349981",
+      "wall": "still-answering",
+      "title": "Q107349981",
+      "owner": "Unknown",
+      "declaredDead": "2026-08-12",
+      "obituary": "http://www.wikidata.org/entity/Q107349981",
+      "probeUrl": "https://web.archive.org/web/20130606001839/http://ez.halgame.com/",
+      "httpStatus": 200,
+      "finalUrl": "https://web.archive.org/web/20130606001839/http://ez.halgame.com/",
+      "titleTag": "메인 - No.1 리듬게임의 귀환, 이지투온",
+      "note": "Wikidata discontinued/dissolved (2013-12-30). Official website cited — verify funeral before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://web.archive.org/web/20130606001839/http://ez.halgame.com/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "disc-wd-ask-the-white-house",
+      "wall": "still-answering",
+      "title": "Ask the White House",
+      "owner": "Unknown",
+      "declaredDead": "2026-08-12",
+      "obituary": "http://www.wikidata.org/entity/Q127431517",
+      "probeUrl": "https://georgewbush-whitehouse.archives.gov/ask/",
+      "httpStatus": 200,
+      "finalUrl": "https://georgewbush-whitehouse.archives.gov/ask/",
+      "titleTag": "Ask the White House",
+      "note": "Wikidata discontinued/dissolved (2009-01-20). Official website cited — verify funeral before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://georgewbush-whitehouse.archives.gov/ask/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "disc-wd-journal-of-nanopharmaceutics-and-drug-delivery",
+      "wall": "still-answering",
+      "title": "Journal of nanopharmaceutics and drug delivery",
+      "owner": "Unknown",
+      "declaredDead": "2026-08-12",
+      "obituary": "http://www.wikidata.org/entity/Q27726974",
+      "probeUrl": "http://www.aspbs.com/jnd/",
+      "httpStatus": 200,
+      "finalUrl": "http://www.aspbs.com/jnd/",
+      "titleTag": "Journal of Nanopharmaceutics and Drug Delivery",
+      "note": "Wikidata discontinued/dissolved (2015-01-01). Official website cited — verify funeral before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "http://www.aspbs.com/jnd/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "kbai-atlas",
+      "wall": "still-answering",
+      "title": "OpenAI Atlas",
+      "owner": "Unknown",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://help.openai.com/en/articles/20001371-evolving-atlas-into-chatgpt-for-browser-based-agentic-work",
+      "probeUrl": "https://atlas.com/",
+      "httpStatus": 200,
+      "finalUrl": "https://atlas.com/",
+      "titleTag": "ATLAS.COM | Strategic-Grade domain names for established businesses and funded startups",
+      "note": "Catalog seed from kbai (2026-08-09, app). Candidate “com” — hunt must verify.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://atlas.com/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "disc-obit-a0-awsstatic-com",
+      "wall": "still-answering",
+      "title": "a0.awsstatic.com",
+      "owner": "Unknown",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://aws.amazon.com/cloud9/",
+      "probeUrl": "https://a0.awsstatic.com/",
+      "httpStatus": 200,
+      "finalUrl": "https://a0.awsstatic.com/",
+      "note": "Linked from an already-cited funeral page. Discovered — verify product match before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://a0.awsstatic.com/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "disc-obit-d1-awsstatic-com",
+      "wall": "still-answering",
+      "title": "d1.awsstatic.com",
+      "owner": "Unknown",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://aws.amazon.com/cloud9/",
+      "probeUrl": "https://d1.awsstatic.com/",
+      "httpStatus": 200,
+      "finalUrl": "https://d1.awsstatic.com/",
+      "note": "Linked from an already-cited funeral page. Discovered — verify product match before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://d1.awsstatic.com/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "disc-obit-s0-awsstatic-com",
+      "wall": "still-answering",
+      "title": "s0.awsstatic.com",
+      "owner": "Unknown",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://aws.amazon.com/cloud9/",
+      "probeUrl": "https://s0.awsstatic.com/",
+      "httpStatus": 200,
+      "finalUrl": "https://s0.awsstatic.com/",
+      "note": "Linked from an already-cited funeral page. Discovered — verify product match before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://s0.awsstatic.com/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "disc-obit-cdn-bc0a-com",
+      "wall": "still-answering",
+      "title": "cdn.bc0a.com",
+      "owner": "Unknown",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://blogs.blackberry.com/en/2019/04/update-on-bbm",
+      "probeUrl": "https://cdn.bc0a.com/",
+      "httpStatus": 200,
+      "finalUrl": "https://cdn.bc0a.com/",
+      "titleTag": "BrightEdge AutoPilot",
+      "note": "Linked from an already-cited funeral page. Discovered — verify product match before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://cdn.bc0a.com/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "disc-obit-bitbucket-org",
+      "wall": "still-answering",
+      "title": "bitbucket.org",
+      "owner": "Unknown",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://opensource.googleblog.com/2015/03/farewell-to-google-code.html",
+      "probeUrl": "https://bitbucket.org/",
+      "httpStatus": 200,
+      "finalUrl": "https://bitbucket.org/",
+      "titleTag": "Bitbucket Home Page",
+      "note": "Linked from an already-cited funeral page. Discovered — verify product match before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://bitbucket.org/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "disc-obit-investors-blackberry-com",
+      "wall": "still-answering",
+      "title": "investors.blackberry.com",
+      "owner": "Unknown",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://www.blackberry.com/",
+      "probeUrl": "https://investors.blackberry.com/",
+      "httpStatus": 200,
+      "finalUrl": "https://investors.blackberry.com/",
+      "note": "Linked from an already-cited funeral page. Discovered — verify product match before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://investors.blackberry.com/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "disc-obit-blog-google",
+      "wall": "still-answering",
+      "title": "blog.google",
+      "owner": "Unknown",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://www.adobe.com/products/flashplayer/end-of-life.html",
+      "probeUrl": "https://blog.google/",
+      "httpStatus": 200,
+      "finalUrl": "https://blog.google/",
+      "titleTag": "News from Google | Google Product and Technology News and Stories",
+      "note": "Linked from an already-cited funeral page. Discovered — verify product match before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://blog.google/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "disc-wd-boat-browser",
+      "wall": "still-answering",
+      "title": "Boat Browser",
+      "owner": "Unknown",
+      "declaredDead": "2026-08-12",
+      "obituary": "http://www.wikidata.org/entity/Q15789097",
+      "probeUrl": "http://www.boatmob.com/",
+      "httpStatus": 200,
+      "finalUrl": "http://www.boatmob.com/",
+      "titleTag": "BoatMob.com for sale | Spaceship.com",
+      "note": "Wikidata discontinued/dissolved (2014-01-01). Official website cited — verify funeral before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "http://www.boatmob.com/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "disc-wd-research-review",
+      "wall": "still-answering",
+      "title": "Research Review",
+      "owner": "Unknown",
+      "declaredDead": "2026-08-12",
+      "obituary": "http://www.wikidata.org/entity/Q15764875",
+      "probeUrl": "https://www.bostonfed.org/publications/research-review.aspx/",
+      "httpStatus": 200,
+      "finalUrl": "https://www.bostonfed.org/publications/research-review.aspx/",
+      "titleTag": "Research Review - Federal Reserve Bank of Boston",
+      "note": "Wikidata discontinued/dissolved (2013-01-01). Official website cited — verify funeral before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://www.bostonfed.org/publications/research-review.aspx/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "disc-wd-boston-literary-magazine",
+      "wall": "still-answering",
+      "title": "Boston Literary Magazine",
+      "owner": "Unknown",
+      "declaredDead": "2026-08-12",
+      "obituary": "http://www.wikidata.org/entity/Q137427386",
+      "probeUrl": "https://www.bostonliterarymagazine.com/",
+      "httpStatus": 200,
+      "finalUrl": "https://www.bostonliterarymagazine.com/",
+      "note": "Wikidata discontinued/dissolved (2015-01-01). Official website cited — verify funeral before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://www.bostonliterarymagazine.com/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "disc-wd-bwtoolkit",
+      "wall": "still-answering",
+      "title": "BWToolkit",
+      "owner": "Unknown",
+      "declaredDead": "2026-08-12",
+      "obituary": "http://www.wikidata.org/entity/Q38348370",
+      "probeUrl": "http://brandonwalkin.com/bwtoolkit/",
+      "httpStatus": 200,
+      "finalUrl": "http://brandonwalkin.com/bwtoolkit/",
+      "titleTag": "BWToolkit - Interface Builder Plugin for Cocoa on Mac OS X",
+      "note": "Wikidata discontinued/dissolved (2010-01-20). Official website cited — verify funeral before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "http://brandonwalkin.com/bwtoolkit/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "disc-obit-bsky-app",
+      "wall": "still-answering",
+      "title": "bsky.app",
+      "owner": "Unknown",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://opensource.googleblog.com/2015/03/farewell-to-google-code.html",
+      "probeUrl": "https://bsky.app/",
+      "httpStatus": 200,
+      "finalUrl": "https://bsky.app/",
+      "titleTag": "Bluesky",
+      "note": "Linked from an already-cited funeral page. Discovered — verify product match before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://bsky.app/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "kbai-builder-ai",
+      "wall": "still-answering",
+      "title": "Builder.ai",
+      "owner": "Unknown",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://techcrunch.com/2025/05/20/once-worth-over-1b-microsoft-backed-builder-ai-is-running-out-of-money/",
+      "probeUrl": "https://builder-ai.com/",
+      "httpStatus": 200,
+      "finalUrl": "https://builder-ai.com/",
+      "note": "Catalog seed from kbai (2025-05-20, startup). Candidate “com” — hunt must verify.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://builder-ai.com/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "disc-obit-calculator-aws",
+      "wall": "still-answering",
+      "title": "calculator.aws",
+      "owner": "Unknown",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://aws.amazon.com/cloud9/",
+      "probeUrl": "https://calculator.aws/",
+      "httpStatus": 200,
+      "finalUrl": "https://calculator.aws/",
+      "titleTag": "AWS Pricing Calculator",
+      "note": "Linked from an already-cited funeral page. Discovered — verify product match before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://calculator.aws/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "disc-wd-caos-linux",
+      "wall": "still-answering",
+      "title": "CAOS Linux",
+      "owner": "Unknown",
+      "declaredDead": "2026-08-12",
+      "obituary": "http://www.wikidata.org/entity/Q4035563",
+      "probeUrl": "http://www.caoslinux.org/",
+      "httpStatus": 200,
+      "finalUrl": "http://www.caoslinux.org/",
+      "titleTag": "Nettikasinot &#8211; Casinobonus &#8211; Netticasinot joista ilmaista pelirahaa",
+      "note": "Wikidata discontinued/dissolved (2014-11-01). Official website cited — verify funeral before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "http://www.caoslinux.org/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "disc-wd-q207542",
+      "wall": "still-answering",
+      "title": "Q207542",
+      "owner": "Unknown",
+      "declaredDead": "2026-08-12",
+      "obituary": "http://www.wikidata.org/entity/Q207542",
+      "probeUrl": "https://centos.org/",
+      "httpStatus": 200,
+      "finalUrl": "https://centos.org/",
+      "titleTag": "The CentOS Project",
+      "note": "Wikidata discontinued/dissolved (2021-01-01). Official website cited — verify funeral before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://centos.org/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "disc-wd-q714034",
+      "wall": "still-answering",
+      "title": "Q714034",
+      "owner": "Unknown",
+      "declaredDead": "2026-08-12",
+      "obituary": "http://www.wikidata.org/entity/Q714034",
+      "probeUrl": "http://www.cityofheroes.ca/",
+      "httpStatus": 200,
+      "finalUrl": "http://www.cityofheroes.ca/",
+      "titleTag": "City of Heroes&reg; : The World&#39;s Most Popular Superpowered MMO",
+      "note": "Wikidata discontinued/dissolved (2012-11-30). Official website cited — verify funeral before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "http://www.cityofheroes.ca/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "kbai-clippy",
+      "wall": "still-answering",
+      "title": "Microsoft Clippy",
+      "owner": "Unknown",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://en.wikipedia.org/wiki/Office_Assistant",
+      "probeUrl": "https://clippy.com/",
+      "httpStatus": 200,
+      "finalUrl": "https://clippy.com/",
+      "titleTag": "Clippy Coupons and Deals - Coming Soon!",
+      "note": "Catalog seed from kbai (2007-01-01, app). Candidate “com” — hunt must verify.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://clippy.com/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "disc-obit-cdnjs-cloudflare-com",
+      "wall": "still-answering",
+      "title": "cdnjs.cloudflare.com",
+      "owner": "Unknown",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://github.blog/news-insights/product-news/sunsetting-atom/",
+      "probeUrl": "https://cdnjs.cloudflare.com/",
+      "httpStatus": 200,
+      "finalUrl": "https://cdnjs.cloudflare.com/",
+      "titleTag": "cdnjs.cloudflare.com",
+      "note": "Linked from an already-cited funeral page. Discovered — verify product match before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://cdnjs.cloudflare.com/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "disc-obit-d3gribjq2zt3oj-cloudfront-net",
+      "wall": "still-answering",
+      "title": "d3gribjq2zt3oj.cloudfront.net",
+      "owner": "Unknown",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://blog.bitly.com/",
+      "probeUrl": "https://d3gribjq2zt3oj.cloudfront.net/",
+      "httpStatus": 200,
+      "finalUrl": "https://d3gribjq2zt3oj.cloudfront.net/",
+      "titleTag": "Bitly | Blog - Welcome to the official Bitly blog, covering new product updates, industry trends and tips for digital marketers.",
+      "note": "Linked from an already-cited funeral page. Discovered — verify product match before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://d3gribjq2zt3oj.cloudfront.net/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "kbai-codex-api",
+      "wall": "successor-facade",
+      "title": "OpenAI Codex API",
+      "owner": "Unknown",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://platform.openai.com/docs/deprecations",
+      "probeUrl": "https://codex-api.com/",
+      "httpStatus": 403,
+      "finalUrl": "https://chatgpt.com/codex",
+      "note": "Catalog seed from kbai (2023-03-23, model). Candidate “com” — hunt must verify.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://codex-api.com/",
+          "status": 301,
+          "location": "https://chatgpt.com/codex"
+        },
+        {
+          "url": "https://chatgpt.com/codex",
+          "status": 403
+        }
+      ]
+    },
+    {
+      "id": "kbai-cortana",
+      "wall": "still-answering",
+      "title": "Microsoft Cortana",
+      "owner": "Unknown",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://support.microsoft.com/en-us/topic/end-of-support-for-cortana-in-windows-and-teams-d025b39f-ee5b-4836-a954-0ab646ee1efa",
+      "probeUrl": "https://cortana.com/",
+      "httpStatus": 200,
+      "finalUrl": "https://cortana.com/",
+      "titleTag": "Cortana Corporation",
+      "note": "Catalog seed from kbai (2023-12-31, app). Candidate “com” — hunt must verify.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://cortana.com/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "disc-wd-die-aula",
+      "wall": "still-answering",
+      "title": "Die Aula",
+      "owner": "Unknown",
+      "declaredDead": "2026-08-12",
+      "obituary": "http://www.wikidata.org/entity/Q871794",
+      "probeUrl": "http://www.dieaula.at/",
+      "httpStatus": 200,
+      "finalUrl": "http://www.dieaula.at/",
+      "titleTag": "Webhosting & Webspace - Hier entsteht eine neue Internetpr�senz | Hosting von netclusive",
+      "note": "Wikidata discontinued/dissolved (2018-01-01). Official website cited — verify funeral before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "http://www.dieaula.at/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "disc-wd-disney-channel",
+      "wall": "still-answering",
+      "title": "Disney Channel",
+      "owner": "Unknown",
+      "declaredDead": "2026-08-12",
+      "obituary": "http://www.wikidata.org/entity/Q2542090",
+      "probeUrl": "https://tv.disney.co.uk/",
+      "httpStatus": 200,
+      "finalUrl": "https://tv.disney.co.uk/",
+      "titleTag": "Disney Channel | The Official TV Channels Guide",
+      "note": "Wikidata discontinued/dissolved (2020-10-01). Official website cited — verify funeral before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://tv.disney.co.uk/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "disc-wd-disney-xd",
+      "wall": "still-answering",
+      "title": "Disney XD",
+      "owner": "Unknown",
+      "declaredDead": "2026-08-12",
+      "obituary": "http://www.wikidata.org/entity/Q65089865",
+      "probeUrl": "https://tv.disney.co.uk/whats-on/",
+      "httpStatus": 200,
+      "finalUrl": "https://tv.disney.co.uk/whats-on/",
+      "titleTag": "What’s On? | Disney Channel UK",
+      "note": "Wikidata discontinued/dissolved (2020-10-01). Official website cited — verify funeral before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://tv.disney.co.uk/whats-on/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "kbai-doppl",
+      "wall": "still-answering",
+      "title": "Google Doppl",
+      "owner": "Unknown",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://jetstream.blog/en/google-doppl-shut-down-end-of-april-2026/",
+      "probeUrl": "https://doppl.com/",
+      "httpStatus": 200,
+      "finalUrl": "https://doppl.com/",
+      "titleTag": "Doppl",
+      "note": "Catalog seed from kbai (2026-04-30, app). Candidate “com” — hunt must verify.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://doppl.com/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "disc-wd-v-snik-dn-propetrovs-kogo-un-versitetu-ser-model",
+      "wall": "still-answering",
+      "title": "Vìsnik Dnìpropetrovsʹkogo Unìversitetu: Serìâ Modelûvannâ",
+      "owner": "Unknown",
+      "declaredDead": "2026-08-12",
+      "obituary": "http://www.wikidata.org/entity/Q50811442",
+      "probeUrl": "https://model-dnu.dp.ua/index.php/SM/issue/archive/",
+      "httpStatus": 200,
+      "finalUrl": "https://model-dnu.dp.ua/index.php/SM/issue/archive/",
+      "titleTag": "Archives | Journal of Optimization, Differential Equations and Their Applications",
+      "note": "Wikidata discontinued/dissolved (2018-01-01). Official website cited — verify funeral before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://model-dnu.dp.ua/index.php/SM/issue/archive/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "disc-wd-conomie-matin",
+      "wall": "still-answering",
+      "title": "Économie matin",
+      "owner": "Unknown",
+      "declaredDead": "2026-08-12",
+      "obituary": "http://www.wikidata.org/entity/Q3578765",
+      "probeUrl": "https://www.economiematin.fr/",
+      "httpStatus": 200,
+      "finalUrl": "https://www.economiematin.fr/",
+      "titleTag": "Economie Matin : l&#039;essentiel de l&#039;information économique, politique et internationale en un minimum de temps - Economie Matin",
+      "note": "Wikidata discontinued/dissolved (2008-01-01). Official website cited — verify funeral before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://www.economiematin.fr/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "disc-wd-die-aktion",
+      "wall": "still-answering",
+      "title": "Die Aktion",
+      "owner": "Unknown",
+      "declaredDead": "2026-08-12",
+      "obituary": "http://www.wikidata.org/entity/Q1210979",
+      "probeUrl": "https://edition-nautilus.de/kategorie/die-aktion/",
+      "httpStatus": 200,
+      "finalUrl": "https://edition-nautilus.de/kategorie/die-aktion/",
+      "titleTag": "Zeitschrift Die Aktion | EDITION NAUTILUS",
+      "note": "Wikidata discontinued/dissolved (2013-09-01). Official website cited — verify funeral before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://edition-nautilus.de/kategorie/die-aktion/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "disc-wd-edmodo",
+      "wall": "still-answering",
+      "title": "Edmodo",
+      "owner": "Unknown",
+      "declaredDead": "2026-08-12",
+      "obituary": "http://www.wikidata.org/entity/Q647397",
+      "probeUrl": "https://www.edmodo.com/",
+      "httpStatus": 200,
+      "finalUrl": "https://www.edmodo.com/",
+      "note": "Wikidata discontinued/dissolved (2022-09-22). Official website cited — verify funeral before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://www.edmodo.com/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "disc-wd-australasian-journal-of-construction-economics-a",
+      "wall": "still-answering",
+      "title": "Australasian Journal of Construction Economics and Building - Conference Series",
+      "owner": "Unknown",
+      "declaredDead": "2026-08-12",
+      "obituary": "http://www.wikidata.org/entity/Q96706226",
+      "probeUrl": "https://epress.lib.uts.edu.au/journals/index.php/AJCEB/",
+      "httpStatus": 200,
+      "finalUrl": "https://epress.lib.uts.edu.au/journals/index.php/AJCEB/",
+      "titleTag": "Construction Economics and Building",
+      "note": "Wikidata discontinued/dissolved (2014-12-01). Official website cited — verify funeral before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://epress.lib.uts.edu.au/journals/index.php/AJCEB/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "disc-wd-experimental-and-toxicologic-pathology",
+      "wall": "successor-facade",
+      "title": "Experimental and Toxicologic Pathology",
+      "owner": "Unknown",
+      "declaredDead": "2026-08-12",
+      "obituary": "http://www.wikidata.org/entity/Q15724492",
+      "probeUrl": "http://www.elsevier.com/journals/experimental-and-toxicologic-pathology/0940-2993/",
+      "httpStatus": 403,
+      "finalUrl": "https://www.sciencedirect.com/science/journal/09402993",
+      "titleTag": "ScienceDirect",
+      "note": "Wikidata discontinued/dissolved (2017-01-01). Official website cited — verify funeral before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "http://www.elsevier.com/journals/experimental-and-toxicologic-pathology/0940-2993/",
+          "status": 301,
+          "location": "https://www.sciencedirect.com/science/journal/09402993"
+        },
+        {
+          "url": "https://www.sciencedirect.com/science/journal/09402993",
+          "status": 403
+        }
+      ]
+    },
+    {
+      "id": "disc-wd-genomics-data",
+      "wall": "successor-facade",
+      "title": "Genomics Data",
+      "owner": "Unknown",
+      "declaredDead": "2026-08-12",
+      "obituary": "http://www.wikidata.org/entity/Q27725685",
+      "probeUrl": "http://www.journals.elsevier.com/genomics-data/",
+      "httpStatus": 403,
+      "finalUrl": "https://www.sciencedirect.com/browse/journals-and-books",
+      "titleTag": "ScienceDirect",
+      "note": "Wikidata discontinued/dissolved (2017-07-01). Official website cited — verify funeral before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "http://www.journals.elsevier.com/genomics-data/",
+          "status": 302,
+          "location": "https://www.sciencedirect.com/browse/journals-and-books"
+        },
+        {
+          "url": "https://www.sciencedirect.com/browse/journals-and-books",
+          "status": 403
+        }
+      ]
+    },
+    {
+      "id": "disc-wd-statistical-methodology",
+      "wall": "successor-facade",
+      "title": "Statistical Methodology",
+      "owner": "Unknown",
+      "declaredDead": "2026-08-12",
+      "obituary": "http://www.wikidata.org/entity/Q15753980",
+      "probeUrl": "https://www.journals.elsevier.com/statistical-methodology/",
+      "httpStatus": 403,
+      "finalUrl": "https://www.sciencedirect.com/browse/journals-and-books",
+      "titleTag": "ScienceDirect",
+      "note": "Wikidata discontinued/dissolved (2016-12-31). Official website cited — verify funeral before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://www.journals.elsevier.com/statistical-methodology/",
+          "status": 302,
+          "location": "https://www.sciencedirect.com/browse/journals-and-books"
+        },
+        {
+          "url": "https://www.sciencedirect.com/browse/journals-and-books",
+          "status": 403
+        }
+      ]
+    },
+    {
+      "id": "disc-wd-fallout-online",
+      "wall": "still-answering",
+      "title": "Fallout Online",
+      "owner": "Wikidata",
+      "declaredDead": "2026-08-12",
+      "obituary": "http://www.wikidata.org/entity/Q4038606",
+      "probeUrl": "http://www.fallout-on-line.com/",
+      "httpStatus": 200,
+      "finalUrl": "http://www.fallout-on-line.com/",
+      "note": "Wikidata discontinued/dissolved (2012-01-02). Official website cited — verify funeral before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "http://www.fallout-on-line.com/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "disc-wd-gpsdrive",
+      "wall": "still-answering",
+      "title": "GpsDrive",
+      "owner": "Wikidata",
+      "declaredDead": "2026-08-12",
+      "obituary": "http://www.wikidata.org/entity/Q976935",
+      "probeUrl": "https://fpunktgandi.de/#software/",
+      "httpStatus": 200,
+      "finalUrl": "https://fpunktgandi.de/#software/",
+      "titleTag": "Friedrich Ganter - Webdesign - Video - Elektronik",
+      "note": "Wikidata discontinued/dissolved (2010-01-01). Official website cited — verify funeral before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://fpunktgandi.de/#software/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "disc-wd-hackety-hack",
+      "wall": "still-answering",
+      "title": "Hackety Hack",
+      "owner": "Wikidata",
+      "declaredDead": "2026-08-12",
+      "obituary": "http://www.wikidata.org/entity/Q5637294",
+      "probeUrl": "https://github.com/hacketyhack/hacketyhack/",
+      "httpStatus": 200,
+      "finalUrl": "https://github.com/hacketyhack/hacketyhack/",
+      "titleTag": "GitHub - hacketyhack/hacketyhack: the coder’s starter kit: sound, animation, video, messaging in a low-key ruby environment. · GitHub",
+      "note": "Wikidata discontinued/dissolved (2013-09-09). Official website cited — verify funeral before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://github.com/hacketyhack/hacketyhack/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "disc-wd-hotot",
+      "wall": "still-answering",
+      "title": "Hotot",
+      "owner": "Wikidata",
+      "declaredDead": "2026-08-12",
+      "obituary": "http://www.wikidata.org/entity/Q5912436",
+      "probeUrl": "https://github.com/lyricat/Hotot/",
+      "httpStatus": 200,
+      "finalUrl": "https://github.com/lyricat/Hotot/",
+      "titleTag": "GitHub - lyricat/Hotot: A Twitter Client · GitHub",
+      "note": "Wikidata discontinued/dissolved (2014-01-01). Official website cited — verify funeral before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://github.com/lyricat/Hotot/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "kbai-galactica",
+      "wall": "still-answering",
+      "title": "Meta Galactica",
+      "owner": "Unknown",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://www.technologyreview.com/2022/11/18/1063487/meta-large-language-model-ai-only-survived-three-days-galactica-science/",
+      "probeUrl": "https://galactica.com/",
+      "httpStatus": 200,
+      "finalUrl": "https://galactica.com/",
+      "titleTag": "Galactica Network",
+      "note": "Catalog seed from kbai (2022-11-18, model). Candidate “com” — hunt must verify.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://galactica.com/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "disc-obit-githubuniverse-com",
+      "wall": "still-answering",
+      "title": "githubuniverse.com",
+      "owner": "Obituary harvest",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://github.blog/news-insights/product-news/sunsetting-atom/",
+      "probeUrl": "https://githubuniverse.com/",
+      "httpStatus": 200,
+      "finalUrl": "https://githubuniverse.com/",
+      "titleTag": "GitHub Universe 2026",
+      "note": "Linked from an already-cited funeral page. Discovered — verify product match before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://githubuniverse.com/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "disc-obit-gmpg-org",
+      "wall": "still-answering",
+      "title": "gmpg.org",
+      "owner": "Unknown",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://github.blog/news-insights/product-news/sunsetting-atom/",
+      "probeUrl": "https://gmpg.org/",
+      "httpStatus": 200,
+      "finalUrl": "https://gmpg.org/",
+      "titleTag": "Welcome to GMPG",
+      "note": "Linked from an already-cited funeral page. Discovered — verify product match before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://gmpg.org/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "disc-wd-gnu-queue",
+      "wall": "still-answering",
+      "title": "GNU Queue",
+      "owner": "Wikidata",
+      "declaredDead": "2026-08-12",
+      "obituary": "http://www.wikidata.org/entity/Q111698778",
+      "probeUrl": "https://www.gnu.org/software/gnu-queue/",
+      "httpStatus": 200,
+      "finalUrl": "https://www.gnu.org/software/gnu-queue/",
+      "note": "Wikidata discontinued/dissolved (2015-01-01). Official website cited — verify funeral before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://www.gnu.org/software/gnu-queue/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "disc-wd-elemental-3",
+      "wall": "still-answering",
+      "title": "Elemental 3",
+      "owner": "Wikidata",
+      "declaredDead": "2026-08-12",
+      "obituary": "http://www.wikidata.org/entity/Q99633735",
+      "probeUrl": "https://htwins.net/elem3/",
+      "httpStatus": 200,
+      "finalUrl": "https://htwins.net/elem3/",
+      "titleTag": "HTwins.net - Elemental 3",
+      "note": "Wikidata discontinued/dissolved (2018-08-01). Official website cited — verify funeral before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://htwins.net/elem3/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "kbai-gpt-store",
+      "wall": "still-answering",
+      "title": "OpenAI GPT Store",
+      "owner": "Unknown",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://openai.com/index/introducing-the-gpt-store/",
+      "probeUrl": "https://gpt-store.com/",
+      "httpStatus": 200,
+      "finalUrl": "https://gpt-store.com/",
+      "note": "Catalog seed from kbai (2025-03-01, service). Candidate “com” — hunt must verify.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://gpt-store.com/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "disc-wd-gran-turismo-sport",
+      "wall": "still-answering",
+      "title": "Gran Turismo Sport",
+      "owner": "Unknown",
+      "declaredDead": "2026-08-12",
+      "obituary": "http://www.wikidata.org/entity/Q21563294",
+      "probeUrl": "https://www.gran-turismo.com/us/products/gtsport/",
+      "httpStatus": 200,
+      "finalUrl": "https://www.gran-turismo.com/us/products/gtsport/",
+      "titleTag": "Gran Turismo Sport - Products - gran-turismo.com",
+      "note": "Wikidata discontinued/dissolved (2024-01-01). Official website cited — verify funeral before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://www.gran-turismo.com/us/products/gtsport/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "disc-wd-issues-in-interdisciplinary-studies",
+      "wall": "still-answering",
+      "title": "Issues in Interdisciplinary Studies",
+      "owner": "Wikidata",
+      "declaredDead": "2026-08-12",
+      "obituary": "http://www.wikidata.org/entity/Q15750632",
+      "probeUrl": "https://interdisciplinarystudies.org/issues/",
+      "httpStatus": 200,
+      "finalUrl": "https://interdisciplinarystudies.org/issues/",
+      "titleTag": "Issues in Interdisciplinary Studies &#8211; Association for Interdisciplinary Studies",
+      "note": "Wikidata discontinued/dissolved (2014-01-01). Official website cited — verify funeral before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://interdisciplinarystudies.org/issues/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "disc-wd-winpt",
+      "wall": "still-answering",
+      "title": "WinPT",
+      "owner": "Wikidata",
+      "declaredDead": "2026-08-12",
+      "obituary": "http://www.wikidata.org/entity/Q488829",
+      "probeUrl": "http://winpt.wald.intevation.org/",
+      "httpStatus": 200,
+      "finalUrl": "http://winpt.wald.intevation.org/",
+      "titleTag": "Windows Privacy Tray - WinPT",
+      "note": "Wikidata discontinued/dissolved (2012-06-02). Official website cited — verify funeral before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "http://winpt.wald.intevation.org/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "disc-wd-olifant",
+      "wall": "still-answering",
+      "title": "Olifant",
+      "owner": "Wikidata",
+      "declaredDead": "2026-08-12",
+      "obituary": "http://www.wikidata.org/entity/Q15759402",
+      "probeUrl": "https://scholarworks.iu.edu/journals/index.php/olifant/index/",
+      "httpStatus": 200,
+      "finalUrl": "https://scholarworks.iu.edu/journals/index.php/olifant/index/",
+      "titleTag": "Olifant",
+      "note": "Wikidata discontinued/dissolved (2010-01-01). Official website cited — verify funeral before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://scholarworks.iu.edu/journals/index.php/olifant/index/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "disc-obit-m-media-amazon-com",
+      "wall": "still-answering",
+      "title": "m.media-amazon.com",
+      "owner": "Obituary harvest",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://www.audible.com/",
+      "probeUrl": "https://m.media-amazon.com/",
+      "httpStatus": 200,
+      "finalUrl": "https://m.media-amazon.com/",
+      "note": "Linked from an already-cited funeral page. Discovered — verify product match before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://m.media-amazon.com/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "disc-obit-services-harman-com",
+      "wall": "still-answering",
+      "title": "services.harman.com",
+      "owner": "Unknown",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://blog.adobe.com/en/publish/2019/05/30/the-future-of-adobe-air",
+      "probeUrl": "https://services.harman.com/",
+      "httpStatus": 200,
+      "finalUrl": "https://services.harman.com/",
+      "titleTag": "HARMAN Digital Transformation and Technology Solutions",
+      "note": "Linked from an already-cited funeral page. Discovered — verify product match before hang. TLS note: browser may open this host; Node saw UNABLE_TO_VERIFY_LEAF_SIGNATURE (incomplete/untrusted chain) and recorded status after a documented retry.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://services.harman.com/",
+          "status": 200
+        }
+      ],
+      "tlsWarning": "UNABLE_TO_VERIFY_LEAF_SIGNATURE"
+    },
+    {
+      "id": "disc-wd-journal-of-systems-chemistry",
+      "wall": "still-answering",
+      "title": "Journal of Systems Chemistry",
+      "owner": "Wikidata",
+      "declaredDead": "2026-08-12",
+      "obituary": "http://www.wikidata.org/entity/Q27725594",
+      "probeUrl": "http://nls-publishers.com/",
+      "httpStatus": 200,
+      "finalUrl": "http://nls-publishers.com/",
+      "note": "Wikidata discontinued/dissolved (2015-01-01). Official website cited — verify funeral before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "http://nls-publishers.com/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "disc-wd-hyves",
+      "wall": "successor-facade",
+      "title": "Hyves",
+      "owner": "Wikidata",
+      "declaredDead": "2026-08-12",
+      "obituary": "http://www.wikidata.org/entity/Q1056882",
+      "probeUrl": "http://www.hyves.nl/",
+      "httpStatus": 403,
+      "finalUrl": "https://www.mediahuis.nl/",
+      "titleTag": "Mediahuis",
+      "note": "Wikidata discontinued/dissolved (2013-01-01). Official website cited — verify funeral before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "http://www.hyves.nl/",
+          "status": 302,
+          "location": "https://www.mediahuis.nl/"
+        },
+        {
+          "url": "https://www.mediahuis.nl/",
+          "status": 403
+        }
+      ]
+    },
+    {
+      "id": "disc-wd-epidemiology-research-international",
+      "wall": "successor-facade",
+      "title": "Epidemiology Research International",
+      "owner": "Unknown",
+      "declaredDead": "2026-08-12",
+      "obituary": "http://www.wikidata.org/entity/Q23978761",
+      "probeUrl": "http://www.hindawi.com/journals/eri/",
+      "httpStatus": 403,
+      "finalUrl": "https://www.hindawi.com/journals/eri/",
+      "titleTag": "Just a moment...",
+      "note": "Wikidata discontinued/dissolved (2016-01-01). Official website cited — verify funeral before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "http://www.hindawi.com/journals/eri/",
+          "status": 301,
+          "location": "https://www.hindawi.com/journals/eri/"
+        },
+        {
+          "url": "https://www.hindawi.com/journals/eri/",
+          "status": 403
+        }
+      ]
+    },
+    {
+      "id": "disc-wd-q137828362",
+      "wall": "still-answering",
+      "title": "Q137828362",
+      "owner": "Wikidata",
+      "declaredDead": "2026-08-12",
+      "obituary": "http://www.wikidata.org/entity/Q137828362",
+      "probeUrl": "https://a3yo.noblogs.org/",
+      "httpStatus": 200,
+      "finalUrl": "https://a3yo.noblogs.org/",
+      "titleTag": "a3yo - Distro and News on Anarchism in Eastern Europe and beyond ----- Material und Neuigkeiten zu Anarchismus in Osteuropa und jenseits",
+      "note": "Wikidata discontinued/dissolved (2014-11-01). Official website cited — verify funeral before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://a3yo.noblogs.org/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "disc-obit-hostgator-com",
+      "wall": "successor-facade",
+      "title": "hostgator.com",
+      "owner": "Unknown",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://en.wikipedia.org/wiki/Adobe_BrowserLab",
+      "probeUrl": "https://hostgator.com/",
+      "httpStatus": 403,
+      "finalUrl": "https://www.hostgator.com/",
+      "titleTag": "Hostgator.com",
+      "note": "Linked from an already-cited funeral page. Discovered — verify product match before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://hostgator.com/",
+          "status": 301,
+          "location": "https://www.hostgator.com/"
+        },
+        {
+          "url": "https://www.hostgator.com/",
+          "status": 403
+        }
+      ]
+    },
+    {
+      "id": "disc-wd-oovoo",
+      "wall": "still-answering",
+      "title": "ooVoo",
+      "owner": "Wikidata",
+      "declaredDead": "2026-08-12",
+      "obituary": "http://www.wikidata.org/entity/Q206424",
+      "probeUrl": "https://www.oovoo.com/",
+      "httpStatus": 200,
+      "finalUrl": "https://www.oovoo.com/",
+      "titleTag": "Home - ooVoo",
+      "note": "Wikidata discontinued/dissolved (2017-01-01). Official website cited — verify funeral before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://www.oovoo.com/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "disc-obit-opensource-google",
+      "wall": "still-answering",
+      "title": "opensource.google",
+      "owner": "Obituary harvest",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://opensource.googleblog.com/2015/03/farewell-to-google-code.html",
+      "probeUrl": "https://opensource.google/",
+      "httpStatus": 200,
+      "finalUrl": "https://opensource.google/",
+      "titleTag": "Google Open Source",
+      "note": "Linked from an already-cited funeral page. Discovered — verify product match before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://opensource.google/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "disc-wd-pelaa",
+      "wall": "still-answering",
+      "title": "Pelaa!",
+      "owner": "Wikidata",
+      "declaredDead": "2026-08-12",
+      "obituary": "http://www.wikidata.org/entity/Q11887241",
+      "probeUrl": "http://pelaa.info/",
+      "httpStatus": 200,
+      "finalUrl": "http://pelaa.info/",
+      "titleTag": "Welcome to nginx!",
+      "note": "Wikidata discontinued/dissolved (2015-01-01). Official website cited — verify funeral before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "http://pelaa.info/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "disc-wd-raidcall",
+      "wall": "still-answering",
+      "title": "RaidCall",
+      "owner": "Wikidata",
+      "declaredDead": "2026-08-12",
+      "obituary": "http://www.wikidata.org/entity/Q24836390",
+      "probeUrl": "http://raidcall.com/",
+      "httpStatus": 200,
+      "finalUrl": "http://raidcall.com/",
+      "titleTag": "RaidCall",
+      "note": "Wikidata discontinued/dissolved (2015-01-01). Official website cited — verify funeral before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "http://raidcall.com/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "disc-obit-global-ketchcdn-com",
+      "wall": "still-answering",
+      "title": "global.ketchcdn.com",
+      "owner": "Unknown",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://blogs.blackberry.com/en/2019/04/update-on-bbm",
+      "probeUrl": "https://global.ketchcdn.com/",
+      "httpStatus": 200,
+      "finalUrl": "https://global.ketchcdn.com/",
+      "note": "Linked from an already-cited funeral page. Discovered — verify product match before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://global.ketchcdn.com/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "disc-wd-recreio",
+      "wall": "still-answering",
+      "title": "Recreio",
+      "owner": "Wikidata",
+      "declaredDead": "2026-08-12",
+      "obituary": "http://www.wikidata.org/entity/Q10358096",
+      "probeUrl": "https://recreio.com.br/",
+      "httpStatus": 200,
+      "finalUrl": "https://recreio.com.br/",
+      "titleTag": "Recreio",
+      "note": "Wikidata discontinued/dissolved (2018-01-01). Official website cited — verify funeral before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://recreio.com.br/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "disc-wd-journal-of-applied-logic",
+      "wall": "successor-facade",
+      "title": "Journal of Applied Logic",
+      "owner": "Wikidata",
+      "declaredDead": "2026-08-12",
+      "obituary": "http://www.wikidata.org/entity/Q15753734",
+      "probeUrl": "http://www.sciencedirect.com/science/journal/15708683/",
+      "httpStatus": 403,
+      "finalUrl": "https://www.sciencedirect.com/science/journal/15708683/",
+      "titleTag": "ScienceDirect",
+      "note": "Wikidata discontinued/dissolved (2018-01-01). Official website cited — verify funeral before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "http://www.sciencedirect.com/science/journal/15708683/",
+          "status": 301,
+          "location": "https://www.sciencedirect.com/science/journal/15708683/"
+        },
+        {
+          "url": "https://www.sciencedirect.com/science/journal/15708683/",
+          "status": 403
+        }
+      ]
+    },
+    {
+      "id": "meebo",
+      "wall": "still-answering",
+      "title": "Meebo",
+      "owner": "Unknown",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://googleblog.blogspot.com/2012/06/spring-cleaning-for-spring.html",
+      "probeUrl": "https://www.meebo.com/",
+      "httpStatus": 200,
+      "finalUrl": "https://www.meebo.com/",
+      "titleTag": "Meebo: More of What You Love",
+      "note": "Curated probe hint. Probe before hang. TLS note: browser may open this host; Node saw ERR_TLS_CERT_ALTNAME_INVALID (incomplete/untrusted chain) and recorded status after a documented retry.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://www.meebo.com/",
+          "status": 200
+        }
+      ],
+      "tlsWarning": "ERR_TLS_CERT_ALTNAME_INVALID"
+    },
+    {
+      "id": "kbai-kintsugi-ai",
+      "wall": "still-answering",
+      "title": "Kintsugi AI",
+      "owner": "Unknown",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://endpoints.news/why-clinical-ai-startup-kintsugi-shut-down/",
+      "probeUrl": "https://kintsugi-ai.com/",
+      "httpStatus": 200,
+      "finalUrl": "https://kintsugi-ai.com/",
+      "titleTag": "Kintsugi AI — Intelligence, Rebuilt.",
+      "note": "Catalog seed from kbai (2026-02-11, startup). Candidate “com” — hunt must verify.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://kintsugi-ai.com/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "disc-wd-luciddb",
+      "wall": "still-answering",
+      "title": "LucidDB",
+      "owner": "Wikidata",
+      "declaredDead": "2026-08-12",
+      "obituary": "http://www.wikidata.org/entity/Q6696903",
+      "probeUrl": "https://luciddb.sourceforge.net/",
+      "httpStatus": 200,
+      "finalUrl": "https://luciddb.sourceforge.net/",
+      "titleTag": "LucidDB Home Page",
+      "note": "Wikidata discontinued/dissolved (2014-04-01). Official website cited — verify funeral before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://luciddb.sourceforge.net/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "disc-wd-mitsuba",
+      "wall": "still-answering",
+      "title": "Mitsuba",
+      "owner": "Wikidata",
+      "declaredDead": "2026-08-12",
+      "obituary": "http://www.wikidata.org/entity/Q38336966",
+      "probeUrl": "http://mitsuba-renderer.org/",
+      "httpStatus": 200,
+      "finalUrl": "http://mitsuba-renderer.org/",
+      "titleTag": "Mitsuba 3 - A Retargetable Forward and Inverse Renderer",
+      "note": "Wikidata discontinued/dissolved (2014-02-26). Official website cited — verify funeral before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "http://mitsuba-renderer.org/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "disc-obit-images-na-ssl-images-amazon-com",
+      "wall": "still-answering",
+      "title": "images-na.ssl-images-amazon.com",
+      "owner": "Obituary harvest",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://www.audible.com/",
+      "probeUrl": "https://images-na.ssl-images-amazon.com/",
+      "httpStatus": 200,
+      "finalUrl": "https://images-na.ssl-images-amazon.com/",
+      "note": "Linked from an already-cited funeral page. Discovered — verify product match before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://images-na.ssl-images-amazon.com/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "disc-wd-minimo",
+      "wall": "still-answering",
+      "title": "Minimo",
+      "owner": "Wikidata",
+      "declaredDead": "2026-08-12",
+      "obituary": "http://www.wikidata.org/entity/Q1063062",
+      "probeUrl": "https://www-archive.mozilla.org/projects/minimo/",
+      "httpStatus": 200,
+      "finalUrl": "https://www-archive.mozilla.org/projects/minimo/",
+      "titleTag": "Minimo project page",
+      "note": "Wikidata discontinued/dissolved (2007-01-01). Official website cited — verify funeral before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://www-archive.mozilla.org/projects/minimo/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "disc-wd-journal-of-religion-and-abuse",
+      "wall": "successor-facade",
+      "title": "Journal of Religion and Abuse",
+      "owner": "Wikidata",
+      "declaredDead": "2026-08-12",
+      "obituary": "http://www.wikidata.org/entity/Q96329202",
+      "probeUrl": "http://www.tandfonline.com/loi/wrel20/",
+      "httpStatus": 403,
+      "finalUrl": "https://www.tandfonline.com/loi/wrel20/",
+      "titleTag": "Just a moment...",
+      "note": "Wikidata discontinued/dissolved (2008-01-01). Official website cited — verify funeral before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "http://www.tandfonline.com/loi/wrel20/",
+          "status": 301,
+          "location": "https://www.tandfonline.com/loi/wrel20/"
+        },
+        {
+          "url": "https://www.tandfonline.com/loi/wrel20/",
+          "status": 403
+        }
+      ]
+    },
+    {
+      "id": "disc-wd-enough-is-enough",
+      "wall": "still-answering",
+      "title": "Enough is enough",
+      "owner": "Wikidata",
+      "declaredDead": "2026-08-12",
+      "obituary": "http://www.wikidata.org/entity/Q1343599",
+      "probeUrl": "https://www.nadir.org/nadir/periodika/enough/",
+      "httpStatus": 200,
+      "finalUrl": "https://www.nadir.org/nadir/periodika/enough/",
+      "titleTag": "Startseite Enough is enough!",
+      "note": "Wikidata discontinued/dissolved (2006-01-01). Official website cited — verify funeral before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://www.nadir.org/nadir/periodika/enough/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "disc-wd-q123555676",
+      "wall": "still-answering",
+      "title": "Q123555676",
+      "owner": "Unknown",
+      "declaredDead": "2026-08-12",
+      "obituary": "http://www.wikidata.org/entity/Q123555676",
+      "probeUrl": "http://www.mindie.co/",
+      "httpStatus": 200,
+      "finalUrl": "http://www.mindie.co/",
+      "note": "Wikidata discontinued/dissolved (2015-12-01). Official website cited — verify funeral before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "http://www.mindie.co/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "disc-wd-q2383667",
+      "wall": "still-answering",
+      "title": "Q2383667",
+      "owner": "Wikidata",
+      "declaredDead": "2026-08-12",
+      "obituary": "http://www.wikidata.org/entity/Q2383667",
+      "probeUrl": "https://tatblatt.net/",
+      "httpStatus": 200,
+      "finalUrl": "https://tatblatt.net/",
+      "titleTag": "TATblatt.net",
+      "note": "Wikidata discontinued/dissolved (2005-01-01). Official website cited — verify funeral before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://tatblatt.net/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "disc-wd-terraworld",
+      "wall": "successor-facade",
+      "title": "TerraWorld",
+      "owner": "Wikidata",
+      "declaredDead": "2026-08-12",
+      "obituary": "http://www.wikidata.org/entity/Q3014583",
+      "probeUrl": "http://terragaming.net/",
+      "httpStatus": 403,
+      "finalUrl": "https://www.reddit.com/r/TerraNovita/",
+      "note": "Wikidata discontinued/dissolved (2014-01-01). Official website cited — verify funeral before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "http://terragaming.net/",
+          "status": 302,
+          "location": "https://www.reddit.com/r/TerraNovita/"
+        },
+        {
+          "url": "https://www.reddit.com/r/TerraNovita/",
+          "status": 403
+        }
+      ]
+    },
+    {
+      "id": "disc-wd-carl-nielsen-studies",
+      "wall": "still-answering",
+      "title": "Carl Nielsen Studies",
+      "owner": "Wikidata",
+      "declaredDead": "2026-08-12",
+      "obituary": "http://www.wikidata.org/entity/Q15751054",
+      "probeUrl": "https://tidsskrift.dk/carlnielsenstudies/",
+      "httpStatus": 200,
+      "finalUrl": "https://tidsskrift.dk/carlnielsenstudies/",
+      "titleTag": "Carl Nielsen Studies",
+      "note": "Wikidata discontinued/dissolved (2012-01-01). Official website cited — verify funeral before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://tidsskrift.dk/carlnielsenstudies/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "kbai-olive-ai",
+      "wall": "still-answering",
+      "title": "Olive AI",
+      "owner": "Unknown",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://www.healthcaredive.com/news/olive-ai-shuts-down/698455/",
+      "probeUrl": "https://olive-ai.com/",
+      "httpStatus": 200,
+      "finalUrl": "https://olive-ai.com/",
+      "note": "Catalog seed from kbai (2023-10-31, startup). Candidate “com” — hunt must verify.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://olive-ai.com/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "disc-wd-google-tv",
+      "wall": "still-answering",
+      "title": "Google TV",
+      "owner": "Wikidata",
+      "declaredDead": "2026-08-12",
+      "obituary": "http://www.wikidata.org/entity/Q841291",
+      "probeUrl": "https://tv.google/",
+      "httpStatus": 200,
+      "finalUrl": "https://tv.google/",
+      "titleTag": "Google TV | All in one smart TV streaming platform",
+      "note": "Wikidata discontinued/dissolved (2014-06-24). Official website cited — verify funeral before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://tv.google/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "disc-obit-amazonwebservicesinc-tt-omtrdc-net",
+      "wall": "still-answering",
+      "title": "amazonwebservicesinc.tt.omtrdc.net",
+      "owner": "Unknown",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://aws.amazon.com/cloud9/",
+      "probeUrl": "https://amazonwebservicesinc.tt.omtrdc.net/",
+      "httpStatus": 200,
+      "finalUrl": "https://amazonwebservicesinc.tt.omtrdc.net/",
+      "note": "Linked from an already-cited funeral page. Discovered — verify product match before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://amazonwebservicesinc.tt.omtrdc.net/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "disc-wd-rua",
+      "wall": "still-answering",
+      "title": "Rua",
+      "owner": "Wikidata",
+      "declaredDead": "2026-08-12",
+      "obituary": "http://www.wikidata.org/entity/Q50516420",
+      "probeUrl": "https://periodicos.sbu.unicamp.br/ojs/index.php/rua/",
+      "httpStatus": 200,
+      "finalUrl": "https://periodicos.sbu.unicamp.br/ojs/index.php/rua/",
+      "titleTag": "RUA",
+      "note": "Wikidata discontinued/dissolved (2007-01-01). Official website cited — verify funeral before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://periodicos.sbu.unicamp.br/ojs/index.php/rua/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "kbai-relay-app",
+      "wall": "still-answering",
+      "title": "Relay.app",
+      "owner": "Unknown",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://www.relay.app/",
+      "probeUrl": "https://relay-app.com/",
+      "httpStatus": 200,
+      "finalUrl": "https://relay-app.com/",
+      "note": "Catalog seed from kbai (2026-07-16, startup). Candidate “com” — hunt must verify.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://relay-app.com/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "disc-wd-user-friendly",
+      "wall": "still-answering",
+      "title": "User Friendly",
+      "owner": "Wikidata",
+      "declaredDead": "2026-08-12",
+      "obituary": "http://www.wikidata.org/entity/Q281291",
+      "probeUrl": "http://userfriendly.org/",
+      "httpStatus": 200,
+      "finalUrl": "http://userfriendly.org/",
+      "titleTag": "Fragility Discovery Engine — Workbench",
+      "note": "Wikidata discontinued/dissolved (2010-11-21). Official website cited — verify funeral before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "http://userfriendly.org/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "disc-wd-rausp-revista-de-administra-o-da-universidade-de",
+      "wall": "still-answering",
+      "title": "RAUSP: Revista de Administração da Universidade de São Paulo",
+      "owner": "Wikidata",
+      "declaredDead": "2026-08-12",
+      "obituary": "http://www.wikidata.org/entity/Q50432761",
+      "probeUrl": "http://www.rausp.usp.br/",
+      "httpStatus": 200,
+      "finalUrl": "http://www.rausp.usp.br/",
+      "titleTag": "Rausp Management Journal",
+      "note": "Wikidata discontinued/dissolved (2018-01-01). Official website cited — verify funeral before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "http://www.rausp.usp.br/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "disc-obit-webkit-org",
+      "wall": "still-answering",
+      "title": "webkit.org",
+      "owner": "Obituary harvest",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://www.adobe.com/products/flashplayer/end-of-life.html",
+      "probeUrl": "https://webkit.org/",
+      "httpStatus": 200,
+      "finalUrl": "https://webkit.org/",
+      "titleTag": "WebKit",
+      "note": "Linked from an already-cited funeral page. Discovered — verify product match before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://webkit.org/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "disc-obit-wikimediafoundation-org",
+      "wall": "still-answering",
+      "title": "wikimediafoundation.org",
+      "owner": "Obituary harvest",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://en.wikipedia.org/wiki/JSFiddle",
+      "probeUrl": "https://wikimediafoundation.org/",
+      "httpStatus": 200,
+      "finalUrl": "https://wikimediafoundation.org/",
+      "titleTag": "Home &#8211; Wikimedia Foundation",
+      "note": "Linked from an already-cited funeral page. Discovered — verify product match before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://wikimediafoundation.org/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "disc-wd-revista-portuguesa-de-pneumologia",
+      "wall": "successor-facade",
+      "title": "Revista portuguesa de pneumologia",
+      "owner": "Wikidata",
+      "declaredDead": "2026-08-12",
+      "obituary": "http://www.wikidata.org/entity/Q26842377",
+      "probeUrl": "http://www.sciencedirect.com/science/journal/21735115/",
+      "httpStatus": 403,
+      "finalUrl": "https://www.sciencedirect.com/science/journal/21735115/",
+      "titleTag": "ScienceDirect",
+      "note": "Wikidata discontinued/dissolved (2014-12-01). Official website cited — verify funeral before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "http://www.sciencedirect.com/science/journal/21735115/",
+          "status": 301,
+          "location": "https://www.sciencedirect.com/science/journal/21735115/"
+        },
+        {
+          "url": "https://www.sciencedirect.com/science/journal/21735115/",
+          "status": 403
+        }
+      ]
+    },
+    {
+      "id": "disc-wd-journal-of-the-american-pharmaceutical-associati",
+      "wall": "successor-facade",
+      "title": "Journal of the American Pharmaceutical Association",
+      "owner": "Wikidata",
+      "declaredDead": "2026-08-12",
+      "obituary": "http://www.wikidata.org/entity/Q28841182",
+      "probeUrl": "http://onlinelibrary.wiley.com/journal/10.1002/(ISSN)1520-6017/",
+      "httpStatus": 403,
+      "finalUrl": "https://onlinelibrary.wiley.com/journal/10.1002/(ISSN)1520-6017/",
+      "titleTag": "Just a moment...",
+      "note": "Wikidata discontinued/dissolved (2015-01-01). Official website cited — verify funeral before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "http://onlinelibrary.wiley.com/journal/10.1002/(ISSN)1520-6017/",
+          "status": 301,
+          "location": "https://onlinelibrary.wiley.com/journal/10.1002/(ISSN)1520-6017/"
+        },
+        {
+          "url": "https://onlinelibrary.wiley.com/journal/10.1002/(ISSN)1520-6017/",
+          "status": 403
+        }
+      ]
+    },
+    {
+      "id": "disc-obit-blogs-windows-com",
+      "wall": "still-answering",
+      "title": "blogs.windows.com",
+      "owner": "Obituary harvest",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://www.adobe.com/products/flashplayer/end-of-life.html",
+      "probeUrl": "https://blogs.windows.com/",
+      "httpStatus": 200,
+      "finalUrl": "https://blogs.windows.com/",
+      "titleTag": "Home | Windows Blog",
+      "note": "Linked from an already-cited funeral page. Discovered — verify product match before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://blogs.windows.com/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "disc-wd-wso2-mashup-server",
+      "wall": "successor-facade",
+      "title": "WSO2 Mashup Server",
+      "owner": "Wikidata",
+      "declaredDead": "2026-08-12",
+      "obituary": "http://www.wikidata.org/entity/Q7955818",
+      "probeUrl": "http://wso2.com/products/mashup-server/",
+      "httpStatus": 403,
+      "finalUrl": "https://wso2.com/products/mashup-server/",
+      "titleTag": "Just a moment...",
+      "note": "Wikidata discontinued/dissolved (2012-12-08). Official website cited — verify funeral before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "http://wso2.com/products/mashup-server/",
+          "status": 301,
+          "location": "https://wso2.com/products/mashup-server/"
+        },
+        {
+          "url": "https://wso2.com/products/mashup-server/",
+          "status": 403
+        }
+      ]
+    },
+    {
+      "id": "disc-wd-wulo",
+      "wall": "still-answering",
+      "title": "Wulo",
+      "owner": "Wikidata",
+      "declaredDead": "2026-08-12",
+      "obituary": "http://www.wikidata.org/entity/Q60473605",
+      "probeUrl": "https://www.wulo.fr/",
+      "httpStatus": 200,
+      "finalUrl": "https://www.wulo.fr/",
+      "titleTag": "Des chauffeurs pro partout en France 24H/7j - Wulo",
+      "note": "Wikidata discontinued/dissolved (2018-05-24). Official website cited — verify funeral before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://www.wulo.fr/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "kbai-tay",
+      "wall": "still-answering",
+      "title": "Microsoft Tay",
+      "owner": "Unknown",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://en.wikipedia.org/wiki/Tay_(chatbot)",
+      "probeUrl": "https://tay.com/",
+      "httpStatus": 200,
+      "finalUrl": "https://tay.com/",
+      "titleTag": "Global Investment Bank | Taylor Advisory, LLC",
+      "note": "Catalog seed from kbai (2016-03-24, app). Candidate “com” — hunt must verify.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://tay.com/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "disc-obit-audible-co-jp",
+      "wall": "successor-facade",
+      "title": "audible.co.jp",
+      "owner": "Obituary harvest",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://www.audible.com/",
+      "probeUrl": "https://audible.co.jp/",
+      "httpStatus": 200,
+      "finalUrl": "https://www.audible.com/?ref=Adbl_ip_rdr_from_JP&source_code=AUDOR0020712219ULJ&ipRedirectFrom=JP&ipRedirectOriginalURL=&_ssoLoop=1",
+      "titleTag": "Audible | Listen to Audiobooks, Podcasts, & Originals",
+      "note": "Linked from an already-cited funeral page. Discovered — verify product match before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://audible.co.jp/",
+          "status": 301,
+          "location": "https://www.audible.co.jp/"
+        },
+        {
+          "url": "https://www.audible.co.jp/",
+          "status": 302,
+          "location": "https://www.audible.com/?ref=Adbl_ip_rdr_from_JP&source_code=AUDOR0020712219ULJ&ipRedirectFrom=JP&ipRedirectOriginalURL="
+        },
+        {
+          "url": "https://www.audible.com/?ref=Adbl_ip_rdr_from_JP&source_code=AUDOR0020712219ULJ&ipRedirectFrom=JP&ipRedirectOriginalURL=",
+          "status": 302,
+          "location": "https://www.amazon.com/ax/sso/redirect?mode=eager&return_url=https%3A%2F%2Fwww.audible.com%2F%3Fref%3DAdbl_ip_rdr_from_JP%26source_code%3DAUDOR0020712219ULJ%26ipRedirectFrom%3DJP%26ipRedirectOriginalURL%3D%26_ssoLoop%3D1&signin_url=https%3A%2F%2Fwww.amazon.com%2Fap%2Fsignin%3Fopenid.identity%3Dhttp%253A%252F%252Fspecs.openid.net%252Fauth%252F2.0%252Fidentifier_select%26openid.assoc_handle%3Daudible_experiment_sso_web_us%26siteState%3D132-2291387-7309625%26marketPlaceId%3DAF2M0KC94RCEA%26language%3Den_US%26openid.claimed_id%3Dhttp%253A%252F%252Fspecs.openid.net%252Fauth%252F2.0%252Fidentifier_select%26pageId%3Damzn_audible_bc_us%26openid.ns%3Dhttp%253A%252F%252Fspecs.openid.net%252Fauth%252F2.0%26openid.return_to%3Dhttps%253A%252F%252Fwww.audible.com%252F%253FipRedirectFrom%253DJP%2526ref%253DAdbl_ip_rdr_from_JP%2526ipRedirectOriginalURL%253D%2526source_code%253DAUDOR0020712219ULJ%2526loginAttempt%253Dtrue%2526_ssoLoop%253D1%26openid.mode%3Dcheckid_immediate%26openid.pape.max_auth_age%3D31536000"
+        },
+        {
+          "url": "https://www.amazon.com/ax/sso/redirect?mode=eager&return_url=https%3A%2F%2Fwww.audible.com%2F%3Fref%3DAdbl_ip_rdr_from_JP%26source_code%3DAUDOR0020712219ULJ%26ipRedirectFrom%3DJP%26ipRedirectOriginalURL%3D%26_ssoLoop%3D1&signin_url=https%3A%2F%2Fwww.amazon.com%2Fap%2Fsignin%3Fopenid.identity%3Dhttp%253A%252F%252Fspecs.openid.net%252Fauth%252F2.0%252Fidentifier_select%26openid.assoc_handle%3Daudible_experiment_sso_web_us%26siteState%3D132-2291387-7309625%26marketPlaceId%3DAF2M0KC94RCEA%26language%3Den_US%26openid.claimed_id%3Dhttp%253A%252F%252Fspecs.openid.net%252Fauth%252F2.0%252Fidentifier_select%26pageId%3Damzn_audible_bc_us%26openid.ns%3Dhttp%253A%252F%252Fspecs.openid.net%252Fauth%252F2.0%26openid.return_to%3Dhttps%253A%252F%252Fwww.audible.com%252F%253FipRedirectFrom%253DJP%2526ref%253DAdbl_ip_rdr_from_JP%2526ipRedirectOriginalURL%253D%2526source_code%253DAUDOR0020712219ULJ%2526loginAttempt%253Dtrue%2526_ssoLoop%253D1%26openid.mode%3Dcheckid_immediate%26openid.pape.max_auth_age%3D31536000",
+          "status": 302,
+          "location": "https://www.audible.com/?ref=Adbl_ip_rdr_from_JP&source_code=AUDOR0020712219ULJ&ipRedirectFrom=JP&ipRedirectOriginalURL=&_ssoLoop=1"
+        },
+        {
+          "url": "https://www.audible.com/?ref=Adbl_ip_rdr_from_JP&source_code=AUDOR0020712219ULJ&ipRedirectFrom=JP&ipRedirectOriginalURL=&_ssoLoop=1",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "disc-obit-audible-fr",
+      "wall": "successor-facade",
+      "title": "audible.fr",
+      "owner": "Obituary harvest",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://www.audible.com/",
+      "probeUrl": "https://audible.fr/",
+      "httpStatus": 200,
+      "finalUrl": "https://www.audible.com/?ref=Adbl_ip_rdr_from_FR&source_code=AUDGBHP0923159F0H&ipRedirectFrom=FR&ipRedirectOriginalURL=",
+      "titleTag": "Audible | Listen to Audiobooks, Podcasts, & Originals",
+      "note": "Linked from an already-cited funeral page. Discovered — verify product match before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://audible.fr/",
+          "status": 301,
+          "location": "https://www.audible.fr/"
+        },
+        {
+          "url": "https://www.audible.fr/",
+          "status": 302,
+          "location": "https://www.audible.com/?ref=Adbl_ip_rdr_from_FR&source_code=AUDGBHP0923159F0H&ipRedirectFrom=FR&ipRedirectOriginalURL="
+        },
+        {
+          "url": "https://www.audible.com/?ref=Adbl_ip_rdr_from_FR&source_code=AUDGBHP0923159F0H&ipRedirectFrom=FR&ipRedirectOriginalURL=",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "kbai-tune-ai",
+      "wall": "still-answering",
+      "title": "Tune AI",
+      "owner": "Unknown",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://techstartups.com/2025/12/09/top-ai-startups-that-shut-down-in-2025-what-founders-can-learn/",
+      "probeUrl": "https://tune-ai.com/",
+      "httpStatus": 200,
+      "finalUrl": "https://tune-ai.com/",
+      "note": "Catalog seed from kbai (2025-06-01, startup). Candidate “com” — hunt must verify.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://tune-ai.com/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "disc-wd-analele-tiin-ifice-ale-universit-ii-al-i-cuza-di",
+      "wall": "still-answering",
+      "title": "Analele Ştiinţifice ale Universităţii \"Al.I. Cuza\" din Iaşi: Ştiinţe Economice",
+      "owner": "Unknown",
+      "declaredDead": "2026-08-12",
+      "obituary": "http://www.wikidata.org/entity/Q50815439",
+      "probeUrl": "http://saaic.feaa.uaic.ro/",
+      "httpStatus": 200,
+      "finalUrl": "http://saaic.feaa.uaic.ro/",
+      "note": "Wikidata discontinued/dissolved (2015-12-31). Official website cited — verify funeral before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "http://saaic.feaa.uaic.ro/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "disc-obit-blogger-com",
+      "wall": "successor-facade",
+      "title": "blogger.com",
+      "owner": "Obituary harvest",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://india.googleblog.com/2014/06/farewell-orkut.html",
+      "probeUrl": "https://blogger.com/",
+      "httpStatus": 200,
+      "finalUrl": "https://www.blogger.com/about/?bpli=1",
+      "titleTag": "Blogger.com - Create a unique and beautiful blog easily.",
+      "note": "Linked from an already-cited funeral page. Discovered — verify product match before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://blogger.com/",
+          "status": 301,
+          "location": "https://www.blogger.com/"
+        },
+        {
+          "url": "https://www.blogger.com/",
+          "status": 302,
+          "location": "https://accounts.google.com/ServiceLogin?passive=true&go=true&service=blogger&continue=https://www.blogger.com/?bpli%3D1"
+        },
+        {
+          "url": "https://accounts.google.com/ServiceLogin?passive=true&go=true&service=blogger&continue=https://www.blogger.com/?bpli%3D1",
+          "status": 302,
+          "location": "https://www.blogger.com/?bpli=1"
+        },
+        {
+          "url": "https://www.blogger.com/?bpli=1",
+          "status": 302,
+          "location": "https://www.blogger.com/about?bpli=1"
+        },
+        {
+          "url": "https://www.blogger.com/about?bpli=1",
+          "status": 301,
+          "location": "https://www.blogger.com/about/?bpli=1"
+        },
+        {
+          "url": "https://www.blogger.com/about/?bpli=1",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "disc-wd-research-works-of-air-force-institute-of-technol",
+      "wall": "successor-facade",
+      "title": "Research Works of Air Force Institute of Technology",
+      "owner": "Wikidata",
+      "declaredDead": "2026-08-12",
+      "obituary": "http://www.wikidata.org/entity/Q50815505",
+      "probeUrl": "http://www.degruyter.com/view/j/afit/",
+      "httpStatus": 200,
+      "finalUrl": "https://www.degruyterbrill.com/",
+      "titleTag": "De Gruyter Brill",
+      "note": "Wikidata discontinued/dissolved (2016-12-01). Official website cited — verify funeral before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "http://www.degruyter.com/view/j/afit/",
+          "status": 301,
+          "location": "https://www.degruyterbrill.com/view/j/afit/"
+        },
+        {
+          "url": "https://www.degruyterbrill.com/view/j/afit/",
+          "status": 301,
+          "location": "https://www.degruyterbrill.com/view/j/afit"
+        },
+        {
+          "url": "https://www.degruyterbrill.com/view/j/afit",
+          "status": 302,
+          "location": "https://www.degruyterbrill.com/"
+        },
+        {
+          "url": "https://www.degruyterbrill.com/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "disc-wd-docs-com",
+      "wall": "successor-facade",
+      "title": "docs.com",
+      "owner": "Wikidata",
+      "declaredDead": "2026-08-12",
+      "obituary": "http://www.wikidata.org/entity/Q5287259",
+      "probeUrl": "http://docs.com/",
+      "httpStatus": 200,
+      "finalUrl": "https://learn.microsoft.com/en-us/",
+      "titleTag": "Microsoft Learn: Build with answers in reach",
+      "note": "Wikidata discontinued/dissolved (2017-12-15). Official website cited — verify funeral before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "http://docs.com/",
+          "status": 301,
+          "location": "https://www.docs.com/"
+        },
+        {
+          "url": "https://www.docs.com/",
+          "status": 301,
+          "location": "https://learn.microsoft.com/"
+        },
+        {
+          "url": "https://learn.microsoft.com/",
+          "status": 302,
+          "location": "https://learn.microsoft.com/en-us/"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "disc-wd-modern-austrian-literature",
+      "wall": "successor-facade",
+      "title": "Modern Austrian Literature",
+      "owner": "Wikidata",
+      "declaredDead": "2026-08-12",
+      "obituary": "http://www.wikidata.org/entity/Q1941982",
+      "probeUrl": "http://atoz.ebsco.com/link.asp?id=11393&RID=1732569/",
+      "httpStatus": 200,
+      "finalUrl": "https://about.ebsco.com/",
+      "titleTag": "EBSCO Information Services",
+      "note": "Wikidata discontinued/dissolved (2012-01-01). Official website cited — verify funeral before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "http://atoz.ebsco.com/link.asp?id=11393&RID=1732569/",
+          "status": 301,
+          "location": "https://www.ebsco.com/global"
+        },
+        {
+          "url": "https://www.ebsco.com/global",
+          "status": 301,
+          "location": "https://about.ebsco.com/global"
+        },
+        {
+          "url": "https://about.ebsco.com/global",
+          "status": 301,
+          "location": "https://about.ebsco.com/"
+        },
+        {
+          "url": "https://about.ebsco.com/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "disc-wd-games-for-windows-live",
+      "wall": "successor-facade",
+      "title": "Games for Windows – Live",
+      "owner": "Wikidata",
+      "declaredDead": "2026-08-12",
+      "obituary": "http://www.wikidata.org/entity/Q2991004",
+      "probeUrl": "http://www.gamesforwindows.com/",
+      "httpStatus": 200,
+      "finalUrl": "https://www.xbox.com/en-US/",
+      "titleTag": "XBOX Official Site: Play Games Anywhere | XBOX",
+      "note": "Wikidata discontinued/dissolved (2014-07-01). Official website cited — verify funeral before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "http://www.gamesforwindows.com/",
+          "status": 301,
+          "location": "http://www.xbox.com/"
+        },
+        {
+          "url": "http://www.xbox.com/",
+          "status": 301,
+          "location": "https://www.xbox.com/"
+        },
+        {
+          "url": "https://www.xbox.com/",
+          "status": 307,
+          "location": "https://www.xbox.com/en-US/"
+        },
+        {
+          "url": "https://www.xbox.com/en-US/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "disc-wd-klout",
+      "wall": "successor-facade",
+      "title": "Klout",
+      "owner": "Wikidata",
+      "declaredDead": "2026-08-12",
+      "obituary": "http://www.wikidata.org/entity/Q1352246",
+      "probeUrl": "http://klout.com/",
+      "httpStatus": 200,
+      "finalUrl": "https://khoros.ai/",
+      "titleTag": "Khoros",
+      "note": "Wikidata discontinued/dissolved (2018-05-25). Official website cited — verify funeral before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "http://klout.com/",
+          "status": 301,
+          "location": "https://khoros.com/platform/klout"
+        },
+        {
+          "url": "https://khoros.com/platform/klout",
+          "status": 302,
+          "location": "https://khoros.ai/platform/klout?fromcom=1&"
+        },
+        {
+          "url": "https://khoros.ai/platform/klout?fromcom=1&",
+          "status": 301,
+          "location": "https://khoros.ai/"
+        },
+        {
+          "url": "https://khoros.ai/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "kbai-whisk",
+      "wall": "successor-facade",
+      "title": "Google Whisk",
+      "owner": "Unknown",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://workspaceupdates.googleblog.com/2026/03/whisk-is-moving-to-flow-on-april-30-2026.html",
+      "probeUrl": "https://whisk.com/",
+      "httpStatus": 403,
+      "finalUrl": "https://samsungfood.com/",
+      "titleTag": "Just a moment...",
+      "note": "Catalog seed from kbai (2026-04-30, app). Candidate “com” — hunt must verify.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://whisk.com/",
+          "status": 301,
+          "location": "https://samsungfood.com/"
+        },
+        {
+          "url": "https://samsungfood.com/",
+          "status": 403
+        }
+      ]
+    },
+    {
+      "id": "disc-wd-logical-analysis-and-history-of-philosophy",
+      "wall": "successor-facade",
+      "title": "Logical Analysis and History of Philosophy",
+      "owner": "Wikidata",
+      "declaredDead": "2026-08-12",
+      "obituary": "http://www.wikidata.org/entity/Q6667477",
+      "probeUrl": "http://www.ruhr-uni-bochum.de/philosophy/pla/",
+      "httpStatus": 200,
+      "finalUrl": "https://www.pe.ruhr-uni-bochum.de/philosophie/",
+      "titleTag": "Philosophie Fach und Lehreinheit",
+      "note": "Wikidata discontinued/dissolved (2019-01-01). Official website cited — verify funeral before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "http://www.ruhr-uni-bochum.de/philosophy/pla/",
+          "status": 302,
+          "location": "https://www.ruhr-uni-bochum.de/philosophy/pla/"
+        },
+        {
+          "url": "https://www.ruhr-uni-bochum.de/philosophy/pla/",
+          "status": 302,
+          "location": "https://www.pe.ruhr-uni-bochum.de/philosophie"
+        },
+        {
+          "url": "https://www.pe.ruhr-uni-bochum.de/philosophie",
+          "status": 301,
+          "location": "https://www.pe.ruhr-uni-bochum.de/philosophie/"
+        },
+        {
+          "url": "https://www.pe.ruhr-uni-bochum.de/philosophie/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "disc-obit-search-worldcat-org",
+      "wall": "still-answering",
+      "title": "search.worldcat.org",
+      "owner": "Unknown",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://en.wikipedia.org/wiki/Adobe_BrowserLab",
+      "probeUrl": "https://search.worldcat.org/",
+      "httpStatus": 200,
+      "finalUrl": "https://search.worldcat.org/",
+      "titleTag": "WorldCat.org",
+      "note": "Linked from an already-cited funeral page. Discovered — verify product match before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://search.worldcat.org/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "kbai-yara-ai",
+      "wall": "still-answering",
+      "title": "Yara AI",
+      "owner": "Unknown",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://fortune.com/2025/11/28/yara-ai-therapy-app-founder-shut-down-startup-decided-too-dangerous-serious-mental-health-issues/",
+      "probeUrl": "https://yara-ai.com/",
+      "httpStatus": 200,
+      "finalUrl": "https://yara-ai.com/",
+      "titleTag": "Thank You - Yara AI",
+      "note": "Catalog seed from kbai (2025-11-28, startup). Candidate “com” — hunt must verify.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://yara-ai.com/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "kbai-animate",
+      "wall": "successor-facade",
+      "title": "Adobe Animate",
+      "owner": "Unknown",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://techcrunch.com/2026/02/02/adobe-animate-is-shutting-down-as-company-focuses-on-ai/",
+      "probeUrl": "https://animate.com/",
+      "httpStatus": 200,
+      "finalUrl": "https://www.gritbrokerage.com/inquiry",
+      "note": "Catalog seed from kbai (2026-03-01, app). Candidate “com” — hunt must verify. TLS note: browser may open this host; Node saw CERT_HAS_EXPIRED (incomplete/untrusted chain) and recorded status after a documented retry.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://animate.com/",
+          "status": 301,
+          "location": "http://gritbrokerage.com/inquiry"
+        },
+        {
+          "url": "http://gritbrokerage.com/inquiry",
+          "status": 301,
+          "location": "https://gritbrokerage.com/inquiry"
+        },
+        {
+          "url": "https://gritbrokerage.com/inquiry",
+          "status": 301,
+          "location": "https://www.gritbrokerage.com/inquiry"
+        },
+        {
+          "url": "https://www.gritbrokerage.com/inquiry",
+          "status": 200
+        }
+      ],
+      "tlsWarning": "CERT_HAS_EXPIRED"
+    },
+    {
+      "id": "disc-wd-library-history",
+      "wall": "auth-ghost",
+      "title": "Library History",
+      "owner": "Wikidata",
+      "declaredDead": "2026-08-12",
+      "obituary": "http://www.wikidata.org/entity/Q56755362",
+      "probeUrl": "http://www.ingentaconnect.com/content/maney/lbh?/",
+      "httpStatus": 403,
+      "finalUrl": "http://www.ingentaconnect.com/content/maney/lbh?/",
+      "titleTag": "Just a moment...",
+      "note": "Wikidata discontinued/dissolved (2008-12-01). Official website cited — verify funeral before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "http://www.ingentaconnect.com/content/maney/lbh?/",
+          "status": 403
+        }
+      ]
+    },
+    {
+      "id": "disc-obit-audible-ca",
+      "wall": "successor-facade",
+      "title": "audible.ca",
+      "owner": "Obituary harvest",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://www.audible.com/",
+      "probeUrl": "https://audible.ca/",
+      "httpStatus": 200,
+      "finalUrl": "https://www.audible.com/?ref=Adbl_ip_rdr_from_CA&source_code=AUDORBN1011179LRQ&ipRedirectFrom=CA&ipRedirectOriginalURL=&_ssoLoop=1",
+      "titleTag": "Audible | Listen to Audiobooks, Podcasts, & Originals",
+      "note": "Linked from an already-cited funeral page. Discovered — verify product match before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://audible.ca/",
+          "status": 301,
+          "location": "https://www.audible.ca/"
+        },
+        {
+          "url": "https://www.audible.ca/",
+          "status": 302,
+          "location": "https://www.audible.com/?ref=Adbl_ip_rdr_from_CA&source_code=AUDORBN1011179LRQ&ipRedirectFrom=CA&ipRedirectOriginalURL="
+        },
+        {
+          "url": "https://www.audible.com/?ref=Adbl_ip_rdr_from_CA&source_code=AUDORBN1011179LRQ&ipRedirectFrom=CA&ipRedirectOriginalURL=",
+          "status": 302,
+          "location": "https://www.amazon.com/ax/sso/redirect?mode=eager&return_url=https%3A%2F%2Fwww.audible.com%2F%3Fref%3DAdbl_ip_rdr_from_CA%26source_code%3DAUDORBN1011179LRQ%26ipRedirectFrom%3DCA%26ipRedirectOriginalURL%3D%26_ssoLoop%3D1&signin_url=https%3A%2F%2Fwww.amazon.com%2Fap%2Fsignin%3Fopenid.identity%3Dhttp%253A%252F%252Fspecs.openid.net%252Fauth%252F2.0%252Fidentifier_select%26openid.assoc_handle%3Daudible_experiment_sso_web_us%26siteState%3D135-2769321-2305567%26marketPlaceId%3DAF2M0KC94RCEA%26language%3Den_US%26openid.claimed_id%3Dhttp%253A%252F%252Fspecs.openid.net%252Fauth%252F2.0%252Fidentifier_select%26pageId%3Damzn_audible_bc_us%26openid.ns%3Dhttp%253A%252F%252Fspecs.openid.net%252Fauth%252F2.0%26openid.return_to%3Dhttps%253A%252F%252Fwww.audible.com%252F%253FipRedirectFrom%253DCA%2526ref%253DAdbl_ip_rdr_from_CA%2526ipRedirectOriginalURL%253D%2526source_code%253DAUDORBN1011179LRQ%2526loginAttempt%253Dtrue%2526_ssoLoop%253D1%26openid.mode%3Dcheckid_immediate%26openid.pape.max_auth_age%3D31536000"
+        },
+        {
+          "url": "https://www.amazon.com/ax/sso/redirect?mode=eager&return_url=https%3A%2F%2Fwww.audible.com%2F%3Fref%3DAdbl_ip_rdr_from_CA%26source_code%3DAUDORBN1011179LRQ%26ipRedirectFrom%3DCA%26ipRedirectOriginalURL%3D%26_ssoLoop%3D1&signin_url=https%3A%2F%2Fwww.amazon.com%2Fap%2Fsignin%3Fopenid.identity%3Dhttp%253A%252F%252Fspecs.openid.net%252Fauth%252F2.0%252Fidentifier_select%26openid.assoc_handle%3Daudible_experiment_sso_web_us%26siteState%3D135-2769321-2305567%26marketPlaceId%3DAF2M0KC94RCEA%26language%3Den_US%26openid.claimed_id%3Dhttp%253A%252F%252Fspecs.openid.net%252Fauth%252F2.0%252Fidentifier_select%26pageId%3Damzn_audible_bc_us%26openid.ns%3Dhttp%253A%252F%252Fspecs.openid.net%252Fauth%252F2.0%26openid.return_to%3Dhttps%253A%252F%252Fwww.audible.com%252F%253FipRedirectFrom%253DCA%2526ref%253DAdbl_ip_rdr_from_CA%2526ipRedirectOriginalURL%253D%2526source_code%253DAUDORBN1011179LRQ%2526loginAttempt%253Dtrue%2526_ssoLoop%253D1%26openid.mode%3Dcheckid_immediate%26openid.pape.max_auth_age%3D31536000",
+          "status": 302,
+          "location": "https://www.audible.com/?ref=Adbl_ip_rdr_from_CA&source_code=AUDORBN1011179LRQ&ipRedirectFrom=CA&ipRedirectOriginalURL=&_ssoLoop=1"
+        },
+        {
+          "url": "https://www.audible.com/?ref=Adbl_ip_rdr_from_CA&source_code=AUDORBN1011179LRQ&ipRedirectFrom=CA&ipRedirectOriginalURL=&_ssoLoop=1",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "disc-wd-policy",
+      "wall": "auth-ghost",
+      "title": "Policy",
+      "owner": "Wikidata",
+      "declaredDead": "2026-08-12",
+      "obituary": "http://www.wikidata.org/entity/Q15764422",
+      "probeUrl": "https://www.cis.org.au/commentary/policy-magazine/",
+      "httpStatus": 403,
+      "finalUrl": "https://www.cis.org.au/commentary/policy-magazine/",
+      "titleTag": "Just a moment...",
+      "note": "Wikidata discontinued/dissolved (2018-01-01). Official website cited — verify funeral before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://www.cis.org.au/commentary/policy-magazine/",
+          "status": 403
+        }
+      ]
+    },
+    {
+      "id": "disc-obit-audible-de",
+      "wall": "successor-facade",
+      "title": "audible.de",
+      "owner": "Obituary harvest",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://www.audible.com/",
+      "probeUrl": "https://audible.de/",
+      "httpStatus": 200,
+      "finalUrl": "https://www.audible.com/?ref=Adbl_ip_rdr_from_DE&source_code=AUDGBHP0923159F0F&ipRedirectFrom=DE&ipRedirectOriginalURL=",
+      "titleTag": "Audible | Listen to Audiobooks, Podcasts, & Originals",
+      "note": "Linked from an already-cited funeral page. Discovered — verify product match before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://audible.de/",
+          "status": 301,
+          "location": "https://www.audible.de/"
+        },
+        {
+          "url": "https://www.audible.de/",
+          "status": 302,
+          "location": "https://www.audible.com/?ref=Adbl_ip_rdr_from_DE&source_code=AUDGBHP0923159F0F&ipRedirectFrom=DE&ipRedirectOriginalURL="
+        },
+        {
+          "url": "https://www.audible.com/?ref=Adbl_ip_rdr_from_DE&source_code=AUDGBHP0923159F0F&ipRedirectFrom=DE&ipRedirectOriginalURL=",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "disc-wd-revista-brasileira-de-hematologia-e-hemoterapia",
+      "wall": "auth-ghost",
+      "title": "Revista brasileira de hematologia e hemoterapia",
+      "owner": "Wikidata",
+      "declaredDead": "2026-08-12",
+      "obituary": "http://www.wikidata.org/entity/Q26842116",
+      "probeUrl": "http://www.scielo.br/scielo.php?script=sci_serial&pid=0034-7280&lng=en&nrm=iso/",
+      "httpStatus": 403,
+      "finalUrl": "http://www.scielo.br/scielo.php?script=sci_serial&pid=0034-7280&lng=en&nrm=iso/",
+      "titleTag": "Establishing a secure connection ...",
+      "note": "Wikidata discontinued/dissolved (2017-12-01). Official website cited — verify funeral before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "http://www.scielo.br/scielo.php?script=sci_serial&pid=0034-7280&lng=en&nrm=iso/",
+          "status": 403
+        }
+      ]
+    },
+    {
+      "id": "disc-wd-revista-da-sociedade-brasileira-de-fonoaudiologi",
+      "wall": "auth-ghost",
+      "title": "Revista da Sociedade Brasileira de Fonoaudiologia",
+      "owner": "Wikidata",
+      "declaredDead": "2026-08-12",
+      "obituary": "http://www.wikidata.org/entity/Q26839867",
+      "probeUrl": "http://www.scielo.br/rsbf/",
+      "httpStatus": 403,
+      "finalUrl": "http://www.scielo.br/rsbf/",
+      "titleTag": "Establishing a secure connection ...",
+      "note": "Wikidata discontinued/dissolved (2012-12-31). Official website cited — verify funeral before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "http://www.scielo.br/rsbf/",
+          "status": 403
+        }
+      ]
+    },
+    {
+      "id": "disc-obit-blackberry-com",
+      "wall": "successor-facade",
+      "title": "blackberry.com",
+      "owner": "Unknown",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://blogs.blackberry.com/en/2019/04/update-on-bbm",
+      "probeUrl": "https://blackberry.com/",
+      "httpStatus": 200,
+      "finalUrl": "https://www.blackberry.com/en",
+      "titleTag": "BlackBerry | Secure Communications and QNX",
+      "note": "Linked from an already-cited funeral page. Discovered — verify product match before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://blackberry.com/",
+          "status": 301,
+          "location": "https://web.blackberry.com/"
+        },
+        {
+          "url": "https://web.blackberry.com/",
+          "status": 301,
+          "location": "https://www.blackberry.com/us/en"
+        },
+        {
+          "url": "https://www.blackberry.com/us/en",
+          "status": 301,
+          "location": "https://www.blackberry.com/en"
+        },
+        {
+          "url": "https://www.blackberry.com/en",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "disc-wd-annals-of-the-association-of-american-geographer",
+      "wall": "auth-ghost",
+      "title": "Annals of the Association of American Geographers",
+      "owner": "Wikidata",
+      "declaredDead": "2026-08-12",
+      "obituary": "http://www.wikidata.org/entity/Q114152166",
+      "probeUrl": "https://www.tandfonline.com/journals/raag20/",
+      "httpStatus": 403,
+      "finalUrl": "https://www.tandfonline.com/journals/raag20/",
+      "titleTag": "Just a moment...",
+      "note": "Wikidata discontinued/dissolved (2015-01-01). Official website cited — verify funeral before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://www.tandfonline.com/journals/raag20/",
+          "status": 403
+        }
+      ]
+    },
+    {
+      "id": "disc-wd-ekonomika-bisnis",
+      "wall": "successor-facade",
+      "title": "Ekonomika-Bisnis",
+      "owner": "Wikidata",
+      "declaredDead": "2026-08-12",
+      "obituary": "http://www.wikidata.org/entity/Q50810533",
+      "probeUrl": "http://ejournal.umm.ac.id/index.php/jeb/issue/archive/",
+      "httpStatus": 200,
+      "finalUrl": "https://ejournal.umm.ac.id/index.php/index/login?source=%2Findex.php%2Fjeb%2Fissue%2Farchive%2F",
+      "titleTag": "Login",
+      "note": "Wikidata discontinued/dissolved (2016-12-01). Official website cited — verify funeral before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "http://ejournal.umm.ac.id/index.php/jeb/issue/archive/",
+          "status": 302,
+          "location": "https://ejournal.umm.ac.id/index.php/jeb/issue/archive/"
+        },
+        {
+          "url": "https://ejournal.umm.ac.id/index.php/jeb/issue/archive/",
+          "status": 302,
+          "location": "https://ejournal.umm.ac.id/index.php/index/login?source=%2Findex.php%2Fjeb%2Fissue%2Farchive%2F"
+        },
+        {
+          "url": "https://ejournal.umm.ac.id/index.php/index/login?source=%2Findex.php%2Fjeb%2Fissue%2Farchive%2F",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "disc-wd-acp-journal-club",
+      "wall": "successor-facade",
+      "title": "ACP Journal Club",
+      "owner": "Wikidata",
+      "declaredDead": "2026-08-12",
+      "obituary": "http://www.wikidata.org/entity/Q15756319",
+      "probeUrl": "http://www.acponline.org/journals/acpjc/jcmenu.htm/",
+      "httpStatus": 200,
+      "finalUrl": "https://www.acponline.org/clinical-information/journals-publications",
+      "titleTag": "Internal Medicine Journals &amp; Publications | ACP",
+      "note": "Wikidata discontinued/dissolved (2008-04-01). Official website cited — verify funeral before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "http://www.acponline.org/journals/acpjc/jcmenu.htm/",
+          "status": 301,
+          "location": "https://www.acponline.org/journals/acpjc/jcmenu.htm/"
+        },
+        {
+          "url": "https://www.acponline.org/journals/acpjc/jcmenu.htm/",
+          "status": 301,
+          "location": "https://www.acponline.org/clinical-information/journals-publications"
+        },
+        {
+          "url": "https://www.acponline.org/clinical-information/journals-publications",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "disc-wd-pcanywhere",
+      "wall": "successor-facade",
+      "title": "pcAnywhere",
+      "owner": "Wikidata",
+      "declaredDead": "2026-08-12",
+      "obituary": "http://www.wikidata.org/entity/Q17083321",
+      "probeUrl": "https://support.symantec.com/de_DE/dpl.52418.html/",
+      "httpStatus": 200,
+      "finalUrl": "https://support.broadcom.com/c/portal/login?redirect=%2Fgroup%2Fecx%2Fmy-dashboard%3Fsegment%3DSE&refererPlid=33851&p_l_id=33047",
+      "titleTag": "Home - Support Portal - Broadcom support portal - Support Portal",
+      "note": "Wikidata discontinued/dissolved (2014-01-01). Official website cited — verify funeral before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://support.symantec.com/de_DE/dpl.52418.html/",
+          "status": 301,
+          "location": "https://support.broadcom.com/security"
+        },
+        {
+          "url": "https://support.broadcom.com/security",
+          "status": 301,
+          "location": "https://support.broadcom.com/group/ecx/my-dashboard?segment=SE"
+        },
+        {
+          "url": "https://support.broadcom.com/group/ecx/my-dashboard?segment=SE",
+          "status": 302,
+          "location": "https://support.broadcom.com/c/portal/login?redirect=%2Fgroup%2Fecx%2Fmy-dashboard%3Fsegment%3DSE&refererPlid=33851&p_l_id=33047"
+        },
+        {
+          "url": "https://support.broadcom.com/c/portal/login?redirect=%2Fgroup%2Fecx%2Fmy-dashboard%3Fsegment%3DSE&refererPlid=33851&p_l_id=33047",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "disc-wd-rai-revista-de-administra-o-e-inova-o",
+      "wall": "successor-facade",
+      "title": "RAI: Revista de Administração e Inovação",
+      "owner": "Wikidata",
+      "declaredDead": "2026-08-12",
+      "obituary": "http://www.wikidata.org/entity/Q50814681",
+      "probeUrl": "http://www.revistas.usp.br/rai/index/",
+      "httpStatus": 200,
+      "finalUrl": "https://revistas.usp.br/rai/pt_BR/index/",
+      "titleTag": "INMR - Innovation & Management Review",
+      "note": "Wikidata discontinued/dissolved (2018-01-01). Official website cited — verify funeral before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "http://www.revistas.usp.br/rai/index/",
+          "status": 301,
+          "location": "https://www.revistas.usp.br/rai/index/"
+        },
+        {
+          "url": "https://www.revistas.usp.br/rai/index/",
+          "status": 301,
+          "location": "https://revistas.usp.br/rai/index/"
+        },
+        {
+          "url": "https://revistas.usp.br/rai/index/",
+          "status": 302,
+          "location": "https://revistas.usp.br/rai/pt_BR/index/"
+        },
+        {
+          "url": "https://revistas.usp.br/rai/pt_BR/index/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "disc-wd-wildstar",
+      "wall": "successor-facade",
+      "title": "WildStar",
+      "owner": "Wikidata",
+      "declaredDead": "2026-08-12",
+      "obituary": "http://www.wikidata.org/entity/Q13501195",
+      "probeUrl": "http://www.wildstar-online.com/",
+      "httpStatus": 200,
+      "finalUrl": "https://www.nc.com/",
+      "titleTag": "NC - Welcome to a New world Connected Through Joy",
+      "note": "Wikidata discontinued/dissolved (2018-11-28). Official website cited — verify funeral before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "http://www.wildstar-online.com/",
+          "status": 301,
+          "location": "https://us.ncsoft.com/"
+        },
+        {
+          "url": "https://us.ncsoft.com/",
+          "status": 301,
+          "location": "https://nc.com/"
+        },
+        {
+          "url": "https://nc.com/",
+          "status": 307,
+          "location": "https://www.nc.com/"
+        },
+        {
+          "url": "https://www.nc.com/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "disc-wd-bento",
+      "wall": "successor-facade",
+      "title": "Bento",
+      "owner": "Wikidata",
+      "declaredDead": "2026-08-12",
+      "obituary": "http://www.wikidata.org/entity/Q1982971",
+      "probeUrl": "http://www.filemaker.com/products/bento/overview.html/",
+      "httpStatus": 200,
+      "finalUrl": "https://www.claris.com/filemaker/",
+      "titleTag": "Claris FileMaker | Build Custom Low-Code Apps With AI Features",
+      "note": "Wikidata discontinued/dissolved (2013-09-30). Official website cited — verify funeral before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "http://www.filemaker.com/products/bento/overview.html/",
+          "status": 301,
+          "location": "https://www.filemaker.com/products/bento/overview.html/"
+        },
+        {
+          "url": "https://www.filemaker.com/products/bento/overview.html/",
+          "status": 301,
+          "location": "https://www.claris.com/filemaker/"
+        },
+        {
+          "url": "https://www.claris.com/filemaker/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "disc-wd-gamepolitics-com",
+      "wall": "successor-facade",
+      "title": "GamePolitics.com",
+      "owner": "Wikidata",
+      "declaredDead": "2026-08-12",
+      "obituary": "http://www.wikidata.org/entity/Q5519787",
+      "probeUrl": "http://www.gamepolitics.com/",
+      "httpStatus": 200,
+      "finalUrl": "https://gamepolitics.com/",
+      "titleTag": "Berita Terkini Kasino &amp; Pertaruhan Dalam Talian 2026 di Malaysia",
+      "note": "Wikidata discontinued/dissolved (2016-04-18). Official website cited — verify funeral before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "http://www.gamepolitics.com/",
+          "status": 301,
+          "location": "https://www.gamepolitics.com/"
+        },
+        {
+          "url": "https://www.gamepolitics.com/",
+          "status": 301,
+          "location": "https://gamepolitics.com/"
+        },
+        {
+          "url": "https://gamepolitics.com/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "disc-obit-medium-com",
+      "wall": "auth-ghost",
+      "title": "medium.com",
+      "owner": "Obituary harvest",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://en.wikipedia.org/wiki/JSFiddle",
+      "probeUrl": "https://medium.com/",
+      "httpStatus": 403,
+      "finalUrl": "https://medium.com/",
+      "titleTag": "Attention Required! | Cloudflare",
+      "note": "Linked from an already-cited funeral page. Discovered — verify product match before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://medium.com/",
+          "status": 403
+        }
+      ]
+    },
+    {
+      "id": "disc-obit-developer-github-com",
+      "wall": "successor-facade",
+      "title": "developer.github.com",
+      "owner": "Obituary harvest",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://github.blog/2021-04-29-goodbye-dependabot-preview-hello-dependabot/",
+      "probeUrl": "https://developer.github.com/",
+      "httpStatus": 200,
+      "finalUrl": "https://docs.github.com/en",
+      "titleTag": "GitHub Docs",
+      "note": "Linked from an already-cited funeral page. Discovered — verify product match before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://developer.github.com/",
+          "status": 301,
+          "location": "https://docs.github.com/"
+        },
+        {
+          "url": "https://docs.github.com/",
+          "status": 302,
+          "location": "https://docs.github.com/en"
+        },
+        {
+          "url": "https://docs.github.com/en",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "disc-wd-openfeint",
+      "wall": "successor-facade",
+      "title": "OpenFeint",
+      "owner": "Wikidata",
+      "declaredDead": "2026-08-12",
+      "obituary": "http://www.wikidata.org/entity/Q1049664",
+      "probeUrl": "http://www.gree.net/",
+      "httpStatus": 200,
+      "finalUrl": "https://gree.jp/",
+      "titleTag": "GREE（グリー）",
+      "note": "Wikidata discontinued/dissolved (2012-12-14). Official website cited — verify funeral before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "http://www.gree.net/",
+          "status": 302,
+          "location": "https://games.gree.net/"
+        },
+        {
+          "url": "https://games.gree.net/",
+          "status": 302,
+          "location": "https://gree.jp/"
+        },
+        {
+          "url": "https://gree.jp/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "disc-wd-flipnote-hatena",
+      "wall": "successor-facade",
+      "title": "Flipnote Hatena",
+      "owner": "Wikidata",
+      "declaredDead": "2026-08-12",
+      "obituary": "http://www.wikidata.org/entity/Q11260325",
+      "probeUrl": "http://flipnote.hatena.com/",
+      "httpStatus": 200,
+      "finalUrl": "http://ugomemo.hatena.ne.jp/thankyou",
+      "titleTag": "うごメモはてな",
+      "note": "Wikidata discontinued/dissolved (2013-05-31). Official website cited — verify funeral before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "http://flipnote.hatena.com/",
+          "status": 302,
+          "location": "http://ugomemo.hatena.ne.jp/"
+        },
+        {
+          "url": "http://ugomemo.hatena.ne.jp/",
+          "status": 301,
+          "location": "http://ugomemo.hatena.ne.jp/thankyou"
+        },
+        {
+          "url": "http://ugomemo.hatena.ne.jp/thankyou",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "kbai-sora",
+      "wall": "auth-ghost",
+      "title": "OpenAI Sora",
+      "owner": "Unknown",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://help.openai.com/en/articles/20001152-what-to-know-about-the-sora-discontinuation",
+      "probeUrl": "https://sora.com/",
+      "httpStatus": 403,
+      "finalUrl": "https://sora.com/",
+      "titleTag": "Just a moment...",
+      "note": "Catalog seed from kbai (2026-04-26, app). Candidate “com” — hunt must verify.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://sora.com/",
+          "status": 403
+        }
+      ]
+    },
+    {
+      "id": "disc-wd-the-idolmaster-cinderella-girls",
+      "wall": "successor-facade",
+      "title": "The Idolmaster Cinderella Girls",
+      "owner": "Wikidata",
+      "declaredDead": "2026-08-12",
+      "obituary": "http://www.wikidata.org/entity/Q115508",
+      "probeUrl": "http://cinderella.idolmaster.jp/",
+      "httpStatus": 200,
+      "finalUrl": "https://idolmaster-official.jp/cinderellagirls",
+      "titleTag": "ブランド情報 - シンデレラガールズ | 【公式】アイドルマスター ポータル（アイマス）",
+      "note": "Wikidata discontinued/dissolved (2023-03-30). Official website cited — verify funeral before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "http://cinderella.idolmaster.jp/",
+          "status": 301,
+          "location": "https://cinderella.idolmaster.jp/"
+        },
+        {
+          "url": "https://cinderella.idolmaster.jp/",
+          "status": 301,
+          "location": "https://idolmaster-official.jp/cinderellagirls"
+        },
+        {
+          "url": "https://idolmaster-official.jp/cinderellagirls",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "disc-obit-c0-wp-com",
+      "wall": "auth-ghost",
+      "title": "c0.wp.com",
+      "owner": "Unknown",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://blog.codepen.io/",
+      "probeUrl": "https://c0.wp.com/",
+      "httpStatus": 403,
+      "finalUrl": "https://c0.wp.com/",
+      "titleTag": "403 Forbidden",
+      "note": "Linked from an already-cited funeral page. Discovered — verify product match before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://c0.wp.com/",
+          "status": 403
+        }
+      ]
+    },
+    {
+      "id": "disc-wd-korean-journal-of-critical-care-medicine",
+      "wall": "successor-facade",
+      "title": "Korean Journal of Critical Care Medicine",
+      "owner": "Wikidata",
+      "declaredDead": "2026-08-12",
+      "obituary": "http://www.wikidata.org/entity/Q50812159",
+      "probeUrl": "http://www.kjccm.org/",
+      "httpStatus": 200,
+      "finalUrl": "https://www.accjournal.org/",
+      "titleTag": "Acute and Critical Care",
+      "note": "Wikidata discontinued/dissolved (2017-12-01). Official website cited — verify funeral before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "http://www.kjccm.org/",
+          "status": 302,
+          "location": "http://accjournal.org/"
+        },
+        {
+          "url": "http://accjournal.org/",
+          "status": 302,
+          "location": "https://www.accjournal.org/"
+        },
+        {
+          "url": "https://www.accjournal.org/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "disc-obit-audible-in",
+      "wall": "successor-facade",
+      "title": "audible.in",
+      "owner": "Obituary harvest",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://www.audible.com/",
+      "probeUrl": "https://audible.in/",
+      "httpStatus": 200,
+      "finalUrl": "https://www.audible.com/?ref=Adbl_ip_rdr_from_IN&source_code=AUDOR0020712219ULI&ipRedirectFrom=IN&ipRedirectOriginalURL=",
+      "titleTag": "Audible | Listen to Audiobooks, Podcasts, & Originals",
+      "note": "Linked from an already-cited funeral page. Discovered — verify product match before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://audible.in/",
+          "status": 301,
+          "location": "https://www.audible.in/"
+        },
+        {
+          "url": "https://www.audible.in/",
+          "status": 302,
+          "location": "https://www.audible.com/?ref=Adbl_ip_rdr_from_IN&source_code=AUDOR0020712219ULI&ipRedirectFrom=IN&ipRedirectOriginalURL="
+        },
+        {
+          "url": "https://www.audible.com/?ref=Adbl_ip_rdr_from_IN&source_code=AUDOR0020712219ULI&ipRedirectFrom=IN&ipRedirectOriginalURL=",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "disc-wd-v-mire-nau-nyh-otkrytij",
+      "wall": "successor-facade",
+      "title": "V Mire Naučnyh Otkrytij",
+      "owner": "Wikidata",
+      "declaredDead": "2026-08-12",
+      "obituary": "http://www.wikidata.org/entity/Q50808418",
+      "probeUrl": "http://discover-journal.ru/",
+      "httpStatus": 200,
+      "finalUrl": "https://discover-journal.ru/jour/index.php/sjlsa",
+      "titleTag": "Siberian Journal of Life Sciences and Agriculture",
+      "note": "Wikidata discontinued/dissolved (2018-12-31). Official website cited — verify funeral before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "http://discover-journal.ru/",
+          "status": 301,
+          "location": "https://discover-journal.ru/"
+        },
+        {
+          "url": "https://discover-journal.ru/",
+          "status": 301,
+          "location": "https://discover-journal.ru/jour/index.php/sjlsa"
+        },
+        {
+          "url": "https://discover-journal.ru/jour/index.php/sjlsa",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "disc-wd-v-snik-dn-propetrovs-kogo-un-versitetu-ser-b-olo",
+      "wall": "successor-facade",
+      "title": "Vìsnik Dnìpropetrovsʹkogo Unìversitetu: Serìâ Bìologìâ, Medicina",
+      "owner": "Wikidata",
+      "declaredDead": "2026-08-12",
+      "obituary": "http://www.wikidata.org/entity/Q50811371",
+      "probeUrl": "http://medicine.dp.ua/",
+      "httpStatus": 200,
+      "finalUrl": "https://medicine.dp.ua/index.php/med",
+      "titleTag": "Regulatory Mechanisms in Biosystems",
+      "note": "Wikidata discontinued/dissolved (2016-12-31). Official website cited — verify funeral before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "http://medicine.dp.ua/",
+          "status": 301,
+          "location": "https://medicine.dp.ua/"
+        },
+        {
+          "url": "https://medicine.dp.ua/",
+          "status": 302,
+          "location": "https://medicine.dp.ua/index.php/med"
+        },
+        {
+          "url": "https://medicine.dp.ua/index.php/med",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "disc-wd-heraldique-et-genealogie",
+      "wall": "successor-facade",
+      "title": "Heraldique et genealogie",
+      "owner": "Unknown",
+      "declaredDead": "2026-08-12",
+      "obituary": "http://www.wikidata.org/entity/Q3145004",
+      "probeUrl": "http://www.eurogeneal.com/",
+      "httpStatus": 200,
+      "finalUrl": "https://eurogeneal.com/",
+      "titleTag": "Eurogeneal - Voir le monde, voir demain, voir l'horizon.",
+      "note": "Wikidata discontinued/dissolved (2016-01-01). Official website cited — verify funeral before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "http://www.eurogeneal.com/",
+          "status": 301,
+          "location": "https://www.eurogeneal.com/"
+        },
+        {
+          "url": "https://www.eurogeneal.com/",
+          "status": 301,
+          "location": "https://eurogeneal.com/"
+        },
+        {
+          "url": "https://eurogeneal.com/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "disc-wd-everquest-next",
+      "wall": "successor-facade",
+      "title": "EverQuest Next",
+      "owner": "Unknown",
+      "declaredDead": "2026-08-12",
+      "obituary": "http://www.wikidata.org/entity/Q4038383",
+      "probeUrl": "https://www.everquestnext.com/",
+      "httpStatus": 200,
+      "finalUrl": "https://auth.daybreakgames.com/login?service=https%3A%2F%2Fwww.everquestnext.com%2Fj_spring_cas_security_check&theme=dgc&locale=en_US",
+      "titleTag": "Login to Daybreak Games",
+      "note": "Wikidata discontinued/dissolved (2016-03-11). Official website cited — verify funeral before hang. TLS note: browser may open this host; Node saw ERR_TLS_CERT_ALTNAME_INVALID (incomplete/untrusted chain) and recorded status after a documented retry.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://www.everquestnext.com/",
+          "status": 302,
+          "location": "https://www.everquestnext.com/authenticated/cam/amHome.vm"
+        },
+        {
+          "url": "https://www.everquestnext.com/authenticated/cam/amHome.vm",
+          "status": 302,
+          "location": "https://auth.daybreakgames.com/login?service=https%3A%2F%2Fwww.everquestnext.com%2Fj_spring_cas_security_check&theme=dgc&locale=en_US"
+        },
+        {
+          "url": "https://auth.daybreakgames.com/login?service=https%3A%2F%2Fwww.everquestnext.com%2Fj_spring_cas_security_check&theme=dgc&locale=en_US",
+          "status": 200
+        }
+      ],
+      "tlsWarning": "ERR_TLS_CERT_ALTNAME_INVALID"
+    },
+    {
+      "id": "disc-wd-sunflow",
+      "wall": "successor-facade",
+      "title": "Sunflow",
+      "owner": "Wikidata",
+      "declaredDead": "2026-08-12",
+      "obituary": "http://www.wikidata.org/entity/Q4050391",
+      "probeUrl": "http://sunflow.sourceforge.net/",
+      "httpStatus": 200,
+      "finalUrl": "https://sourceforge.net/projects/sunflow/",
+      "titleTag": "Sunflow Rendering System download | SourceForge.net",
+      "note": "Wikidata discontinued/dissolved (2007-04-11). Official website cited — verify funeral before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "http://sunflow.sourceforge.net/",
+          "status": 301,
+          "location": "https://sunflow.sourceforge.net/"
+        },
+        {
+          "url": "https://sunflow.sourceforge.net/",
+          "status": 302,
+          "location": "https://sourceforge.net/projects/sunflow/"
+        },
+        {
+          "url": "https://sourceforge.net/projects/sunflow/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "disc-wd-silex",
+      "wall": "successor-facade",
+      "title": "Silex",
+      "owner": "Wikidata",
+      "declaredDead": "2026-08-12",
+      "obituary": "http://www.wikidata.org/entity/Q22661313",
+      "probeUrl": "https://silex.symfony.com/",
+      "httpStatus": 200,
+      "finalUrl": "https://symfony.com/blog/the-end-of-silex",
+      "titleTag": "The end of Silex (Symfony Blog)",
+      "note": "Wikidata discontinued/dissolved (2018-01-12). Official website cited — verify funeral before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://silex.symfony.com/",
+          "status": 301,
+          "location": "https://symfony.com/blog/the-end-of-silex/"
+        },
+        {
+          "url": "https://symfony.com/blog/the-end-of-silex/",
+          "status": 301,
+          "location": "https://symfony.com/blog/the-end-of-silex"
+        },
+        {
+          "url": "https://symfony.com/blog/the-end-of-silex",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "disc-wd-lazaroa",
+      "wall": "successor-facade",
+      "title": "Lazaroa",
+      "owner": "Wikidata",
+      "declaredDead": "2026-08-12",
+      "obituary": "http://www.wikidata.org/entity/Q50434818",
+      "probeUrl": "http://revistas.ucm.es/index.php/laza/",
+      "httpStatus": 200,
+      "finalUrl": "https://revistas.ucm.es/index.php/laza/en/",
+      "titleTag": "Lazaroa",
+      "note": "Wikidata discontinued/dissolved (2017-12-31). Official website cited — verify funeral before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "http://revistas.ucm.es/index.php/laza/",
+          "status": 301,
+          "location": "https://revistas.ucm.es/index.php/laza/"
+        },
+        {
+          "url": "https://revistas.ucm.es/index.php/laza/",
+          "status": 302,
+          "location": "https://revistas.ucm.es/index.php/laza/en/"
+        },
+        {
+          "url": "https://revistas.ucm.es/index.php/laza/en/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "disc-wd-netscape-navigator",
+      "wall": "successor-facade",
+      "title": "Netscape Navigator",
+      "owner": "Wikidata",
+      "declaredDead": "2026-08-12",
+      "obituary": "http://www.wikidata.org/entity/Q235419",
+      "probeUrl": "http://netscape.com/",
+      "httpStatus": 200,
+      "finalUrl": "https://www.aol.com/",
+      "titleTag": "News, Politics, Sports, Mail &amp; Latest Headlines - AOL.com",
+      "note": "Wikidata discontinued/dissolved (2008-02-21). Official website cited — verify funeral before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "http://netscape.com/",
+          "status": 301,
+          "location": "https://netscape.com/"
+        },
+        {
+          "url": "https://netscape.com/",
+          "status": 301,
+          "location": "https://www.aol.com/"
+        },
+        {
+          "url": "https://www.aol.com/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "disc-wd-presto",
+      "wall": "successor-facade",
+      "title": "Presto",
+      "owner": "Wikidata",
+      "declaredDead": "2026-08-12",
+      "obituary": "http://www.wikidata.org/entity/Q1074972",
+      "probeUrl": "http://dev.opera.com/",
+      "httpStatus": 200,
+      "finalUrl": "https://blogs.opera.com/news/",
+      "titleTag": "The Opera Blog - News | Opera",
+      "note": "Wikidata discontinued/dissolved (2015-03-16). Official website cited — verify funeral before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "http://dev.opera.com/",
+          "status": 301,
+          "location": "https://blogs.opera.com/"
+        },
+        {
+          "url": "https://blogs.opera.com/",
+          "status": 302,
+          "location": "https://blogs.opera.com/news/"
+        },
+        {
+          "url": "https://blogs.opera.com/news/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "disc-wd-fizi-eskoe-vospitanie-studentov",
+      "wall": "successor-facade",
+      "title": "Fizičeskoe Vospitanie Studentov",
+      "owner": "Wikidata",
+      "declaredDead": "2026-08-12",
+      "obituary": "http://www.wikidata.org/entity/Q50808486",
+      "probeUrl": "http://sportedu.org.ua/",
+      "httpStatus": 200,
+      "finalUrl": "https://sportedu.org.ua/index.php/PES",
+      "titleTag": "Physical Education of Students",
+      "note": "Wikidata discontinued/dissolved (2012-12-31). Official website cited — verify funeral before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "http://sportedu.org.ua/",
+          "status": 301,
+          "location": "https://sportedu.org.ua/"
+        },
+        {
+          "url": "https://sportedu.org.ua/",
+          "status": 302,
+          "location": "https://sportedu.org.ua/index.php/PES"
+        },
+        {
+          "url": "https://sportedu.org.ua/index.php/PES",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "disc-obit-blackberry-qnx-com",
+      "wall": "successor-facade",
+      "title": "blackberry.qnx.com",
+      "owner": "Unknown",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://www.blackberry.com/",
+      "probeUrl": "https://blackberry.qnx.com/",
+      "httpStatus": 200,
+      "finalUrl": "https://qnx.software/en",
+      "titleTag": "QNX | Embedded Software &#x26; Solutions",
+      "note": "Linked from an already-cited funeral page. Discovered — verify product match before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://blackberry.qnx.com/",
+          "status": 301,
+          "location": "https://qnx.software/"
+        },
+        {
+          "url": "https://qnx.software/",
+          "status": 301,
+          "location": "https://qnx.software/en"
+        },
+        {
+          "url": "https://qnx.software/en",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "disc-wd-xsight",
+      "wall": "successor-facade",
+      "title": "XSight",
+      "owner": "Wikidata",
+      "declaredDead": "2026-08-12",
+      "obituary": "http://www.wikidata.org/entity/Q8042491",
+      "probeUrl": "http://www.qsrinternational.com/products_xsight.aspx/",
+      "httpStatus": 200,
+      "finalUrl": "https://lumivero.com/",
+      "titleTag": "Lumivero - Software Solutions for Data Analysis &amp; Management",
+      "note": "Wikidata discontinued/dissolved (2014-01-31). Official website cited — verify funeral before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "http://www.qsrinternational.com/products_xsight.aspx/",
+          "status": 301,
+          "location": "https://www.qsrinternational.com/products_xsight.aspx/"
+        },
+        {
+          "url": "https://www.qsrinternational.com/products_xsight.aspx/",
+          "status": 302,
+          "location": "https://lumivero.com/"
+        },
+        {
+          "url": "https://lumivero.com/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "disc-wd-docu-tve",
+      "wall": "successor-facade",
+      "title": "Docu TVE",
+      "owner": "Unknown",
+      "declaredDead": "2026-08-12",
+      "obituary": "http://www.wikidata.org/entity/Q3121196",
+      "probeUrl": "http://www.rtve.es/culturales/",
+      "httpStatus": 200,
+      "finalUrl": "https://www.rtve.es/play/cultura/",
+      "titleTag": "Cultura: Programas culturales de Televisión Española en RTVE Play",
+      "note": "Wikidata discontinued/dissolved (2009-04-23). Official website cited — verify funeral before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "http://www.rtve.es/culturales/",
+          "status": 301,
+          "location": "https://www.rtve.es/television/cultura/"
+        },
+        {
+          "url": "https://www.rtve.es/television/cultura/",
+          "status": 301,
+          "location": "https://www.rtve.es/play/cultura/"
+        },
+        {
+          "url": "https://www.rtve.es/play/cultura/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "disc-wd-hdrug",
+      "wall": "successor-facade",
+      "title": "HDRUG",
+      "owner": "Wikidata",
+      "declaredDead": "2026-08-12",
+      "obituary": "http://www.wikidata.org/entity/Q32161532",
+      "probeUrl": "http://www.let.rug.nl/~vannoord/Hdrug/",
+      "httpStatus": 200,
+      "finalUrl": "https://www.let.rug.nl/~vannoord/Hdrug/",
+      "titleTag": "Hdrug Home Page",
+      "note": "Wikidata discontinued/dissolved (2007-05-26). Official website cited — verify funeral before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "http://www.let.rug.nl/~vannoord/Hdrug/",
+          "status": 308,
+          "location": "https://www.let.rug.nl/~vannoord/Hdrug"
+        },
+        {
+          "url": "https://www.let.rug.nl/~vannoord/Hdrug",
+          "status": 301,
+          "location": "https://www.let.rug.nl/~vannoord/Hdrug/"
+        },
+        {
+          "url": "https://www.let.rug.nl/~vannoord/Hdrug/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "disc-obit-wikidata-org",
+      "wall": "successor-facade",
+      "title": "wikidata.org",
+      "owner": "Obituary harvest",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://en.wikipedia.org/wiki/Fire_Phone",
+      "probeUrl": "https://wikidata.org/",
+      "httpStatus": 200,
+      "finalUrl": "https://www.wikidata.org/wiki/Wikidata:Main_Page",
+      "titleTag": "Wikidata",
+      "note": "Linked from an already-cited funeral page. Discovered — verify product match before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://wikidata.org/",
+          "status": 301,
+          "location": "https://www.wikidata.org/"
+        },
+        {
+          "url": "https://www.wikidata.org/",
+          "status": 301,
+          "location": "https://www.wikidata.org/wiki/Wikidata:Main_Page"
+        },
+        {
+          "url": "https://www.wikidata.org/wiki/Wikidata:Main_Page",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "disc-obit-womentechmakers-com",
+      "wall": "successor-facade",
+      "title": "womentechmakers.com",
+      "owner": "Obituary harvest",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://developers.googleblog.com/en/google-url-shortener-links-will-no-longer-be-available/",
+      "probeUrl": "https://womentechmakers.com/",
+      "httpStatus": 200,
+      "finalUrl": "https://www.technovation.org/women-techmakers/",
+      "titleTag": "Women Techmakers | Technovation",
+      "note": "Linked from an already-cited funeral page. Discovered — verify product match before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://womentechmakers.com/",
+          "status": 301,
+          "location": "https://developers.google.com/womentechmakers"
+        },
+        {
+          "url": "https://developers.google.com/womentechmakers",
+          "status": 301,
+          "location": "https://www.technovation.org/women-techmakers/"
+        },
+        {
+          "url": "https://www.technovation.org/women-techmakers/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "disc-wd-ya-online",
+      "wall": "successor-facade",
+      "title": "Ya.Online",
+      "owner": "Wikidata",
+      "declaredDead": "2026-08-12",
+      "obituary": "http://www.wikidata.org/entity/Q4535652",
+      "probeUrl": "http://online.yandex.ru/",
+      "httpStatus": 200,
+      "finalUrl": "https://passport.yandex.ru/auth?from=mail&origin=hostroot_homer_auth_oldbro_ru&retpath=https%3A%2F%2Fmail.yandex.ru%2F&noreturn=1",
+      "titleTag": "Log in",
+      "note": "Wikidata discontinued/dissolved (2016-10-05). Official website cited — verify funeral before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "http://online.yandex.ru/",
+          "status": 301,
+          "location": "https://mail.yandex.ru/"
+        },
+        {
+          "url": "https://mail.yandex.ru/",
+          "status": 302,
+          "location": "https://passport.yandex.ru/auth?from=mail&origin=hostroot_homer_auth_oldbro_ru&retpath=https%3A%2F%2Fmail.yandex.ru%2F&noreturn=1"
+        },
+        {
+          "url": "https://passport.yandex.ru/auth?from=mail&origin=hostroot_homer_auth_oldbro_ru&retpath=https%3A%2F%2Fmail.yandex.ru%2F&noreturn=1",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "disc-obit-aka-ms",
+      "wall": "successor-facade",
+      "title": "aka.ms",
+      "owner": "Obituary harvest",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://learn.microsoft.com/en-us/graph/migrate-azure-ad-graph-overview",
+      "probeUrl": "https://aka.ms/",
+      "httpStatus": 200,
+      "finalUrl": "https://witty-sand-06796de1e.2.azurestaticapps.net/links?host=1",
+      "titleTag": "aka.ms Link Management",
+      "note": "Linked from an already-cited funeral page. Discovered — verify product match before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://aka.ms/",
+          "status": 302,
+          "location": "https://witty-sand-06796de1e.2.azurestaticapps.net/links?host=1"
+        },
+        {
+          "url": "https://witty-sand-06796de1e.2.azurestaticapps.net/links?host=1",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "disc-wd-alto-mail",
+      "wall": "successor-facade",
+      "title": "Alto Mail",
+      "owner": "Wikidata",
+      "declaredDead": "2026-08-12",
+      "obituary": "http://www.wikidata.org/entity/Q22906312",
+      "probeUrl": "http://altomail.com/",
+      "httpStatus": 200,
+      "finalUrl": "https://mail.yahoo.com/",
+      "titleTag": "Yahoo Mail | Email with smart features and top-notch security",
+      "note": "Wikidata discontinued/dissolved (2017-12-10). Official website cited — verify funeral before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "http://altomail.com/",
+          "status": 301,
+          "location": "https://mail.yahoo.com/"
+        },
+        {
+          "url": "https://mail.yahoo.com/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "disc-obit-audible-com-au",
+      "wall": "successor-facade",
+      "title": "audible.com.au",
+      "owner": "Obituary harvest",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://www.audible.com/",
+      "probeUrl": "https://audible.com.au/",
+      "httpStatus": 200,
+      "finalUrl": "https://www.audible.com/?ref=Adbl_ip_rdr_from_AU&source_code=AUDGBHP0923159F0I&ipRedirectFrom=AU&ipRedirectOriginalURL=&_ssoLoop=1",
+      "titleTag": "Audible | Listen to Audiobooks, Podcasts, & Originals",
+      "note": "Linked from an already-cited funeral page. Discovered — verify product match before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://audible.com.au/",
+          "status": 301,
+          "location": "https://www.audible.com.au/"
+        },
+        {
+          "url": "https://www.audible.com.au/",
+          "status": 302,
+          "location": "https://www.audible.com/?ref=Adbl_ip_rdr_from_AU&source_code=AUDGBHP0923159F0I&ipRedirectFrom=AU&ipRedirectOriginalURL="
+        },
+        {
+          "url": "https://www.audible.com/?ref=Adbl_ip_rdr_from_AU&source_code=AUDGBHP0923159F0I&ipRedirectFrom=AU&ipRedirectOriginalURL=",
+          "status": 302,
+          "location": "https://www.amazon.com/ax/sso/redirect?mode=eager&return_url=https%3A%2F%2Fwww.audible.com%2F%3Fref%3DAdbl_ip_rdr_from_AU%26source_code%3DAUDGBHP0923159F0I%26ipRedirectFrom%3DAU%26ipRedirectOriginalURL%3D%26_ssoLoop%3D1&signin_url=https%3A%2F%2Fwww.amazon.com%2Fap%2Fsignin%3Fopenid.identity%3Dhttp%253A%252F%252Fspecs.openid.net%252Fauth%252F2.0%252Fidentifier_select%26openid.assoc_handle%3Daudible_experiment_sso_web_us%26siteState%3D130-4010121-6079267%26marketPlaceId%3DAF2M0KC94RCEA%26language%3Den_US%26openid.claimed_id%3Dhttp%253A%252F%252Fspecs.openid.net%252Fauth%252F2.0%252Fidentifier_select%26pageId%3Damzn_audible_bc_us%26openid.ns%3Dhttp%253A%252F%252Fspecs.openid.net%252Fauth%252F2.0%26openid.return_to%3Dhttps%253A%252F%252Fwww.audible.com%252F%253FipRedirectFrom%253DAU%2526ref%253DAdbl_ip_rdr_from_AU%2526ipRedirectOriginalURL%253D%2526source_code%253DAUDGBHP0923159F0I%2526loginAttempt%253Dtrue%2526_ssoLoop%253D1%26openid.mode%3Dcheckid_immediate%26openid.pape.max_auth_age%3D31536000"
+        },
+        {
+          "url": "https://www.amazon.com/ax/sso/redirect?mode=eager&return_url=https%3A%2F%2Fwww.audible.com%2F%3Fref%3DAdbl_ip_rdr_from_AU%26source_code%3DAUDGBHP0923159F0I%26ipRedirectFrom%3DAU%26ipRedirectOriginalURL%3D%26_ssoLoop%3D1&signin_url=https%3A%2F%2Fwww.amazon.com%2Fap%2Fsignin%3Fopenid.identity%3Dhttp%253A%252F%252Fspecs.openid.net%252Fauth%252F2.0%252Fidentifier_select%26openid.assoc_handle%3Daudible_experiment_sso_web_us%26siteState%3D130-4010121-6079267%26marketPlaceId%3DAF2M0KC94RCEA%26language%3Den_US%26openid.claimed_id%3Dhttp%253A%252F%252Fspecs.openid.net%252Fauth%252F2.0%252Fidentifier_select%26pageId%3Damzn_audible_bc_us%26openid.ns%3Dhttp%253A%252F%252Fspecs.openid.net%252Fauth%252F2.0%26openid.return_to%3Dhttps%253A%252F%252Fwww.audible.com%252F%253FipRedirectFrom%253DAU%2526ref%253DAdbl_ip_rdr_from_AU%2526ipRedirectOriginalURL%253D%2526source_code%253DAUDGBHP0923159F0I%2526loginAttempt%253Dtrue%2526_ssoLoop%253D1%26openid.mode%3Dcheckid_immediate%26openid.pape.max_auth_age%3D31536000",
+          "status": 302,
+          "location": "https://www.audible.com/?ref=Adbl_ip_rdr_from_AU&source_code=AUDGBHP0923159F0I&ipRedirectFrom=AU&ipRedirectOriginalURL=&_ssoLoop=1"
+        },
+        {
+          "url": "https://www.audible.com/?ref=Adbl_ip_rdr_from_AU&source_code=AUDGBHP0923159F0I&ipRedirectFrom=AU&ipRedirectOriginalURL=&_ssoLoop=1",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "disc-wd-autoproxy",
+      "wall": "successor-facade",
+      "title": "AutoProxy",
+      "owner": "Wikidata",
+      "declaredDead": "2026-08-12",
+      "obituary": "http://www.wikidata.org/entity/Q10846484",
+      "probeUrl": "https://autoproxy.org/",
+      "httpStatus": 200,
+      "finalUrl": "https://autoproxy.com/",
+      "titleTag": "Autoproxy LLC | Cybersecurity Advisory, Risk Modeling & Vulnerability Prioritization",
+      "note": "Wikidata discontinued/dissolved (2015-03-27). Official website cited — verify funeral before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://autoproxy.org/",
+          "status": 301,
+          "location": "https://autoproxy.com/"
+        },
+        {
+          "url": "https://autoproxy.com/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "disc-wd-bestgore-com",
+      "wall": "successor-facade",
+      "title": "bestgore.com",
+      "owner": "Unknown",
+      "declaredDead": "2026-08-12",
+      "obituary": "http://www.wikidata.org/entity/Q4897064",
+      "probeUrl": "http://www.bestgore.com/",
+      "httpStatus": 200,
+      "finalUrl": "https://www.bestgore.com/",
+      "titleTag": "Best Gore",
+      "note": "Wikidata discontinued/dissolved (2020-01-01). Official website cited — verify funeral before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "http://www.bestgore.com/",
+          "status": 301,
+          "location": "https://www.bestgore.com/"
+        },
+        {
+          "url": "https://www.bestgore.com/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "disc-obit-billupsxd-com",
+      "wall": "successor-facade",
+      "title": "billupsxd.com",
+      "owner": "Unknown",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://en.wikipedia.org/wiki/Adobe_BrowserLab",
+      "probeUrl": "https://billupsxd.com/",
+      "httpStatus": 200,
+      "finalUrl": "https://www.billupsxd.com/",
+      "titleTag": "Ted Billups UX Leader and Behavioral UX Designer",
+      "note": "Linked from an already-cited funeral page. Discovered — verify product match before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://billupsxd.com/",
+          "status": 301,
+          "location": "https://www.billupsxd.com/"
+        },
+        {
+          "url": "https://www.billupsxd.com/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "disc-wd-q18515944",
+      "wall": "successor-facade",
+      "title": "Q18515944",
+      "owner": "Unknown",
+      "declaredDead": "2026-08-12",
+      "obituary": "http://www.wikidata.org/entity/Q18515944",
+      "probeUrl": "https://overwatch.blizzard.com/",
+      "httpStatus": 200,
+      "finalUrl": "https://overwatch.blizzard.com/en-us/",
+      "titleTag": "Overwatch",
+      "note": "Wikidata discontinued/dissolved (2022-10-03). Official website cited — verify funeral before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://overwatch.blizzard.com/",
+          "status": 307,
+          "location": "https://overwatch.blizzard.com/en-us/"
+        },
+        {
+          "url": "https://overwatch.blizzard.com/en-us/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "disc-wd-caller-s-bane",
+      "wall": "successor-facade",
+      "title": "Caller's Bane",
+      "owner": "Wikidata",
+      "declaredDead": "2026-08-12",
+      "obituary": "http://www.wikidata.org/entity/Q7439285",
+      "probeUrl": "https://callersbane.com/",
+      "httpStatus": 200,
+      "finalUrl": "https://mojang.github.io/CallersBaneSiteArchive/",
+      "titleTag": "Caller&#39;s Bane Site Archive | An archive for the Caller&#39;s Bane website, including download links for game distribution, and archived news articles.",
+      "note": "Wikidata discontinued/dissolved (2018-02-13). Official website cited — verify funeral before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://callersbane.com/",
+          "status": 301,
+          "location": "https://mojang.github.io/CallersBaneSiteArchive/"
+        },
+        {
+          "url": "https://mojang.github.io/CallersBaneSiteArchive/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "disc-wd-teor-a-de-la-educaci-n-educaci-n-y-cultura-en-la",
+      "wall": "successor-facade",
+      "title": "Teoría de la Educación: Educación y Cultura en la Sociedad de la Información",
+      "owner": "Wikidata",
+      "declaredDead": "2026-08-12",
+      "obituary": "http://www.wikidata.org/entity/Q50814328",
+      "probeUrl": "http://digital.casalini.it/11389737/",
+      "httpStatus": 200,
+      "finalUrl": "https://digital.casalini.it/11389737/",
+      "note": "Wikidata discontinued/dissolved (2014-12-31). Official website cited — verify funeral before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "http://digital.casalini.it/11389737/",
+          "status": 301,
+          "location": "https://digital.casalini.it/11389737/"
+        },
+        {
+          "url": "https://digital.casalini.it/11389737/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "disc-wd-chaton",
+      "wall": "successor-facade",
+      "title": "ChatON",
+      "owner": "Wikidata",
+      "declaredDead": "2026-08-12",
+      "obituary": "http://www.wikidata.org/entity/Q497230",
+      "probeUrl": "http://www.chaton.chat/",
+      "httpStatus": 200,
+      "finalUrl": "https://expireddomains.com/domain/chaton.chat?utm_source=redi",
+      "titleTag": "Get chaton.chat — Afternic / GoDaddy | ExpiredDomains.com",
+      "note": "Wikidata discontinued/dissolved (2015-03-31). Official website cited — verify funeral before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "http://www.chaton.chat/",
+          "status": 301,
+          "location": "https://expireddomains.com/domain/chaton.chat?utm_source=redi"
+        },
+        {
+          "url": "https://expireddomains.com/domain/chaton.chat?utm_source=redi",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "disc-obit-money-cnn-com",
+      "wall": "successor-facade",
+      "title": "money.cnn.com",
+      "owner": "Unknown",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://en.wikipedia.org/wiki/Angelfire",
+      "probeUrl": "https://money.cnn.com/",
+      "httpStatus": 200,
+      "finalUrl": "https://www.cnn.com/business",
+      "note": "Linked from an already-cited funeral page. Discovered — verify product match before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://money.cnn.com/",
+          "status": 301,
+          "location": "https://www.cnn.com/business"
+        },
+        {
+          "url": "https://www.cnn.com/business",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "disc-obit-apple-com-cn",
+      "wall": "successor-facade",
+      "title": "apple.com.cn",
+      "owner": "Unknown",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://www.apple.com/newsroom/",
+      "probeUrl": "https://apple.com.cn/",
+      "httpStatus": 200,
+      "finalUrl": "https://www.apple.com.cn/",
+      "titleTag": "Apple (中国大陆) - 官方网站",
+      "note": "Linked from an already-cited funeral page. Discovered — verify product match before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://apple.com.cn/",
+          "status": 301,
+          "location": "https://www.apple.com.cn/"
+        },
+        {
+          "url": "https://www.apple.com.cn/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "disc-wd-dachau-review",
+      "wall": "successor-facade",
+      "title": "Dachau review",
+      "owner": "Wikidata",
+      "declaredDead": "2026-08-12",
+      "obituary": "http://www.wikidata.org/entity/Q16763024",
+      "probeUrl": "http://www.dachauer-hefte.de/",
+      "httpStatus": 200,
+      "finalUrl": "https://www.comiteinternationaldachau.com/dachauerhefteABA/index.html",
+      "titleTag": "Dachauer Hefte",
+      "note": "Wikidata discontinued/dissolved (2009-01-01). Official website cited — verify funeral before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "http://www.dachauer-hefte.de/",
+          "status": 301,
+          "location": "https://www.comiteinternationaldachau.com/dachauerhefteABA/index.html"
+        },
+        {
+          "url": "https://www.comiteinternationaldachau.com/dachauerhefteABA/index.html",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "disc-wd-desura",
+      "wall": "successor-facade",
+      "title": "Desura",
+      "owner": "Unknown",
+      "declaredDead": "2026-08-12",
+      "obituary": "http://www.wikidata.org/entity/Q333455",
+      "probeUrl": "https://www.desura.games/",
+      "httpStatus": 200,
+      "finalUrl": "https://www.desura.com/",
+      "titleTag": "Play Free Online Games on Desura",
+      "note": "Wikidata discontinued/dissolved (2016-01-01). Official website cited — verify funeral before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://www.desura.games/",
+          "status": 301,
+          "location": "https://www.desura.com/"
+        },
+        {
+          "url": "https://www.desura.com/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "disc-wd-dictionaryofengineering-com",
+      "wall": "successor-facade",
+      "title": "dictionaryofengineering.com",
+      "owner": "Wikidata",
+      "declaredDead": "2026-08-12",
+      "obituary": "http://www.wikidata.org/entity/Q52011740",
+      "probeUrl": "http://www.dictionaryofengineering.com/",
+      "httpStatus": 200,
+      "finalUrl": "https://www.dictionaryofengineering.com/",
+      "titleTag": "Dictionary of Engineering",
+      "note": "Wikidata discontinued/dissolved (2018-01-01). Official website cited — verify funeral before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "http://www.dictionaryofengineering.com/",
+          "status": 301,
+          "location": "https://www.dictionaryofengineering.com/"
+        },
+        {
+          "url": "https://www.dictionaryofengineering.com/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "disc-wd-disciplesworld",
+      "wall": "successor-facade",
+      "title": "DisciplesWorld",
+      "owner": "Wikidata",
+      "declaredDead": "2026-08-12",
+      "obituary": "http://www.wikidata.org/entity/Q5281463",
+      "probeUrl": "http://www.disciplesworld.com/",
+      "httpStatus": 200,
+      "finalUrl": "https://www.hugedomains.com/domain_profile.cfm?d=disciplesworld.com",
+      "titleTag": "DisciplesWorld.com is for sale | HugeDomains",
+      "note": "Wikidata discontinued/dissolved (2008-01-01). Official website cited — verify funeral before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "http://www.disciplesworld.com/",
+          "status": 302,
+          "location": "https://www.hugedomains.com/domain_profile.cfm?d=disciplesworld.com"
+        },
+        {
+          "url": "https://www.hugedomains.com/domain_profile.cfm?d=disciplesworld.com",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "disc-wd-d-mergent",
+      "wall": "successor-facade",
+      "title": "[D]mergent",
+      "owner": "Wikidata",
+      "declaredDead": "2026-08-12",
+      "obituary": "http://www.wikidata.org/entity/Q134581244",
+      "probeUrl": "http://dmergent.org/",
+      "httpStatus": 200,
+      "finalUrl": "https://dmergent.org/",
+      "titleTag": "D Mergent | Fertilizing The Future With The Wisdom Of The Past.",
+      "note": "Wikidata discontinued/dissolved (2017-07-26). Official website cited — verify funeral before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "http://dmergent.org/",
+          "status": 301,
+          "location": "https://dmergent.org/"
+        },
+        {
+          "url": "https://dmergent.org/",
           "status": 200
         }
       ]

@@ -35,20 +35,34 @@ function row(r) {
 
 const list = document.getElementById("curate-list");
 const lede = document.getElementById("curate-lede");
+const POLL_MS = 15_000;
 
-try {
-  const data = await fetch(`/api/curate?t=${Date.now()}`, { cache: "no-store" }).then((r) =>
-    r.json(),
-  );
+function paint(data) {
   const queue = data.queue || [];
   if (lede) {
     const bd = data.byDecision || {};
-    const when = data.curatedAt ? data.curatedAt.slice(0, 16).replace("T", " ") : "—";
-    lede.textContent = `Auto-curate desk · refreshed ${when} UTC · strong ${bd.strong ?? 0} pending · consider ${bd.consider ?? 0} · hall ${data.hallSize ?? "—"} · hang:auto drains this queue`;
+    const when = (data.refreshedAt || data.curatedAt || "")
+      .slice(0, 16)
+      .replace("T", " ");
+    lede.textContent = `Auto-curate desk · live ${when || "—"} UTC · strong ${bd.strong ?? 0} pending · consider ${bd.consider ?? 0} · hall ${data.hallSize ?? "—"} · hang:auto drains this queue`;
   }
   list.innerHTML = queue.length
     ? queue.map(row).join("")
     : `<p class="gm-lede">Desk clear — hang:auto caught up. Authority will refill from new evidence.</p>`;
+}
+
+async function loadDesk() {
+  const data = await fetch(`/api/curate?t=${Date.now()}`, { cache: "no-store" }).then((r) =>
+    r.json(),
+  );
+  paint(data);
+}
+
+try {
+  await loadDesk();
+  setInterval(() => {
+    loadDesk().catch(() => {});
+  }, POLL_MS);
 } catch {
   list.innerHTML = `<p class="gm-lede">Could not load curate desk.</p>`;
 }

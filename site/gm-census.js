@@ -12,21 +12,22 @@ export function paintCensus(census, { hungFallback = 0 } = {}) {
   const meta = document.getElementById("ghost-count-meta");
   const frame = document.querySelector(".gm-count-frame");
   if (!el || !census) return;
-  const total = census.total ?? hungFallback;
+  const hung = census.hung ?? hungFallback;
+  const verified = census.verified ?? 0;
+  const contacted = census.contacted ?? verified;
+  const watching = census.watchlist ?? 0;
+  const awaiting = census.awaitingProbe ?? Math.max(0, watching - contacted);
   const prev = el.textContent;
-  const next = String(total);
+  // Hero = hung frames (moves with hang:auto). Wall/evidence total stays in meta.
+  const next = String(hung);
   el.textContent = next;
   if (frame && prev !== "…" && prev !== next) {
     frame.classList.add("is-live");
     clearTimeout(paintCensus._flash);
     paintCensus._flash = setTimeout(() => frame.classList.remove("is-live"), 900);
   }
-  const hung = census.hung ?? hungFallback;
-  const verified = census.verified ?? 0;
-  const contacted = census.contacted ?? verified;
-  const watching = census.watchlist ?? 0;
-  const awaiting = census.awaitingProbe ?? Math.max(0, watching - contacted);
-  const parts = [`${hung} hung`];
+  const wall = census.total ?? hung;
+  const parts = [`${wall} on wall`];
   if (verified) parts.push(`${verified} ghost-class`);
   if (contacted) parts.push(`${contacted} contacted`);
   if (watching) parts.push(`${watching} watch`);
@@ -36,7 +37,9 @@ export function paintCensus(census, { hungFallback = 0 } = {}) {
   if (meta) {
     meta.innerHTML = parts.map((p) => `<span class="gm-count-line">${esc(p)}</span>`).join("");
   }
-  if (frame) frame.setAttribute("aria-label", `Ghost census ${next} · ${detail}`);
+  if (frame) frame.setAttribute("aria-label", `Hung ${next} · ${detail}`);
+  const kicker = frame?.querySelector(".gm-count-wall");
+  if (kicker) kicker.textContent = "Hung";
 }
 
 export async function fetchCensus() {

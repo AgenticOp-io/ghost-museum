@@ -14,6 +14,7 @@
     "curate:desk": "node scripts/curate.mjs --desk",
     "hang": "node scripts/hang.mjs",
     "hang:auto": "node scripts/hang-auto.mjs",
+    "hang:drain": "node scripts/hang-drain-loop.mjs",
     "search:seed": "node scripts/search-seed.mjs",
     "discover": "node scripts/discover.mjs",
     "autoseed": "node scripts/autoseed.mjs",

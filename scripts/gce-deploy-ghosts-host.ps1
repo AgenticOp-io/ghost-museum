@@ -21,6 +21,8 @@ Write-Host "Uploading to $Instance ..."
 gcloud compute ssh $Instance --zone=$Zone --command="sudo mkdir -p $RemoteDir/site $RemoteDir/scripts $RemoteDir/nominations $RemoteDir/acme $RemoteDir/hunt && sudo chown -R `$USER:`$USER $RemoteDir"
 
 gcloud compute scp --recurse --zone=$Zone "$Site\*" "${Instance}:${RemoteDir}/site/"
+# Never clobber live hall with a stale laptop snapshot; desk regenerates via hang:auto / curate.
+gcloud compute ssh $Instance --zone=$Zone --command="cd $RemoteDir && if [ -f exhibits/exhibits.json ]; then cp -f exhibits/exhibits.json site/exhibits.json; echo restored site/exhibits.json from canonical; fi"
 gcloud compute scp --zone=$Zone $Server "${Instance}:${RemoteDir}/scripts/demo-server.mjs"
 gcloud compute scp --zone=$Zone $Hunt "${Instance}:${RemoteDir}/scripts/hunt.mjs"
 gcloud compute scp --zone=$Zone (Join-Path $Root "scripts\lib\census.mjs") "${Instance}:${RemoteDir}/scripts/lib/census.mjs"
