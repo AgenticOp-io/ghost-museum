@@ -18,7 +18,35 @@ npm run hang:auto     ← strong + ghost-class + fresh probe → exhibits/
 npm run validate
 ```
 
-Shortcut: `npm run authority` = discover + autoseed + broad seed + curate desk + hang:auto + validate.
+Shortcut: `npm run authority` / `authority:once` = one growth pass.
+Live daemon: `npm run authority:loop` (default every 6h) — see `scripts/gce-restart-authority.sh`.
+
+## Automated growth (GCE)
+
+On **chrysalis-test-vm** (`/var/www/ghost-museum`):
+
+| Daemon | Script | Role |
+|--------|--------|------|
+| Museum | `gce-restart-museum.sh` | Static hall + APIs |
+| Hunt | `gce-restart-hunt.sh` | GET-probe watchlist forever |
+| Authority | `gce-restart-authority.sh` | discover → autoseed → search → broad → hang:auto every 6h |
+
+```bash
+npm run authority:loop
+# or on host:
+bash scripts/gce-restart-authority.sh
+bash scripts/gce-authority-status.sh
+```
+
+Optional env (host `.env` or process env):
+
+| Var | Default | Meaning |
+|-----|---------|---------|
+| `GM_AUTHORITY_PERIOD_MS` | `21600000` (6h) | Sleep between passes |
+| `GM_HANG_AUTO_MAX` | `25` | Max new hangs per pass |
+| `BRAVE_SEARCH_API_KEY` / Google CSE | — | Enables `search:seed` hits |
+
+Hunt never auto-hangs. Authority loop is what grows hung frames.
 
 ## What is authoritative
 

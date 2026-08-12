@@ -25,7 +25,7 @@ hunt/seeds/* + discover + autoseed → seed-watchlist:broad → hunt → curate:
 | Do | Don’t |
 |----|--------|
 | Edit `hunt/seeds/*.json` first | Treat `--vast` as breadth |
-| `npm run discover` / `autoseed` / `search:seed` / `authority` | Open-web crawl / SERP scraping |
+| `npm run discover` / `autoseed` / `search:seed` / `authority` / `authority:loop` | Open-web crawl / SERP scraping |
 | `npm run hang:auto` (strong + fresh probe) | Invent frames without probe |
 | `npm run hang -- --id … --commit` for one-offs | Hang without obituary citation |
 

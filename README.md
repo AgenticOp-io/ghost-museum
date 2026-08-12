@@ -20,7 +20,8 @@ Exhibits are real probes, not invented facades. Source of truth: `exhibits/exhib
 ## Grow the hall
 
 ```bash
-npm run authority          # discover → autoseed → search:seed → broad → curate → hang:auto → validate
+npm run authority              # one growth pass
+npm run authority:loop         # every 6h on a host
 npm run search:seed -- --dry-run
 npm run hang:auto
 ```
