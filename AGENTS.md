@@ -20,13 +20,16 @@ Lane: `engines/ghost-museum` in the AgenticOps umbrella.
 |------|------|
 | `exhibits/exhibits.json` | Source of truth for the hall |
 | `site/` | Static museum |
-| `scripts/probe.mjs` | Refresh last-probe fields |
+| `scripts/probe.mjs` | Refresh last-probe fields + redirect chain |
+| `scripts/validate.mjs` | Schema / honesty gate |
+| `docs/SCHEMA.md` | Exhibit field contract |
 | `README.md` | Public explanation |
 
 ## Probe
 
 ```bash
-node scripts/probe.mjs
+npm run probe
+npm run validate
 ```
 
-Writes `probedAt` / `httpStatus` / `finalUrl` back into `exhibits/exhibits.json`. Re-render is automatic (`site/museum.js` loads the JSON).
+Writes `probedAt` / `httpStatus` / `finalUrl` / `redirectChain` into `exhibits/exhibits.json` and syncs `site/exhibits.json`. Re-render is automatic (`site/museum.js` loads the JSON).

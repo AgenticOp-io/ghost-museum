@@ -6,6 +6,12 @@
   <title>Ghost Museum — still answering</title>
   <meta name="description" content="A hall of interfaces that outlived their obituaries. Sunset is a press release. Ghosts are a runtime. Do not integrate." />
   <meta name="robots" content="noindex, nofollow" />
+  <meta property="og:title" content="Ghost Museum — still answering" />
+  <meta property="og:description" content="Sunset is a press release. Ghosts are a runtime. A hall of hostnames and APIs that outlived their obituaries. DO NOT INTEGRATE." />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Ghost Museum" />
+  <meta name="twitter:description" content="Sunset is a press release. Ghosts are a runtime. Do not integrate." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&amp;family=IBM+Plex+Mono:wght@400;500&amp;family=IBM+Plex+Sans:wght@400;500&amp;display=swap" rel="stylesheet" />
@@ -21,23 +27,24 @@
   </header>
 
   <section class="gm-hero">
-    <p class="gm-kicker">First hanging · private</p>
+    <p class="gm-kicker">First hanging · <span id="exhibit-count">…</span> frames · private</p>
     <h1>Sunset is a press release.<br />Ghosts are a runtime.</h1>
-    <p>A hall of hostnames and APIs that outlived their obituaries. We probe. We frame. We do not invite you to build on the dead.</p>
+    <p>Products die in blog posts. Their sockets often do not. We probe public URLs, hang the evidence, and stamp every frame: do not build on the dead.</p>
   </section>
 
-  <div class="gm-legend" aria-label="Wall keys">
-    <span><i class="still"></i> Still answering</span>
-    <span><i class="auth"></i> Auth ghost</span>
-    <span><i class="facade"></i> Successor façade</span>
-    <span><i class="buried"></i> Buried (410)</span>
+  <div class="gm-legend" id="wall-filters" aria-label="Wall filters">
+    <button type="button" class="gm-filter" data-filter="all" aria-pressed="true">All</button>
+    <button type="button" class="gm-filter" data-filter="still-answering" aria-pressed="false"><i class="still" aria-hidden="true"></i> Still answering</button>
+    <button type="button" class="gm-filter" data-filter="auth-ghost" aria-pressed="false"><i class="auth" aria-hidden="true"></i> Auth ghost</button>
+    <button type="button" class="gm-filter" data-filter="successor-facade" aria-pressed="false"><i class="facade" aria-hidden="true"></i> Successor façade</button>
+    <button type="button" class="gm-filter" data-filter="buried" aria-pressed="false"><i class="buried" aria-hidden="true"></i> Buried</button>
   </div>
 
   <main id="hall" class="gm-hall" aria-label="Exhibits"></main>
 
   <footer class="gm-footer">
     Last hanging probe: <span id="probed-at">…</span>
-    · GET/HEAD only · DO NOT INTEGRATE
+    · GET only · DO NOT INTEGRATE
   </footer>
   <script src="./museum.js" type="module"></script>
 </body>

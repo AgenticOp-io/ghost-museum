@@ -1,7 +1,7 @@
 {
   "museum": "Ghost Museum",
   "tagline": "Sunset is a press release. Ghosts are a runtime.",
-  "probedAt": "2026-08-12T01:46:00Z",
+  "probedAt": "2026-08-12T01:58:29.920Z",
   "userAgent": "GhostMuseum/0.1 (exhibit probe)",
   "exhibits": [
     {
@@ -17,7 +17,13 @@
       "finalUrl": "https://stadia.google.com/gg/",
       "titleTag": "Stadia",
       "note": "The product is dead. The hostname still serves a 200 with the funeral already printed on the page. That is a ghost, not a 410.",
-      "doNotIntegrate": true
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://stadia.google.com/gg/",
+          "status": 200
+        }
+      ]
     },
     {
       "id": "google-domains",
@@ -32,7 +38,13 @@
       "finalUrl": "https://domains.google/",
       "titleTag": "Google Domains",
       "note": "The registrar was sold. The original lockup still answers on domains.google — a storefront for a product Google no longer operates.",
-      "doNotIntegrate": true
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://domains.google/",
+          "status": 200
+        }
+      ]
     },
     {
       "id": "vine",
@@ -47,7 +59,13 @@
       "finalUrl": "https://vine.co/",
       "titleTag": "Vine",
       "note": "The six-second network was killed. vine.co still returns 200 and still calls itself Vine. Do not build on it.",
-      "doNotIntegrate": true
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://vine.co/",
+          "status": 200
+        }
+      ]
     },
     {
       "id": "swfobject",
@@ -62,7 +80,13 @@
       "finalUrl": "https://ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js",
       "titleTag": null,
       "note": "The runtime had a funeral. The loader script that embedded .swf files is still a 200 on a public CDN. A door to a room that was demolished.",
-      "doNotIntegrate": true
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js",
+          "status": 200
+        }
+      ]
     },
     {
       "id": "azure-ad-graph",
@@ -77,7 +101,13 @@
       "finalUrl": "https://graph.windows.net/myorganization/users?api-version=1.6",
       "titleTag": null,
       "note": "Retired APIs should go 410. This host still speaks Azure AD Graph JSON: 401 invalid_token, odata.error. The door is locked. It is not gone.",
-      "doNotIntegrate": true
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://graph.windows.net/myorganization/users?api-version=1.6",
+          "status": 401
+        }
+      ]
     },
     {
       "id": "mixer",
@@ -90,9 +120,20 @@
       "probeUrl": "https://mixer.com/",
       "httpStatus": 200,
       "finalUrl": "https://www.facebook.com/gaming/",
-      "titleTag": "Facebook Gaming",
+      "titleTag": "Facebook Gaming | Disfruta de streaming de videojuegos en vivo",
       "note": "mixer.com 301s into Facebook Gaming. The name on the door is Mixer. The room is someone else’s product.",
-      "doNotIntegrate": true
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://mixer.com/",
+          "status": 301,
+          "location": "https://www.facebook.com/gaming/"
+        },
+        {
+          "url": "https://www.facebook.com/gaming/",
+          "status": 200
+        }
+      ]
     },
     {
       "id": "atom",
@@ -107,7 +148,101 @@
       "finalUrl": "https://github.blog/news-insights/product-news/sunsetting-atom/",
       "titleTag": "Sunsetting Atom - The GitHub Blog",
       "note": "atom.io still answers — by walking you to its own obituary. A polite ghost.",
-      "doNotIntegrate": true
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://atom.io/",
+          "status": 301,
+          "location": "https://github.blog/2022-06-08-sunsetting-atom/"
+        },
+        {
+          "url": "https://github.blog/2022-06-08-sunsetting-atom/",
+          "status": 301,
+          "location": "https://github.blog/engineering/sunsetting-atom/"
+        },
+        {
+          "url": "https://github.blog/engineering/sunsetting-atom/",
+          "status": 301,
+          "location": "https://github.blog/news-insights/product-news/sunsetting-atom/"
+        },
+        {
+          "url": "https://github.blog/news-insights/product-news/sunsetting-atom/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "orkut",
+      "wall": "still-answering",
+      "title": "Orkut",
+      "owner": "Google",
+      "declaredDead": "2014-09-30",
+      "obituary": "https://india.googleblog.com/2014/06/farewell-orkut.html",
+      "obituaryNote": "Google announced farewell to Orkut; service shut September 30, 2014.",
+      "probeUrl": "https://www.orkut.com/",
+      "httpStatus": 200,
+      "finalUrl": "https://www.orkut.com/",
+      "titleTag": "orkut",
+      "note": "Google bid Orkut farewell in 2014. orkut.com still returns 200 and still calls itself orkut. A social network with a decade-old funeral and a living front door.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://www.orkut.com/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "google-code",
+      "wall": "still-answering",
+      "title": "Google Code",
+      "owner": "Google",
+      "declaredDead": "2016-01-25",
+      "obituary": "https://opensource.googleblog.com/2015/03/farewell-to-google-code.html",
+      "obituaryNote": "Google shut project hosting on Google Code on January 25, 2016.",
+      "probeUrl": "https://code.google.com/",
+      "httpStatus": 200,
+      "finalUrl": "https://code.google.com/",
+      "titleTag": "Google Code",
+      "note": "Project hosting was closed in 2016. code.google.com still answers with a 200 titled Google Code — an archive door that never got a 410.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://code.google.com/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "google-wave",
+      "wall": "successor-facade",
+      "title": "Google Wave",
+      "owner": "Google",
+      "declaredDead": "2012-04-30",
+      "obituary": "https://googleblog.blogspot.com/2010/08/update-on-google-wave.html",
+      "obituaryNote": "Google announced Wave would stop being developed as a standalone product; service later ended.",
+      "probeUrl": "https://wave.google.com/",
+      "httpStatus": 200,
+      "finalUrl": "https://support.google.com/answer/1083134?hl=en",
+      "titleTag": "Status of Google Wave - Google Help",
+      "note": "wave.google.com still answers — by walking you to a help article about the status of Google Wave. The name on the door is Wave. The room is the obituary.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://wave.google.com/",
+          "status": 301,
+          "location": "https://support.google.com/wave/bin/answer.py?hl=en&answer=1083134"
+        },
+        {
+          "url": "https://support.google.com/wave/bin/answer.py?hl=en&answer=1083134",
+          "status": 301,
+          "location": "https://support.google.com/answer/1083134?hl=en"
+        },
+        {
+          "url": "https://support.google.com/answer/1083134?hl=en",
+          "status": 200
+        }
+      ]
     },
     {
       "id": "parse",
@@ -120,9 +255,15 @@
       "probeUrl": "https://api.parse.com/1/health",
       "httpStatus": 410,
       "finalUrl": "https://api.parse.com/1/health",
-      "titleTag": null,
+      "titleTag": "Facebook | Error",
       "note": "Contrast hanging. Parse returns 410 with a pointer to the open-source funeral home. This is what a completed sunset looks like.",
-      "doNotIntegrate": true
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://api.parse.com/1/health",
+          "status": 410
+        }
+      ]
     }
   ]
 }

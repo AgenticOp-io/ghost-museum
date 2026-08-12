@@ -6,6 +6,8 @@
   "type": "module",
   "scripts": {
     "probe": "node scripts/probe.mjs",
-    "sync-exhibits": "node -e \"import('node:fs').then(fs=>fs.copyFileSync('exhibits/exhibits.json','site/exhibits.json'))\""
+    "validate": "node scripts/validate.mjs",
+    "sync-exhibits": "node -e \"import('node:fs').then(fs=>fs.copyFileSync('exhibits/exhibits.json','site/exhibits.json'))\"",
+    "check": "npm run validate"
   }
 }

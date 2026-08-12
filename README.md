@@ -8,7 +8,7 @@ This is not a scanner and not an invitation to integrate. Each frame is stamped 
 
 ## Hall (first hanging)
 
-Exhibits are real probes from 2026-08-12, not invented façades. See `exhibits/exhibits.json`.
+Exhibits are real probes, not invented façades. Source of truth: `exhibits/exhibits.json`. Schema: `docs/SCHEMA.md`.
 
 | Kind | Meaning |
 |------|---------|
@@ -19,18 +19,23 @@ Exhibits are real probes from 2026-08-12, not invented façades. See `exhibits/e
 
 ## Local
 
-Open `site/index.html` in a browser, or:
-
 ```bash
 npx --yes serve site
 ```
 
-Refresh probes:
+Refresh probes (GET only, records redirect hops, syncs `site/exhibits.json`):
 
 ```bash
-node scripts/probe.mjs
+npm run probe
+npm run validate
 ```
+
+## Rules
+
+1. Do not invent exhibits — probe first, or label `unprobed`.
+2. Never document how to keep using a ghost.
+3. Own this lane only — not Chrysalis, WISP, Helix, or AgenticOps chrome.
 
 ## License
 
-Apache-2.0. Private remote for now; the intent is to open the hall when the first hanging is ready for visitors.
+Apache-2.0. Private remote for now; open the hall when a hostname is assigned.
