@@ -1,5 +1,6 @@
 .bare/
 node_modules/
+nominations/
 .DS_Store
 Thumbs.db
 *.log

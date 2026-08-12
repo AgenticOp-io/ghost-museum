@@ -7,6 +7,7 @@
   "scripts": {
     "probe": "node scripts/probe.mjs",
     "validate": "node scripts/validate.mjs",
+    "demo": "node scripts/demo-server.mjs",
     "sync-exhibits": "node -e \"import('node:fs').then(fs=>fs.copyFileSync('exhibits/exhibits.json','site/exhibits.json'))\"",
     "check": "npm run validate"
   }

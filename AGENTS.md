@@ -22,8 +22,10 @@ Lane: `engines/ghost-museum` in the AgenticOps umbrella.
 | `site/` | Static museum |
 | `scripts/probe.mjs` | Refresh last-probe fields + redirect chain |
 | `scripts/validate.mjs` | Schema / honesty gate |
+| `scripts/demo-server.mjs` | Static hall + `POST /api/nominate` |
+| `site/nominate.html` | Public nomination form (no login) |
 | `docs/SCHEMA.md` | Exhibit field contract |
-| `README.md` | Public explanation |
+| `docs/NOMINATIONS.md` | Nominate + hunt intake |
 
 ## Probe
 

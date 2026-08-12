@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nominate · Ghost Museum</title>
+  <meta name="description" content="Nominate a public ghost for the hall. Probe URL + obituary. No login. Do not integrate." />
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&amp;family=IBM+Plex+Mono:wght@400;500&amp;family=IBM+Plex+Sans:wght@400;500&amp;display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./museum.css" />
+</head>
+<body class="gm-nominate-page">
+  <div class="gm-shell">
+    <header class="gm-top">
+      <a class="gm-mark" href="./index.html">Ghost Museum</a>
+      <nav class="gm-nav" aria-label="Museum">
+        <a href="./index.html">Hall</a>
+        <a href="./about.html">Plaque</a>
+        <a href="./nominate.html" aria-current="page">Nominate</a>
+      </nav>
+    </header>
+
+    <main class="gm-nominate-main">
+      <section class="gm-nominate-hero">
+        <p class="gm-kicker">Offer a frame</p>
+        <h1>Nominate a ghost.</h1>
+        <p class="gm-lede">No account. Send a public probe URL and its obituary. We probe; if it belongs, it hangs. Nothing is auto-published.</p>
+      </section>
+
+      <form class="gm-form" id="nominate-form" novalidate>
+        <input type="hidden" name="startedAt" id="startedAt" value="" />
+
+        <!-- Honeypot: leave empty. Hidden from people, not from naive bots. -->
+        <div class="gm-hp" aria-hidden="true">
+          <label>Company <input type="text" name="company" tabindex="-1" autocomplete="off" /></label>
+          <label>Website <input type="url" name="website" tabindex="-1" autocomplete="off" /></label>
+        </div>
+
+        <label class="gm-field">
+          <span>Probe URL</span>
+          <input type="url" name="probeUrl" required placeholder="https://…" autocomplete="off" />
+          <em>Public http(s) surface we will GET.</em>
+        </label>
+
+        <label class="gm-field">
+          <span>Obituary URL</span>
+          <input type="url" name="obituary" required placeholder="https://…" autocomplete="off" />
+          <em>Public sunset / EOL / sale notice.</em>
+        </label>
+
+        <label class="gm-field">
+          <span>Why it belongs <span class="gm-optional">(optional)</span></span>
+          <textarea name="note" rows="4" maxlength="500" placeholder="One or two sentences. No how-to-use."></textarea>
+        </label>
+
+        <label class="gm-field">
+          <span>Contact <span class="gm-optional">(optional)</span></span>
+          <input type="text" name="contact" maxlength="200" placeholder="Email or handle — only if you want a reply" autocomplete="off" />
+        </label>
+
+        <p class="gm-form-stamp">DO NOT INTEGRATE — nominations are offers, not permission to build on the dead.</p>
+
+        <div class="gm-form-actions">
+          <button type="submit" class="gm-submit" id="submit-btn">Submit nomination</button>
+          <p class="gm-form-status" id="form-status" role="status" aria-live="polite"></p>
+        </div>
+      </form>
+    </main>
+
+    <footer class="gm-footer">GET only · curator gate · bot traps on · no login</footer>
+  </div>
+  <script src="./nominate.js" type="module"></script>
+</body>
+</html>
