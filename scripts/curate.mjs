@@ -163,8 +163,10 @@ function scoreCandidate(c) {
   if (hungIds.has(c.id)) {
     return { score: -Infinity, decision: "skip", reasons: ["already hung"] };
   }
+  // Same hostname may still hold multiple ghosts — demote, do not skip.
   if (host && hungHosts.has(host)) {
-    return { score: -Infinity, decision: "skip", reasons: [`hostname already hung (${host})`] };
+    score -= 18;
+    reasons.push(`hostname already hung (${host})`);
   }
 
   const note = String(c.note || "").toLowerCase();
@@ -245,8 +247,12 @@ function scoreCandidate(c) {
     reasons.push("honest 410");
   }
   if (c.httpStatus === 400) {
-    score += 6;
-    reasons.push("hostile 400");
+    score -= 8;
+    reasons.push("non-ghost 400");
+  }
+  if (c.httpStatus === 429 || c.httpStatus === 502 || c.httpStatus === 503 || c.httpStatus === 522) {
+    score -= 20;
+    reasons.push(`non-ghost ${c.httpStatus}`);
   }
 
   const domainCount = hungDomains.get(domain) || 0;
@@ -295,6 +301,12 @@ function scoreCandidate(c) {
   if (score >= 55) decision = "strong";
   else if (score >= 35) decision = "consider";
   else if (score < 10) decision = "weak";
+
+  // Strong is reserved for hangable ghost walls — never promote 400/429/unprobed to strong.
+  if (decision === "strong" && !["still-answering", "auth-ghost", "successor-facade", "buried"].includes(wall)) {
+    decision = "consider";
+    reasons.push("capped at consider — wall not hangable");
+  }
 
   return { score, decision, wall, domain, host, reasons };
 }

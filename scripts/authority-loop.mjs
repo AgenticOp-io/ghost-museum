@@ -49,9 +49,10 @@ async function pass() {
 
   // Discover first, then push watchlist so hunt can expand Ghosts total during later steps.
   step("discover", [join(root, "scripts", "discover.mjs")]);
+  step("seed-fitness", [join(root, "scripts", "seed-fitness.mjs")]);
   step("seed-watchlist:broad", [join(root, "scripts", "seed-watchlist.mjs"), "--broad"]);
   step("autoseed", [join(root, "scripts", "autoseed.mjs")]);
-  step("search:seed", [join(root, "scripts", "search-seed.mjs")]);
+  // search:seed runs on search-schedule-loop (SerpAPI 25/mo) — not every authority pass.
   step("seed-watchlist:broad", [join(root, "scripts", "seed-watchlist.mjs"), "--broad"]);
   step("curate:desk", [join(root, "scripts", "curate.mjs"), "--desk", "--top", "500"]);
   step("validate", [join(root, "scripts", "validate.mjs")]);

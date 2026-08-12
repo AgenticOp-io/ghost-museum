@@ -61,12 +61,23 @@ const hungProbes = new Set(
   (museum.exhibits || []).map((e) => e.probeUrl).filter(Boolean),
 );
 
-const queue = (rank.ranked || [])
+let queue = (rank.ranked || [])
   .filter((r) => (BAND_ORDER[r.decision] ?? 0) >= (BAND_ORDER[minBand] ?? 3))
-  .filter((r) => isHangableWall(r.wall) || r.httpStatus == null)
+  .filter((r) => isHangableWall(r.wall))
   .filter((r) => r.obituary && r.probeUrl)
   .filter((r) => !hungIds.has(r.id))
   .filter((r) => !hungProbes.has(r.probeUrl));
+
+// If strong desk is empty of hangable walls, drain consider ghosts next.
+if (!queue.length && minBand === "strong" && !args.includes("--min")) {
+  console.log("No hangable strong rows — falling back to consider…");
+  queue = (rank.ranked || [])
+    .filter((r) => (BAND_ORDER[r.decision] ?? 0) >= 2)
+    .filter((r) => isHangableWall(r.wall))
+    .filter((r) => r.obituary && r.probeUrl)
+    .filter((r) => !hungIds.has(r.id))
+    .filter((r) => !hungProbes.has(r.probeUrl));
+}
 
 console.log(
   `hang:auto · candidates ${queue.length} (min=${minBand}, max=${maxHang}${dryRun ? ", dry-run" : ""}) · hall ${hungIds.size}`,

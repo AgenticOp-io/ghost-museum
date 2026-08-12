@@ -29,6 +29,12 @@ import {
   registrable,
 } from "./lib/ghost-model.mjs";
 import { latestFindingsById } from "./lib/census.mjs";
+import {
+  buildSeedFitness,
+  loadSeedFitness,
+  saveSeedFitness,
+  rankFuneralHosts,
+} from "./lib/seed-fitness.mjs";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const exhibitsPath = join(root, "exhibits", "exhibits.json");
@@ -36,6 +42,7 @@ const watchPath = join(root, "hunt", "watchlist.json");
 const findingsPath = join(root, "hunt", "findings.jsonl");
 const seedsDir = join(root, "hunt", "seeds");
 const modelPath = join(root, "hunt", "ghost-model.json");
+const fitnessPath = join(root, "hunt", "seed-fitness.json");
 const outPath = join(seedsDir, "autoseed.json");
 const discoveredPath = join(seedsDir, "discovered.json");
 
@@ -271,8 +278,20 @@ const latest = latestFindingsById(findings);
 const model = learnGhostModel({ exhibits, watch, findings });
 mkdirSync(join(root, "hunt"), { recursive: true });
 writeFileSync(modelPath, JSON.stringify(model, null, 2) + "\n");
+const priorFitness = loadSeedFitness(fitnessPath);
+const fitness = buildSeedFitness({
+  exhibits,
+  watch,
+  findings,
+  prior: priorFitness,
+  searchHistory: priorFitness?.searchHistory || [],
+});
+saveSeedFitness(fitnessPath, fitness);
 console.log(
   `model → ${modelPath} (examples ${model.exampleCount}, funeralHosts ${model.funeralHosts.length})`,
+);
+console.log(
+  `fitness → ${fitnessPath} (top hosts: ${(fitness.top.funeralHosts || []).slice(0, 5).join(", ") || "—"})`,
 );
 
 const { ids: knownIds, probes: knownProbes } = knownSets();
@@ -345,7 +364,7 @@ function consider(seed, via) {
 /** Poll RSS/Atom only on learned funeral hosts. */
 async function fromFuneralFeeds() {
   if (skipFeeds) return;
-  const hosts = (model.funeralHosts || []).slice(0, 18).map((x) => x.host);
+  const hosts = rankFuneralHosts(fitness, model, { limit: 18 });
   for (const host of hosts) {
     let xml = null;
     let feedUrl = null;
@@ -453,7 +472,7 @@ function fromFailedRetries() {
 /** Sitemap locs on funeral hosts — fetch page and extract real product links. */
 async function fromFuneralSitemaps() {
   if (skipFeeds) return;
-  const hosts = (model.funeralHosts || []).slice(0, 12).map((x) => x.host);
+  const hosts = rankFuneralHosts(fitness, model, { limit: 12 });
   for (const host of hosts) {
     const tries = [`https://${host}/sitemap.xml`, `https://${host}/sitemap_index.xml`];
     for (const url of tries) {

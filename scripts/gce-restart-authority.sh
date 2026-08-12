@@ -17,8 +17,12 @@ fi
 nohup node scripts/authority-loop.mjs --loop >> /tmp/ghost-authority.log 2>&1 &
 echo $! > /tmp/ghost-authority.pid
 echo "authority pid $(cat /tmp/ghost-authority.pid) period_ms=$GM_AUTHORITY_PERIOD_MS"
-# Ensure hang drain is up (idempotent restart).
+# Hang drain + SerpAPI search schedule (idempotent).
 if [ -f scripts/gce-restart-hang-drain.sh ]; then
   sed -i 's/\r$//' scripts/gce-restart-hang-drain.sh 2>/dev/null || true
   bash scripts/gce-restart-hang-drain.sh
+fi
+if [ -f scripts/gce-restart-search.sh ]; then
+  sed -i 's/\r$//' scripts/gce-restart-search.sh 2>/dev/null || true
+  bash scripts/gce-restart-search.sh
 fi

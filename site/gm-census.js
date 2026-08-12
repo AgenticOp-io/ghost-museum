@@ -12,34 +12,40 @@ export function paintCensus(census, { hungFallback = 0 } = {}) {
   const meta = document.getElementById("ghost-count-meta");
   const frame = document.querySelector(".gm-count-frame");
   if (!el || !census) return;
+
   const hung = census.hung ?? hungFallback;
-  const verified = census.verified ?? 0;
-  const contacted = census.contacted ?? verified;
+  const wall = census.total ?? hung;
+  const candidates =
+    census.candidates ?? Math.max(0, wall - hung);
   const watching = census.watchlist ?? 0;
-  const awaiting = census.awaitingProbe ?? Math.max(0, watching - contacted);
+  const awaiting = census.awaitingProbe ?? 0;
+
   const prev = el.textContent;
-  // Hero = hung frames (moves with hang:auto). Wall/evidence total stays in meta.
-  const next = String(hung);
+  // Hero matches the hall catalog (hung ∪ ghost-class evidence).
+  const next = String(wall);
   el.textContent = next;
+  el.dataset.digits = String(Math.min(7, Math.max(1, next.replace(/\D/g, "").length || next.length)));
   if (frame && prev !== "…" && prev !== next) {
     frame.classList.add("is-live");
     clearTimeout(paintCensus._flash);
     paintCensus._flash = setTimeout(() => frame.classList.remove("is-live"), 900);
   }
-  const wall = census.total ?? hung;
-  const parts = [`${wall} on wall`];
-  if (verified) parts.push(`${verified} ghost-class`);
-  if (contacted) parts.push(`${contacted} contacted`);
-  if (watching) parts.push(`${watching} watch`);
-  if (awaiting && awaiting !== watching) parts.push(`${awaiting} awaiting probe`);
+
+  const parts = [`${hung} hung`];
+  if (candidates > 0) parts.push(`${candidates} candidates`);
+  if (awaiting > 0) parts.push(`${awaiting} awaiting`);
+  if (watching > 0) parts.push(`${watching} watch`);
   if (census.banished) parts.push(`${census.banished} banished`);
+
   const detail = parts.join(" · ");
   if (meta) {
     meta.innerHTML = parts.map((p) => `<span class="gm-count-line">${esc(p)}</span>`).join("");
   }
-  if (frame) frame.setAttribute("aria-label", `Hung ${next} · ${detail}`);
+  if (frame) {
+    frame.setAttribute("aria-label", `Ghosts ${next} on wall · ${detail}`);
+  }
   const kicker = frame?.querySelector(".gm-count-wall");
-  if (kicker) kicker.textContent = "Hung";
+  if (kicker) kicker.textContent = "Ghosts";
 }
 
 export async function fetchCensus() {

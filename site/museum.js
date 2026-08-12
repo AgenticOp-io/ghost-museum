@@ -142,27 +142,54 @@ function eraFor(ex) {
 }
 
 /**
- * Place ghosts left-to-right by death date; bump to a free lane when too close.
- * Returns { items: [{ex, p, lane}], laneCount, bounds }.
+ * One rail marker per death-year (cluster). Avoids stacking hundreds of lanes.
+ * Returns { items: [{ year, members, p, count, wall, lane }], laneCount, bounds }.
  */
 function layoutGhosts(list) {
   const bounds = axisBounds(list);
-  const items = list
-    .map((ex) => ({ ex, p: axisPos(ex, bounds) }))
-    .filter((x) => x.p != null)
-    .sort((a, b) => a.p - b.p || String(a.ex.title).localeCompare(String(b.ex.title)));
+  const byYear = new Map();
+  for (const ex of list) {
+    const year = deathYear(ex);
+    if (year == null) continue;
+    if (!byYear.has(year)) byYear.set(year, []);
+    byYear.get(year).push(ex);
+  }
 
-  // ~56px gap on a ~1400px rail ≈ 4%; scale slightly with density.
-  const minGap = Math.max(0.038, Math.min(0.07, 0.85 / Math.max(items.length, 1)));
+  const items = [...byYear.entries()]
+    .sort((a, b) => a[0] - b[0])
+    .map(([year, members]) => {
+      const p = axisPos({ declaredDead: `${year}-07-01` }, bounds);
+      const walls = {};
+      for (const ex of members) {
+        const w = ex.wall || "unprobed";
+        walls[w] = (walls[w] || 0) + 1;
+      }
+      const wall =
+        Object.entries(walls).sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))[0]?.[0] ||
+        "unprobed";
+      return {
+        year,
+        members,
+        count: members.length,
+        wall,
+        p,
+        lane: 0,
+        ex: members[0],
+      };
+    })
+    .filter((x) => x.p != null);
+
+  // Rare year collisions on a short axis — bump to a second lane only.
+  const minGap = 0.045;
   const laneLast = [];
   for (const item of items) {
     let lane = 0;
     while (lane < laneLast.length && item.p - laneLast[lane] < minGap) lane += 1;
     if (lane === laneLast.length) laneLast.push(-1);
     laneLast[lane] = item.p;
-    item.lane = lane;
+    item.lane = Math.min(lane, 2);
   }
-  return { items, laneCount: Math.max(1, laneLast.length), bounds };
+  return { items, laneCount: Math.min(3, Math.max(1, laneLast.length)), bounds };
 }
 
 function yearTicks(bounds) {
@@ -232,15 +259,21 @@ function sectionMarker(label, index) {
   return `<div class="gm-year gm-section" style="--i:${index}" role="presentation"><span>${esc(String(label))}</span></div>`;
 }
 
-function ghostButton(item, selectedId) {
-  const { ex, p, lane } = item;
-  const wall = ex.wall || "unprobed";
-  const selected = ex.id === selectedId;
-  const title = `${ex.title} · declared dead ${ex.declaredDead}`;
-  return `<button type="button" class="gm-ghost wall-${esc(wall)}${selected ? " is-selected" : ""}" data-ghost-id="${esc(ex.id)}" style="--p:${(p * 100).toFixed(3)}%; --lane:${lane}" aria-pressed="${selected ? "true" : "false"}" aria-label="${esc(title)}" title="${esc(title)}">${GHOST_SVG}<span class="gm-ghost-label">${esc(ex.title)}</span></button>`;
+function ghostButton(item, selectedYear) {
+  const { year, count, wall, p, lane, members } = item;
+  const selected = year === selectedYear;
+  const sample = members[0]?.title || String(year);
+  const title =
+    count > 1
+      ? `${year} · ${count} hung ghosts`
+      : `${sample} · declared dead ${members[0]?.declaredDead || year}`;
+  const label = count > 1 ? `${year} · ${count}` : sample;
+  const badge =
+    count > 1 ? `<span class="gm-ghost-count" aria-hidden="true">${count}</span>` : "";
+  return `<button type="button" class="gm-ghost wall-${esc(wall)}${selected ? " is-selected" : ""}${count > 1 ? " is-cluster" : ""}" data-ghost-year="${year}" data-ghost-id="${esc(members[0]?.id || "")}" style="--p:${(p * 100).toFixed(3)}%; --lane:${lane}" aria-pressed="${selected ? "true" : "false"}" aria-label="${esc(title)}" title="${esc(title)}">${GHOST_SVG}${badge}<span class="gm-ghost-label">${esc(label)}</span></button>`;
 }
 
-function renderEraRail(list, selectedId) {
+function renderEraRail(list, selectedYear) {
   const { items, laneCount, bounds } = layoutGhosts(list);
   const span = bounds.end - bounds.start;
 
@@ -262,13 +295,14 @@ function renderEraRail(list, selectedId) {
     })
     .join("");
 
-  const ghosts = items.map((item) => ghostButton(item, selectedId)).join("");
+  const ghosts = items.map((item) => ghostButton(item, selectedYear)).join("");
 
-  const selected = list.find((ex) => ex.id === selectedId);
+  const selectedCluster = items.find((it) => it.year === selectedYear);
+  const selected = selectedCluster?.members?.[0] || list.find((ex) => deathYear(ex) === selectedYear);
   const era = selected ? eraFor(selected) : null;
-  const caption = selected
-    ? `<p class="gm-rail-caption"><strong>${esc(selected.title)}</strong> died ${esc(selected.declaredDead)}${era ? ` · ${esc(era.label)}` : ""} · frames for every year below</p>`
-    : `<p class="gm-rail-caption">Click a ghost on the rail, then read every frame grouped by year below.</p>`;
+  const caption = selectedCluster
+    ? `<p class="gm-rail-caption"><strong>${selectedCluster.year}</strong> · ${selectedCluster.count} hung${era ? ` · ${esc(era.label)}` : ""} · frames for this year below</p>`
+    : `<p class="gm-rail-caption">Each icon is a death-year cluster. Click one, then read that year’s frames below.</p>`;
 
   return `<section class="gm-timeline-stage" aria-label="Internet history timeline" style="--lanes:${laneCount}">
     <div class="gm-era-row" aria-hidden="true">${eras}</div>
@@ -309,6 +343,7 @@ const bootParams = new URLSearchParams(location.search);
 let view = "walls";
 let wallFilter = bootParams.get("wall") || "all";
 let selectedId = null;
+let selectedYear = null;
 let showAllDomains = false;
 let page = Math.max(1, Number(bootParams.get("page")) || 1);
 const PAGE_SIZE = 24;
@@ -416,11 +451,17 @@ function renderPager(payload) {
 function ensureSelection(list) {
   if (!list.length) {
     selectedId = null;
+    selectedYear = null;
     return;
   }
-  if (!selectedId || !list.some((ex) => ex.id === selectedId)) {
-    selectedId = list[Math.floor(list.length / 2)]?.id || list[0].id;
+  const years = [
+    ...new Set(list.map(deathYear).filter((y) => y != null)),
+  ].sort((a, b) => a - b);
+  if (!selectedYear || !years.includes(selectedYear)) {
+    selectedYear = years[Math.floor(years.length / 2)] ?? years[0] ?? null;
   }
+  const inYear = list.filter((ex) => deathYear(ex) === selectedYear);
+  selectedId = inYear[0]?.id || list[0].id;
 }
 
 function render() {
@@ -446,7 +487,7 @@ function render() {
       { selectedId },
     );
     hall.innerHTML =
-      renderEraRail(list, selectedId) +
+      renderEraRail(list, selectedYear) +
       `<div class="gm-timeline-frames">${corridor}</div>`;
     renderPager(null);
   } else if (view === "domain") {
@@ -478,9 +519,13 @@ function render() {
 
   requestAnimationFrame(() => {
     hall.classList.add("is-hung");
-    if (view === "timeline" && selectedId) {
-      const btn = hall.querySelector(`.gm-ghost[data-ghost-id="${CSS.escape(selectedId)}"]`);
+    if (view === "timeline" && selectedYear != null) {
+      const btn = hall.querySelector(`.gm-ghost[data-ghost-year="${selectedYear}"]`);
       btn?.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
+      const marker = [...hall.querySelectorAll(".gm-year span")].find(
+        (el) => el.textContent === String(selectedYear),
+      );
+      marker?.closest(".gm-year")?.scrollIntoView({ behavior: "smooth", block: "nearest" });
     }
   });
 }
@@ -503,12 +548,17 @@ async function showWallsPage() {
 }
 
 hall.addEventListener("click", (e) => {
-  const btn = e.target.closest("[data-ghost-id]");
+  const btn = e.target.closest("[data-ghost-year]");
   if (!btn || view !== "timeline") return;
-  selectedId = btn.getAttribute("data-ghost-id");
+  const year = Number(btn.getAttribute("data-ghost-year"));
+  if (!Number.isFinite(year)) return;
+  selectedYear = year;
+  selectedId = btn.getAttribute("data-ghost-id") || selectedId;
   render();
-  const card = document.getElementById(selectedId);
-  card?.focus({ preventScroll: true });
+  const marker = [...hall.querySelectorAll(".gm-year span")].find(
+    (el) => el.textContent === String(selectedYear),
+  );
+  const card = marker?.closest(".gm-year") || document.getElementById(selectedId);
   card?.scrollIntoView({ behavior: "smooth", block: "nearest" });
 });
 

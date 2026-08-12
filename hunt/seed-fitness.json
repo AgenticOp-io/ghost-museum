@@ -1,0 +1,915 @@
+{
+  "learnedAt": "2026-08-12T15:31:06.103Z",
+  "algorithm": "seed-fitness-v1",
+  "note": "Fitness from hung + ghost-class findings. Drives SerpAPI query pick and autoseed funeral-host order. Never invents probes.",
+  "funeralHosts": [
+    {
+      "host": "wikidata.org",
+      "wins": 112,
+      "hung": 112,
+      "tries": 112,
+      "fails": 0,
+      "yield": 3,
+      "score": 3.291004146517618
+    },
+    {
+      "host": "audible.com",
+      "wins": 9,
+      "hung": 9,
+      "tries": 9,
+      "fails": 0,
+      "yield": 3,
+      "score": 3.16661022550876
+    },
+    {
+      "host": "aws.amazon.com",
+      "wins": 7,
+      "hung": 7,
+      "tries": 7,
+      "fails": 0,
+      "yield": 3,
+      "score": 3.1545521226679156
+    },
+    {
+      "host": "opensource.googleblog.com",
+      "wins": 4,
+      "hung": 4,
+      "tries": 4,
+      "fails": 0,
+      "yield": 3,
+      "score": 3.1282474678730767
+    },
+    {
+      "host": "blogs.blackberry.com",
+      "wins": 4,
+      "hung": 4,
+      "tries": 4,
+      "fails": 0,
+      "yield": 3,
+      "score": 3.1282474678730767
+    },
+    {
+      "host": "apple.com",
+      "wins": 3,
+      "hung": 3,
+      "tries": 3,
+      "fails": 0,
+      "yield": 3,
+      "score": 3.1151292546497023
+    },
+    {
+      "host": "india.googleblog.com",
+      "wins": 2,
+      "hung": 2,
+      "tries": 2,
+      "fails": 0,
+      "yield": 3,
+      "score": 3.0972955074527655
+    },
+    {
+      "host": "blog.bitly.com",
+      "wins": 2,
+      "hung": 2,
+      "tries": 2,
+      "fails": 0,
+      "yield": 3,
+      "score": 3.0972955074527655
+    },
+    {
+      "host": "blog.fitbit.com",
+      "wins": 2,
+      "hung": 2,
+      "tries": 2,
+      "fails": 0,
+      "yield": 3,
+      "score": 3.0972955074527655
+    },
+    {
+      "host": "blog.dropbox.com",
+      "wins": 2,
+      "hung": 2,
+      "tries": 2,
+      "fails": 0,
+      "yield": 3,
+      "score": 3.0972955074527655
+    },
+    {
+      "host": "blog.codepen.io",
+      "wins": 2,
+      "hung": 2,
+      "tries": 2,
+      "fails": 0,
+      "yield": 3,
+      "score": 3.0972955074527655
+    },
+    {
+      "host": "verizon.com",
+      "wins": 2,
+      "hung": 2,
+      "tries": 2,
+      "fails": 0,
+      "yield": 3,
+      "score": 3.0972955074527655
+    },
+    {
+      "host": "help.openai.com",
+      "wins": 2,
+      "hung": 2,
+      "tries": 2,
+      "fails": 0,
+      "yield": 3,
+      "score": 3.0972955074527655
+    },
+    {
+      "host": "blackberry.com",
+      "wins": 2,
+      "hung": 2,
+      "tries": 2,
+      "fails": 0,
+      "yield": 3,
+      "score": 3.0972955074527655
+    },
+    {
+      "host": "techcrunch.com",
+      "wins": 2,
+      "hung": 2,
+      "tries": 2,
+      "fails": 0,
+      "yield": 3,
+      "score": 3.0972955074527655
+    },
+    {
+      "host": "stadia.google.com",
+      "wins": 1,
+      "hung": 1,
+      "tries": 1,
+      "fails": 0,
+      "yield": 3,
+      "score": 3.0693147180559945
+    },
+    {
+      "host": "blog.x.com",
+      "wins": 1,
+      "hung": 1,
+      "tries": 1,
+      "fails": 0,
+      "yield": 3,
+      "score": 3.0693147180559945
+    },
+    {
+      "host": "parseplatform.github.io",
+      "wins": 1,
+      "hung": 1,
+      "tries": 1,
+      "fails": 0,
+      "yield": 3,
+      "score": 3.0693147180559945
+    },
+    {
+      "host": "blog.flickr.net",
+      "wins": 1,
+      "hung": 1,
+      "tries": 1,
+      "fails": 0,
+      "yield": 3,
+      "score": 3.0693147180559945
+    },
+    {
+      "host": "support.apple.com",
+      "wins": 1,
+      "hung": 1,
+      "tries": 1,
+      "fails": 0,
+      "yield": 3,
+      "score": 3.0693147180559945
+    },
+    {
+      "host": "blog.imgur.com",
+      "wins": 1,
+      "hung": 1,
+      "tries": 1,
+      "fails": 0,
+      "yield": 3,
+      "score": 3.0693147180559945
+    },
+    {
+      "host": "meta.com",
+      "wins": 1,
+      "hung": 1,
+      "tries": 1,
+      "fails": 0,
+      "yield": 3,
+      "score": 3.0693147180559945
+    },
+    {
+      "host": "ibm.com",
+      "wins": 1,
+      "hung": 1,
+      "tries": 1,
+      "fails": 0,
+      "yield": 3,
+      "score": 3.0693147180559945
+    },
+    {
+      "host": "blog.last.fm",
+      "wins": 1,
+      "hung": 1,
+      "tries": 1,
+      "fails": 0,
+      "yield": 3,
+      "score": 3.0693147180559945
+    },
+    {
+      "host": "loom.com",
+      "wins": 1,
+      "hung": 1,
+      "tries": 1,
+      "fails": 0,
+      "yield": 3,
+      "score": 3.0693147180559945
+    },
+    {
+      "host": "blog.mozilla.org",
+      "wins": 1,
+      "hung": 1,
+      "tries": 1,
+      "fails": 0,
+      "yield": 3,
+      "score": 3.0693147180559945
+    },
+    {
+      "host": "redhat.com",
+      "wins": 1,
+      "hung": 1,
+      "tries": 1,
+      "fails": 0,
+      "yield": 3,
+      "score": 3.0693147180559945
+    },
+    {
+      "host": "squareup.com",
+      "wins": 1,
+      "hung": 1,
+      "tries": 1,
+      "fails": 0,
+      "yield": 3,
+      "score": 3.0693147180559945
+    },
+    {
+      "host": "firebase.googleblog.com",
+      "wins": 1,
+      "hung": 1,
+      "tries": 1,
+      "fails": 0,
+      "yield": 3,
+      "score": 3.0693147180559945
+    },
+    {
+      "host": "blog.glitch.com",
+      "wins": 1,
+      "hung": 1,
+      "tries": 1,
+      "fails": 0,
+      "yield": 3,
+      "score": 3.0693147180559945
+    },
+    {
+      "host": "about.instagram.com",
+      "wins": 1,
+      "hung": 1,
+      "tries": 1,
+      "fails": 0,
+      "yield": 3,
+      "score": 3.0693147180559945
+    },
+    {
+      "host": "blog.travis-ci.com",
+      "wins": 1,
+      "hung": 1,
+      "tries": 1,
+      "fails": 0,
+      "yield": 3,
+      "score": 3.0693147180559945
+    },
+    {
+      "host": "devblogs.microsoft.com",
+      "wins": 1,
+      "hung": 1,
+      "tries": 1,
+      "fails": 0,
+      "yield": 3,
+      "score": 3.0693147180559945
+    },
+    {
+      "host": "about.fb.com",
+      "wins": 1,
+      "hung": 1,
+      "tries": 1,
+      "fails": 0,
+      "yield": 3,
+      "score": 3.0693147180559945
+    },
+    {
+      "host": "nest.com",
+      "wins": 1,
+      "hung": 1,
+      "tries": 1,
+      "fails": 0,
+      "yield": 3,
+      "score": 3.0693147180559945
+    },
+    {
+      "host": "techcommunity.microsoft.com",
+      "wins": 1,
+      "hung": 1,
+      "tries": 1,
+      "fails": 0,
+      "yield": 3,
+      "score": 3.0693147180559945
+    },
+    {
+      "host": "evernote.com",
+      "wins": 1,
+      "hung": 1,
+      "tries": 1,
+      "fails": 0,
+      "yield": 3,
+      "score": 3.0693147180559945
+    },
+    {
+      "host": "aboutamazon.com",
+      "wins": 1,
+      "hung": 1,
+      "tries": 1,
+      "fails": 0,
+      "yield": 3,
+      "score": 3.0693147180559945
+    },
+    {
+      "host": "platform.openai.com",
+      "wins": 1,
+      "hung": 1,
+      "tries": 1,
+      "fails": 0,
+      "yield": 3,
+      "score": 3.0693147180559945
+    },
+    {
+      "host": "jetstream.blog",
+      "wins": 1,
+      "hung": 1,
+      "tries": 1,
+      "fails": 0,
+      "yield": 3,
+      "score": 3.0693147180559945
+    },
+    {
+      "host": "technologyreview.com",
+      "wins": 1,
+      "hung": 1,
+      "tries": 1,
+      "fails": 0,
+      "yield": 3,
+      "score": 3.0693147180559945
+    },
+    {
+      "host": "openai.com",
+      "wins": 1,
+      "hung": 1,
+      "tries": 1,
+      "fails": 0,
+      "yield": 3,
+      "score": 3.0693147180559945
+    },
+    {
+      "host": "blog.adobe.com",
+      "wins": 1,
+      "hung": 1,
+      "tries": 1,
+      "fails": 0,
+      "yield": 3,
+      "score": 3.0693147180559945
+    },
+    {
+      "host": "endpoints.news",
+      "wins": 1,
+      "hung": 1,
+      "tries": 1,
+      "fails": 0,
+      "yield": 3,
+      "score": 3.0693147180559945
+    },
+    {
+      "host": "healthcaredive.com",
+      "wins": 1,
+      "hung": 1,
+      "tries": 1,
+      "fails": 0,
+      "yield": 3,
+      "score": 3.0693147180559945
+    },
+    {
+      "host": "relay.app",
+      "wins": 1,
+      "hung": 1,
+      "tries": 1,
+      "fails": 0,
+      "yield": 3,
+      "score": 3.0693147180559945
+    },
+    {
+      "host": "techstartups.com",
+      "wins": 1,
+      "hung": 1,
+      "tries": 1,
+      "fails": 0,
+      "yield": 3,
+      "score": 3.0693147180559945
+    },
+    {
+      "host": "fortune.com",
+      "wins": 1,
+      "hung": 1,
+      "tries": 1,
+      "fails": 0,
+      "yield": 3,
+      "score": 3.0693147180559945
+    },
+    {
+      "host": "adobe.com",
+      "wins": 7,
+      "hung": 6,
+      "tries": 7,
+      "fails": 0,
+      "yield": 2.7142857142857144,
+      "score": 2.864072327963414
+    },
+    {
+      "host": "en.wikipedia.org",
+      "wins": 36,
+      "hung": 34,
+      "tries": 40,
+      "fails": 4,
+      "yield": 2.3636363636363638,
+      "score": 2.573607108416967
+    },
+    {
+      "host": "github.blog",
+      "wins": 10,
+      "hung": 7,
+      "tries": 10,
+      "fails": 0,
+      "yield": 2.4,
+      "score": 2.56094379124341
+    },
+    {
+      "host": "learn.microsoft.com",
+      "wins": 3,
+      "hung": 2,
+      "tries": 3,
+      "fails": 0,
+      "yield": 2.3333333333333335,
+      "score": 2.4373054104173253
+    },
+    {
+      "host": "news.xbox.com",
+      "wins": 3,
+      "hung": 2,
+      "tries": 3,
+      "fails": 0,
+      "yield": 2.3333333333333335,
+      "score": 2.4373054104173253
+    },
+    {
+      "host": "support.microsoft.com",
+      "wins": 5,
+      "hung": 3,
+      "tries": 5,
+      "fails": 0,
+      "yield": 2.2,
+      "score": 2.3242453324894004
+    },
+    {
+      "host": "store.google.com",
+      "wins": 4,
+      "hung": 2,
+      "tries": 4,
+      "fails": 0,
+      "yield": 2,
+      "score": 2.109861228866811
+    },
+    {
+      "host": "blog.youtube",
+      "wins": 2,
+      "hung": 1,
+      "tries": 2,
+      "fails": 0,
+      "yield": 2,
+      "score": 2.080471895621705
+    },
+    {
+      "host": "blog.angular.io",
+      "wins": 2,
+      "hung": 1,
+      "tries": 2,
+      "fails": 0,
+      "yield": 2,
+      "score": 2.080471895621705
+    },
+    {
+      "host": "maps.googleblog.com",
+      "wins": 2,
+      "hung": 1,
+      "tries": 2,
+      "fails": 0,
+      "yield": 2,
+      "score": 2.080471895621705
+    },
+    {
+      "host": "polymer-project.org",
+      "wins": 2,
+      "hung": 1,
+      "tries": 2,
+      "fails": 0,
+      "yield": 2,
+      "score": 2.080471895621705
+    },
+    {
+      "host": "devcenter.heroku.com",
+      "wins": 2,
+      "hung": 1,
+      "tries": 2,
+      "fails": 0,
+      "yield": 2,
+      "score": 2.080471895621705
+    }
+  ],
+  "keywords": [
+    {
+      "keyword": "discontinued",
+      "wins": 115,
+      "hung": 115,
+      "tries": 115,
+      "fails": 0,
+      "yield": 3,
+      "score": 3.2923219387528864
+    },
+    {
+      "keyword": "sunset",
+      "wins": 7,
+      "hung": 7,
+      "tries": 7,
+      "fails": 0,
+      "yield": 3,
+      "score": 3.1545521226679156
+    },
+    {
+      "keyword": "end-of-life",
+      "wins": 6,
+      "hung": 6,
+      "tries": 6,
+      "fails": 0,
+      "yield": 3,
+      "score": 3.147221948958322
+    },
+    {
+      "keyword": "farewell",
+      "wins": 6,
+      "hung": 6,
+      "tries": 6,
+      "fails": 0,
+      "yield": 3,
+      "score": 3.147221948958322
+    },
+    {
+      "keyword": "sunsetting",
+      "wins": 5,
+      "hung": 5,
+      "tries": 5,
+      "fails": 0,
+      "yield": 3,
+      "score": 3.138629436111989
+    },
+    {
+      "keyword": "goodbye",
+      "wins": 4,
+      "hung": 4,
+      "tries": 4,
+      "fails": 0,
+      "yield": 3,
+      "score": 3.1282474678730767
+    },
+    {
+      "keyword": "retirement",
+      "wins": 4,
+      "hung": 4,
+      "tries": 4,
+      "fails": 0,
+      "yield": 3,
+      "score": 3.1282474678730767
+    },
+    {
+      "keyword": "end-of-support",
+      "wins": 3,
+      "hung": 3,
+      "tries": 3,
+      "fails": 0,
+      "yield": 3,
+      "score": 3.1151292546497023
+    },
+    {
+      "keyword": "shutdown",
+      "wins": 2,
+      "hung": 2,
+      "tries": 2,
+      "fails": 0,
+      "yield": 3,
+      "score": 3.0972955074527655
+    },
+    {
+      "keyword": "killed",
+      "wins": 1,
+      "hung": 1,
+      "tries": 1,
+      "fails": 0,
+      "yield": 3,
+      "score": 3.0693147180559945
+    },
+    {
+      "keyword": "retiring",
+      "wins": 1,
+      "hung": 1,
+      "tries": 1,
+      "fails": 0,
+      "yield": 3,
+      "score": 3.0693147180559945
+    },
+    {
+      "keyword": "shutting down",
+      "wins": 1,
+      "hung": 0,
+      "tries": 2,
+      "fails": 0,
+      "yield": 0.5,
+      "score": 0.4
+    },
+    {
+      "keyword": "end of support",
+      "wins": 1,
+      "hung": 0,
+      "tries": 2,
+      "fails": 0,
+      "yield": 0.5,
+      "score": 0.4
+    }
+  ],
+  "sources": [
+    {
+      "source": "unknown",
+      "wins": 2,
+      "hung": 0,
+      "tries": 2,
+      "fails": 0,
+      "yield": 1,
+      "score": 1.0549306144334054
+    },
+    {
+      "source": "seeds/misc.json",
+      "wins": 1,
+      "hung": 0,
+      "tries": 1,
+      "fails": 0,
+      "yield": 1,
+      "score": 1.0346573590279973
+    },
+    {
+      "source": "probe-hints",
+      "wins": 33,
+      "hung": 0,
+      "tries": 47,
+      "fails": 14,
+      "yield": 0.5409836065573771,
+      "score": 0.6599245836078573
+    },
+    {
+      "source": "seeds/web.json",
+      "wins": 6,
+      "hung": 0,
+      "tries": 10,
+      "fails": 4,
+      "yield": 0.42857142857142855,
+      "score": 0.4544383645956228
+    },
+    {
+      "source": "seeds/yahoo.json",
+      "wins": 1,
+      "hung": 0,
+      "tries": 2,
+      "fails": 1,
+      "yield": 0.3333333333333333,
+      "score": 0.28465735902799727
+    },
+    {
+      "source": "seeds/microsoft.json",
+      "wins": 0,
+      "hung": 0,
+      "tries": 1,
+      "fails": 1,
+      "yield": 0,
+      "score": -0.125
+    }
+  ],
+  "owners": [
+    {
+      "owner": "Wikidata",
+      "wins": 75,
+      "hung": 75,
+      "tries": 75,
+      "fails": 0,
+      "yield": 3,
+      "score": 3.2710267499636143
+    },
+    {
+      "owner": "Unknown",
+      "wins": 80,
+      "hung": 78,
+      "tries": 80,
+      "fails": 0,
+      "yield": 2.95,
+      "score": 3.2234030070567568
+    },
+    {
+      "owner": "Obituary harvest",
+      "wins": 19,
+      "hung": 19,
+      "tries": 19,
+      "fails": 0,
+      "yield": 3,
+      "score": 3.203022150527321
+    },
+    {
+      "owner": "Google",
+      "wins": 11,
+      "hung": 11,
+      "tries": 11,
+      "fails": 0,
+      "yield": 3,
+      "score": 3.176318026230808
+    },
+    {
+      "owner": "Meta",
+      "wins": 4,
+      "hung": 4,
+      "tries": 4,
+      "fails": 0,
+      "yield": 3,
+      "score": 3.1282474678730767
+    },
+    {
+      "owner": "Apple",
+      "wins": 4,
+      "hung": 4,
+      "tries": 4,
+      "fails": 0,
+      "yield": 3,
+      "score": 3.1282474678730767
+    },
+    {
+      "owner": "Amazon",
+      "wins": 3,
+      "hung": 3,
+      "tries": 3,
+      "fails": 0,
+      "yield": 3,
+      "score": 3.1151292546497023
+    },
+    {
+      "owner": "Adobe",
+      "wins": 2,
+      "hung": 2,
+      "tries": 2,
+      "fails": 0,
+      "yield": 3,
+      "score": 3.0972955074527655
+    },
+    {
+      "owner": "Google → Squarespace",
+      "wins": 1,
+      "hung": 1,
+      "tries": 1,
+      "fails": 0,
+      "yield": 3,
+      "score": 3.0693147180559945
+    },
+    {
+      "owner": "Twitter / X",
+      "wins": 1,
+      "hung": 1,
+      "tries": 1,
+      "fails": 0,
+      "yield": 3,
+      "score": 3.0693147180559945
+    },
+    {
+      "owner": "Google CDN / Adobe Flash era",
+      "wins": 1,
+      "hung": 1,
+      "tries": 1,
+      "fails": 0,
+      "yield": 3,
+      "score": 3.0693147180559945
+    },
+    {
+      "owner": "GitHub",
+      "wins": 1,
+      "hung": 1,
+      "tries": 1,
+      "fails": 0,
+      "yield": 3,
+      "score": 3.0693147180559945
+    },
+    {
+      "owner": "Facebook / Parse",
+      "wins": 1,
+      "hung": 1,
+      "tries": 1,
+      "fails": 0,
+      "yield": 3,
+      "score": 3.0693147180559945
+    },
+    {
+      "owner": "Misc",
+      "wins": 15,
+      "hung": 14,
+      "tries": 15,
+      "fails": 0,
+      "yield": 2.8666666666666667,
+      "score": 3.0558761483625796
+    },
+    {
+      "owner": "Web",
+      "wins": 36,
+      "hung": 30,
+      "tries": 40,
+      "fails": 3,
+      "yield": 2.2325581395348837,
+      "score": 2.4438518279949366
+    },
+    {
+      "owner": "Yahoo",
+      "wins": 6,
+      "hung": 5,
+      "tries": 7,
+      "fails": 1,
+      "yield": 2,
+      "score": 2.1104106672028107
+    },
+    {
+      "owner": "Microsoft",
+      "wins": 4,
+      "hung": 4,
+      "tries": 5,
+      "fails": 1,
+      "yield": 2,
+      "score": 2.08658080120641
+    },
+    {
+      "owner": "Curated",
+      "wins": 51,
+      "hung": 18,
+      "tries": 65,
+      "fails": 8,
+      "yield": 1.1917808219178083,
+      "score": 1.388250402367746
+    }
+  ],
+  "searchHistory": [],
+  "top": {
+    "funeralHosts": [
+      "wikidata.org",
+      "audible.com",
+      "aws.amazon.com",
+      "opensource.googleblog.com",
+      "blogs.blackberry.com",
+      "apple.com",
+      "india.googleblog.com",
+      "blog.bitly.com"
+    ],
+    "keywords": [
+      "discontinued",
+      "sunset",
+      "end-of-life",
+      "farewell",
+      "sunsetting",
+      "goodbye"
+    ],
+    "sources": [
+      "unknown",
+      "seeds/misc.json",
+      "probe-hints",
+      "seeds/web.json",
+      "seeds/yahoo.json",
+      "seeds/microsoft.json"
+    ]
+  }
+}

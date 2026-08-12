@@ -168,12 +168,22 @@ export function buildCensusPayload({
     if (!byOwner[o]) byOwner[o] = 0;
   }
 
+  const hung = exhibits.filter((e) => e.wall !== "banished").length;
+  const banished = exhibits.filter((e) => e.wall === "banished").length;
+  const total = ids.size;
+  // Ghost-class evidence (and hung) on the wall that are not yet framed exhibits.
+  const candidates = Math.max(0, total - hung);
+
   return {
     museum,
     updatedAt: new Date().toISOString(),
-    total: ids.size,
-    hung: exhibits.filter((e) => e.wall !== "banished").length,
-    banished: exhibits.filter((e) => e.wall === "banished").length,
+    /** Authoritative ghosts — hung frames only. Masthead hero. */
+    hung,
+    banished,
+    /** hung ∪ ghost-class hunt evidence (historical; survives watch rebuilds). */
+    total,
+    /** Ghost-class evidence not yet hung — pipeline toward hang:auto. */
+    candidates,
     watchlist: watch.length,
     authorityWatch,
     deepWatch,
@@ -189,6 +199,6 @@ export function buildCensusPayload({
     byDomain,
     byOwner,
     lastPass: lastPass || null,
-    note: "total = hung ∪ ghost-class evidence (findings survive watchlist rebuilds). Seeds/404s do not inflate total.",
+    note: "hung = framed ghosts (authority). candidates = ghost-class evidence not yet hung. total = hung ∪ candidates. watch/awaiting = hunt queue.",
   };
 }

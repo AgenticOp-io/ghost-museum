@@ -29,8 +29,9 @@ On **chrysalis-test-vm** (`/var/www/ghost-museum`):
 |--------|--------|------|
 | Museum | `gce-restart-museum.sh` | Static hall + APIs |
 | Hunt | `gce-restart-hunt.sh` | GET-probe watchlist forever |
-| Authority | `gce-restart-authority.sh` | discover → watchlist → autoseed → search → curate every 6h |
+| Authority | `gce-restart-authority.sh` | discover → seed-fitness → watchlist → autoseed → curate every 6h |
 | Hang drain | `gce-restart-hang-drain.sh` | hang:auto catch-up every 90s while strong pending |
+| Search | `gce-restart-search.sh` | SerpAPI `search:seed` ~1 query / 31h, hard cap 25/mo |
 
 ```bash
 npm run authority:loop
@@ -47,7 +48,7 @@ Optional env (host `.env` or process env):
 | `GM_HANG_AUTO_MAX` | `80` | Max new hangs per drain |
 | `GM_HANG_DRAIN_MS` | `1800000` (30m) | Hang-drain steady pace when desk is clear |
 | `GM_HANG_CATCHUP_MS` | `90000` (90s) | Hang-drain pace while strong desk still pending |
-| `BRAVE_SEARCH_API_KEY` / Google CSE | — | Enables `search:seed` hits |
+| `BRAVE_SEARCH_API_KEY` / `SERPAPI_API_KEY` / Google CSE | — | Enables `search:seed` hits |
 
 Hunt never auto-hangs. **Hang-drain loop** grows hung frames; **authority** expands seeds/watchlist so hunt can grow the Ghosts total (hung ∪ ghost-class evidence).
 
@@ -57,6 +58,7 @@ Hunt never auto-hangs. **Hang-drain loop** grows hung frames; **authority** expa
 |-------|------|------|
 | Seed packs | `hunt/seeds/*.json` | Curator-written probe + obituary |
 | Discover | `npm run discover` | Bounded catalogs + Wikidata + links on cited obituaries |
+| Seed fitness | `npm run seed:fitness` | Rank funeral hosts / phrases / sources from hung + findings |
 | Autoseed | `npm run autoseed` | Learn funeral hosts / probe shapes; poll those feeds only |
 | Search seed | `npm run search:seed` | Official Brave/Google CSE APIs; `site:` funeral hosts only |
 | Broad watchlist | `npm run seed-watchlist:broad` | Hints + seeds + deep catalog import |
@@ -109,9 +111,11 @@ Public desk: `/curate.html` · API: `GET /api/curate`.
 
 ## Census (Ghosts box)
 
-`total` = unique **hung ∪ ghost-class hunt evidence** (findings keep counting after watchlist rebuilds).
-`verified` = ghost-class subset.
-`contacted` = findings with an HTTP status.
-`watchlist` = current hunt queue size (may be smaller than historical evidence).
+| Field | Meaning |
+|-------|---------|
+| **total** (masthead hero) | Hall catalog size — hung ∪ ghost-class evidence |
+| **hung** | Framed ghosts (meta line) |
+| **candidates** | Ghost-class evidence not yet hung (`total − hung`) |
+| **watchlist** / **awaitingProbe** | Hunt queue size / still waiting on a GET |
 
-**Hung grows via `hang:auto` / hang-drain.** The masthead hero shows **hung** frames. Meta `on wall` = hung ∪ ghost-class evidence (does not shrink on watchlist rebuild; grows when hunt verifies new ghosts).
+Masthead shows **Ghosts** = hall total, then `hung · candidates · awaiting · watch`.

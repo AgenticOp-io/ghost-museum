@@ -8,8 +8,9 @@
  * Providers (env keys required to execute):
  *   Google Programmable Search: GOOGLE_CSE_ID + GOOGLE_API_KEY
  *   Brave Search API:           BRAVE_SEARCH_API_KEY
+ *   SerpAPI Bing:               SERPAPI_API_KEY  (Bing results via serpapi.com; not Microsoft's retired API)
  *
- * Bing Web Search API retired 2025-08-11 — not supported.
+ * Bing Web Search API retired 2025-08-11 — use SerpAPI Bing or Brave/Google instead.
  *
  *   npm run search:seed -- --dry-run
  *   npm run search:seed
@@ -19,15 +20,24 @@ import { readFileSync, writeFileSync, existsSync, readdirSync, mkdirSync } from 
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { learnGhostModel, FUNERAL_KEYWORDS, hostOf, registrable } from "./lib/ghost-model.mjs";
+import {
+  buildSeedFitness,
+  loadSeedFitness,
+  saveSeedFitness,
+  rankSearchQueries,
+  rememberSearchQuery,
+} from "./lib/seed-fitness.mjs";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const exhibitsPath = join(root, "exhibits", "exhibits.json");
 const watchPath = join(root, "hunt", "watchlist.json");
 const findingsPath = join(root, "hunt", "findings.jsonl");
 const modelPath = join(root, "hunt", "ghost-model.json");
+const fitnessPath = join(root, "hunt", "seed-fitness.json");
 const seedsDir = join(root, "hunt", "seeds");
 const outPath = join(seedsDir, "search.json");
 const planPath = join(root, "hunt", "search-plan.json");
+const quotaPath = join(root, "hunt", "search-quota.json");
 
 const args = process.argv.slice(2);
 const dryRun = args.includes("--dry-run");
@@ -43,6 +53,50 @@ const providerArg = (() => {
   const i = args.indexOf("--provider");
   return i >= 0 ? String(args[i + 1] || "auto") : "auto";
 })();
+
+/** SerpAPI free/low tiers — hard monthly API-call budget (default 25). */
+const MONTHLY_BUDGET = Number(
+  process.env.SERPAPI_MONTHLY_BUDGET || process.env.GM_SEARCH_MONTHLY_BUDGET || 25,
+);
+
+function monthKey(d = new Date()) {
+  return `${d.getUTCFullYear()}-${String(d.getUTCMonth() + 1).padStart(2, "0")}`;
+}
+
+function loadQuota() {
+  const month = monthKey();
+  let used = 0;
+  let budget = MONTHLY_BUDGET;
+  try {
+    if (existsSync(quotaPath)) {
+      const q = JSON.parse(readFileSync(quotaPath, "utf8"));
+      if (q.month === month) used = Number(q.used) || 0;
+      if (Number.isFinite(Number(q.budget)) && Number(q.budget) > 0) budget = Number(q.budget);
+    }
+  } catch {
+    /* ignore */
+  }
+  return { month, used, budget, remaining: Math.max(0, budget - used) };
+}
+
+function saveQuota(q) {
+  mkdirSync(join(root, "hunt"), { recursive: true });
+  writeFileSync(
+    quotaPath,
+    JSON.stringify(
+      {
+        month: q.month,
+        used: q.used,
+        budget: q.budget,
+        remaining: Math.max(0, q.budget - q.used),
+        updatedAt: new Date().toISOString(),
+        note: "Counts SerpAPI search calls only (not Brave/Google or page GETs).",
+      },
+      null,
+      2,
+    ) + "\n",
+  );
+}
 
 const UA =
   "StillAnswering-SearchSeed/0.1 (+https://ghosts.agenticop.io/; funeral-host site: queries via official APIs; not a crawler)";
@@ -170,32 +224,33 @@ function ownerFromFuneral(host) {
   return "Search";
 }
 
-/** Build site:-scoped queries from learned funeral hosts + shutdown language. */
-export function buildSearchPlan(model, { maxQueries = 24 } = {}) {
+/** Build site:-scoped queries — fitness-ranked when seed-fitness.json exists. */
+export function buildSearchPlan(model, { maxQueries = 24, fitness = null } = {}) {
+  if (fitness?.funeralHosts?.length) {
+    return rankSearchQueries(fitness, model, { maxQueries });
+  }
   const hosts = (model.funeralHosts || []).map((x) => x.host).filter(Boolean);
   const keywords = (model.keywords || FUNERAL_KEYWORDS).slice(0, 8);
   const queries = [];
   const seen = new Set();
 
-  // High-signal pairs: top hosts × core phrases
   const core = ["shutting down", "end of support", "discontinued", "retirement", "sunset"];
   for (const host of hosts.slice(0, 14)) {
     for (const kw of core) {
       const q = `site:${host} "${kw}"`;
       if (seen.has(q)) continue;
       seen.add(q);
-      queries.push({ q, host, keyword: kw, kind: "site-phrase" });
+      queries.push({ q, host, keyword: kw, kind: "site-phrase", expected: 0 });
       if (queries.length >= maxQueries) return queries;
     }
   }
 
-  // Broader host without quotes (catch variants)
   for (const host of hosts.slice(0, 8)) {
     for (const kw of keywords.slice(0, 3)) {
       const q = `site:${host} ${kw}`;
       if (seen.has(q)) continue;
       seen.add(q);
-      queries.push({ q, host, keyword: kw, kind: "site-loose" });
+      queries.push({ q, host, keyword: kw, kind: "site-loose", expected: 0 });
       if (queries.length >= maxQueries) return queries;
     }
   }
@@ -206,10 +261,13 @@ export function buildSearchPlan(model, { maxQueries = 24 } = {}) {
 function resolveProvider() {
   const googleOk = Boolean(process.env.GOOGLE_CSE_ID && process.env.GOOGLE_API_KEY);
   const braveOk = Boolean(process.env.BRAVE_SEARCH_API_KEY);
+  const serpapiOk = Boolean(process.env.SERPAPI_API_KEY);
   if (providerArg === "google") return googleOk ? "google" : null;
   if (providerArg === "brave") return braveOk ? "brave" : null;
+  if (providerArg === "serpapi" || providerArg === "bing") return serpapiOk ? "serpapi" : null;
   if (providerArg === "auto") {
     if (braveOk) return "brave";
+    if (serpapiOk) return "serpapi";
     if (googleOk) return "google";
     return null;
   }
@@ -259,9 +317,30 @@ async function searchBrave(q, count = 8) {
   }));
 }
 
+async function searchSerpapiBing(q, count = 8) {
+  const key = process.env.SERPAPI_API_KEY;
+  const u = new URL("https://serpapi.com/search.json");
+  u.searchParams.set("engine", "bing");
+  u.searchParams.set("q", q);
+  u.searchParams.set("api_key", key);
+  const res = await fetch(u, {
+    headers: { "user-agent": UA, accept: "application/json" },
+    signal: AbortSignal.timeout(30000),
+  });
+  if (!res.ok) throw new Error(`serpapi ${res.status}`);
+  const data = await res.json();
+  if (data.error) throw new Error(`serpapi: ${data.error}`);
+  return (data.organic_results || []).slice(0, count).map((it) => ({
+    title: it.title || "",
+    url: it.link,
+    snippet: it.snippet || "",
+  }));
+}
+
 async function runQuery(provider, q) {
   if (provider === "google") return searchGoogle(q);
   if (provider === "brave") return searchBrave(q);
+  if (provider === "serpapi") return searchSerpapiBing(q);
   throw new Error(`unknown provider ${provider}`);
 }
 
@@ -276,20 +355,32 @@ const model = existsSync(modelPath)
   ? JSON.parse(readFileSync(modelPath, "utf8"))
   : learnGhostModel({ exhibits, watch, findings });
 
-const plan = buildSearchPlan(model, { maxQueries });
+const priorFitness = loadSeedFitness(fitnessPath);
+let fitness = buildSeedFitness({
+  exhibits,
+  watch,
+  findings,
+  prior: priorFitness,
+  searchHistory: priorFitness?.searchHistory || [],
+});
+saveSeedFitness(fitnessPath, fitness);
+
+const plan = buildSearchPlan(model, { maxQueries, fitness });
 mkdirSync(join(root, "hunt"), { recursive: true });
 writeFileSync(
   planPath,
   JSON.stringify(
     {
       builtAt: new Date().toISOString(),
-      algorithm: "funeral-site-search-v1",
-      note: "site:{learned funeral host} + shutdown language. Official search APIs only. Bing Web Search API retired 2025-08-11.",
+      algorithm: "funeral-site-search-v2-fitness",
+      note: "site:{high-fitness funeral host} + shutdown language. Ranked by seed-fitness.json.",
       providers: {
         brave: Boolean(process.env.BRAVE_SEARCH_API_KEY),
         google: Boolean(process.env.GOOGLE_CSE_ID && process.env.GOOGLE_API_KEY),
-        bing: false,
+        serpapi: Boolean(process.env.SERPAPI_API_KEY),
+        bingOfficial: false,
       },
+      fitnessTop: fitness.top,
       queries: plan,
     },
     null,
@@ -297,11 +388,13 @@ writeFileSync(
   ) + "\n",
 );
 
-console.log(`search plan ${plan.length} queries → ${planPath}`);
+console.log(
+  `search plan ${plan.length} queries → ${planPath} (fitness hosts: ${(fitness.top.funeralHosts || []).slice(0, 4).join(", ")})`,
+);
 
 if (dryRun) {
   for (const row of plan.slice(0, 12)) console.log(`  ${row.q}`);
-  console.log("Dry-run only. Set BRAVE_SEARCH_API_KEY or GOOGLE_CSE_ID+GOOGLE_API_KEY, then: npm run search:seed");
+  console.log("Dry-run only. Set BRAVE_SEARCH_API_KEY, SERPAPI_API_KEY, or GOOGLE_CSE_ID+GOOGLE_API_KEY, then: npm run search:seed");
   process.exit(0);
 }
 
@@ -309,9 +402,9 @@ const provider = resolveProvider();
 if (!provider) {
   console.warn(
     "search:seed skipped — no API key.\n" +
-      "  Brave:  BRAVE_SEARCH_API_KEY\n" +
-      "  Google: GOOGLE_CSE_ID + GOOGLE_API_KEY\n" +
-      "  Bing Web Search API retired 2025-08-11.\n" +
+      "  Brave:   BRAVE_SEARCH_API_KEY\n" +
+      "  SerpAPI: SERPAPI_API_KEY  (Bing via serpapi.com)\n" +
+      "  Google:  GOOGLE_CSE_ID + GOOGLE_API_KEY\n" +
       "Dry-run plan is in hunt/search-plan.json. Docs: docs/SEARCH.md",
   );
   mkdirSync(seedsDir, { recursive: true });
@@ -332,6 +425,22 @@ if (!provider) {
     ) + "\n",
   );
   process.exit(0);
+}
+
+let quota = loadQuota();
+let runPlan = plan;
+if (provider === "serpapi") {
+  if (quota.remaining <= 0) {
+    console.warn(
+      `search:seed skipped — SerpAPI monthly budget exhausted (${quota.used}/${quota.budget} in ${quota.month}).`,
+    );
+    saveQuota(quota);
+    process.exit(0);
+  }
+  runPlan = plan.slice(0, Math.min(plan.length, maxQueries, quota.remaining));
+  console.log(
+    `SerpAPI quota ${quota.used}/${quota.budget} used · remaining ${quota.remaining} · this run ${runPlan.length}`,
+  );
 }
 
 const { ids: knownIds, probes: knownProbes, obituaries: knownObits } = knownSets();
@@ -359,18 +468,40 @@ function consider(seed) {
   stats.seeds += 1;
 }
 
-for (const row of plan) {
+for (const row of runPlan) {
   if (candidates.size >= maxSeeds) break;
+  if (provider === "serpapi") {
+    quota = loadQuota();
+    if (quota.remaining <= 0) {
+      console.warn("SerpAPI budget hit mid-run — stopping.");
+      break;
+    }
+  }
+  const seedsBefore = stats.seeds;
   stats.queries += 1;
   let hits = [];
   try {
     hits = await runQuery(provider, row.q);
+    if (provider === "serpapi") {
+      quota.used += 1;
+      saveQuota(quota);
+    }
   } catch (err) {
     console.error(`query fail: ${row.q} · ${err.message || err}`);
+    rememberSearchQuery(fitness, {
+      q: row.q,
+      host: row.host,
+      keyword: row.keyword,
+      hits: 0,
+      seeds: 0,
+      provider,
+    });
     continue;
   }
   stats.hits += hits.length;
-  console.log(`${hits.length} hits · ${row.q}`);
+  console.log(
+    `${hits.length} hits · ${row.q}${row.expected != null ? ` · ev=${row.expected}` : ""}`,
+  );
 
   for (const hit of hits) {
     if (candidates.size >= maxSeeds) break;
@@ -406,8 +537,19 @@ for (const row of plan) {
     }
     await new Promise((r) => setTimeout(r, 350));
   }
+
+  rememberSearchQuery(fitness, {
+    q: row.q,
+    host: row.host,
+    keyword: row.keyword,
+    hits: hits.length,
+    seeds: Math.max(0, stats.seeds - seedsBefore),
+    provider,
+  });
   await new Promise((r) => setTimeout(r, 500));
 }
+
+saveSeedFitness(fitnessPath, fitness);
 
 const seeds = [...candidates.values()].slice(0, maxSeeds);
 mkdirSync(seedsDir, { recursive: true });
