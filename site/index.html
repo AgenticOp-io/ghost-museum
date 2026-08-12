@@ -17,35 +17,37 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&amp;family=IBM+Plex+Mono:wght@400;500&amp;family=IBM+Plex+Sans:wght@400;500&amp;display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="./museum.css" />
 </head>
-<body>
-  <header class="gm-top">
-    <a class="gm-mark" href="./index.html">Ghost Museum</a>
-    <nav class="gm-nav" aria-label="Museum">
-      <a href="./index.html" aria-current="page">Hall</a>
-      <a href="./about.html">Plaque</a>
-    </nav>
-  </header>
+<body class="gm-hall-page">
+  <div class="gm-shell">
+    <header class="gm-top">
+      <a class="gm-mark" href="./index.html">Ghost Museum</a>
+      <nav class="gm-nav" aria-label="Museum">
+        <a href="./index.html" aria-current="page">Hall</a>
+        <a href="./about.html">Plaque</a>
+      </nav>
+    </header>
 
-  <section class="gm-hero">
-    <p class="gm-kicker">First hanging · <span id="exhibit-count">…</span> frames · private</p>
-    <h1>Sunset is a press release.<br />Ghosts are a runtime.</h1>
-    <p>Products die in blog posts. Their sockets often do not. We probe public URLs, hang the evidence, and stamp every frame: do not build on the dead.</p>
-  </section>
+    <section class="gm-hero">
+      <p class="gm-kicker">First hanging · <span id="exhibit-count">…</span> frames · demo</p>
+      <h1>Sunset is a press release.<br />Ghosts are a runtime.</h1>
+      <p>Products die in blog posts. Their sockets often do not. We probe public URLs, hang the evidence, and stamp every frame: do not build on the dead.</p>
+    </section>
 
-  <div class="gm-legend" id="wall-filters" aria-label="Wall filters">
-    <button type="button" class="gm-filter" data-filter="all" aria-pressed="true">All</button>
-    <button type="button" class="gm-filter" data-filter="still-answering" aria-pressed="false"><i class="still" aria-hidden="true"></i> Still answering</button>
-    <button type="button" class="gm-filter" data-filter="auth-ghost" aria-pressed="false"><i class="auth" aria-hidden="true"></i> Auth ghost</button>
-    <button type="button" class="gm-filter" data-filter="successor-facade" aria-pressed="false"><i class="facade" aria-hidden="true"></i> Successor façade</button>
-    <button type="button" class="gm-filter" data-filter="buried" aria-pressed="false"><i class="buried" aria-hidden="true"></i> Buried</button>
+    <div class="gm-legend" id="wall-filters" aria-label="Wall filters">
+      <button type="button" class="gm-filter" data-filter="all" aria-pressed="true">All</button>
+      <button type="button" class="gm-filter" data-filter="still-answering" aria-pressed="false"><i class="still" aria-hidden="true"></i> Still answering</button>
+      <button type="button" class="gm-filter" data-filter="auth-ghost" aria-pressed="false"><i class="auth" aria-hidden="true"></i> Auth ghost</button>
+      <button type="button" class="gm-filter" data-filter="successor-facade" aria-pressed="false"><i class="facade" aria-hidden="true"></i> Successor façade</button>
+      <button type="button" class="gm-filter" data-filter="buried" aria-pressed="false"><i class="buried" aria-hidden="true"></i> Buried</button>
+    </div>
+
+    <main id="hall" class="gm-hall" aria-label="Exhibits"></main>
+
+    <footer class="gm-footer">
+      Last hanging probe: <span id="probed-at">…</span>
+      · GET only · DO NOT INTEGRATE
+    </footer>
   </div>
-
-  <main id="hall" class="gm-hall" aria-label="Exhibits"></main>
-
-  <footer class="gm-footer">
-    Last hanging probe: <span id="probed-at">…</span>
-    · GET only · DO NOT INTEGRATE
-  </footer>
   <script src="./museum.js" type="module"></script>
 </body>
 </html>

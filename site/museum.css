@@ -37,14 +37,19 @@ body {
 a { color: var(--gilt); }
 a:hover { color: #fff6dd; }
 
+.gm-shell {
+  width: min(1120px, calc(100% - 2 * clamp(20px, 5vw, 64px)));
+  margin: 0 auto;
+  padding-bottom: 48px;
+}
+
 .gm-top {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
   gap: 24px;
-  padding: 28px 8vw 0;
+  padding: 28px 0 18px;
   border-bottom: 1px solid rgba(184, 149, 90, 0.22);
-  padding-bottom: 18px;
   animation: gm-fade 0.8s ease both;
 }
 .gm-mark {
@@ -60,8 +65,8 @@ a:hover { color: #fff6dd; }
 .gm-nav a[aria-current="page"], .gm-nav a:hover { color: var(--gilt); }
 
 .gm-hero {
-  padding: 72px 8vw 28px;
-  max-width: 52rem;
+  padding: 64px 0 28px;
+  text-align: center;
   animation: gm-rise 0.9s ease both;
 }
 .gm-kicker {
@@ -75,18 +80,25 @@ a:hover { color: #fff6dd; }
 .gm-hero h1 {
   font-family: "Cormorant Garamond", Georgia, serif;
   font-weight: 500;
-  font-size: clamp(2.6rem, 6vw, 4.4rem);
-  line-height: 1.05;
-  margin: 0 0 18px;
+  font-size: clamp(2.4rem, 5.5vw, 4rem);
+  line-height: 1.08;
+  margin: 0 auto 18px;
+  max-width: 18ch;
 }
-.gm-hero p { color: var(--muted); max-width: 46ch; margin: 0; font-size: 1.05rem; }
+.gm-hero p {
+  color: var(--muted);
+  max-width: 42ch;
+  margin: 0 auto;
+  font-size: 1.05rem;
+}
 
 .gm-legend {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  justify-content: center;
   gap: 10px 12px;
-  padding: 8px 8vw 28px;
+  padding: 8px 0 32px;
   font-size: 0.78rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -128,9 +140,10 @@ a:hover { color: #fff6dd; }
 
 .gm-hall {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
   gap: 28px;
-  padding: 12px 8vw 80px;
+  padding: 4px 0 56px;
+  justify-items: stretch;
 }
 
 .gm-frame {
@@ -228,18 +241,20 @@ a:hover { color: #fff6dd; }
 }
 
 .gm-footer {
-  padding: 24px 8vw 48px;
+  padding: 24px 0 8px;
   border-top: 1px solid rgba(184, 149, 90, 0.22);
   color: var(--muted);
   font-size: 0.85rem;
+  text-align: center;
 }
+.gm-hall-page .gm-footer { text-align: center; }
 
 /* —— Plaque —— */
 .gm-plaque-page .gm-footer { margin-top: auto; }
 .gm-plaque {
-  padding: 48px 8vw 64px;
-  max-width: 72rem;
-  margin: 0 auto;
+  padding: 48px 0 64px;
+  max-width: none;
+  margin: 0;
   animation: gm-rise 0.8s ease both;
   display: flex;
   flex-direction: column;
@@ -247,7 +262,9 @@ a:hover { color: #fff6dd; }
 }
 .gm-plaque-hero {
   max-width: 38rem;
+  margin: 0 auto;
   padding-bottom: 8px;
+  text-align: center;
 }
 .gm-plaque-hero h1 {
   font-family: "Cormorant Garamond", Georgia, serif;
@@ -258,7 +275,7 @@ a:hover { color: #fff6dd; }
   color: var(--ink);
 }
 .gm-lede {
-  margin: 0;
+  margin: 0 auto;
   color: var(--ink);
   font-size: 1.12rem;
   line-height: 1.55;
