@@ -7,4 +7,6 @@ hunt/last-pass.json
 Thumbs.db
 *.log
 .env
-.env.*
+.env.local
+.env.*.local
+!.env.example
