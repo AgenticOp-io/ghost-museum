@@ -33,3 +33,11 @@ npm run validate
 ```
 
 Writes `probedAt` / `httpStatus` / `finalUrl` / `redirectChain` into `exhibits/exhibits.json` and syncs `site/exhibits.json`. Re-render is automatic (`site/museum.js` loads the JSON).
+
+## GCE demo
+
+```powershell
+powershell -File scripts/gce-deploy-demo.ps1
+```
+
+Serves `site/` on **agenticop-master** `:27474` (demo port — not hub/Helix/FDE). URL: `http://35.224.146.25:27474/`.

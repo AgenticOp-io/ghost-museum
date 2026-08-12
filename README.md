@@ -36,6 +36,18 @@ npm run validate
 2. Never document how to keep using a ghost.
 3. Own this lane only — not Chrysalis, WISP, Helix, or AgenticOps chrome.
 
+## GCE demo (no hostname)
+
+Static hall on **agenticop-master**, demo port only (not :80/:443):
+
+```powershell
+powershell -File scripts/gce-deploy-demo.ps1
+```
+
+View: http://35.224.146.25:27474/
+
+Default port `27474` reuses an existing `http-server` firewall allow. Dedicated `:19191` needs a project admin to create `allow-ghost-museum` (`compute.firewalls.create`).
+
 ## License
 
 Apache-2.0. Private remote for now; open the hall when a hostname is assigned.
