@@ -106,10 +106,9 @@ Public desk: `/curate.html` · API: `GET /api/curate`.
 
 ## Census (Ghosts box)
 
-`total` = unique **hung ∪ ghost-class hunt contacts** (`still-answering` / `auth-ghost` / `successor-facade`).
-`verified` = ghost-class subset (same set, for meta).
-`contacted` = any watch row with an HTTP status (includes non-ghost 404/etc — meta only).
-`watchlist` = full hunt queue (seeds may sit here unprobed — they do **not** inflate `total` or the wall).
+`total` = unique **hung ∪ ghost-class hunt evidence** (findings keep counting after watchlist rebuilds).
+`verified` = ghost-class subset.
+`contacted` = findings with an HTTP status.
+`watchlist` = current hunt queue size (may be smaller than historical evidence).
 
-Unprobed seeds and non-ghost replies belong on the curate desk / watchlist, not as wall frames.
-**Hung grows via `hang:auto`** (and optional manual hang) after a fresh probe — hunt findings alone never invent frames.
+**Hung grows via `hang:auto`.** The big Ghosts number should not shrink when the queue is rebuilt — only when ghosts are banished.

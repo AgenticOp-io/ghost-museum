@@ -1,9 +1,8 @@
 /**
  * Shared census builder.
- * total = unique hung ∪ ghost-class hunt contacts (still-answering / auth-ghost / successor-facade).
+ * total = unique hung ∪ ghost-class hunt evidence (still-answering / auth-ghost / successor-facade).
+ * Ghost-class findings still count after a watchlist rebuild (evidence outlives the queue).
  * Seeds and non-ghost HTTP replies (404, 500, …) do NOT inflate total or the wall.
- * `contacted` still reports every watch row with an HTTP status (evidence throughput).
- * byDomain mirrors total (hung + ghost-class).
  */
 import { majorDomain } from "../../site/gm-shared.js";
 
@@ -94,26 +93,36 @@ export function buildCensusPayload({
   let contactedDeep = 0;
   let probeErrors = 0;
   const verifiedWalls = {};
+  const watchById = new Map((watch || []).map((w) => [w.id, w]));
 
-  for (const w of watch) {
-    if (!w?.id) continue;
-    const f = latest.get(w.id);
-    if (!f) {
-      awaitingProbe += 1;
-      continue;
-    }
+  // Prefer watch rows (have owner/source), then orphan ghost-class findings.
+  const candidateIds = new Set([
+    ...watchById.keys(),
+    ...[...latest.keys()].filter((id) => {
+      const f = latest.get(id);
+      return f && !f.probeError && f.httpStatus != null && GHOST_WALLS.has(f.suggestedWall);
+    }),
+  ]);
+
+  for (const id of candidateIds) {
+    const w = watchById.get(id);
+    const f = latest.get(id);
+    if (!f) continue;
     if (f.probeError) {
       probeErrors += 1;
       continue;
     }
-    if (f.httpStatus == null) {
-      awaitingProbe += 1;
-      continue;
-    }
+    if (f.httpStatus == null) continue;
 
     contacted += 1;
-    const domain = majorDomain(w);
-    const wasAuthority = isAuthoritySource(w.source);
+    const rowLike = w || {
+      id,
+      probeUrl: f.probeUrl,
+      owner: f.owner || "Unknown",
+      source: f.source || "hunt",
+    };
+    const domain = majorDomain(rowLike);
+    const wasAuthority = isAuthoritySource(rowLike.source);
     if (!wasAuthority) contactedDeep += 1;
 
     const wall = f.suggestedWall;
@@ -122,11 +131,19 @@ export function buildCensusPayload({
     verified += 1;
     verifiedWalls[wall] = (verifiedWalls[wall] || 0) + 1;
     if (!wasAuthority) verifiedDeep += 1;
-    if (!ids.has(w.id)) {
-      countTowardTotal(w.id, domain, wasAuthority ? "watch" : "contacted");
+    if (!ids.has(id)) {
+      countTowardTotal(id, domain, wasAuthority ? "watch" : "contacted");
     }
     const row = touchDomain(domain);
     row.verified = (row.verified || 0) + 1;
+  }
+
+  // Awaiting = on watch with no usable finding yet.
+  for (const w of watch) {
+    if (!w?.id) continue;
+    const f = latest.get(w.id);
+    if (!f) awaitingProbe += 1;
+    else if (!f.probeError && f.httpStatus == null) awaitingProbe += 1;
   }
 
   const byDomain = {};
@@ -172,6 +189,6 @@ export function buildCensusPayload({
     byDomain,
     byOwner,
     lastPass: lastPass || null,
-    note: "total = hung ∪ ghost-class contacts. Seeds and non-ghost HTTP replies do not inflate total. watchlist = full hunt queue.",
+    note: "total = hung ∪ ghost-class evidence (findings survive watchlist rebuilds). Seeds/404s do not inflate total.",
   };
 }

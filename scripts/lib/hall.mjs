@@ -1,7 +1,6 @@
 /**
- * Full hall catalog for the wall — hung ∪ ghost-class hunt contacts.
- * Unprobed seeds and non-ghost HTTP replies stay off the wall (watchlist / curate).
- * Never invents hung frames; watching rows stay doNotIntegrate + honest walls.
+ * Full hall catalog — hung ∪ ghost-class evidence (watch or findings).
+ * DNS misses and non-ghost HTTP replies stay off the wall.
  */
 import { isGhostWall, latestFindingsById } from "./census.mjs";
 
@@ -12,7 +11,7 @@ function wallFromFinding(f) {
   return "unprobed";
 }
 
-function watchToFrame(w, f) {
+function toFrame(w, f) {
   const wall = wallFromFinding(f);
   const title = w.title || f?.title || w.id;
   const ghost = isGhostWall(wall);
@@ -20,7 +19,7 @@ function watchToFrame(w, f) {
     w.note ||
     f?.note ||
     (ghost
-      ? "Hunt-contacted watch ghost — not hung yet. Curate desk may draft a hang."
+      ? "Hunt-verified ghost — not hung yet. hang:auto may commit when curate ranks it strong."
       : f?.httpStatus != null
         ? `Hunt contacted this host (HTTP ${f.httpStatus}). Not hung — evidence only.`
         : "On the authority watchlist — awaiting hunt contact. Not hung.");
@@ -28,10 +27,10 @@ function watchToFrame(w, f) {
     id: w.id,
     wall,
     title,
-    owner: w.owner || "Unknown",
+    owner: w.owner || f?.owner || "Unknown",
     declaredDead: w.declaredDead || (f?.huntedAt ? String(f.huntedAt).slice(0, 10) : ""),
     obituary: w.obituary || f?.obituary || "#",
-    probeUrl: w.probeUrl,
+    probeUrl: w.probeUrl || f?.probeUrl,
     httpStatus: f?.httpStatus ?? null,
     finalUrl: f?.finalUrl || null,
     titleTag: f?.titleTag || null,
@@ -41,14 +40,12 @@ function watchToFrame(w, f) {
     probeError: f?.probeError || null,
     ...(f?.tlsWarning ? { tlsWarning: f.tlsWarning } : {}),
     hallKind: "watching",
-    source: w.source || null,
+    source: w.source || f?.source || null,
   };
 }
 
-/** Watching frames: ghost-class contact only — never raw seeds or 404/unprobed replies. */
-function includeWatchRow(_w, f) {
-  if (!f || f.probeError) return false;
-  if (f.httpStatus == null) return false;
+function isGhostFinding(f) {
+  if (!f || f.probeError || f.httpStatus == null) return false;
   return isGhostWall(wallFromFinding(f));
 }
 
@@ -57,19 +54,42 @@ function includeWatchRow(_w, f) {
  */
 export function buildHallCatalog({ exhibits = [], watch = [], findings = [] } = {}) {
   const latest = latestFindingsById(findings);
-  const hungIds = new Set((exhibits || []).map((e) => e.id).filter(Boolean));
   const out = [];
+  const seen = new Set();
 
   for (const ex of exhibits || []) {
     if (!ex?.id) continue;
     out.push({ ...ex, hallKind: "hung" });
+    seen.add(ex.id);
   }
 
   for (const w of watch || []) {
-    if (!w?.id || !w?.probeUrl || hungIds.has(w.id)) continue;
+    if (!w?.id || !w?.probeUrl || seen.has(w.id)) continue;
     const f = latest.get(w.id);
-    if (!includeWatchRow(w, f)) continue;
-    out.push(watchToFrame(w, f));
+    if (!isGhostFinding(f)) continue;
+    out.push(toFrame(w, f));
+    seen.add(w.id);
+  }
+
+  // Ghost-class findings that fell off a watchlist rebuild still belong on the wall.
+  for (const f of latest.values()) {
+    if (!f?.id || seen.has(f.id) || !f.probeUrl) continue;
+    if (!isGhostFinding(f)) continue;
+    out.push(
+      toFrame(
+        {
+          id: f.id,
+          title: f.title,
+          probeUrl: f.probeUrl,
+          obituary: f.obituary,
+          owner: f.owner,
+          source: f.source || "hunt",
+          note: f.note,
+        },
+        f,
+      ),
+    );
+    seen.add(f.id);
   }
 
   out.sort((a, b) => {

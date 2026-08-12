@@ -136,7 +136,19 @@ const watch = existsSync(watchPath)
   ? JSON.parse(readFileSync(watchPath, "utf8"))
   : { museum: "Still Answering", watchlist: [] };
 
-const byId = rebuild ? new Map() : new Map(watch.watchlist.map((w) => [w.id, w]));
+const prior = watch.watchlist || [];
+const byId = rebuild ? new Map() : new Map(prior.map((w) => [w.id, w]));
+
+// On rebuild, keep prior rows that are not invented deep/vast noise so evidence stays queued.
+if (rebuild) {
+  for (const w of prior) {
+    const src = String(w?.source || "");
+    if (/-deep$|-vast$/.test(src)) continue;
+    if (!w?.id || !w?.probeUrl || !w?.obituary) continue;
+    byId.set(w.id, w);
+  }
+}
+
 const counters = {
   added: 0,
   updated: 0,
@@ -145,6 +157,7 @@ const counters = {
   packs: 0,
   packSeeds: 0,
   catalogs: 0,
+  preserved: rebuild ? byId.size : 0,
 };
 
 const hints = JSON.parse(readFileSync(hintsPath, "utf8"));
@@ -353,7 +366,7 @@ watch.sources = sources;
 watch.watchlist = [...byId.values()].sort((a, b) => a.id.localeCompare(b.id));
 writeFileSync(watchPath, JSON.stringify(watch, null, 2) + "\n");
 console.log(
-  `watchlist ${watch.watchlist.length} (+${counters.added} new, ~${counters.updated} refreshed, packs=${counters.packs}/${counters.packSeeds}, proposed=${counters.proposed}, skipped=${counters.skipped}, catalogs=${counters.catalogs}, mode=${watch.seedMode}, rebuild=${rebuild})`,
+  `watchlist ${watch.watchlist.length} (+${counters.added} new, ~${counters.updated} refreshed, preserved=${counters.preserved || 0}, packs=${counters.packs}/${counters.packSeeds}, proposed=${counters.proposed}, skipped=${counters.skipped}, catalogs=${counters.catalogs}, mode=${watch.seedMode}, rebuild=${rebuild})`,
 );
 console.log(
   "owners",
