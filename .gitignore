@@ -4,6 +4,8 @@ nominations/
 hunt/findings.jsonl
 hunt/last-pass.json
 hunt/curate-rank.json
+hunt/hang-auto-log.json
+hunt/drafts/
 .DS_Store
 Thumbs.db
 *.log

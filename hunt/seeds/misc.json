@@ -1,0 +1,186 @@
+{
+  "owner": "Misc",
+  "purpose": "Other vendors and classic web sunsets — broaden beyond FAANG.",
+  "seeds": [
+    {
+      "id": "twitter-vine-api",
+      "title": "Vine API / media door",
+      "probeUrl": "https://api.vineapp.com/",
+      "obituary": "https://blog.twitter.com/en_us/topics/company/2016/vine-update"
+    },
+    {
+      "id": "myspace-classic",
+      "title": "Myspace classic",
+      "probeUrl": "https://myspace.com/",
+      "obituary": "https://en.wikipedia.org/wiki/Myspace"
+    },
+    {
+      "id": "friendster",
+      "title": "Friendster",
+      "probeUrl": "https://www.friendster.com/",
+      "obituary": "https://en.wikipedia.org/wiki/Friendster"
+    },
+    {
+      "id": "digg-v4",
+      "title": "Digg",
+      "probeUrl": "https://digg.com/",
+      "obituary": "https://blog.digg.com/"
+    },
+    {
+      "id": "delicious-yahoo-era",
+      "title": "Delicious",
+      "probeUrl": "https://delicious.com/",
+      "obituary": "https://en.wikipedia.org/wiki/Delicious_(website)"
+    },
+    {
+      "id": "stumbleupon",
+      "title": "StumbleUpon",
+      "probeUrl": "https://www.stumbleupon.com/",
+      "obituary": "https://en.wikipedia.org/wiki/StumbleUpon"
+    },
+    {
+      "id": "imgur-community-sunset-note",
+      "title": "Imgur community changes door",
+      "probeUrl": "https://imgur.com/",
+      "obituary": "https://blog.imgur.com/"
+    },
+    {
+      "id": "heroku-free-dyno",
+      "title": "Heroku free dynos FAQ",
+      "probeUrl": "https://www.heroku.com/free",
+      "obituary": "https://blog.heroku.com/next-chapter"
+    },
+    {
+      "id": "travis-ci-org",
+      "title": "Travis CI .org",
+      "probeUrl": "https://travis-ci.org/",
+      "obituary": "https://blog.travis-ci.com/2020-11-02-travis-ci-new-plan"
+    },
+    {
+      "id": "ibm-bluemix-console",
+      "title": "IBM Bluemix classic",
+      "probeUrl": "https://console.bluemix.net/",
+      "obituary": "https://www.ibm.com/cloud/blog/announcements/bluemix-is-now-ibm-cloud"
+    },
+    {
+      "id": "openshift-v2",
+      "title": "OpenShift Online v2",
+      "probeUrl": "https://openshift.com/",
+      "obituary": "https://www.redhat.com/en/blog/migrating-applications-openshift-v2-v3"
+    },
+    {
+      "id": "rackspace-cloud-sites",
+      "title": "Rackspace Cloud Sites",
+      "probeUrl": "https://www.rackspace.com/cloud/sites",
+      "obituary": "https://www.rackspace.com/blog"
+    },
+    {
+      "id": "tinypic",
+      "title": "TinyPic",
+      "probeUrl": "https://tinypic.com/",
+      "obituary": "https://en.wikipedia.org/wiki/TinyPic"
+    },
+    {
+      "id": "photobucket-classic",
+      "title": "Photobucket",
+      "probeUrl": "https://photobucket.com/",
+      "obituary": "https://en.wikipedia.org/wiki/Photobucket"
+    },
+    {
+      "id": "rapidshare",
+      "title": "RapidShare",
+      "probeUrl": "https://www.rapidshare.com/",
+      "obituary": "https://en.wikipedia.org/wiki/RapidShare"
+    },
+    {
+      "id": "megaupload-door",
+      "title": "Megaupload",
+      "probeUrl": "https://www.megaupload.com/",
+      "obituary": "https://en.wikipedia.org/wiki/Megaupload"
+    },
+    {
+      "id": "rdio",
+      "title": "Rdio",
+      "probeUrl": "https://www.rdio.com/",
+      "obituary": "https://en.wikipedia.org/wiki/Rdio"
+    },
+    {
+      "id": "grooveshark",
+      "title": "Grooveshark",
+      "probeUrl": "https://grooveshark.com/",
+      "obituary": "https://en.wikipedia.org/wiki/Grooveshark"
+    },
+    {
+      "id": "napster-web-classic",
+      "title": "Napster web classic",
+      "probeUrl": "https://www.napster.com/",
+      "obituary": "https://en.wikipedia.org/wiki/Napster"
+    },
+    {
+      "id": "limewire",
+      "title": "LimeWire",
+      "probeUrl": "https://www.limewire.com/",
+      "obituary": "https://en.wikipedia.org/wiki/LimeWire"
+    },
+    {
+      "id": "ebay-classifieds",
+      "title": "eBay Classifieds group doors",
+      "probeUrl": "https://www.ebayclassifieds.com/",
+      "obituary": "https://www.ebayinc.com/stories/news/"
+    },
+    {
+      "id": "paypal-here",
+      "title": "PayPal Here",
+      "probeUrl": "https://www.paypal.com/us/webapps/mpp/paypal-here",
+      "obituary": "https://newsroom.paypal-corp.com/"
+    },
+    {
+      "id": "square-reader-classic",
+      "title": "Square Register classic marketing",
+      "probeUrl": "https://squareup.com/register",
+      "obituary": "https://squareup.com/us/en/press"
+    },
+    {
+      "id": "dropbox-carousel",
+      "title": "Dropbox Carousel",
+      "probeUrl": "https://www.dropbox.com/carousel",
+      "obituary": "https://blog.dropbox.com/topics/product/carousel-mailbox-shutdown"
+    },
+    {
+      "id": "dropbox-mailbox",
+      "title": "Mailbox (Dropbox)",
+      "probeUrl": "https://www.mailboxapp.com/",
+      "obituary": "https://blog.dropbox.com/topics/product/carousel-mailbox-shutdown"
+    },
+    {
+      "id": "evernote-food",
+      "title": "Evernote Food",
+      "probeUrl": "https://www.evernote.com/food",
+      "obituary": "https://evernote.com/blog/"
+    },
+    {
+      "id": "nest-weave",
+      "title": "Nest Weave",
+      "probeUrl": "https://developers.nest.com/",
+      "obituary": "https://blog.google/inside-google/company-announcements/"
+    },
+    {
+      "id": "fitbit-api-classic",
+      "title": "Fitbit developer classic",
+      "probeUrl": "https://dev.fitbit.com/",
+      "obituary": "https://blog.fitbit.com/"
+    },
+    {
+      "id": "jawbone-up",
+      "title": "Jawbone UP",
+      "probeUrl": "https://jawbone.com/",
+      "obituary": "https://en.wikipedia.org/wiki/Jawbone_(company)"
+    },
+    {
+      "id": "blackberry-world",
+      "title": "BlackBerry World",
+      "probeUrl": "https://appworld.blackberry.com/",
+      "obituary": "https://www.blackberry.com/"
+    }
+  ]
+}

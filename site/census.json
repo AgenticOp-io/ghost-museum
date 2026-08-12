@@ -1,0 +1,236 @@
+{
+  "museum": "Still Answering",
+  "updatedAt": "2026-08-12T12:59:11.387Z",
+  "total": 52,
+  "hung": 42,
+  "banished": 0,
+  "watchlist": 1908,
+  "authorityWatch": 1212,
+  "deepWatch": 696,
+  "awaitingProbe": 1847,
+  "contacted": 48,
+  "contactedDeep": 0,
+  "verified": 41,
+  "verifiedDeep": 0,
+  "probeErrors": 13,
+  "verifiedWalls": {
+    "successor-facade": 31,
+    "still-answering": 8,
+    "auth-ghost": 2
+  },
+  "exhibits": 42,
+  "byWall": {
+    "still-answering": 15,
+    "auth-ghost": 2,
+    "successor-facade": 24,
+    "buried": 1
+  },
+  "byDomain": {
+    "google.com": {
+      "total": 25,
+      "hung": 17,
+      "banished": 0,
+      "watch": 8,
+      "verified": 20,
+      "contacted": 0
+    },
+    "domains.google": {
+      "total": 1,
+      "hung": 1,
+      "banished": 0,
+      "watch": 0,
+      "verified": 0,
+      "contacted": 0
+    },
+    "vine.co": {
+      "total": 1,
+      "hung": 1,
+      "banished": 0,
+      "watch": 0,
+      "verified": 0,
+      "contacted": 0
+    },
+    "microsoft.com": {
+      "total": 5,
+      "hung": 4,
+      "banished": 0,
+      "watch": 1,
+      "verified": 5,
+      "contacted": 0
+    },
+    "mixer.com": {
+      "total": 1,
+      "hung": 1,
+      "banished": 0,
+      "watch": 0,
+      "verified": 0,
+      "contacted": 0
+    },
+    "atom.io": {
+      "total": 2,
+      "hung": 1,
+      "banished": 0,
+      "watch": 1,
+      "verified": 1,
+      "contacted": 0
+    },
+    "orkut.com": {
+      "total": 1,
+      "hung": 1,
+      "banished": 0,
+      "watch": 0,
+      "verified": 0,
+      "contacted": 0
+    },
+    "adobe.com": {
+      "total": 1,
+      "hung": 1,
+      "banished": 0,
+      "watch": 0,
+      "verified": 1,
+      "contacted": 0
+    },
+    "angularjs.org": {
+      "total": 1,
+      "hung": 1,
+      "banished": 0,
+      "watch": 0,
+      "verified": 1,
+      "contacted": 0
+    },
+    "panoramio.com": {
+      "total": 1,
+      "hung": 1,
+      "banished": 0,
+      "watch": 0,
+      "verified": 1,
+      "contacted": 0
+    },
+    "polymer-project.org": {
+      "total": 1,
+      "hung": 1,
+      "banished": 0,
+      "watch": 0,
+      "verified": 1,
+      "contacted": 0
+    },
+    "parse.com": {
+      "total": 1,
+      "hung": 1,
+      "banished": 0,
+      "watch": 0,
+      "verified": 0,
+      "contacted": 0
+    },
+    "clubhouse.com": {
+      "total": 1,
+      "hung": 1,
+      "banished": 0,
+      "watch": 0,
+      "verified": 1,
+      "contacted": 0
+    },
+    "stumbleupon.com": {
+      "total": 1,
+      "hung": 1,
+      "banished": 0,
+      "watch": 0,
+      "verified": 1,
+      "contacted": 0
+    },
+    "heroku.com": {
+      "total": 1,
+      "hung": 1,
+      "banished": 0,
+      "watch": 0,
+      "verified": 1,
+      "contacted": 0
+    },
+    "yahoo.com": {
+      "total": 1,
+      "hung": 1,
+      "banished": 0,
+      "watch": 0,
+      "verified": 1,
+      "contacted": 0
+    },
+    "nest.com": {
+      "total": 1,
+      "hung": 1,
+      "banished": 0,
+      "watch": 0,
+      "verified": 1,
+      "contacted": 0
+    },
+    "parseplatform.org": {
+      "total": 1,
+      "hung": 1,
+      "banished": 0,
+      "watch": 0,
+      "verified": 1,
+      "contacted": 0
+    },
+    "pebble.com": {
+      "total": 1,
+      "hung": 1,
+      "banished": 0,
+      "watch": 0,
+      "verified": 1,
+      "contacted": 0
+    },
+    "delicious.com": {
+      "total": 1,
+      "hung": 1,
+      "banished": 0,
+      "watch": 0,
+      "verified": 1,
+      "contacted": 0
+    },
+    "dependabot.com": {
+      "total": 1,
+      "hung": 1,
+      "banished": 0,
+      "watch": 0,
+      "verified": 1,
+      "contacted": 0
+    },
+    "spectrum.chat": {
+      "total": 1,
+      "hung": 1,
+      "banished": 0,
+      "watch": 0,
+      "verified": 1,
+      "contacted": 0
+    },
+    "skype.com": {
+      "total": 1,
+      "hung": 1,
+      "banished": 0,
+      "watch": 0,
+      "verified": 1,
+      "contacted": 0
+    }
+  },
+  "byOwner": {
+    "Adobe": 8,
+    "Curated": 47,
+    "Web": 99,
+    "Amazon": 9,
+    "Apple": 177,
+    "Microsoft": 335,
+    "Startup": 152,
+    "Google": 569,
+    "Obituary harvest": 170,
+    "Misc": 26,
+    "Wikidata": 296,
+    "Meta": 10,
+    "Yahoo": 10,
+    "Google → Squarespace": 0,
+    "Twitter / X": 0,
+    "Google CDN / Adobe Flash era": 0,
+    "GitHub": 0,
+    "Facebook / Parse": 0
+  },
+  "lastPass": null,
+  "note": "total = hung ∪ ghost-class contacts. Seeds and non-ghost HTTP replies do not inflate total. watchlist = full hunt queue."
+}

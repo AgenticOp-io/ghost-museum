@@ -1,0 +1,66 @@
+{
+  "owner": "Amazon",
+  "purpose": "Amazon / AWS sunsets with public doors still worth probing.",
+  "seeds": [
+    {
+      "id": "amazon-smile",
+      "title": "Amazon Smile",
+      "probeUrl": "https://smile.amazon.com/",
+      "obituary": "https://www.aboutamazon.com/news/company-news/amazon-closing-amazon-smile"
+    },
+    {
+      "id": "aws-simpledb",
+      "title": "Amazon SimpleDB",
+      "probeUrl": "https://aws.amazon.com/simpledb/",
+      "obituary": "https://aws.amazon.com/blogs/aws/amazon-simpledb-update-a-few-new-features/"
+    },
+    {
+      "id": "aws-workdocs",
+      "title": "Amazon WorkDocs",
+      "probeUrl": "https://aws.amazon.com/workdocs/",
+      "obituary": "https://aws.amazon.com/blogs/aws/amazon-workdocs-ending-support/"
+    },
+    {
+      "id": "aws-honeycode",
+      "title": "Amazon Honeycode",
+      "probeUrl": "https://www.honeycode.aws/",
+      "obituary": "https://aws.amazon.com/blogs/aws/amazon-honeycode-has-reached-end-of-support/"
+    },
+    {
+      "id": "aws-cloud9-console",
+      "title": "AWS Cloud9",
+      "probeUrl": "https://aws.amazon.com/cloud9/",
+      "obituary": "https://aws.amazon.com/blogs/aws/aws-cloud9-end-of-support/"
+    },
+    {
+      "id": "amazon-fire-phone",
+      "title": "Fire Phone support door",
+      "probeUrl": "https://www.amazon.com/gp/help/customer/display.html?nodeId=201423050",
+      "obituary": "https://www.theverge.com/2015/9/9/9295555/amazon-fire-phone-is-officially-dead"
+    },
+    {
+      "id": "amazon-destination",
+      "title": "Amazon Destinations",
+      "probeUrl": "https://www.amazon.com/local/featured/hotels",
+      "obituary": "https://www.geekwire.com/2015/amazon-quietly-shuts-down-hotel-booking-service-amazon-destinations/"
+    },
+    {
+      "id": "amazon-wallet",
+      "title": "Amazon Wallet",
+      "probeUrl": "https://www.amazon.com/wallet",
+      "obituary": "https://www.geekwire.com/2014/amazon-quietly-shutters-amazon-wallet-app/"
+    },
+    {
+      "id": "audible-mobile-web-legacy",
+      "title": "Audible legacy mobile web",
+      "probeUrl": "https://mobile.audible.com/",
+      "obituary": "https://www.audible.com/"
+    },
+    {
+      "id": "aws-opsworks",
+      "title": "AWS OpsWorks",
+      "probeUrl": "https://aws.amazon.com/opsworks/",
+      "obituary": "https://aws.amazon.com/blogs/aws/aws-opsworks-is-reaching-end-of-life/"
+    }
+  ]
+}

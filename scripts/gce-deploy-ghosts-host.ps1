@@ -23,7 +23,10 @@ gcloud compute ssh $Instance --zone=$Zone --command="sudo mkdir -p $RemoteDir/si
 gcloud compute scp --recurse --zone=$Zone "$Site\*" "${Instance}:${RemoteDir}/site/"
 gcloud compute scp --zone=$Zone $Server "${Instance}:${RemoteDir}/scripts/demo-server.mjs"
 gcloud compute scp --zone=$Zone $Hunt "${Instance}:${RemoteDir}/scripts/hunt.mjs"
+gcloud compute scp --zone=$Zone (Join-Path $Root "scripts\lib\census.mjs") "${Instance}:${RemoteDir}/scripts/lib/census.mjs"
+gcloud compute scp --zone=$Zone (Join-Path $Root "scripts\lib\hall.mjs") "${Instance}:${RemoteDir}/scripts/lib/hall.mjs"
 gcloud compute scp --zone=$Zone $Watch "${Instance}:${RemoteDir}/hunt/watchlist.json"
+gcloud compute scp --recurse --zone=$Zone (Join-Path $Root "hunt\seeds") "${Instance}:${RemoteDir}/hunt/seeds"
 gcloud compute scp --zone=$Zone $Install "${Instance}:/tmp/gce-install-ghosts-vhost.sh"
 
 $remote = @"

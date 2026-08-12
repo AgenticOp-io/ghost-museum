@@ -1,0 +1,1620 @@
+{
+  "owner": "Autoseed",
+  "purpose": "Learned from hung + verified ghosts: funeral hosts, probe shapes, shutdown language. Feed polls + rescored discovery. Not an open-web crawl. Probe before hang.",
+  "learnedAt": "2026-08-12T12:47:51.876Z",
+  "algorithm": "ghost-report-model-v2",
+  "minScore": 28,
+  "stats": {
+    "feeds": 10,
+    "feedItems": 165,
+    "feedHits": 0,
+    "sitemaps": 7,
+    "sitemapHits": 6,
+    "retries": 0,
+    "rescored": 780,
+    "kept": 200,
+    "skipped": 125
+  },
+  "seeds": [
+    {
+      "id": "auto-alt-disc-killedbyai-google-assistant-classic-assistant-classic-goog",
+      "title": "Google Assistant (Classic)",
+      "probeUrl": "https://assistant-classic.google.com/",
+      "obituary": "https://blog.google/products/assistant/google-assistant-update-gemini/",
+      "owner": "Startup",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 86: funeral host blog.google; shape subdomain rate=0.84; base google.com score=0.97]"
+    },
+    {
+      "id": "auto-alt-disc-killedbyai-google-bard-bard-google-com",
+      "title": "Google Bard",
+      "probeUrl": "https://bard.google.com/",
+      "obituary": "https://blog.google/products/gemini/bard-gemini-advanced-app/",
+      "owner": "Startup",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 86: funeral host blog.google; shape subdomain rate=0.84; base google.com score=0.97]"
+    },
+    {
+      "id": "auto-alt-disc-killedbyai-google-gemini-image-generation-p-gemini-image-g",
+      "title": "Google Gemini Image Generation (People)",
+      "probeUrl": "https://gemini-image.google.com/",
+      "obituary": "https://blog.google/products/gemini/gemini-image-generation-issue/",
+      "owner": "Startup",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 86: funeral host blog.google; shape subdomain rate=0.84; base google.com score=0.97]"
+    },
+    {
+      "id": "auto-alt-disc-killedbygoogle-google-flu-vaccine-finder-flu-vaccine-googl",
+      "title": "Google Flu Vaccine Finder",
+      "probeUrl": "https://flu-vaccine.google.com/",
+      "obituary": "https://googleblog.blogspot.com/2012/04/spring-cleaning-in-spring.html",
+      "owner": "Google",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 85: funeral host googleblog.blogspot.com; shape subdomain rate=0.84; base google.com score=0.97]"
+    },
+    {
+      "id": "auto-sm-discontinuing-support-for-json-rpc-and-global-ht-clients6-google",
+      "title": "discontinuing support for json rpc and global http batch endpoints",
+      "probeUrl": "https://clients6.google.com/rpc",
+      "obituary": "https://developers.googleblog.com/discontinuing-support-for-json-rpc-and-global-http-batch-endpoints/",
+      "owner": "Google",
+      "note": "Autoseed from funeral-host sitemap developers.googleblog.com. Probe URL extracted from page — verify before hang. [score 83: funeral host developers.googleblog.com; shape subdomain rate=0.84; base google.com score=0.97]"
+    },
+    {
+      "id": "auto-alt-disc-killedbyai-google-assistant-classic-google-com",
+      "title": "Google Assistant (Classic)",
+      "probeUrl": "https://www.google.com/assistant-classic/",
+      "obituary": "https://blog.google/products/assistant/google-assistant-update-gemini/",
+      "owner": "Startup",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 82: funeral host blog.google; shape path rate=0.64; base google.com score=0.97]"
+    },
+    {
+      "id": "auto-alt-disc-killedbyai-google-bard-google-com",
+      "title": "Google Bard",
+      "probeUrl": "https://www.google.com/bard/",
+      "obituary": "https://blog.google/products/gemini/bard-gemini-advanced-app/",
+      "owner": "Startup",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 82: funeral host blog.google; shape path rate=0.64; base google.com score=0.97]"
+    },
+    {
+      "id": "auto-alt-disc-killedbyai-google-gemini-image-generation-p-google-com",
+      "title": "Google Gemini Image Generation (People)",
+      "probeUrl": "https://www.google.com/gemini-image/",
+      "obituary": "https://blog.google/products/gemini/gemini-image-generation-issue/",
+      "owner": "Startup",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 82: funeral host blog.google; shape path rate=0.64; base google.com score=0.97]"
+    },
+    {
+      "id": "auto-alt-disc-killedbygoogle-google-flu-vaccine-finder-google-com",
+      "title": "Google Flu Vaccine Finder",
+      "probeUrl": "https://www.google.com/flu-vaccine/",
+      "obituary": "https://googleblog.blogspot.com/2012/04/spring-cleaning-in-spring.html",
+      "owner": "Google",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 81: funeral host googleblog.blogspot.com; shape path rate=0.64; base google.com score=0.97]"
+    },
+    {
+      "id": "auto-alt-disc-killedbygoogle-google-listen-google-com",
+      "title": "Google Listen",
+      "probeUrl": "https://www.google.com/listen/",
+      "obituary": "https://googleblog.blogspot.com/2012/08/giving-you-better-google.html",
+      "owner": "Google",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 81: funeral host googleblog.blogspot.com; shape path rate=0.64; base google.com score=0.97]"
+    },
+    {
+      "id": "auto-alt-disc-killedbygoogle-google-related-google-com",
+      "title": "Google Related",
+      "probeUrl": "https://www.google.com/related/",
+      "obituary": "https://googleblog.blogspot.com/2012/04/spring-cleaning-in-spring.html",
+      "owner": "Google",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 81: funeral host googleblog.blogspot.com; shape path rate=0.64; base google.com score=0.97]"
+    },
+    {
+      "id": "auto-alt-disc-obit-chrome-blogspot-com-chrome-google-com",
+      "title": "chrome.blogspot.com",
+      "probeUrl": "https://chrome.google.com/",
+      "obituary": "https://googleblog.blogspot.com/2010/08/update-on-google-wave.html",
+      "owner": "Obituary harvest",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 79: funeral host googleblog.blogspot.com; shape subdomain rate=0.84; base google.com score=0.97]"
+    },
+    {
+      "id": "auto-alt-disc-obit-google-latlong-blogspot-com-latlong-google-com",
+      "title": "google-latlong.blogspot.com",
+      "probeUrl": "https://latlong.google.com/",
+      "obituary": "https://googleblog.blogspot.com/2010/08/update-on-google-wave.html",
+      "owner": "Obituary harvest",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 79: funeral host googleblog.blogspot.com; shape subdomain rate=0.84; base google.com score=0.97]"
+    },
+    {
+      "id": "auto-alt-disc-obit-googleforstudents-blogspot-com-googleforstudents-goog",
+      "title": "googleforstudents.blogspot.com",
+      "probeUrl": "https://googleforstudents.google.com/",
+      "obituary": "https://googleblog.blogspot.com/2010/08/update-on-google-wave.html",
+      "owner": "Obituary harvest",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 79: funeral host googleblog.blogspot.com; shape subdomain rate=0.84; base google.com score=0.97]"
+    },
+    {
+      "id": "auto-alt-disc-obit-googlepublicpolicy-blogspot-com-googlepublicpolicy-go",
+      "title": "googlepublicpolicy.blogspot.com",
+      "probeUrl": "https://googlepublicpolicy.google.com/",
+      "obituary": "https://googleblog.blogspot.com/2010/08/update-on-google-wave.html",
+      "owner": "Obituary harvest",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 79: funeral host googleblog.blogspot.com; shape subdomain rate=0.84; base google.com score=0.97]"
+    },
+    {
+      "id": "auto-alt-disc-obit-googleresearch-blogspot-com-googleresearch-google-com",
+      "title": "googleresearch.blogspot.com",
+      "probeUrl": "https://googleresearch.google.com/",
+      "obituary": "https://googleblog.blogspot.com/2010/08/update-on-google-wave.html",
+      "owner": "Obituary harvest",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 79: funeral host googleblog.blogspot.com; shape subdomain rate=0.84; base google.com score=0.97]"
+    },
+    {
+      "id": "auto-alt-disc-obit-officialandroid-blogspot-com-officialandroid-google-c",
+      "title": "officialandroid.blogspot.com",
+      "probeUrl": "https://officialandroid.google.com/",
+      "obituary": "https://googleblog.blogspot.com/2010/08/update-on-google-wave.html",
+      "owner": "Obituary harvest",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 79: funeral host googleblog.blogspot.com; shape subdomain rate=0.84; base google.com score=0.97]"
+    },
+    {
+      "id": "auto-sm-discontinuing-google-sign-in-javascript-platform-google-com",
+      "title": "discontinuing google sign in javascript platform library for web",
+      "probeUrl": "https://www.google.com/url?q=https://developers.googleblog.com/2021/07/launching-our-new-google-identity-services-apis.html&amp;sa=D&amp;usg=AFQjCNHYBJiiC0FH0j9xN5mxpXYwPzpiXA",
+      "obituary": "https://developers.googleblog.com/discontinuing-google-sign-in-javascript-platform-library-for-web/",
+      "owner": "Google",
+      "note": "Autoseed from funeral-host sitemap developers.googleblog.com. Probe URL extracted from page — verify before hang. [score 79: funeral host developers.googleblog.com; shape path rate=0.64; base google.com score=0.97]"
+    },
+    {
+      "id": "auto-alt-disc-killed-by-microsoft-microsoft-anti-virus-fo-anti-virus-mic",
+      "title": "Microsoft Anti-Virus for Windows",
+      "probeUrl": "https://anti-virus.microsoft.com/",
+      "obituary": "https://en.wikipedia.org/wiki/MSAV",
+      "owner": "Microsoft",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 77: funeral host en.wikipedia.org; shape subdomain rate=0.84; base microsoft.com score=1.00]"
+    },
+    {
+      "id": "auto-alt-disc-killed-by-microsoft-microsoft-content-manag-content-manage",
+      "title": "Microsoft Content Management Server",
+      "probeUrl": "https://content-management.microsoft.com/",
+      "obituary": "https://en.wikipedia.org/wiki/Microsoft_Content_Management_Server",
+      "owner": "Microsoft",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 77: funeral host en.wikipedia.org; shape subdomain rate=0.84; base microsoft.com score=1.00]"
+    },
+    {
+      "id": "auto-alt-disc-killed-by-microsoft-microsoft-cordless-phon-cordless-phone",
+      "title": "Microsoft Cordless Phone System",
+      "probeUrl": "https://cordless-phone.microsoft.com/",
+      "obituary": "https://en.wikipedia.org/wiki/Microsoft_Cordless_Phone_System",
+      "owner": "Microsoft",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 77: funeral host en.wikipedia.org; shape subdomain rate=0.84; base microsoft.com score=1.00]"
+    },
+    {
+      "id": "auto-alt-disc-killed-by-microsoft-microsoft-image-composi-image-composit",
+      "title": "Microsoft Image Composite Editor",
+      "probeUrl": "https://image-composite.microsoft.com/",
+      "obituary": "https://en.wikipedia.org/wiki/Image_Composite_Editor",
+      "owner": "Microsoft",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 77: funeral host en.wikipedia.org; shape subdomain rate=0.84; base microsoft.com score=1.00]"
+    },
+    {
+      "id": "auto-alt-disc-killed-by-microsoft-microsoft-java-virtual--java-virtual-m",
+      "title": "Microsoft Java Virtual Machine",
+      "probeUrl": "https://java-virtual.microsoft.com/",
+      "obituary": "https://en.wikipedia.org/wiki/Microsoft_Java_Virtual_Machine",
+      "owner": "Microsoft",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 77: funeral host en.wikipedia.org; shape subdomain rate=0.84; base microsoft.com score=1.00]"
+    },
+    {
+      "id": "auto-alt-disc-killed-by-microsoft-microsoft-office-perfor-office-perform",
+      "title": "Microsoft Office PerformancePoint Server",
+      "probeUrl": "https://office-performancepoint.microsoft.com/",
+      "obituary": "https://en.wikipedia.org/wiki/Microsoft_Office_PerformancePoint_Server",
+      "owner": "Microsoft",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 77: funeral host en.wikipedia.org; shape subdomain rate=0.84; base microsoft.com score=1.00]"
+    },
+    {
+      "id": "auto-alt-disc-killed-by-microsoft-microsoft-office-pictur-office-picture",
+      "title": "Microsoft Office Picture Manager",
+      "probeUrl": "https://office-picture.microsoft.com/",
+      "obituary": "https://en.wikipedia.org/wiki/Microsoft_Office_Picture_Manager",
+      "owner": "Microsoft",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 77: funeral host en.wikipedia.org; shape subdomain rate=0.84; base microsoft.com score=1.00]"
+    },
+    {
+      "id": "auto-alt-disc-killedbygoogle-google-blog-search-api-blog-search-google-c",
+      "title": "Google Blog Search API",
+      "probeUrl": "https://blog-search.google.com/",
+      "obituary": "https://en.wikipedia.org/wiki/Google_Blog_Search",
+      "owner": "Google",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 76: funeral host en.wikipedia.org; shape subdomain rate=0.84; base google.com score=0.97]"
+    },
+    {
+      "id": "auto-alt-disc-killedbygoogle-google-cardboard-cardboard-google-com",
+      "title": "Google Cardboard",
+      "probeUrl": "https://cardboard.google.com/",
+      "obituary": "https://en.wikipedia.org/wiki/Google_Cardboard",
+      "owner": "Google",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 76: funeral host en.wikipedia.org; shape subdomain rate=0.84; base google.com score=0.97]"
+    },
+    {
+      "id": "auto-alt-disc-killedbygoogle-google-click-to-call-click-call-google-com",
+      "title": "Google Click-to-Call",
+      "probeUrl": "https://click-call.google.com/",
+      "obituary": "https://en.wikipedia.org/wiki/AdWords#Google_Click-to-Call",
+      "owner": "Google",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 76: funeral host en.wikipedia.org; shape subdomain rate=0.84; base google.com score=0.97]"
+    },
+    {
+      "id": "auto-alt-disc-killedbygoogle-google-clips-clips-google-com",
+      "title": "Google Clips",
+      "probeUrl": "https://clips.google.com/",
+      "obituary": "https://en.wikipedia.org/wiki/Google_Clips",
+      "owner": "Google",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 76: funeral host en.wikipedia.org; shape subdomain rate=0.84; base google.com score=0.97]"
+    },
+    {
+      "id": "auto-alt-disc-killedbygoogle-google-cloud-messaging-gcm-cloud-messaging-",
+      "title": "Google Cloud Messaging (GCM)",
+      "probeUrl": "https://cloud-messaging.google.com/",
+      "obituary": "https://en.wikipedia.org/wiki/Google_Cloud_Messaging",
+      "owner": "Google",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 76: funeral host en.wikipedia.org; shape subdomain rate=0.84; base google.com score=0.97]"
+    },
+    {
+      "id": "auto-alt-disc-killedbygoogle-google-daydream-daydream-google-com",
+      "title": "Google Daydream",
+      "probeUrl": "https://daydream.google.com/",
+      "obituary": "https://en.wikipedia.org/wiki/Google_Daydream",
+      "owner": "Google",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 76: funeral host en.wikipedia.org; shape subdomain rate=0.84; base google.com score=0.97]"
+    },
+    {
+      "id": "auto-alt-disc-killedbygoogle-google-earth-browser-plug-in-earth-browser-",
+      "title": "Google Earth Browser Plug-in",
+      "probeUrl": "https://earth-browser.google.com/",
+      "obituary": "https://en.wikipedia.org/wiki/Google_Earth#Google_Earth_Plug-in",
+      "owner": "Google",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 76: funeral host en.wikipedia.org; shape subdomain rate=0.84; base google.com score=0.97]"
+    },
+    {
+      "id": "auto-alt-disc-killedbygoogle-google-glass-explorer-editio-glass-explorer",
+      "title": "Google Glass Explorer Edition",
+      "probeUrl": "https://glass-explorer.google.com/",
+      "obituary": "https://en.wikipedia.org/wiki/Google_Glass",
+      "owner": "Google",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 76: funeral host en.wikipedia.org; shape subdomain rate=0.84; base google.com score=0.97]"
+    },
+    {
+      "id": "auto-alt-disc-killedbygoogle-google-insights-for-search-insights-search-",
+      "title": "Google Insights for Search",
+      "probeUrl": "https://insights-search.google.com/",
+      "obituary": "https://en.wikipedia.org/wiki/Google_Insights_for_Search",
+      "owner": "Google",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 76: funeral host en.wikipedia.org; shape subdomain rate=0.84; base google.com score=0.97]"
+    },
+    {
+      "id": "auto-alt-disc-killedbygoogle-google-mini-mini-google-com",
+      "title": "Google Mini",
+      "probeUrl": "https://mini.google.com/",
+      "obituary": "https://en.wikipedia.org/wiki/Google_Search_Appliance#Google_Mini",
+      "owner": "Google",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 76: funeral host en.wikipedia.org; shape subdomain rate=0.84; base google.com score=0.97]"
+    },
+    {
+      "id": "auto-alt-disc-killedbygoogle-google-nexus-nexus-google-com",
+      "title": "Google Nexus",
+      "probeUrl": "https://nexus.google.com/",
+      "obituary": "https://en.wikipedia.org/wiki/Google_Nexus",
+      "owner": "Google",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 76: funeral host en.wikipedia.org; shape subdomain rate=0.84; base google.com score=0.97]"
+    },
+    {
+      "id": "auto-alt-disc-killedbygoogle-google-onhub-onhub-google-com",
+      "title": "Google OnHub",
+      "probeUrl": "https://onhub.google.com/",
+      "obituary": "https://en.wikipedia.org/wiki/Google_OnHub",
+      "owner": "Google",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 76: funeral host en.wikipedia.org; shape subdomain rate=0.84; base google.com score=0.97]"
+    },
+    {
+      "id": "auto-alt-disc-killedbygoogle-google-play-movies-tv-play-movies-google-co",
+      "title": "Google Play Movies & TV",
+      "probeUrl": "https://play-movies.google.com/",
+      "obituary": "https://en.wikipedia.org/wiki/Google_TV_(service)",
+      "owner": "Google",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 76: funeral host en.wikipedia.org; shape subdomain rate=0.84; base google.com score=0.97]"
+    },
+    {
+      "id": "auto-alt-disc-killedbygoogle-google-questions-and-answers-questions-answ",
+      "title": "Google Questions and Answers",
+      "probeUrl": "https://questions-answers.google.com/",
+      "obituary": "https://en.wikipedia.org/wiki/Google_Questions_and_Answers",
+      "owner": "Google",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 76: funeral host en.wikipedia.org; shape subdomain rate=0.84; base google.com score=0.97]"
+    },
+    {
+      "id": "auto-alt-disc-killedbygoogle-google-radio-automation-radio-automation-go",
+      "title": "Google Radio Automation",
+      "probeUrl": "https://radio-automation.google.com/",
+      "obituary": "https://en.wikipedia.org/wiki/List_of_Google_products#2018",
+      "owner": "Google",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 76: funeral host en.wikipedia.org; shape subdomain rate=0.84; base google.com score=0.97]"
+    },
+    {
+      "id": "auto-alt-disc-killedbygoogle-google-real-time-search-real-time-google-co",
+      "title": "Google Real-Time Search",
+      "probeUrl": "https://real-time.google.com/",
+      "obituary": "https://en.wikipedia.org/wiki/Google_Real-Time_Search",
+      "owner": "Google",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 76: funeral host en.wikipedia.org; shape subdomain rate=0.84; base google.com score=0.97]"
+    },
+    {
+      "id": "auto-alt-disc-killedbygoogle-google-search-appliance-search-appliance-go",
+      "title": "Google Search Appliance",
+      "probeUrl": "https://search-appliance.google.com/",
+      "obituary": "https://en.wikipedia.org/wiki/Google_Search_Appliance",
+      "owner": "Google",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 76: funeral host en.wikipedia.org; shape subdomain rate=0.84; base google.com score=0.97]"
+    },
+    {
+      "id": "auto-alt-disc-killedbygoogle-google-toolbar-for-firefox-toolbar-firefox-",
+      "title": "Google Toolbar for Firefox",
+      "probeUrl": "https://toolbar-firefox.google.com/",
+      "obituary": "https://en.wikipedia.org/wiki/Google_Toolbar",
+      "owner": "Google",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 76: funeral host en.wikipedia.org; shape subdomain rate=0.84; base google.com score=0.97]"
+    },
+    {
+      "id": "auto-alt-disc-killedbygoogle-google-tv-tv-google-com",
+      "title": "Google TV",
+      "probeUrl": "https://tv.google.com/",
+      "obituary": "https://en.wikipedia.org/wiki/Google_TV_(smart_TV_platform)",
+      "owner": "Google",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 76: funeral host en.wikipedia.org; shape subdomain rate=0.84; base google.com score=0.97]"
+    },
+    {
+      "id": "auto-alt-disc-obit-bitbucket-org-bitbucket-google-com",
+      "title": "bitbucket.org",
+      "probeUrl": "https://bitbucket.google.com/",
+      "obituary": "https://opensource.googleblog.com/2015/03/farewell-to-google-code.html",
+      "owner": "Obituary harvest",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 75: funeral host opensource.googleblog.com; shape subdomain rate=0.84; base google.com score=0.97]"
+    },
+    {
+      "id": "auto-alt-disc-obit-bsky-app-bsky-google-com",
+      "title": "bsky.app",
+      "probeUrl": "https://bsky.google.com/",
+      "obituary": "https://opensource.googleblog.com/2015/03/farewell-to-google-code.html",
+      "owner": "Obituary harvest",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 75: funeral host opensource.googleblog.com; shape subdomain rate=0.84; base google.com score=0.97]"
+    },
+    {
+      "id": "auto-alt-disc-obit-chrome-blogspot-com-google-com",
+      "title": "chrome.blogspot.com",
+      "probeUrl": "https://www.google.com/chrome/",
+      "obituary": "https://googleblog.blogspot.com/2010/08/update-on-google-wave.html",
+      "owner": "Obituary harvest",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 75: funeral host googleblog.blogspot.com; shape path rate=0.64; base google.com score=0.97]"
+    },
+    {
+      "id": "auto-alt-disc-obit-forindia-withgoogle-com-forindia-google-com",
+      "title": "forindia.withgoogle.com",
+      "probeUrl": "https://forindia.google.com/",
+      "obituary": "https://india.googleblog.com/2014/06/farewell-orkut.html",
+      "owner": "Obituary harvest",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 75: funeral host india.googleblog.com; shape subdomain rate=0.84; base google.com score=0.97]"
+    },
+    {
+      "id": "auto-alt-disc-obit-google-latlong-blogspot-com-google-com",
+      "title": "google-latlong.blogspot.com",
+      "probeUrl": "https://www.google.com/latlong/",
+      "obituary": "https://googleblog.blogspot.com/2010/08/update-on-google-wave.html",
+      "owner": "Obituary harvest",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 75: funeral host googleblog.blogspot.com; shape path rate=0.64; base google.com score=0.97]"
+    },
+    {
+      "id": "auto-alt-disc-obit-googleforstudents-blogspot-com-google-com",
+      "title": "googleforstudents.blogspot.com",
+      "probeUrl": "https://www.google.com/googleforstudents/",
+      "obituary": "https://googleblog.blogspot.com/2010/08/update-on-google-wave.html",
+      "owner": "Obituary harvest",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 75: funeral host googleblog.blogspot.com; shape path rate=0.64; base google.com score=0.97]"
+    },
+    {
+      "id": "auto-alt-disc-obit-googlepublicpolicy-blogspot-com-google-com",
+      "title": "googlepublicpolicy.blogspot.com",
+      "probeUrl": "https://www.google.com/googlepublicpolicy/",
+      "obituary": "https://googleblog.blogspot.com/2010/08/update-on-google-wave.html",
+      "owner": "Obituary harvest",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 75: funeral host googleblog.blogspot.com; shape path rate=0.64; base google.com score=0.97]"
+    },
+    {
+      "id": "auto-alt-disc-obit-googleresearch-blogspot-com-google-com",
+      "title": "googleresearch.blogspot.com",
+      "probeUrl": "https://www.google.com/googleresearch/",
+      "obituary": "https://googleblog.blogspot.com/2010/08/update-on-google-wave.html",
+      "owner": "Obituary harvest",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 75: funeral host googleblog.blogspot.com; shape path rate=0.64; base google.com score=0.97]"
+    },
+    {
+      "id": "auto-alt-disc-obit-officialandroid-blogspot-com-google-com",
+      "title": "officialandroid.blogspot.com",
+      "probeUrl": "https://www.google.com/officialandroid/",
+      "obituary": "https://googleblog.blogspot.com/2010/08/update-on-google-wave.html",
+      "owner": "Obituary harvest",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 75: funeral host googleblog.blogspot.com; shape path rate=0.64; base google.com score=0.97]"
+    },
+    {
+      "id": "auto-alt-disc-obit-whatbrowser-com-whatbrowser-google-com",
+      "title": "whatbrowser.com",
+      "probeUrl": "https://whatbrowser.google.com/",
+      "obituary": "https://opensource.googleblog.com/2015/03/farewell-to-google-code.html",
+      "owner": "Obituary harvest",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 75: funeral host opensource.googleblog.com; shape subdomain rate=0.84; base google.com score=0.97]"
+    },
+    {
+      "id": "auto-alt-disc-killed-by-microsoft-microsoft-academic-microsoft-com",
+      "title": "Microsoft Academic",
+      "probeUrl": "https://www.microsoft.com/en-us/academic",
+      "obituary": "https://en.wikipedia.org/wiki/Microsoft_Academic",
+      "owner": "Microsoft",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 73: funeral host en.wikipedia.org; shape path rate=0.64; base microsoft.com score=1.00]"
+    },
+    {
+      "id": "auto-alt-disc-killed-by-microsoft-microsoft-academic-sear-microsoft-com",
+      "title": "Microsoft Academic Search",
+      "probeUrl": "https://www.microsoft.com/en-us/academic-search",
+      "obituary": "https://en.wikipedia.org/wiki/Microsoft_Academic_Search",
+      "owner": "Microsoft",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 73: funeral host en.wikipedia.org; shape path rate=0.64; base microsoft.com score=1.00]"
+    },
+    {
+      "id": "auto-alt-disc-killed-by-microsoft-microsoft-amalga-microsoft-com",
+      "title": "Microsoft Amalga",
+      "probeUrl": "https://www.microsoft.com/en-us/amalga",
+      "obituary": "https://en.wikipedia.org/wiki/Microsoft_Amalga#Amalga_HIS",
+      "owner": "Microsoft",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 73: funeral host en.wikipedia.org; shape path rate=0.64; base microsoft.com score=1.00]"
+    },
+    {
+      "id": "auto-alt-disc-killed-by-microsoft-microsoft-anti-virus-fo-microsoft-com",
+      "title": "Microsoft Anti-Virus for Windows",
+      "probeUrl": "https://www.microsoft.com/en-us/anti-virus",
+      "obituary": "https://en.wikipedia.org/wiki/MSAV",
+      "owner": "Microsoft",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 73: funeral host en.wikipedia.org; shape path rate=0.64; base microsoft.com score=1.00]"
+    },
+    {
+      "id": "auto-alt-disc-killed-by-microsoft-microsoft-autocollage-microsoft-com",
+      "title": "Microsoft AutoCollage",
+      "probeUrl": "https://www.microsoft.com/en-us/autocollage",
+      "obituary": "https://en.wikipedia.org/wiki/AutoCollage_2008",
+      "owner": "Microsoft",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 73: funeral host en.wikipedia.org; shape path rate=0.64; base microsoft.com score=1.00]"
+    },
+    {
+      "id": "auto-alt-disc-killed-by-microsoft-microsoft-backoffice-se-microsoft-com",
+      "title": "Microsoft BackOffice Server",
+      "probeUrl": "https://www.microsoft.com/en-us/backoffice-server",
+      "obituary": "https://en.wikipedia.org/wiki/Microsoft_BackOffice_Server",
+      "owner": "Microsoft",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 73: funeral host en.wikipedia.org; shape path rate=0.64; base microsoft.com score=1.00]"
+    },
+    {
+      "id": "auto-alt-disc-killed-by-microsoft-microsoft-band-microsoft-com",
+      "title": "Microsoft Band",
+      "probeUrl": "https://www.microsoft.com/en-us/band",
+      "obituary": "https://en.wikipedia.org/wiki/Microsoft_Band",
+      "owner": "Microsoft",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 73: funeral host en.wikipedia.org; shape path rate=0.64; base microsoft.com score=1.00]"
+    },
+    {
+      "id": "auto-alt-disc-killed-by-microsoft-microsoft-bob-microsoft-com",
+      "title": "Microsoft Bob",
+      "probeUrl": "https://www.microsoft.com/en-us/bob",
+      "obituary": "https://en.wikipedia.org/wiki/Microsoft_Bob",
+      "owner": "Microsoft",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 73: funeral host en.wikipedia.org; shape path rate=0.64; base microsoft.com score=1.00]"
+    },
+    {
+      "id": "auto-alt-disc-killed-by-microsoft-microsoft-broadband-net-microsoft-com",
+      "title": "Microsoft Broadband Networking",
+      "probeUrl": "https://www.microsoft.com/en-us/broadband-networking",
+      "obituary": "https://en.wikipedia.org/wiki/Microsoft_Broadband_Networking",
+      "owner": "Microsoft",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 73: funeral host en.wikipedia.org; shape path rate=0.64; base microsoft.com score=1.00]"
+    },
+    {
+      "id": "auto-alt-disc-killed-by-microsoft-microsoft-cinemania-microsoft-com",
+      "title": "Microsoft Cinemania",
+      "probeUrl": "https://www.microsoft.com/en-us/cinemania",
+      "obituary": "https://en.wikipedia.org/wiki/Microsoft_Cinemania",
+      "owner": "Microsoft",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 73: funeral host en.wikipedia.org; shape path rate=0.64; base microsoft.com score=1.00]"
+    },
+    {
+      "id": "auto-alt-disc-killed-by-microsoft-microsoft-classroom-microsoft-com",
+      "title": "Microsoft Classroom",
+      "probeUrl": "https://www.microsoft.com/en-us/classroom",
+      "obituary": "https://en.wikipedia.org/wiki/Microsoft_Classroom",
+      "owner": "Microsoft",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 73: funeral host en.wikipedia.org; shape path rate=0.64; base microsoft.com score=1.00]"
+    },
+    {
+      "id": "auto-alt-disc-killed-by-microsoft-microsoft-comic-chat-microsoft-com",
+      "title": "Microsoft Comic Chat",
+      "probeUrl": "https://www.microsoft.com/en-us/comic-chat",
+      "obituary": "https://en.wikipedia.org/wiki/Microsoft_Comic_Chat",
+      "owner": "Microsoft",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 73: funeral host en.wikipedia.org; shape path rate=0.64; base microsoft.com score=1.00]"
+    },
+    {
+      "id": "auto-alt-disc-killed-by-microsoft-microsoft-content-manag-microsoft-com",
+      "title": "Microsoft Content Management Server",
+      "probeUrl": "https://www.microsoft.com/en-us/content-management",
+      "obituary": "https://en.wikipedia.org/wiki/Microsoft_Content_Management_Server",
+      "owner": "Microsoft",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 73: funeral host en.wikipedia.org; shape path rate=0.64; base microsoft.com score=1.00]"
+    },
+    {
+      "id": "auto-alt-disc-killed-by-microsoft-microsoft-cordless-phon-microsoft-com",
+      "title": "Microsoft Cordless Phone System",
+      "probeUrl": "https://www.microsoft.com/en-us/cordless-phone",
+      "obituary": "https://en.wikipedia.org/wiki/Microsoft_Cordless_Phone_System",
+      "owner": "Microsoft",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 73: funeral host en.wikipedia.org; shape path rate=0.64; base microsoft.com score=1.00]"
+    },
+    {
+      "id": "auto-alt-disc-killed-by-microsoft-microsoft-data-analyzer-microsoft-com",
+      "title": "Microsoft Data Analyzer",
+      "probeUrl": "https://www.microsoft.com/en-us/data-analyzer",
+      "obituary": "https://en.wikipedia.org/wiki/Microsoft_Office_shared_tools#Data_Analyzer",
+      "owner": "Microsoft",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 73: funeral host en.wikipedia.org; shape path rate=0.64; base microsoft.com score=1.00]"
+    },
+    {
+      "id": "auto-alt-disc-killed-by-microsoft-microsoft-digital-image-microsoft-com",
+      "title": "Microsoft Digital Image",
+      "probeUrl": "https://www.microsoft.com/en-us/digital-image",
+      "obituary": "https://en.wikipedia.org/wiki/Microsoft_Digital_Image",
+      "owner": "Microsoft",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 73: funeral host en.wikipedia.org; shape path rate=0.64; base microsoft.com score=1.00]"
+    },
+    {
+      "id": "auto-alt-disc-killed-by-microsoft-microsoft-essentials-microsoft-com",
+      "title": "Microsoft Essentials",
+      "probeUrl": "https://www.microsoft.com/en-us/essentials",
+      "obituary": "https://en.wikipedia.org/wiki/Windows_Essentials",
+      "owner": "Microsoft",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 73: funeral host en.wikipedia.org; shape path rate=0.64; base microsoft.com score=1.00]"
+    },
+    {
+      "id": "auto-alt-disc-killed-by-microsoft-microsoft-expression-st-microsoft-com",
+      "title": "Microsoft Expression Studio",
+      "probeUrl": "https://www.microsoft.com/en-us/expression-studio",
+      "obituary": "https://en.wikipedia.org/wiki/Microsoft_Expression_Studio",
+      "owner": "Microsoft",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 73: funeral host en.wikipedia.org; shape path rate=0.64; base microsoft.com score=1.00]"
+    },
+    {
+      "id": "auto-alt-disc-killed-by-microsoft-microsoft-fingerprint-r-microsoft-com",
+      "title": "Microsoft Fingerprint Reader",
+      "probeUrl": "https://www.microsoft.com/en-us/fingerprint-reader",
+      "obituary": "https://en.wikipedia.org/wiki/Microsoft_Fingerprint_Reader",
+      "owner": "Microsoft",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 73: funeral host en.wikipedia.org; shape path rate=0.64; base microsoft.com score=1.00]"
+    },
+    {
+      "id": "auto-alt-disc-killed-by-microsoft-microsoft-forefront-microsoft-com",
+      "title": "Microsoft Forefront",
+      "probeUrl": "https://www.microsoft.com/en-us/forefront",
+      "obituary": "https://en.wikipedia.org/wiki/Microsoft_Forefront",
+      "owner": "Microsoft",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 73: funeral host en.wikipedia.org; shape path rate=0.64; base microsoft.com score=1.00]"
+    },
+    {
+      "id": "auto-alt-disc-killed-by-microsoft-microsoft-gif-animator-microsoft-com",
+      "title": "Microsoft GIF Animator",
+      "probeUrl": "https://www.microsoft.com/en-us/gif-animator",
+      "obituary": "https://en.wikipedia.org/wiki/Microsoft_GIF_Animator",
+      "owner": "Microsoft",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 73: funeral host en.wikipedia.org; shape path rate=0.64; base microsoft.com score=1.00]"
+    },
+    {
+      "id": "auto-alt-disc-killed-by-microsoft-microsoft-hohm-microsoft-com",
+      "title": "Microsoft Hohm",
+      "probeUrl": "https://www.microsoft.com/en-us/hohm",
+      "obituary": "https://en.wikipedia.org/wiki/Hohm",
+      "owner": "Microsoft",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 73: funeral host en.wikipedia.org; shape path rate=0.64; base microsoft.com score=1.00]"
+    },
+    {
+      "id": "auto-alt-disc-killed-by-microsoft-microsoft-image-composi-microsoft-com",
+      "title": "Microsoft Image Composite Editor",
+      "probeUrl": "https://www.microsoft.com/en-us/image-composite",
+      "obituary": "https://en.wikipedia.org/wiki/Image_Composite_Editor",
+      "owner": "Microsoft",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 73: funeral host en.wikipedia.org; shape path rate=0.64; base microsoft.com score=1.00]"
+    },
+    {
+      "id": "auto-alt-disc-killed-by-microsoft-microsoft-infopath-microsoft-com",
+      "title": "Microsoft InfoPath",
+      "probeUrl": "https://www.microsoft.com/en-us/infopath",
+      "obituary": "https://en.wikipedia.org/wiki/Microsoft_InfoPath",
+      "owner": "Microsoft",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 73: funeral host en.wikipedia.org; shape path rate=0.64; base microsoft.com score=1.00]"
+    },
+    {
+      "id": "auto-alt-disc-killed-by-microsoft-microsoft-java-virtual--microsoft-com",
+      "title": "Microsoft Java Virtual Machine",
+      "probeUrl": "https://www.microsoft.com/en-us/java-virtual",
+      "obituary": "https://en.wikipedia.org/wiki/Microsoft_Java_Virtual_Machine",
+      "owner": "Microsoft",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 73: funeral host en.wikipedia.org; shape path rate=0.64; base microsoft.com score=1.00]"
+    },
+    {
+      "id": "auto-alt-disc-killed-by-microsoft-microsoft-kaizala-microsoft-com",
+      "title": "Microsoft Kaizala",
+      "probeUrl": "https://www.microsoft.com/en-us/kaizala",
+      "obituary": "https://en.wikipedia.org/wiki/Microsoft_Kaizala",
+      "owner": "Microsoft",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 73: funeral host en.wikipedia.org; shape path rate=0.64; base microsoft.com score=1.00]"
+    },
+    {
+      "id": "auto-alt-disc-killed-by-microsoft-microsoft-lens-microsoft-com",
+      "title": "Microsoft Lens",
+      "probeUrl": "https://www.microsoft.com/en-us/lens",
+      "obituary": "https://en.wikipedia.org/wiki/Microsoft_mobile_services#Microsoft_Lens",
+      "owner": "Microsoft",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 73: funeral host en.wikipedia.org; shape path rate=0.64; base microsoft.com score=1.00]"
+    },
+    {
+      "id": "auto-alt-disc-killed-by-microsoft-microsoft-liquid-motion-microsoft-com",
+      "title": "Microsoft Liquid Motion",
+      "probeUrl": "https://www.microsoft.com/en-us/liquid-motion",
+      "obituary": "https://en.wikipedia.org/wiki/Microsoft_Liquid_Motion",
+      "owner": "Microsoft",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 73: funeral host en.wikipedia.org; shape path rate=0.64; base microsoft.com score=1.00]"
+    },
+    {
+      "id": "auto-alt-disc-killed-by-microsoft-microsoft-mappoint-microsoft-com",
+      "title": "Microsoft MapPoint",
+      "probeUrl": "https://www.microsoft.com/en-us/mappoint",
+      "obituary": "https://en.wikipedia.org/wiki/Microsoft_MapPoint",
+      "owner": "Microsoft",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 73: funeral host en.wikipedia.org; shape path rate=0.64; base microsoft.com score=1.00]"
+    },
+    {
+      "id": "auto-alt-disc-killed-by-microsoft-microsoft-math-solver-microsoft-com",
+      "title": "Microsoft Math Solver",
+      "probeUrl": "https://www.microsoft.com/en-us/math-solver",
+      "obituary": "https://en.wikipedia.org/wiki/Microsoft_Math_Solver",
+      "owner": "Microsoft",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 73: funeral host en.wikipedia.org; shape path rate=0.64; base microsoft.com score=1.00]"
+    },
+    {
+      "id": "auto-alt-disc-killed-by-microsoft-microsoft-media-service-microsoft-com",
+      "title": "Microsoft Media Services",
+      "probeUrl": "https://www.microsoft.com/en-us/media-services",
+      "obituary": "https://en.wikipedia.org/wiki/Windows_Media_Services",
+      "owner": "Microsoft",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 73: funeral host en.wikipedia.org; shape path rate=0.64; base microsoft.com score=1.00]"
+    },
+    {
+      "id": "auto-alt-disc-killed-by-microsoft-microsoft-money-microsoft-com",
+      "title": "Microsoft Money",
+      "probeUrl": "https://www.microsoft.com/en-us/money",
+      "obituary": "https://en.wikipedia.org/wiki/Microsoft_Money",
+      "owner": "Microsoft",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 73: funeral host en.wikipedia.org; shape path rate=0.64; base microsoft.com score=1.00]"
+    },
+    {
+      "id": "auto-alt-disc-killed-by-microsoft-microsoft-movies-tv-microsoft-com",
+      "title": "Microsoft Movies & TV",
+      "probeUrl": "https://www.microsoft.com/en-us/movies-tv",
+      "obituary": "https://en.wikipedia.org/wiki/Microsoft_Movies_%26_TV",
+      "owner": "Microsoft",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 73: funeral host en.wikipedia.org; shape path rate=0.64; base microsoft.com score=1.00]"
+    },
+    {
+      "id": "auto-alt-disc-killed-by-microsoft-microsoft-netmeeting-microsoft-com",
+      "title": "Microsoft NetMeeting",
+      "probeUrl": "https://www.microsoft.com/en-us/netmeeting",
+      "obituary": "https://en.wikipedia.org/wiki/Microsoft_NetMeeting",
+      "owner": "Microsoft",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 73: funeral host en.wikipedia.org; shape path rate=0.64; base microsoft.com score=1.00]"
+    },
+    {
+      "id": "auto-alt-disc-killed-by-microsoft-microsoft-office-accoun-microsoft-com",
+      "title": "Microsoft Office Accounting",
+      "probeUrl": "https://www.microsoft.com/en-us/office-accounting",
+      "obituary": "https://en.wikipedia.org/wiki/Microsoft_Office_Accounting",
+      "owner": "Microsoft",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 73: funeral host en.wikipedia.org; shape path rate=0.64; base microsoft.com score=1.00]"
+    },
+    {
+      "id": "auto-alt-disc-killed-by-microsoft-microsoft-office-frontp-microsoft-com",
+      "title": "Microsoft Office FrontPage",
+      "probeUrl": "https://www.microsoft.com/en-us/office-frontpage",
+      "obituary": "https://en.wikipedia.org/wiki/Microsoft_FrontPage",
+      "owner": "Microsoft",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 73: funeral host en.wikipedia.org; shape path rate=0.64; base microsoft.com score=1.00]"
+    },
+    {
+      "id": "auto-alt-disc-killed-by-microsoft-microsoft-office-perfor-microsoft-com",
+      "title": "Microsoft Office PerformancePoint Server",
+      "probeUrl": "https://www.microsoft.com/en-us/office-performancepoint",
+      "obituary": "https://en.wikipedia.org/wiki/Microsoft_Office_PerformancePoint_Server",
+      "owner": "Microsoft",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 73: funeral host en.wikipedia.org; shape path rate=0.64; base microsoft.com score=1.00]"
+    },
+    {
+      "id": "auto-alt-disc-killed-by-microsoft-microsoft-office-pictur-microsoft-com",
+      "title": "Microsoft Office Picture Manager",
+      "probeUrl": "https://www.microsoft.com/en-us/office-picture",
+      "obituary": "https://en.wikipedia.org/wiki/Microsoft_Office_Picture_Manager",
+      "owner": "Microsoft",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 73: funeral host en.wikipedia.org; shape path rate=0.64; base microsoft.com score=1.00]"
+    },
+    {
+      "id": "auto-alt-disc-killed-by-microsoft-microsoft-photo-editor-microsoft-com",
+      "title": "Microsoft Photo Editor",
+      "probeUrl": "https://www.microsoft.com/en-us/photo-editor",
+      "obituary": "https://en.wikipedia.org/wiki/Microsoft_Photo_Editor",
+      "owner": "Microsoft",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 73: funeral host en.wikipedia.org; shape path rate=0.64; base microsoft.com score=1.00]"
+    },
+    {
+      "id": "auto-alt-disc-killed-by-microsoft-microsoft-photo-story-microsoft-com",
+      "title": "Microsoft Photo Story",
+      "probeUrl": "https://www.microsoft.com/en-us/photo-story",
+      "obituary": "https://en.wikipedia.org/wiki/Photo_Story",
+      "owner": "Microsoft",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 73: funeral host en.wikipedia.org; shape path rate=0.64; base microsoft.com score=1.00]"
+    },
+    {
+      "id": "auto-alt-disc-killed-by-microsoft-microsoft-photodraw-200-microsoft-com",
+      "title": "Microsoft PhotoDraw 2000",
+      "probeUrl": "https://www.microsoft.com/en-us/photodraw-2000",
+      "obituary": "https://en.wikipedia.org/wiki/Microsoft_PhotoDraw",
+      "owner": "Microsoft",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 73: funeral host en.wikipedia.org; shape path rate=0.64; base microsoft.com score=1.00]"
+    },
+    {
+      "id": "auto-alt-disc-killed-by-microsoft-microsoft-photosynth-microsoft-com",
+      "title": "Microsoft PhotoSynth",
+      "probeUrl": "https://www.microsoft.com/en-us/photosynth",
+      "obituary": "https://en.wikipedia.org/wiki/Photosynth",
+      "owner": "Microsoft",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 73: funeral host en.wikipedia.org; shape path rate=0.64; base microsoft.com score=1.00]"
+    },
+    {
+      "id": "auto-alt-disc-killed-by-microsoft-microsoft-plus-microsoft-com",
+      "title": "Microsoft Plus!",
+      "probeUrl": "https://www.microsoft.com/en-us/plus",
+      "obituary": "https://en.wikipedia.org/wiki/Microsoft_Plus!",
+      "owner": "Microsoft",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 73: funeral host en.wikipedia.org; shape path rate=0.64; base microsoft.com score=1.00]"
+    },
+    {
+      "id": "auto-alt-disc-killed-by-microsoft-microsoft-popfly-microsoft-com",
+      "title": "Microsoft Popfly",
+      "probeUrl": "https://www.microsoft.com/en-us/popfly",
+      "obituary": "https://en.wikipedia.org/wiki/Microsoft_Popfly",
+      "owner": "Microsoft",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 73: funeral host en.wikipedia.org; shape path rate=0.64; base microsoft.com score=1.00]"
+    },
+    {
+      "id": "auto-alt-disc-killed-by-microsoft-microsoft-publisher-microsoft-com",
+      "title": "Microsoft Publisher",
+      "probeUrl": "https://www.microsoft.com/en-us/publisher",
+      "obituary": "https://en.wikipedia.org/wiki/Microsoft_Publisher",
+      "owner": "Microsoft",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 73: funeral host en.wikipedia.org; shape path rate=0.64; base microsoft.com score=1.00]"
+    },
+    {
+      "id": "auto-alt-disc-killed-by-microsoft-microsoft-reader-microsoft-com",
+      "title": "Microsoft Reader",
+      "probeUrl": "https://www.microsoft.com/en-us/reader",
+      "obituary": "https://en.wikipedia.org/wiki/Microsoft_Reader",
+      "owner": "Microsoft",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 73: funeral host en.wikipedia.org; shape path rate=0.64; base microsoft.com score=1.00]"
+    },
+    {
+      "id": "auto-alt-disc-killed-by-microsoft-microsoft-sharepoint-de-microsoft-com",
+      "title": "Microsoft SharePoint Designer",
+      "probeUrl": "https://www.microsoft.com/en-us/sharepoint-designer",
+      "obituary": "https://en.wikipedia.org/wiki/Microsoft_SharePoint_Designer",
+      "owner": "Microsoft",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 73: funeral host en.wikipedia.org; shape path rate=0.64; base microsoft.com score=1.00]"
+    },
+    {
+      "id": "auto-alt-disc-killed-by-microsoft-microsoft-stream-classi-microsoft-com",
+      "title": "Microsoft Stream (classic)",
+      "probeUrl": "https://www.microsoft.com/en-us/stream-classic",
+      "obituary": "https://en.wikipedia.org/wiki/Microsoft_Stream",
+      "owner": "Microsoft",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 73: funeral host en.wikipedia.org; shape path rate=0.64; base microsoft.com score=1.00]"
+    },
+    {
+      "id": "auto-alt-disc-killed-by-microsoft-microsoft-streets-trips-microsoft-com",
+      "title": "Microsoft Streets & Trips",
+      "probeUrl": "https://www.microsoft.com/en-us/streets-trips",
+      "obituary": "https://en.wikipedia.org/wiki/Microsoft_Streets_%26_Trips",
+      "owner": "Microsoft",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 73: funeral host en.wikipedia.org; shape path rate=0.64; base microsoft.com score=1.00]"
+    },
+    {
+      "id": "auto-alt-disc-killed-by-microsoft-microsoft-visual-source-microsoft-com",
+      "title": "Microsoft Visual SourceSafe",
+      "probeUrl": "https://www.microsoft.com/en-us/visual-sourcesafe",
+      "obituary": "https://en.wikipedia.org/wiki/Microsoft_Visual_SourceSafe",
+      "owner": "Microsoft",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 73: funeral host en.wikipedia.org; shape path rate=0.64; base microsoft.com score=1.00]"
+    },
+    {
+      "id": "auto-alt-disc-killed-by-microsoft-microsoft-vizact-microsoft-com",
+      "title": "Microsoft Vizact",
+      "probeUrl": "https://www.microsoft.com/en-us/vizact",
+      "obituary": "https://en.wikipedia.org/wiki/Microsoft_Vizact",
+      "owner": "Microsoft",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 73: funeral host en.wikipedia.org; shape path rate=0.64; base microsoft.com score=1.00]"
+    },
+    {
+      "id": "auto-alt-disc-killed-by-microsoft-microsoft-webmatrix-microsoft-com",
+      "title": "Microsoft WebMatrix",
+      "probeUrl": "https://www.microsoft.com/en-us/webmatrix",
+      "obituary": "https://en.wikipedia.org/wiki/Microsoft_WebMatrix",
+      "owner": "Microsoft",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 73: funeral host en.wikipedia.org; shape path rate=0.64; base microsoft.com score=1.00]"
+    },
+    {
+      "id": "auto-alt-disc-killed-by-microsoft-microsoft-works-microsoft-com",
+      "title": "Microsoft Works",
+      "probeUrl": "https://www.microsoft.com/en-us/works",
+      "obituary": "https://en.wikipedia.org/wiki/Microsoft_Works",
+      "owner": "Microsoft",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 73: funeral host en.wikipedia.org; shape path rate=0.64; base microsoft.com score=1.00]"
+    },
+    {
+      "id": "auto-alt-disc-killed-by-microsoft-microsoft-xna-microsoft-com",
+      "title": "Microsoft XNA",
+      "probeUrl": "https://www.microsoft.com/en-us/xna",
+      "obituary": "https://en.wikipedia.org/wiki/Microsoft_XNA",
+      "owner": "Microsoft",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 73: funeral host en.wikipedia.org; shape path rate=0.64; base microsoft.com score=1.00]"
+    },
+    {
+      "id": "auto-alt-disc-killedbyai-microsoft-cortana-microsoft-com",
+      "title": "Microsoft Cortana",
+      "probeUrl": "https://www.microsoft.com/en-us/cortana",
+      "obituary": "https://support.microsoft.com/en-us/topic/end-of-support-for-cortana-in-windows-and-teams-d025b39f-ee5b-4836-a954-0ab646ee1efa",
+      "owner": "Startup",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 73: funeral host support.microsoft.com; shape path rate=0.64; base microsoft.com score=1.00]"
+    },
+    {
+      "id": "auto-alt-disc-killedbygoogle-chromebook-pixel-google-com",
+      "title": "Chromebook Pixel",
+      "probeUrl": "https://www.google.com/chromebook-pixel/",
+      "obituary": "https://en.wikipedia.org/wiki/Chromebook_Pixel",
+      "owner": "Google",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 72: funeral host en.wikipedia.org; shape path rate=0.64; base google.com score=0.97]"
+    },
+    {
+      "id": "auto-alt-disc-killedbygoogle-chromecast-audio-google-com",
+      "title": "Chromecast Audio",
+      "probeUrl": "https://www.google.com/chromecast-audio/",
+      "obituary": "https://en.wikipedia.org/wiki/Chromecast#Chromecast_Audio",
+      "owner": "Google",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 72: funeral host en.wikipedia.org; shape path rate=0.64; base google.com score=0.97]"
+    },
+    {
+      "id": "auto-alt-disc-killedbygoogle-dropcam-google-com",
+      "title": "DropCam",
+      "probeUrl": "https://www.google.com/dropcam/",
+      "obituary": "https://en.wikipedia.org/wiki/Dropcam",
+      "owner": "Google",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 72: funeral host en.wikipedia.org; shape path rate=0.64; base google.com score=0.97]"
+    },
+    {
+      "id": "auto-alt-disc-killedbygoogle-google-allo-google-com",
+      "title": "Google Allo",
+      "probeUrl": "https://www.google.com/allo/",
+      "obituary": "https://en.wikipedia.org/wiki/Google_Allo",
+      "owner": "Google",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 72: funeral host en.wikipedia.org; shape path rate=0.64; base google.com score=0.97]"
+    },
+    {
+      "id": "auto-alt-disc-killedbygoogle-google-answers-google-com",
+      "title": "Google Answers",
+      "probeUrl": "https://www.google.com/answers/",
+      "obituary": "https://en.wikipedia.org/wiki/Google_Answers",
+      "owner": "Google",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 72: funeral host en.wikipedia.org; shape path rate=0.64; base google.com score=0.97]"
+    },
+    {
+      "id": "auto-alt-disc-killedbygoogle-google-base-google-com",
+      "title": "Google Base",
+      "probeUrl": "https://www.google.com/base/",
+      "obituary": "https://en.wikipedia.org/wiki/Google_Base",
+      "owner": "Google",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 72: funeral host en.wikipedia.org; shape path rate=0.64; base google.com score=0.97]"
+    },
+    {
+      "id": "auto-alt-disc-killedbygoogle-google-blog-search-api-google-com",
+      "title": "Google Blog Search API",
+      "probeUrl": "https://www.google.com/blog-search/",
+      "obituary": "https://en.wikipedia.org/wiki/Google_Blog_Search",
+      "owner": "Google",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 72: funeral host en.wikipedia.org; shape path rate=0.64; base google.com score=0.97]"
+    },
+    {
+      "id": "auto-alt-disc-killedbygoogle-google-bookmarks-google-com",
+      "title": "Google Bookmarks",
+      "probeUrl": "https://www.google.com/bookmarks/",
+      "obituary": "https://en.wikipedia.org/wiki/Google_Bookmarks",
+      "owner": "Google",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 72: funeral host en.wikipedia.org; shape path rate=0.64; base google.com score=0.97]"
+    },
+    {
+      "id": "auto-alt-disc-killedbygoogle-google-browser-sync-google-com",
+      "title": "Google Browser Sync",
+      "probeUrl": "https://www.google.com/browser-sync/",
+      "obituary": "https://en.wikipedia.org/wiki/Google_Browser_Sync",
+      "owner": "Google",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 72: funeral host en.wikipedia.org; shape path rate=0.64; base google.com score=0.97]"
+    },
+    {
+      "id": "auto-alt-disc-killedbygoogle-google-buzz-google-com",
+      "title": "Google Buzz",
+      "probeUrl": "https://www.google.com/buzz/",
+      "obituary": "https://en.wikipedia.org/wiki/Google_Buzz",
+      "owner": "Google",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 72: funeral host en.wikipedia.org; shape path rate=0.64; base google.com score=0.97]"
+    },
+    {
+      "id": "auto-alt-disc-killedbygoogle-google-cardboard-google-com",
+      "title": "Google Cardboard",
+      "probeUrl": "https://www.google.com/cardboard/",
+      "obituary": "https://en.wikipedia.org/wiki/Google_Cardboard",
+      "owner": "Google",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 72: funeral host en.wikipedia.org; shape path rate=0.64; base google.com score=0.97]"
+    },
+    {
+      "id": "auto-alt-disc-killedbygoogle-google-catalogs-google-com",
+      "title": "Google Catalogs",
+      "probeUrl": "https://www.google.com/catalogs/",
+      "obituary": "https://en.wikipedia.org/wiki/Google_Catalogs",
+      "owner": "Google",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 72: funeral host en.wikipedia.org; shape path rate=0.64; base google.com score=0.97]"
+    },
+    {
+      "id": "auto-alt-disc-killedbygoogle-google-chart-api-google-com",
+      "title": "Google Chart API",
+      "probeUrl": "https://www.google.com/chart-api/",
+      "obituary": "https://en.wikipedia.org/wiki/Google_Chart_API",
+      "owner": "Google",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 72: funeral host en.wikipedia.org; shape path rate=0.64; base google.com score=0.97]"
+    },
+    {
+      "id": "auto-alt-disc-killedbygoogle-google-checkout-google-com",
+      "title": "Google Checkout",
+      "probeUrl": "https://www.google.com/checkout/",
+      "obituary": "https://en.wikipedia.org/wiki/Google_Checkout",
+      "owner": "Google",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 72: funeral host en.wikipedia.org; shape path rate=0.64; base google.com score=0.97]"
+    },
+    {
+      "id": "auto-alt-disc-killedbygoogle-google-chrome-apps-google-com",
+      "title": "Google Chrome Apps",
+      "probeUrl": "https://www.google.com/chrome-apps/",
+      "obituary": "https://en.wikipedia.org/wiki/Google_Chrome_App",
+      "owner": "Google",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 72: funeral host en.wikipedia.org; shape path rate=0.64; base google.com score=0.97]"
+    },
+    {
+      "id": "auto-alt-disc-killedbygoogle-google-chrome-frame-google-com",
+      "title": "Google Chrome Frame",
+      "probeUrl": "https://www.google.com/chrome-frame/",
+      "obituary": "https://en.wikipedia.org/wiki/Google_Chrome_Frame",
+      "owner": "Google",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 72: funeral host en.wikipedia.org; shape path rate=0.64; base google.com score=0.97]"
+    },
+    {
+      "id": "auto-alt-disc-killedbygoogle-google-click-to-call-google-com",
+      "title": "Google Click-to-Call",
+      "probeUrl": "https://www.google.com/click-call/",
+      "obituary": "https://en.wikipedia.org/wiki/AdWords#Google_Click-to-Call",
+      "owner": "Google",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 72: funeral host en.wikipedia.org; shape path rate=0.64; base google.com score=0.97]"
+    },
+    {
+      "id": "auto-alt-disc-killedbygoogle-google-clips-google-com",
+      "title": "Google Clips",
+      "probeUrl": "https://www.google.com/clips/",
+      "obituary": "https://en.wikipedia.org/wiki/Google_Clips",
+      "owner": "Google",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 72: funeral host en.wikipedia.org; shape path rate=0.64; base google.com score=0.97]"
+    },
+    {
+      "id": "auto-alt-disc-killedbygoogle-google-cloud-connect-google-com",
+      "title": "Google Cloud Connect",
+      "probeUrl": "https://www.google.com/cloud-connect/",
+      "obituary": "https://en.wikipedia.org/wiki/Google_Cloud_Connect",
+      "owner": "Google",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 72: funeral host en.wikipedia.org; shape path rate=0.64; base google.com score=0.97]"
+    },
+    {
+      "id": "auto-alt-disc-killedbygoogle-google-cloud-messaging-gcm-google-com",
+      "title": "Google Cloud Messaging (GCM)",
+      "probeUrl": "https://www.google.com/cloud-messaging/",
+      "obituary": "https://en.wikipedia.org/wiki/Google_Cloud_Messaging",
+      "owner": "Google",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 72: funeral host en.wikipedia.org; shape path rate=0.64; base google.com score=0.97]"
+    },
+    {
+      "id": "auto-alt-disc-killedbygoogle-google-code-competitions-google-com",
+      "title": "Google Code Competitions",
+      "probeUrl": "https://www.google.com/code-competitions/",
+      "obituary": "https://en.wikipedia.org/wiki/Google_Code_Jam",
+      "owner": "Google",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 72: funeral host en.wikipedia.org; shape path rate=0.64; base google.com score=0.97]"
+    },
+    {
+      "id": "auto-alt-disc-killedbygoogle-google-code-google-com",
+      "title": "Google Code",
+      "probeUrl": "https://www.google.com/code/",
+      "obituary": "https://en.wikipedia.org/wiki/Google_Developers#Google_Code",
+      "owner": "Google",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 72: funeral host en.wikipedia.org; shape path rate=0.64; base google.com score=0.97]"
+    },
+    {
+      "id": "auto-alt-disc-killedbygoogle-google-code-search-google-com",
+      "title": "Google Code Search",
+      "probeUrl": "https://www.google.com/code-search/",
+      "obituary": "https://en.wikipedia.org/wiki/Google_Code_Search",
+      "owner": "Google",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 72: funeral host en.wikipedia.org; shape path rate=0.64; base google.com score=0.97]"
+    },
+    {
+      "id": "auto-alt-disc-killedbygoogle-google-contributor-google-com",
+      "title": "Google Contributor",
+      "probeUrl": "https://www.google.com/contributor/",
+      "obituary": "https://en.wikipedia.org/wiki/Google_Contributor",
+      "owner": "Google",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 72: funeral host en.wikipedia.org; shape path rate=0.64; base google.com score=0.97]"
+    },
+    {
+      "id": "auto-alt-disc-killedbygoogle-google-currents-google-com",
+      "title": "Google Currents",
+      "probeUrl": "https://www.google.com/currents/",
+      "obituary": "https://en.wikipedia.org/wiki/Google_Currents_(2011-2013)",
+      "owner": "Google",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 72: funeral host en.wikipedia.org; shape path rate=0.64; base google.com score=0.97]"
+    },
+    {
+      "id": "auto-alt-disc-killedbygoogle-google-daydream-google-com",
+      "title": "Google Daydream",
+      "probeUrl": "https://www.google.com/daydream/",
+      "obituary": "https://en.wikipedia.org/wiki/Google_Daydream",
+      "owner": "Google",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 72: funeral host en.wikipedia.org; shape path rate=0.64; base google.com score=0.97]"
+    },
+    {
+      "id": "auto-alt-disc-killedbygoogle-google-desktop-google-com",
+      "title": "Google Desktop",
+      "probeUrl": "https://www.google.com/desktop/",
+      "obituary": "https://en.wikipedia.org/wiki/Google_Desktop",
+      "owner": "Google",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 72: funeral host en.wikipedia.org; shape path rate=0.64; base google.com score=0.97]"
+    },
+    {
+      "id": "auto-alt-disc-killedbygoogle-google-dictionary-google-com",
+      "title": "Google Dictionary",
+      "probeUrl": "https://www.google.com/dictionary/",
+      "obituary": "https://en.wikipedia.org/wiki/Google_Dictionary",
+      "owner": "Google",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 72: funeral host en.wikipedia.org; shape path rate=0.64; base google.com score=0.97]"
+    },
+    {
+      "id": "auto-alt-disc-killedbygoogle-google-directory-google-com",
+      "title": "Google Directory",
+      "probeUrl": "https://www.google.com/directory/",
+      "obituary": "https://en.wikipedia.org/wiki/Google_Directory",
+      "owner": "Google",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 72: funeral host en.wikipedia.org; shape path rate=0.64; base google.com score=0.97]"
+    },
+    {
+      "id": "auto-alt-disc-killedbygoogle-google-duo-google-com",
+      "title": "Google Duo",
+      "probeUrl": "https://www.google.com/duo/",
+      "obituary": "https://en.wikipedia.org/wiki/Google_Duo",
+      "owner": "Google",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 72: funeral host en.wikipedia.org; shape path rate=0.64; base google.com score=0.97]"
+    },
+    {
+      "id": "auto-alt-disc-killedbygoogle-google-earth-browser-plug-in-google-com",
+      "title": "Google Earth Browser Plug-in",
+      "probeUrl": "https://www.google.com/earth-browser/",
+      "obituary": "https://en.wikipedia.org/wiki/Google_Earth#Google_Earth_Plug-in",
+      "owner": "Google",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 72: funeral host en.wikipedia.org; shape path rate=0.64; base google.com score=0.97]"
+    },
+    {
+      "id": "auto-alt-disc-killedbygoogle-google-fast-flip-google-com",
+      "title": "Google Fast Flip",
+      "probeUrl": "https://www.google.com/fast-flip/",
+      "obituary": "https://en.wikipedia.org/wiki/Google_Fast_Flip",
+      "owner": "Google",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 72: funeral host en.wikipedia.org; shape path rate=0.64; base google.com score=0.97]"
+    },
+    {
+      "id": "auto-alt-disc-killedbygoogle-google-flu-trends-google-com",
+      "title": "Google Flu Trends",
+      "probeUrl": "https://www.google.com/flu-trends/",
+      "obituary": "https://en.wikipedia.org/wiki/Google_Flu_Trends",
+      "owner": "Google",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 72: funeral host en.wikipedia.org; shape path rate=0.64; base google.com score=0.97]"
+    },
+    {
+      "id": "auto-alt-disc-killedbygoogle-google-friend-connect-google-com",
+      "title": "Google Friend Connect",
+      "probeUrl": "https://www.google.com/friend-connect/",
+      "obituary": "https://en.wikipedia.org/wiki/Google_Friend_Connect",
+      "owner": "Google",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 72: funeral host en.wikipedia.org; shape path rate=0.64; base google.com score=0.97]"
+    },
+    {
+      "id": "auto-alt-disc-killedbygoogle-google-fusion-tables-google-com",
+      "title": "Google Fusion Tables",
+      "probeUrl": "https://www.google.com/fusion-tables/",
+      "obituary": "https://en.wikipedia.org/wiki/Google_Fusion_Tables",
+      "owner": "Google",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 72: funeral host en.wikipedia.org; shape path rate=0.64; base google.com score=0.97]"
+    },
+    {
+      "id": "auto-alt-disc-killedbygoogle-google-glass-explorer-editio-google-com",
+      "title": "Google Glass Explorer Edition",
+      "probeUrl": "https://www.google.com/glass-explorer/",
+      "obituary": "https://en.wikipedia.org/wiki/Google_Glass",
+      "owner": "Google",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 72: funeral host en.wikipedia.org; shape path rate=0.64; base google.com score=0.97]"
+    },
+    {
+      "id": "auto-alt-disc-killedbygoogle-google-goggles-google-com",
+      "title": "Google Goggles",
+      "probeUrl": "https://www.google.com/goggles/",
+      "obituary": "https://en.wikipedia.org/wiki/Google_Goggles",
+      "owner": "Google",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 72: funeral host en.wikipedia.org; shape path rate=0.64; base google.com score=0.97]"
+    },
+    {
+      "id": "auto-alt-disc-killedbygoogle-google-health-google-com",
+      "title": "Google Health",
+      "probeUrl": "https://www.google.com/health/",
+      "obituary": "https://en.wikipedia.org/wiki/Google_Health",
+      "owner": "Google",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 72: funeral host en.wikipedia.org; shape path rate=0.64; base google.com score=0.97]"
+    },
+    {
+      "id": "auto-alt-disc-killedbygoogle-google-helpouts-google-com",
+      "title": "Google Helpouts",
+      "probeUrl": "https://www.google.com/helpouts/",
+      "obituary": "https://en.wikipedia.org/wiki/Google_Helpouts",
+      "owner": "Google",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 72: funeral host en.wikipedia.org; shape path rate=0.64; base google.com score=0.97]"
+    },
+    {
+      "id": "auto-alt-disc-killedbygoogle-google-image-swirl-google-com",
+      "title": "Google Image Swirl",
+      "probeUrl": "https://www.google.com/image-swirl/",
+      "obituary": "https://en.wikipedia.org/wiki/Google_Image_Swirl",
+      "owner": "Google",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 72: funeral host en.wikipedia.org; shape path rate=0.64; base google.com score=0.97]"
+    },
+    {
+      "id": "auto-alt-disc-killedbygoogle-google-insights-for-search-google-com",
+      "title": "Google Insights for Search",
+      "probeUrl": "https://www.google.com/insights-search/",
+      "obituary": "https://en.wikipedia.org/wiki/Google_Insights_for_Search",
+      "owner": "Google",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 72: funeral host en.wikipedia.org; shape path rate=0.64; base google.com score=0.97]"
+    },
+    {
+      "id": "auto-alt-disc-killedbygoogle-google-jump-google-com",
+      "title": "Google Jump",
+      "probeUrl": "https://www.google.com/jump/",
+      "obituary": "https://en.wikipedia.org/wiki/Google_Jump",
+      "owner": "Google",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 72: funeral host en.wikipedia.org; shape path rate=0.64; base google.com score=0.97]"
+    },
+    {
+      "id": "auto-alt-disc-killedbygoogle-google-labs-google-com",
+      "title": "Google Labs",
+      "probeUrl": "https://www.google.com/labs/",
+      "obituary": "https://en.wikipedia.org/wiki/Google_Labs",
+      "owner": "Google",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 72: funeral host en.wikipedia.org; shape path rate=0.64; base google.com score=0.97]"
+    },
+    {
+      "id": "auto-alt-disc-killedbygoogle-google-lively-google-com",
+      "title": "Google Lively",
+      "probeUrl": "https://www.google.com/lively/",
+      "obituary": "https://en.wikipedia.org/wiki/Google_Lively",
+      "owner": "Google",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 72: funeral host en.wikipedia.org; shape path rate=0.64; base google.com score=0.97]"
+    },
+    {
+      "id": "auto-alt-disc-killedbygoogle-google-map-maker-google-com",
+      "title": "Google Map Maker",
+      "probeUrl": "https://www.google.com/map-maker/",
+      "obituary": "https://en.wikipedia.org/wiki/Google_Map_Maker",
+      "owner": "Google",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 72: funeral host en.wikipedia.org; shape path rate=0.64; base google.com score=0.97]"
+    },
+    {
+      "id": "auto-alt-disc-killedbygoogle-google-mashup-editor-google-com",
+      "title": "Google Mashup Editor",
+      "probeUrl": "https://www.google.com/mashup-editor/",
+      "obituary": "https://en.wikipedia.org/wiki/Google_Mashup_Editor",
+      "owner": "Google",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 72: funeral host en.wikipedia.org; shape path rate=0.64; base google.com score=0.97]"
+    },
+    {
+      "id": "auto-alt-disc-killedbygoogle-google-mini-google-com",
+      "title": "Google Mini",
+      "probeUrl": "https://www.google.com/mini/",
+      "obituary": "https://en.wikipedia.org/wiki/Google_Search_Appliance#Google_Mini",
+      "owner": "Google",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 72: funeral host en.wikipedia.org; shape path rate=0.64; base google.com score=0.97]"
+    },
+    {
+      "id": "auto-alt-disc-killedbygoogle-google-moderator-google-com",
+      "title": "Google Moderator",
+      "probeUrl": "https://www.google.com/moderator/",
+      "obituary": "https://en.wikipedia.org/wiki/Google_Moderator",
+      "owner": "Google",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 72: funeral host en.wikipedia.org; shape path rate=0.64; base google.com score=0.97]"
+    },
+    {
+      "id": "auto-alt-disc-killedbygoogle-google-news-weather-google-com",
+      "title": "Google News & Weather",
+      "probeUrl": "https://www.google.com/news-weather/",
+      "obituary": "https://en.wikipedia.org/wiki/Google_News_%26_Weather",
+      "owner": "Google",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 72: funeral host en.wikipedia.org; shape path rate=0.64; base google.com score=0.97]"
+    },
+    {
+      "id": "auto-alt-disc-killedbygoogle-google-nexus-google-com",
+      "title": "Google Nexus",
+      "probeUrl": "https://www.google.com/nexus/",
+      "obituary": "https://en.wikipedia.org/wiki/Google_Nexus",
+      "owner": "Google",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 72: funeral host en.wikipedia.org; shape path rate=0.64; base google.com score=0.97]"
+    },
+    {
+      "id": "auto-alt-disc-killedbygoogle-google-now-google-com",
+      "title": "Google Now",
+      "probeUrl": "https://www.google.com/now/",
+      "obituary": "https://en.wikipedia.org/wiki/Google_Now",
+      "owner": "Google",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 72: funeral host en.wikipedia.org; shape path rate=0.64; base google.com score=0.97]"
+    },
+    {
+      "id": "auto-alt-disc-killedbygoogle-google-offers-google-com",
+      "title": "Google Offers",
+      "probeUrl": "https://www.google.com/offers/",
+      "obituary": "https://en.wikipedia.org/wiki/Google_Offers",
+      "owner": "Google",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 72: funeral host en.wikipedia.org; shape path rate=0.64; base google.com score=0.97]"
+    },
+    {
+      "id": "auto-alt-disc-killedbygoogle-google-one-pass-google-com",
+      "title": "Google One Pass",
+      "probeUrl": "https://www.google.com/one-pass/",
+      "obituary": "https://en.wikipedia.org/wiki/Google_One_Pass",
+      "owner": "Google",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 72: funeral host en.wikipedia.org; shape path rate=0.64; base google.com score=0.97]"
+    },
+    {
+      "id": "auto-alt-disc-killedbygoogle-google-onhub-google-com",
+      "title": "Google OnHub",
+      "probeUrl": "https://www.google.com/onhub/",
+      "obituary": "https://en.wikipedia.org/wiki/Google_OnHub",
+      "owner": "Google",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 72: funeral host en.wikipedia.org; shape path rate=0.64; base google.com score=0.97]"
+    },
+    {
+      "id": "auto-alt-disc-killedbygoogle-google-pack-google-com",
+      "title": "Google Pack",
+      "probeUrl": "https://www.google.com/pack/",
+      "obituary": "https://en.wikipedia.org/wiki/Google_Pack",
+      "owner": "Google",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 72: funeral host en.wikipedia.org; shape path rate=0.64; base google.com score=0.97]"
+    },
+    {
+      "id": "auto-alt-disc-killedbygoogle-google-page-creator-google-com",
+      "title": "Google Page Creator",
+      "probeUrl": "https://www.google.com/page-creator/",
+      "obituary": "https://en.wikipedia.org/wiki/Google_Page_Creator",
+      "owner": "Google",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 72: funeral host en.wikipedia.org; shape path rate=0.64; base google.com score=0.97]"
+    },
+    {
+      "id": "auto-alt-disc-killedbygoogle-google-pinyin-ime-google-com",
+      "title": "Google Pinyin IME",
+      "probeUrl": "https://www.google.com/pinyin-ime/",
+      "obituary": "https://en.wikipedia.org/wiki/Google_Pinyin",
+      "owner": "Google",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 72: funeral host en.wikipedia.org; shape path rate=0.64; base google.com score=0.97]"
+    },
+    {
+      "id": "auto-alt-disc-killedbygoogle-google-play-movies-tv-google-com",
+      "title": "Google Play Movies & TV",
+      "probeUrl": "https://www.google.com/play-movies/",
+      "obituary": "https://en.wikipedia.org/wiki/Google_TV_(service)",
+      "owner": "Google",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 72: funeral host en.wikipedia.org; shape path rate=0.64; base google.com score=0.97]"
+    },
+    {
+      "id": "auto-alt-disc-killedbygoogle-google-play-newsstand-google-com",
+      "title": "Google Play Newsstand",
+      "probeUrl": "https://www.google.com/play-newsstand/",
+      "obituary": "https://en.wikipedia.org/wiki/Google_Play_Newsstand",
+      "owner": "Google",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 72: funeral host en.wikipedia.org; shape path rate=0.64; base google.com score=0.97]"
+    },
+    {
+      "id": "auto-alt-disc-killedbygoogle-google-portfolios-google-com",
+      "title": "Google Portfolios",
+      "probeUrl": "https://www.google.com/portfolios/",
+      "obituary": "https://en.wikipedia.org/wiki/Google_Finance",
+      "owner": "Google",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 72: funeral host en.wikipedia.org; shape path rate=0.64; base google.com score=0.97]"
+    },
+    {
+      "id": "auto-alt-disc-killedbygoogle-google-powermeter-google-com",
+      "title": "Google PowerMeter",
+      "probeUrl": "https://www.google.com/powermeter/",
+      "obituary": "https://en.wikipedia.org/wiki/Google_PowerMeter",
+      "owner": "Google",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 72: funeral host en.wikipedia.org; shape path rate=0.64; base google.com score=0.97]"
+    },
+    {
+      "id": "auto-alt-disc-killedbygoogle-google-public-alerts-google-com",
+      "title": "Google Public Alerts",
+      "probeUrl": "https://www.google.com/public-alerts/",
+      "obituary": "https://en.wikipedia.org/wiki/Google_Public_Alerts",
+      "owner": "Google",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 72: funeral host en.wikipedia.org; shape path rate=0.64; base google.com score=0.97]"
+    },
+    {
+      "id": "auto-alt-disc-killedbygoogle-google-questions-and-answers-google-com",
+      "title": "Google Questions and Answers",
+      "probeUrl": "https://www.google.com/questions-answers/",
+      "obituary": "https://en.wikipedia.org/wiki/Google_Questions_and_Answers",
+      "owner": "Google",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 72: funeral host en.wikipedia.org; shape path rate=0.64; base google.com score=0.97]"
+    },
+    {
+      "id": "auto-alt-disc-killedbygoogle-google-radio-automation-google-com",
+      "title": "Google Radio Automation",
+      "probeUrl": "https://www.google.com/radio-automation/",
+      "obituary": "https://en.wikipedia.org/wiki/List_of_Google_products#2018",
+      "owner": "Google",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 72: funeral host en.wikipedia.org; shape path rate=0.64; base google.com score=0.97]"
+    },
+    {
+      "id": "auto-alt-disc-killedbygoogle-google-real-time-search-google-com",
+      "title": "Google Real-Time Search",
+      "probeUrl": "https://www.google.com/real-time/",
+      "obituary": "https://en.wikipedia.org/wiki/Google_Real-Time_Search",
+      "owner": "Google",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 72: funeral host en.wikipedia.org; shape path rate=0.64; base google.com score=0.97]"
+    },
+    {
+      "id": "auto-alt-disc-killedbygoogle-google-refine-google-com",
+      "title": "Google Refine",
+      "probeUrl": "https://www.google.com/refine/",
+      "obituary": "https://en.wikipedia.org/wiki/Google_Refine",
+      "owner": "Google",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 72: funeral host en.wikipedia.org; shape path rate=0.64; base google.com score=0.97]"
+    },
+    {
+      "id": "auto-alt-disc-killedbygoogle-google-schemer-google-com",
+      "title": "Google Schemer",
+      "probeUrl": "https://www.google.com/schemer/",
+      "obituary": "https://en.wikipedia.org/wiki/Google_Schemer",
+      "owner": "Google",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 72: funeral host en.wikipedia.org; shape path rate=0.64; base google.com score=0.97]"
+    },
+    {
+      "id": "auto-alt-disc-killedbygoogle-google-script-converter-google-com",
+      "title": "Google Script Converter",
+      "probeUrl": "https://www.google.com/script-converter/",
+      "obituary": "https://en.wikipedia.org/wiki/Google_Script_Converter",
+      "owner": "Google",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 72: funeral host en.wikipedia.org; shape path rate=0.64; base google.com score=0.97]"
+    },
+    {
+      "id": "auto-alt-disc-killedbygoogle-google-search-appliance-google-com",
+      "title": "Google Search Appliance",
+      "probeUrl": "https://www.google.com/search-appliance/",
+      "obituary": "https://en.wikipedia.org/wiki/Google_Search_Appliance",
+      "owner": "Google",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 72: funeral host en.wikipedia.org; shape path rate=0.64; base google.com score=0.97]"
+    },
+    {
+      "id": "auto-alt-disc-killedbygoogle-google-searchwiki-google-com",
+      "title": "Google SearchWiki",
+      "probeUrl": "https://www.google.com/searchwiki/",
+      "obituary": "https://en.wikipedia.org/wiki/Google_SearchWiki",
+      "owner": "Google",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 72: funeral host en.wikipedia.org; shape path rate=0.64; base google.com score=0.97]"
+    },
+    {
+      "id": "auto-alt-disc-killedbygoogle-google-sidewiki-google-com",
+      "title": "Google Sidewiki",
+      "probeUrl": "https://www.google.com/sidewiki/",
+      "obituary": "https://en.wikipedia.org/wiki/Google_Sidewiki",
+      "owner": "Google",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 72: funeral host en.wikipedia.org; shape path rate=0.64; base google.com score=0.97]"
+    },
+    {
+      "id": "auto-alt-disc-killedbygoogle-google-sites-classic-google-com",
+      "title": "Google Sites (Classic)",
+      "probeUrl": "https://www.google.com/sites-classic/",
+      "obituary": "https://en.wikipedia.org/wiki/Google_Sites",
+      "owner": "Google",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 72: funeral host en.wikipedia.org; shape path rate=0.64; base google.com score=0.97]"
+    },
+    {
+      "id": "auto-alt-disc-killedbygoogle-google-spaces-google-com",
+      "title": "Google Spaces",
+      "probeUrl": "https://www.google.com/spaces/",
+      "obituary": "https://en.wikipedia.org/wiki/Google_Spaces_(service)",
+      "owner": "Google",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 72: funeral host en.wikipedia.org; shape path rate=0.64; base google.com score=0.97]"
+    },
+    {
+      "id": "auto-alt-disc-killedbygoogle-google-squared-google-com",
+      "title": "Google Squared",
+      "probeUrl": "https://www.google.com/squared/",
+      "obituary": "https://en.wikipedia.org/wiki/Google_Squared",
+      "owner": "Google",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 72: funeral host en.wikipedia.org; shape path rate=0.64; base google.com score=0.97]"
+    },
+    {
+      "id": "auto-alt-disc-killedbygoogle-google-swiffy-google-com",
+      "title": "Google Swiffy",
+      "probeUrl": "https://www.google.com/swiffy/",
+      "obituary": "https://en.wikipedia.org/wiki/Google_Swiffy",
+      "owner": "Google",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 72: funeral host en.wikipedia.org; shape path rate=0.64; base google.com score=0.97]"
+    },
+    {
+      "id": "auto-alt-disc-killedbygoogle-google-talk-google-com",
+      "title": "Google Talk",
+      "probeUrl": "https://www.google.com/talk/",
+      "obituary": "https://en.wikipedia.org/wiki/Google_Talk",
+      "owner": "Google",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 72: funeral host en.wikipedia.org; shape path rate=0.64; base google.com score=0.97]"
+    },
+    {
+      "id": "auto-alt-disc-killedbygoogle-google-toolbar-for-firefox-google-com",
+      "title": "Google Toolbar for Firefox",
+      "probeUrl": "https://www.google.com/toolbar-firefox/",
+      "obituary": "https://en.wikipedia.org/wiki/Google_Toolbar",
+      "owner": "Google",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 72: funeral host en.wikipedia.org; shape path rate=0.64; base google.com score=0.97]"
+    },
+    {
+      "id": "auto-alt-disc-killedbygoogle-google-trips-google-com",
+      "title": "Google Trips",
+      "probeUrl": "https://www.google.com/trips/",
+      "obituary": "https://en.wikipedia.org/wiki/Google_Trips",
+      "owner": "Google",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 72: funeral host en.wikipedia.org; shape path rate=0.64; base google.com score=0.97]"
+    },
+    {
+      "id": "auto-alt-disc-killedbygoogle-google-tv-google-com",
+      "title": "Google TV",
+      "probeUrl": "https://www.google.com/tv/",
+      "obituary": "https://en.wikipedia.org/wiki/Google_TV_(smart_TV_platform)",
+      "owner": "Google",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 72: funeral host en.wikipedia.org; shape path rate=0.64; base google.com score=0.97]"
+    },
+    {
+      "id": "auto-alt-disc-killedbygoogle-google-url-shortener-google-com",
+      "title": "Google URL Shortener",
+      "probeUrl": "https://www.google.com/url-shortener/",
+      "obituary": "https://en.wikipedia.org/wiki/Google_URL_Shortener",
+      "owner": "Google",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 72: funeral host en.wikipedia.org; shape path rate=0.64; base google.com score=0.97]"
+    },
+    {
+      "id": "auto-alt-disc-killedbygoogle-google-video-google-com",
+      "title": "Google Video",
+      "probeUrl": "https://www.google.com/video/",
+      "obituary": "https://en.wikipedia.org/wiki/Google_Video",
+      "owner": "Google",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 72: funeral host en.wikipedia.org; shape path rate=0.64; base google.com score=0.97]"
+    },
+    {
+      "id": "auto-alt-disc-killedbygoogle-google-video-player-google-com",
+      "title": "Google Video Player",
+      "probeUrl": "https://www.google.com/video-player/",
+      "obituary": "https://en.wikipedia.org/wiki/Google_Video#Google_Video_Player",
+      "owner": "Google",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 72: funeral host en.wikipedia.org; shape path rate=0.64; base google.com score=0.97]"
+    },
+    {
+      "id": "auto-alt-disc-killedbygoogle-google-wave-google-com",
+      "title": "Google Wave",
+      "probeUrl": "https://www.google.com/wave/",
+      "obituary": "https://en.wikipedia.org/wiki/Google_Wave",
+      "owner": "Google",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 72: funeral host en.wikipedia.org; shape path rate=0.64; base google.com score=0.97]"
+    },
+    {
+      "id": "auto-alt-disc-killedbygoogle-google-web-accelerator-google-com",
+      "title": "Google Web Accelerator",
+      "probeUrl": "https://www.google.com/web-accelerator/",
+      "obituary": "https://en.wikipedia.org/wiki/Google_Web_Accelerator",
+      "owner": "Google",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 72: funeral host en.wikipedia.org; shape path rate=0.64; base google.com score=0.97]"
+    },
+    {
+      "id": "auto-alt-disc-killedbygoogle-nexus-player-google-com",
+      "title": "Nexus Player",
+      "probeUrl": "https://www.google.com/nexus-player/",
+      "obituary": "https://en.wikipedia.org/wiki/Nexus_Player",
+      "owner": "Google",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 72: funeral host en.wikipedia.org; shape path rate=0.64; base google.com score=0.97]"
+    },
+    {
+      "id": "auto-alt-disc-killedbygoogle-nexus-q-google-com",
+      "title": "Nexus Q",
+      "probeUrl": "https://www.google.com/nexus-q/",
+      "obituary": "https://en.wikipedia.org/wiki/Nexus_Q",
+      "owner": "Google",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 72: funeral host en.wikipedia.org; shape path rate=0.64; base google.com score=0.97]"
+    },
+    {
+      "id": "auto-alt-disc-killedbygoogle-project-ara-google-com",
+      "title": "Project Ara",
+      "probeUrl": "https://www.google.com/project-ara/",
+      "obituary": "https://en.wikipedia.org/wiki/Project_Ara",
+      "owner": "Google",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 72: funeral host en.wikipedia.org; shape path rate=0.64; base google.com score=0.97]"
+    },
+    {
+      "id": "auto-alt-disc-killedbygoogle-youtube-for-wii-google-com",
+      "title": "YouTube for Wii",
+      "probeUrl": "https://www.google.com/youtube-wii/",
+      "obituary": "https://en.wikipedia.org/wiki/YouTube_TV_app#Nintendo_Wii",
+      "owner": "Google",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 72: funeral host en.wikipedia.org; shape path rate=0.64; base google.com score=0.97]"
+    },
+    {
+      "id": "auto-alt-disc-obit-aka-ms-aka-microsoft-com",
+      "title": "aka.ms",
+      "probeUrl": "https://aka.microsoft.com/",
+      "obituary": "https://learn.microsoft.com/en-us/graph/migrate-azure-ad-graph-overview",
+      "owner": "Obituary harvest",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 72: funeral host learn.microsoft.com; shape subdomain rate=0.84; base microsoft.com score=1.00]"
+    },
+    {
+      "id": "auto-alt-disc-killedbygoogle-google-nearby-notifications-google-com",
+      "title": "Google Nearby Notifications",
+      "probeUrl": "https://www.google.com/nearby-notifications/",
+      "obituary": "https://android-developers.googleblog.com/2018/10/discontinuing-support-for-android.html",
+      "owner": "Google",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 71: funeral base googleblog.com; shape path rate=0.64; base google.com score=0.97]"
+    },
+    {
+      "id": "auto-alt-disc-killedbygoogle-google-station-google-com",
+      "title": "Google Station",
+      "probeUrl": "https://www.google.com/station/",
+      "obituary": "https://india.googleblog.com/2020/02/five-years-400-stations-and-thousands.html",
+      "owner": "Google",
+      "note": "Autoseed alternate probe shape for an already-queued discovery. [score 71: funeral host india.googleblog.com; shape path rate=0.64; base google.com score=0.97]"
+    }
+  ]
+}

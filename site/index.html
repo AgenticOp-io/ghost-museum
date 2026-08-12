@@ -18,27 +18,34 @@
   <link rel="stylesheet" href="./museum.css" />
 </head>
 <body class="gm-hall-page">
-  <aside class="gm-count-frame" aria-live="polite" aria-atomic="true">
-    <p class="gm-count-wall">Ghosts</p>
-    <p class="gm-count-num" id="ghost-count">…</p>
-    <p class="gm-count-meta" id="ghost-count-meta">hung</p>
-  </aside>
-  <div class="gm-shell">
-    <header class="gm-top">
-      <a class="gm-mark" href="./index.html">Still Answering</a>
+  <header class="gm-masthead gm-masthead--wide">
+    <a class="gm-side-frame gm-nominate-frame" href="./nominate.html">
+      <span class="gm-nominate-label">Nominate<br />a ghost</span>
+    </a>
+    <div class="gm-mast-main">
+      <h1 class="gm-brand-title"><a href="./index.html">Still Answering</a></h1>
+      <p class="gm-hero-tag">
+        <span class="gm-hero-line">Sunset is a press release.</span>
+        <span class="gm-hero-line">Ghosts are a runtime.</span>
+      </p>
       <nav class="gm-nav" aria-label="Hall">
         <a href="./index.html" aria-current="page">Hall</a>
         <a href="./about.html">Plaque</a>
         <a href="./nominate.html">Nominate</a>
         <a href="./hunt.html">Hunt</a>
+        <a href="./curate.html">Curate</a>
       </nav>
-    </header>
+    </div>
+    <aside class="gm-side-frame gm-count-frame" aria-live="polite" aria-atomic="true" aria-label="Ghost census">
+      <p class="gm-side-kicker gm-count-wall">Ghosts</p>
+      <p class="gm-count-num" id="ghost-count">…</p>
+      <p class="gm-count-meta" id="ghost-count-meta">all</p>
+    </aside>
+  </header>
 
+  <div class="gm-shell">
     <section class="gm-hero">
-      <h1 class="gm-brand-title">Still Answering</h1>
-      <p class="gm-hero-tag">Sunset is a press release. Ghosts are a runtime.</p>
       <p>Products die in blog posts. Their sockets often do not. We probe public URLs and hang the evidence — never a guide to keep calling the dead.</p>
-      <p class="gm-hero-cta"><a href="./nominate.html">Nominate a ghost</a></p>
     </section>
 
     <div class="gm-toolbar">
@@ -53,10 +60,13 @@
         <button type="button" class="gm-filter" data-filter="auth-ghost" aria-pressed="false"><i class="auth" aria-hidden="true"></i> Auth ghost</button>
         <button type="button" class="gm-filter" data-filter="successor-facade" aria-pressed="false"><i class="facade" aria-hidden="true"></i> Successor facade</button>
         <button type="button" class="gm-filter" data-filter="buried" aria-pressed="false"><i class="buried" aria-hidden="true"></i> Buried</button>
+        <button type="button" class="gm-filter" data-filter="banished" aria-pressed="false"><i class="banished" aria-hidden="true"></i> Banished</button>
+        <button type="button" class="gm-filter" data-filter="unprobed" aria-pressed="false"><i class="unprobed" aria-hidden="true"></i> Unprobed</button>
       </div>
     </div>
 
     <main id="hall" class="gm-hall" aria-label="Exhibits"></main>
+    <nav id="hall-pager" class="gm-pager" aria-label="Hall pages" hidden></nav>
 
     <footer class="gm-footer">
       <a href="https://agenticop.io/" rel="noopener noreferrer">agenticop.io</a>

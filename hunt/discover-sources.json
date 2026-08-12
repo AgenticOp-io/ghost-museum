@@ -1,0 +1,39 @@
+{
+  "purpose": "Bounded discovery sources — sunset catalogs and structured lists only. Not an open-web crawl.",
+  "catalogs": [
+    {
+      "id": "killedbygoogle",
+      "url": "https://raw.githubusercontent.com/codyogden/killedbygoogle/main/graveyard.json",
+      "owner": "Google",
+      "format": "kbg"
+    },
+    {
+      "id": "killedbyai",
+      "url": "https://mixtpatrik.github.io/killedbyai/graveyard.json",
+      "owner": "Startup",
+      "format": "kbg"
+    },
+    {
+      "id": "killed-by-microsoft",
+      "url": "https://raw.githubusercontent.com/fabianoriccardi/killed-by-microsoft/main/graveyard.json",
+      "owner": "Microsoft",
+      "format": "kbg"
+    },
+    {
+      "id": "killed-by-apple",
+      "url": "https://raw.githubusercontent.com/TheDen/killed-by-apple/main/products.json",
+      "owner": "Apple",
+      "format": "kbap"
+    }
+  ],
+  "wikidata": {
+    "enabled": true,
+    "limit": 400,
+    "minYear": 2005
+  },
+  "obituaries": {
+    "enabled": true,
+    "maxPages": 60,
+    "maxLinksPerPage": 8
+  }
+}

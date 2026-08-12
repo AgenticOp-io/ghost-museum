@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Curate desk · Still Answering</title>
+  <meta name="description" content="Authority curate queue — seed packs first. Never auto-hangs." />
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500&amp;family=IBM+Plex+Mono:wght@400;500&amp;family=IBM+Plex+Sans:wght@400;500&amp;display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./museum.css" />
+</head>
+<body class="gm-hunt-page gm-curate-page">
+  <header class="gm-masthead gm-masthead--wide">
+    <a class="gm-side-frame gm-nominate-frame" href="./nominate.html">
+      <span class="gm-nominate-label">Nominate<br />a ghost</span>
+    </a>
+    <div class="gm-mast-main">
+      <p class="gm-brand-title"><a href="./index.html">Still Answering</a></p>
+      <p class="gm-hero-tag">
+        <span class="gm-hero-line">Sunset is a press release.</span>
+        <span class="gm-hero-line">Ghosts are a runtime.</span>
+      </p>
+      <nav class="gm-nav" aria-label="Hall">
+        <a href="./index.html">Hall</a>
+        <a href="./about.html">Plaque</a>
+        <a href="./nominate.html">Nominate</a>
+        <a href="./hunt.html">Hunt</a>
+        <a href="./curate.html" aria-current="page">Curate</a>
+      </nav>
+    </div>
+    <aside class="gm-side-frame gm-count-frame" aria-live="polite" aria-atomic="true" aria-label="Ghost census">
+      <p class="gm-side-kicker gm-count-wall">Ghosts</p>
+      <p class="gm-count-num" id="ghost-count">…</p>
+      <p class="gm-count-meta" id="ghost-count-meta">all</p>
+    </aside>
+  </header>
+
+  <div class="gm-shell">
+    <main class="gm-nominate-main">
+      <section class="gm-nominate-hero">
+        <h1>Curate desk.</h1>
+        <p class="gm-lede" id="curate-lede">Authority queue — seeds first. Draft with hang; human commits.</p>
+      </section>
+      <div id="curate-list" class="gm-hunt-list" aria-live="polite"></div>
+    </main>
+
+    <footer class="gm-footer">
+      <a href="https://agenticop.io/" rel="noopener noreferrer">agenticop.io</a>
+      · Apache-2.0
+      · © 2026 AgenticOps
+    </footer>
+  </div>
+  <script src="./curate-desk.js" type="module"></script>
+  <script src="./gm-census-boot.js" type="module"></script>
+</body>
+</html>

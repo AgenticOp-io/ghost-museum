@@ -1,17 +1,49 @@
-# Curate algorithm (v1)
+# Curate algorithm (v2) — authority desk
 
-Ranking helper for hunt findings and nominations. **Never auto-hangs.** Output is a review queue only.
+Ranking + curator desk for Still Answering. **Never auto-hangs.**
 
-```bash
-npm run curate
-npm run curate -- --top 30
+Authority path:
+
+```
+hunt/seeds/*  →  npm run seed-watchlist:broad  →  npm run hunt  →  npm run curate:desk  →  npm run hang -- --id <id>  →  human --commit
 ```
 
-Writes `hunt/curate-rank.json`.
+One-shot refresh:
+
+```bash
+npm run authority          # broad seeds + curate desk
+npm run curate:desk        # desk only
+npm run hang -- --id foo   # draft only
+npm run hang -- --id foo --commit   # append exhibit after you review
+```
+
+Writes:
+
+| File | Role |
+|------|------|
+| `hunt/curate-rank.json` | Full ranked report |
+| `site/curate.json` | Strong + consider desk queue |
+| `GET /api/curate` | Same desk JSON for `site/curate.html` |
+| `hunt/drafts/<id>.json` | Hang draft (from `npm run hang`) |
 
 ## Goal
 
-Grow a **deeper, broader, honest** hall: incomplete funerals over tombs, domain/era diversity over Google spam. Never document how to keep calling a ghost.
+Grow a **deeper, broader, honest** hall: incomplete funerals over tombs, multi-vendor seed packs over Google fan-out. Never document how to keep calling a ghost.
+
+## Authority signals (v2)
+
+| Signal | Points |
+|--------|--------|
+| Source `seeds/*` | +28 |
+| Source `probe-hints` | +16 |
+| Public nomination | +12 |
+| Source `*-deep` (catalog guess) | −18 |
+| Source `*-vast` (host spam) | −45 |
+| New major domain in hall | +18 |
+| Non-Google owner | +6 |
+| Google already over-represented | −10 |
+
+Plus v1 wall / status / diversity scoring (still-answering +40, auth-ghost +38, etc.).
 
 ## Hard gates (reject / skip)
 
@@ -22,47 +54,23 @@ Grow a **deeper, broader, honest** hall: incomplete funerals over tombs, domain/
 | Note contains credentials / “how to use” / exploit language | reject |
 | `id` or probe hostname already hung | skip |
 
-## Score (higher = hang sooner)
-
-| Signal | Points |
-|--------|--------|
-| Probe succeeded with status | +15 |
-| Wall `still-answering` | +40 |
-| Wall `auth-ghost` | +38 |
-| Wall `successor-facade` | +36 |
-| Wall `buried` | +12 (contrast only) |
-| Redirect hops | +3 each (cap +12) |
-| Lone `200` (no redirect) | +10 |
-| `401` / `403` | +8 |
-| Hostile `400` | +6 |
-| New major domain in hall | +14 |
-| Death year empty in hall | +10 |
-| Named title | +4 |
-| Note says living / “don’t hang early” | −25 |
-| Probe error | −40 |
-| `404` tomb | −15 |
-| Honest `410` | −5 |
-| Domain already 3+ frames | −12 |
-| Domain already 6+ frames | −30 |
-| Final host already hung | −10 |
-| Year already crowded (4+) | −8 |
-
 ## Decisions
 
 | Band | Label | Meaning |
 |------|-------|---------|
-| ≥ 55 | `strong` | Curator should hang soon (after fresh probe) |
+| ≥ 55 | `strong` | Hang soon (fresh probe → draft → commit) |
 | ≥ 35 | `consider` | Worth a look |
 | ≥ 10 | `review` | Weak / niche |
 | &lt; 10 | `weak` | Probably skip |
 | — | `reject` / `skip` | Do not hang |
 
-## After a strong rank
+Desk default (`--desk` / `curate:desk`) shows **strong + consider** only.
 
-1. Fresh `GET` probe with museum UA  
-2. Confirm obituary still cites the funeral  
-3. Write wall + note (never “how to keep calling”)  
-4. Set `doNotIntegrate: true`  
-5. Append to `exhibits/exhibits.json`, run `npm run probe` + `validate`  
+## Human gate
 
-Human acceptance is mandatory. The algorithm does not write exhibits.
+1. Open **Curate** desk or `hunt/curate-rank.json`
+2. `npm run hang -- --id <id>` — fresh GET, writes draft
+3. Edit note / wall if needed in `hunt/drafts/<id>.json`
+4. `npm run hang -- --id <id> --commit` then `npm run validate`
+
+The algorithm does not write exhibits without `--commit`.

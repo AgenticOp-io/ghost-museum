@@ -15,6 +15,8 @@ import {
 } from "node:fs";
 import { dirname, join, extname, normalize } from "node:path";
 import { fileURLToPath } from "node:url";
+import { buildCensusPayload } from "./lib/census.mjs";
+import { buildHallCatalog, paginateHall } from "./lib/hall.mjs";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 
@@ -305,8 +307,114 @@ function handleHuntFindings(req, res) {
     findings: parsed,
     watchlistSize,
     lastPass,
-    note: "Curator queue only — never auto-hangs.",
+    note: "Curator queue + auto-hang feed. Strong ghosts hang via hang:auto after fresh probe.",
   });
+}
+
+function loadFindings() {
+  const findingsPath = join(huntDir, "findings.jsonl");
+  const findings = [];
+  if (existsSync(findingsPath)) {
+    for (const line of readFileSync(findingsPath, "utf8").split(/\r?\n/)) {
+      if (!line) continue;
+      try {
+        findings.push(JSON.parse(line));
+      } catch {
+        /* skip */
+      }
+    }
+  }
+  return findings;
+}
+
+function buildCensus() {
+  const exhibitsPath = join(siteRoot, "exhibits.json");
+  const watchPath = join(huntDir, "watchlist.json");
+  const lastPassPath = join(huntDir, "last-pass.json");
+  const exhibits = existsSync(exhibitsPath)
+    ? JSON.parse(readFileSync(exhibitsPath, "utf8")).exhibits || []
+    : [];
+  const watch = existsSync(watchPath)
+    ? JSON.parse(readFileSync(watchPath, "utf8")).watchlist || []
+    : [];
+  const findings = loadFindings();
+  let lastPass = null;
+  try {
+    if (existsSync(lastPassPath)) lastPass = JSON.parse(readFileSync(lastPassPath, "utf8"));
+  } catch {
+    /* ignore */
+  }
+  return buildCensusPayload({ museum: "Still Answering", exhibits, watch, findings, lastPass });
+}
+
+function handleHall(req, res) {
+  const u = new URL(req.url || "/", "http://localhost");
+  const page = Number(u.searchParams.get("page") || 1);
+  const pageSize = Number(u.searchParams.get("pageSize") || 24);
+  const wall = u.searchParams.get("wall") || "all";
+  const exhibitsPath = join(siteRoot, "exhibits.json");
+  const watchPath = join(huntDir, "watchlist.json");
+  const exhibits = existsSync(exhibitsPath)
+    ? JSON.parse(readFileSync(exhibitsPath, "utf8")).exhibits || []
+    : [];
+  const watch = existsSync(watchPath)
+    ? JSON.parse(readFileSync(watchPath, "utf8")).watchlist || []
+    : [];
+  const catalog = buildHallCatalog({ exhibits, watch, findings: loadFindings() });
+  const payload = paginateHall(catalog, { page, pageSize, wall });
+  payload.museum = "Still Answering";
+  payload.catalogSize = catalog.length;
+  payload.note = "Hung frames plus ghost-class hunt contacts not yet hung. Unprobed seeds stay off the wall.";
+  return sendJson(res, 200, payload);
+}
+
+function handleCensus(_req, res) {
+  const census = buildCensus();
+  try {
+    writeFileSync(join(siteRoot, "census.json"), JSON.stringify(census, null, 2) + "\n");
+  } catch {
+    /* best effort */
+  }
+  return sendJson(res, 200, census);
+}
+
+function handleCurate(_req, res) {
+  const curatePath = join(siteRoot, "curate.json");
+  const rankPath = join(huntDir, "curate-rank.json");
+  let payload = null;
+  try {
+    if (existsSync(curatePath)) payload = JSON.parse(readFileSync(curatePath, "utf8"));
+  } catch {
+    /* ignore */
+  }
+  if (!payload?.queue) {
+    try {
+      if (existsSync(rankPath)) {
+        const rank = JSON.parse(readFileSync(rankPath, "utf8"));
+        payload = {
+          museum: rank.museum || "Still Answering",
+          curatedAt: rank.curatedAt,
+          algorithm: rank.algorithm,
+          authority: rank.authority,
+          hallSize: rank.hallSize,
+          byDecision: rank.byDecision,
+          queue: (rank.ranked || []).filter(
+            (r) => r.decision === "strong" || r.decision === "consider",
+          ),
+        };
+      }
+    } catch {
+      /* ignore */
+    }
+  }
+  if (!payload) {
+    return sendJson(res, 200, {
+      museum: "Still Answering",
+      queue: [],
+      note: "Empty desk. Run npm run curate -- --desk",
+    });
+  }
+  return sendJson(res, 200, payload);
 }
 
 function handleStatic(req, res) {
@@ -345,6 +453,24 @@ const server = createServer(async (req, res) => {
       (req.url === "/api/hunt/findings" || req.url?.startsWith("/api/hunt/findings?"))
     ) {
       return handleHuntFindings(req, res);
+    }
+    if (
+      req.method === "GET" &&
+      (req.url === "/api/census" || req.url?.startsWith("/api/census?"))
+    ) {
+      return handleCensus(req, res);
+    }
+    if (
+      req.method === "GET" &&
+      (req.url === "/api/hall" || req.url?.startsWith("/api/hall?"))
+    ) {
+      return handleHall(req, res);
+    }
+    if (
+      req.method === "GET" &&
+      (req.url === "/api/curate" || req.url?.startsWith("/api/curate?"))
+    ) {
+      return handleCurate(req, res);
     }
     if (req.method === "GET" || req.method === "HEAD") {
       return handleStatic(req, res);

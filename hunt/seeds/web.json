@@ -1,0 +1,612 @@
+{
+  "owner": "Web",
+  "purpose": "Classic web and consumer sunsets with real probe URLs — authority breadth beyond FAANG guesses.",
+  "seeds": [
+    {
+      "id": "google-reader",
+      "title": "Google Reader",
+      "probeUrl": "https://www.google.com/reader/",
+      "obituary": "https://googleblog.blogspot.com/2013/03/a-second-spring-of-cleaning.html"
+    },
+    {
+      "id": "google-inbox",
+      "title": "Inbox by Gmail",
+      "probeUrl": "https://inbox.google.com/",
+      "obituary": "https://blog.google/products/gmail/inbox-signing-off/"
+    },
+    {
+      "id": "google-allo",
+      "title": "Google Allo",
+      "probeUrl": "https://allo.google.com/",
+      "obituary": "https://blog.google/products/allo/allo-goodbye/"
+    },
+    {
+      "id": "google-plus",
+      "title": "Google+",
+      "probeUrl": "https://plus.google.com/",
+      "obituary": "https://blog.google/technology/safety-security/expediting-changes-google/"
+    },
+    {
+      "id": "google-hangouts-classic",
+      "title": "Hangouts classic",
+      "probeUrl": "https://hangouts.google.com/",
+      "obituary": "https://workspaceupdates.googleblog.com/2021/08/hangouts-will-be-turned-off-for-google.html"
+    },
+    {
+      "id": "google-play-music",
+      "title": "Google Play Music",
+      "probeUrl": "https://play.google.com/music/",
+      "obituary": "https://blog.youtube/news-and-events/youtube-music-will-soon-become-only/"
+    },
+    {
+      "id": "youtube-leanback",
+      "title": "YouTube Leanback",
+      "probeUrl": "https://www.youtube.com/leanback",
+      "obituary": "https://support.google.com/youtube/answer/1647509"
+    },
+    {
+      "id": "firefox-hello",
+      "title": "Firefox Hello",
+      "probeUrl": "https://hello.firefox.com/",
+      "obituary": "https://blog.mozilla.org/en/mozilla/hello-firefox/"
+    },
+    {
+      "id": "firefox-send",
+      "title": "Firefox Send",
+      "probeUrl": "https://send.firefox.com/",
+      "obituary": "https://blog.mozilla.org/en/mozilla/firefox-send-discontinued/"
+    },
+    {
+      "id": "mozilla-persona",
+      "title": "Mozilla Persona",
+      "probeUrl": "https://login.persona.org/",
+      "obituary": "https://blog.mozilla.org/en/mozilla/persona-transition/"
+    },
+    {
+      "id": "opera-unite",
+      "title": "Opera Unite",
+      "probeUrl": "https://unite.opera.com/",
+      "obituary": "https://blogs.opera.com/news/2012/04/opera-unite/"
+    },
+    {
+      "id": "blackberry-messenger",
+      "title": "BlackBerry Messenger",
+      "probeUrl": "https://www.bbm.com/",
+      "obituary": "https://blogs.blackberry.com/en/2019/04/update-on-bbm"
+    },
+    {
+      "id": "nokia-ovi-store",
+      "title": "Nokia Ovi Store",
+      "probeUrl": "https://store.ovi.com/",
+      "obituary": "https://en.wikipedia.org/wiki/Nokia_Store"
+    },
+    {
+      "id": "palm-webos",
+      "title": "webOS / Palm",
+      "probeUrl": "https://www.palm.com/",
+      "obituary": "https://en.wikipedia.org/wiki/WebOS"
+    },
+    {
+      "id": "hp-webos-developer",
+      "title": "HP webOS developer",
+      "probeUrl": "https://developer.palm.com/",
+      "obituary": "https://en.wikipedia.org/wiki/WebOS"
+    },
+    {
+      "id": "windows-phone-dev-center",
+      "title": "Windows Phone Dev Center",
+      "probeUrl": "https://dev.windowsphone.com/",
+      "obituary": "https://blogs.windows.com/windowsexperience/2017/10/08/microsoft-ends-windows-phone-support/"
+    },
+    {
+      "id": "kinect-microsoft",
+      "title": "Kinect",
+      "probeUrl": "https://www.microsoft.com/en-us/kinect",
+      "obituary": "https://news.xbox.com/en-us/2017/10/25/kinect/"
+    },
+    {
+      "id": "zune-microsoft",
+      "title": "Zune",
+      "probeUrl": "https://www.zune.net/",
+      "obituary": "https://en.wikipedia.org/wiki/Zune"
+    },
+    {
+      "id": "msn-messenger-door",
+      "title": "MSN Messenger door",
+      "probeUrl": "https://messenger.msn.com/",
+      "obituary": "https://blogs.microsoft.com/blog/2013/01/08/the-final-countdown-msn-messenger/"
+    },
+    {
+      "id": "yahoo-pipes",
+      "title": "Yahoo Pipes",
+      "probeUrl": "https://pipes.yahoo.com/",
+      "obituary": "https://yahoo.tumblr.com/post/129536958015/pipes-will-be-shut-down"
+    },
+    {
+      "id": "yahoo-answers",
+      "title": "Yahoo Answers",
+      "probeUrl": "https://answers.yahoo.com/",
+      "obituary": "https://www.verizon.com/about/news/yahoo-answers-shutting-down"
+    },
+    {
+      "id": "flickr-yahoo-classic",
+      "title": "Flickr Yahoo-era door",
+      "probeUrl": "https://www.flickr.com/",
+      "obituary": "https://blog.flickr.net/en/2018/04/17/flickr-free/"
+    },
+    {
+      "id": "tumblr-post-verizon",
+      "title": "Tumblr",
+      "probeUrl": "https://www.tumblr.com/",
+      "obituary": "https://www.theverge.com/2019/8/12/20802608/tumblr-verizon-sale-wordpress-automattic"
+    },
+    {
+      "id": "aol-instant-messenger",
+      "title": "AOL Instant Messenger",
+      "probeUrl": "https://www.aim.com/",
+      "obituary": "https://www.aol.com/aim/"
+    },
+    {
+      "id": "icq-classic",
+      "title": "ICQ",
+      "probeUrl": "https://icq.com/",
+      "obituary": "https://en.wikipedia.org/wiki/ICQ"
+    },
+    {
+      "id": "geocities-yahoo",
+      "title": "GeoCities",
+      "probeUrl": "https://geocities.yahoo.com/",
+      "obituary": "https://en.wikipedia.org/wiki/Yahoo!_GeoCities"
+    },
+    {
+      "id": "angelfire",
+      "title": "Angelfire",
+      "probeUrl": "https://www.angelfire.com/",
+      "obituary": "https://en.wikipedia.org/wiki/Angelfire"
+    },
+    {
+      "id": "tripod-lycos",
+      "title": "Tripod",
+      "probeUrl": "https://www.tripod.lycos.com/",
+      "obituary": "https://en.wikipedia.org/wiki/Tripod_(web_hosting)"
+    },
+    {
+      "id": "livejournal",
+      "title": "LiveJournal",
+      "probeUrl": "https://www.livejournal.com/",
+      "obituary": "https://en.wikipedia.org/wiki/LiveJournal"
+    },
+    {
+      "id": "xanga",
+      "title": "Xanga",
+      "probeUrl": "https://www.xanga.com/",
+      "obituary": "https://en.wikipedia.org/wiki/Xanga"
+    },
+    {
+      "id": "bebo",
+      "title": "Bebo",
+      "probeUrl": "https://bebo.com/",
+      "obituary": "https://en.wikipedia.org/wiki/Bebo"
+    },
+    {
+      "id": "hi5",
+      "title": "hi5",
+      "probeUrl": "https://hi5.com/",
+      "obituary": "https://en.wikipedia.org/wiki/Hi5"
+    },
+    {
+      "id": "orkut-archive-door",
+      "title": "Orkut archive door",
+      "probeUrl": "https://orkut.google.com/",
+      "obituary": "https://orkut.googleblog.com/2014/06/goodbye-orkut.html"
+    },
+    {
+      "id": "google-wave-door",
+      "title": "Google Wave door",
+      "probeUrl": "https://wave.google.com/",
+      "obituary": "https://googleblog.blogspot.com/2010/08/update-on-google-wave.html"
+    },
+    {
+      "id": "google-buzz",
+      "title": "Google Buzz",
+      "probeUrl": "https://www.google.com/buzz",
+      "obituary": "https://googleblog.blogspot.com/2011/10/fall-sweep.html"
+    },
+    {
+      "id": "google-notebook",
+      "title": "Google Notebook",
+      "probeUrl": "https://www.google.com/notebook/",
+      "obituary": "https://googleblog.blogspot.com/2011/11/spring-cleaning-in-fall.html"
+    },
+    {
+      "id": "igoogle-door",
+      "title": "iGoogle",
+      "probeUrl": "https://www.google.com/ig",
+      "obituary": "https://googleblog.blogspot.com/2012/07/spring-cleaning-in-spring.html"
+    },
+    {
+      "id": "google-code-hosting",
+      "title": "Google Code hosting",
+      "probeUrl": "https://code.google.com/",
+      "obituary": "https://opensource.googleblog.com/2015/03/farewell-to-google-code.html"
+    },
+    {
+      "id": "google-url-shortener",
+      "title": "Google URL Shortener",
+      "probeUrl": "https://goo.gl/",
+      "obituary": "https://developers.googleblog.com/2018/03/transitioning-google-url-shortener.html"
+    },
+    {
+      "id": "bitly-v3-api-note",
+      "title": "Bitly classic door",
+      "probeUrl": "https://bitly.com/",
+      "obituary": "https://blog.bitly.com/"
+    },
+    {
+      "id": "tinyurl",
+      "title": "TinyURL",
+      "probeUrl": "https://tinyurl.com/",
+      "obituary": "https://en.wikipedia.org/wiki/TinyURL"
+    },
+    {
+      "id": "pastebin-classic",
+      "title": "Pastebin",
+      "probeUrl": "https://pastebin.com/",
+      "obituary": "https://en.wikipedia.org/wiki/Pastebin"
+    },
+    {
+      "id": "sourceforge-classic",
+      "title": "SourceForge",
+      "probeUrl": "https://sourceforge.net/",
+      "obituary": "https://en.wikipedia.org/wiki/SourceForge"
+    },
+    {
+      "id": "launchpad-canonical",
+      "title": "Launchpad",
+      "probeUrl": "https://launchpad.net/",
+      "obituary": "https://en.wikipedia.org/wiki/Launchpad_(website)"
+    },
+    {
+      "id": "rdio",
+      "title": "Rdio",
+      "probeUrl": "https://www.rdio.com/",
+      "obituary": "https://en.wikipedia.org/wiki/Rdio"
+    },
+    {
+      "id": "grooveshark",
+      "title": "Grooveshark",
+      "probeUrl": "https://grooveshark.com/",
+      "obituary": "https://en.wikipedia.org/wiki/Grooveshark"
+    },
+    {
+      "id": "lastfm-radio-classic",
+      "title": "Last.fm radio classic",
+      "probeUrl": "https://www.last.fm/",
+      "obituary": "https://blog.last.fm/"
+    },
+    {
+      "id": "pandora-one-classic",
+      "title": "Pandora",
+      "probeUrl": "https://www.pandora.com/",
+      "obituary": "https://en.wikipedia.org/wiki/Pandora_(service)"
+    },
+    {
+      "id": "mixcloud",
+      "title": "Mixcloud",
+      "probeUrl": "https://www.mixcloud.com/",
+      "obituary": "https://en.wikipedia.org/wiki/Mixcloud"
+    },
+    {
+      "id": "vine-co",
+      "title": "Vine.co",
+      "probeUrl": "https://vine.co/",
+      "obituary": "https://blog.twitter.com/en_us/topics/company/2016/vine-update"
+    },
+    {
+      "id": "periscope",
+      "title": "Periscope",
+      "probeUrl": "https://www.pscp.tv/",
+      "obituary": "https://blog.twitter.com/en_us/topics/product/2020/periscope-has-joined-twitter"
+    },
+    {
+      "id": "meerkat",
+      "title": "Meerkat",
+      "probeUrl": "https://meerkatapp.co/",
+      "obituary": "https://en.wikipedia.org/wiki/Meerkat_(app)"
+    },
+    {
+      "id": "ustream",
+      "title": "Ustream",
+      "probeUrl": "https://www.ustream.tv/",
+      "obituary": "https://en.wikipedia.org/wiki/Ustream"
+    },
+    {
+      "id": "justin-tv",
+      "title": "Justin.tv",
+      "probeUrl": "https://www.justin.tv/",
+      "obituary": "https://en.wikipedia.org/wiki/Justin.tv"
+    },
+    {
+      "id": "hitbox-smashcast",
+      "title": "Hitbox / Smashcast",
+      "probeUrl": "https://www.smashcast.tv/",
+      "obituary": "https://en.wikipedia.org/wiki/Smashcast"
+    },
+    {
+      "id": "mixer-microsoft",
+      "title": "Mixer",
+      "probeUrl": "https://mixer.com/",
+      "obituary": "https://news.xbox.com/en-us/2020/06/22/mixer-shutdown/"
+    },
+    {
+      "id": "google-stadia-store",
+      "title": "Stadia store door",
+      "probeUrl": "https://stadia.google.com/store",
+      "obituary": "https://blog.google/products/stadia/message-about-stadia-and-our-first-party-games/"
+    },
+    {
+      "id": "oculus-home",
+      "title": "Oculus Home",
+      "probeUrl": "https://www.oculus.com/",
+      "obituary": "https://www.meta.com/blog/"
+    },
+    {
+      "id": "daydream-google",
+      "title": "Daydream",
+      "probeUrl": "https://vr.google.com/daydream/",
+      "obituary": "https://blog.google/products/google-ar-vr/daydream/"
+    },
+    {
+      "id": "cardboard-google",
+      "title": "Cardboard",
+      "probeUrl": "https://arvr.google.com/cardboard/",
+      "obituary": "https://support.google.com/cardboard/"
+    },
+    {
+      "id": "tango-google",
+      "title": "Project Tango",
+      "probeUrl": "https://developers.google.com/tango",
+      "obituary": "https://www.blog.google/products/google-ar-vr/project-tango/"
+    },
+    {
+      "id": "nest-weave",
+      "title": "Nest Weave",
+      "probeUrl": "https://developers.nest.com/",
+      "obituary": "https://nest.com/"
+    },
+    {
+      "id": "works-with-nest",
+      "title": "Works with Nest",
+      "probeUrl": "https://nest.com/works-with-nest/",
+      "obituary": "https://nest.com/"
+    },
+    {
+      "id": "fitbit-os",
+      "title": "Fitbit OS apps",
+      "probeUrl": "https://gallery.fitbit.com/",
+      "obituary": "https://blog.fitbit.com/"
+    },
+    {
+      "id": "jawbone-up",
+      "title": "Jawbone UP",
+      "probeUrl": "https://jawbone.com/",
+      "obituary": "https://en.wikipedia.org/wiki/Jawbone_(company)"
+    },
+    {
+      "id": "pebble-health",
+      "title": "Pebble",
+      "probeUrl": "https://www.pebble.com/",
+      "obituary": "https://www.kickstarter.com/projects/getpebble/pebble-time"
+    },
+    {
+      "id": "amazon-fire-phone",
+      "title": "Fire Phone support",
+      "probeUrl": "https://www.amazon.com/gp/help/customer/display.html?nodeId=201830800",
+      "obituary": "https://en.wikipedia.org/wiki/Fire_Phone"
+    },
+    {
+      "id": "amazon-dash-buttons",
+      "title": "Dash Buttons",
+      "probeUrl": "https://www.amazon.com/dashbutton",
+      "obituary": "https://www.aboutamazon.com/news/devices/amazon-dash-buttons"
+    },
+    {
+      "id": "kindle-worlds",
+      "title": "Kindle Worlds",
+      "probeUrl": "https://www.amazon.com/kindleworlds",
+      "obituary": "https://blog.aboutamazon.com/"
+    },
+    {
+      "id": "parse-dashboard-public",
+      "title": "Parse",
+      "probeUrl": "https://parse.com/",
+      "obituary": "https://blog.parseplatform.org/"
+    },
+    {
+      "id": "firebase-legacy-console",
+      "title": "Firebase legacy console door",
+      "probeUrl": "https://www.firebase.com/",
+      "obituary": "https://firebase.googleblog.com/"
+    },
+    {
+      "id": "cloud9-ide",
+      "title": "Cloud9 IDE classic",
+      "probeUrl": "https://c9.io/",
+      "obituary": "https://aws.amazon.com/cloud9/"
+    },
+    {
+      "id": "nitrous-io",
+      "title": "Nitrous.io",
+      "probeUrl": "https://www.nitrous.io/",
+      "obituary": "https://en.wikipedia.org/wiki/Nitrous.io"
+    },
+    {
+      "id": "koding",
+      "title": "Koding",
+      "probeUrl": "https://koding.com/",
+      "obituary": "https://en.wikipedia.org/wiki/Koding"
+    },
+    {
+      "id": "codio-classic",
+      "title": "Codio",
+      "probeUrl": "https://codio.com/",
+      "obituary": "https://en.wikipedia.org/wiki/Codio"
+    },
+    {
+      "id": "codepen-projects-note",
+      "title": "CodePen",
+      "probeUrl": "https://codepen.io/",
+      "obituary": "https://blog.codepen.io/"
+    },
+    {
+      "id": "jsfiddle",
+      "title": "JSFiddle",
+      "probeUrl": "https://jsfiddle.net/",
+      "obituary": "https://en.wikipedia.org/wiki/JSFiddle"
+    },
+    {
+      "id": "jsbin",
+      "title": "JS Bin",
+      "probeUrl": "https://jsbin.com/",
+      "obituary": "https://en.wikipedia.org/wiki/JS_Bin"
+    },
+    {
+      "id": "plunker",
+      "title": "Plunker",
+      "probeUrl": "https://plnkr.co/",
+      "obituary": "https://en.wikipedia.org/wiki/Plunker"
+    },
+    {
+      "id": "glitch-classic",
+      "title": "Glitch",
+      "probeUrl": "https://glitch.com/",
+      "obituary": "https://blog.glitch.com/"
+    },
+    {
+      "id": "replit-classic",
+      "title": "Replit",
+      "probeUrl": "https://replit.com/",
+      "obituary": "https://blog.replit.com/"
+    },
+    {
+      "id": "stackedit",
+      "title": "StackEdit",
+      "probeUrl": "https://stackedit.io/",
+      "obituary": "https://en.wikipedia.org/wiki/StackEdit"
+    },
+    {
+      "id": "writely-google-docs-origin",
+      "title": "Writely heritage door",
+      "probeUrl": "https://docs.google.com/",
+      "obituary": "https://en.wikipedia.org/wiki/Writely"
+    },
+    {
+      "id": "jamboard",
+      "title": "Jamboard",
+      "probeUrl": "https://jamboard.google.com/",
+      "obituary": "https://workspaceupdates.googleblog.com/2023/09/jamboard-hardware-end-of-support.html"
+    },
+    {
+      "id": "google-domains-registrar",
+      "title": "Google Domains registrar",
+      "probeUrl": "https://domains.google/",
+      "obituary": "https://blog.google/products/google-domains/squarespace-to-acquire-google-domains-registrations/"
+    },
+    {
+      "id": "google-fi-project-fi",
+      "title": "Project Fi door",
+      "probeUrl": "https://fi.google.com/",
+      "obituary": "https://blog.google/products/fi/"
+    },
+    {
+      "id": "loom-classic",
+      "title": "Loom",
+      "probeUrl": "https://www.loom.com/",
+      "obituary": "https://www.loom.com/blog"
+    },
+    {
+      "id": "clubhouse-app",
+      "title": "Clubhouse",
+      "probeUrl": "https://www.clubhouse.com/",
+      "obituary": "https://en.wikipedia.org/wiki/Clubhouse_(app)"
+    },
+    {
+      "id": "houseparty",
+      "title": "Houseparty",
+      "probeUrl": "https://houseparty.com/",
+      "obituary": "https://blog.houseparty.com/"
+    },
+    {
+      "id": "peach-app",
+      "title": "Peach",
+      "probeUrl": "https://peach.cool/",
+      "obituary": "https://en.wikipedia.org/wiki/Peach_(app)"
+    },
+    {
+      "id": "path-app",
+      "title": "Path",
+      "probeUrl": "https://path.com/",
+      "obituary": "https://en.wikipedia.org/wiki/Path_(social_network)"
+    },
+    {
+      "id": "ello",
+      "title": "Ello",
+      "probeUrl": "https://ello.co/",
+      "obituary": "https://en.wikipedia.org/wiki/Ello_(social_network)"
+    },
+    {
+      "id": "vine-api",
+      "title": "Vine API",
+      "probeUrl": "https://api.vineapp.com/",
+      "obituary": "https://blog.twitter.com/en_us/topics/company/2016/vine-update"
+    },
+    {
+      "id": "twitter-fabric",
+      "title": "Fabric / Crashlytics door",
+      "probeUrl": "https://fabric.io/",
+      "obituary": "https://get.fabric.io/"
+    },
+    {
+      "id": "parse-server-docs",
+      "title": "Parse docs",
+      "probeUrl": "https://docs.parseplatform.org/",
+      "obituary": "https://blog.parseplatform.org/"
+    },
+    {
+      "id": "heroku-button",
+      "title": "Heroku Button",
+      "probeUrl": "https://heroku.com/deploy",
+      "obituary": "https://devcenter.heroku.com/articles/heroku-button"
+    },
+    {
+      "id": "zeit-now-v1",
+      "title": "ZEIT Now classic",
+      "probeUrl": "https://zeit.co/",
+      "obituary": "https://vercel.com/blog"
+    },
+    {
+      "id": "netlify-drop",
+      "title": "Netlify Drop",
+      "probeUrl": "https://app.netlify.com/drop",
+      "obituary": "https://www.netlify.com/blog/"
+    },
+    {
+      "id": "surge-sh",
+      "title": "Surge.sh",
+      "probeUrl": "https://surge.sh/",
+      "obituary": "https://surge.sh/help/"
+    },
+    {
+      "id": "neocities",
+      "title": "Neocities",
+      "probeUrl": "https://neocities.org/",
+      "obituary": "https://neocities.org/about"
+    },
+    {
+      "id": "tilde-club",
+      "title": "tilde.club",
+      "probeUrl": "https://tilde.club/",
+      "obituary": "https://tilde.club/~sf/"
+    }
+  ]
+}

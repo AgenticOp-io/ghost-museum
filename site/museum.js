@@ -1,8 +1,12 @@
+import { renderDomainDirectory } from "./gm-shared.js";
+import { paintCensus, fetchCensus } from "./gm-census.js";
+
 const WALLS = {
   "still-answering": "Still answering",
   "auth-ghost": "Auth ghost",
   "successor-facade": "Successor facade",
   buried: "Buried",
+  banished: "Banished",
   unprobed: "Unprobed",
 };
 
@@ -68,6 +72,9 @@ function esc(s) {
 function probeChip(ex) {
   if (ex.probeError) {
     return `<span class="gm-chip fail" title="${esc(ex.probeError)}">probe failed</span>`;
+  }
+  if (ex.tlsWarning) {
+    return `<span class="gm-chip redirect" title="TLS ${esc(ex.tlsWarning)} — browsers may still open this host">tls warn · ${esc(ex.httpStatus ?? "-")}</span>`;
   }
   if (ex.wall === "unprobed" || ex.httpStatus == null) {
     return `<span class="gm-chip muted">unprobed</span>`;
@@ -260,8 +267,8 @@ function renderEraRail(list, selectedId) {
   const selected = list.find((ex) => ex.id === selectedId);
   const era = selected ? eraFor(selected) : null;
   const caption = selected
-    ? `<p class="gm-rail-caption"><strong>${esc(selected.title)}</strong> died ${esc(selected.declaredDead)}${era ? ` · ${esc(era.label)}` : ""} · click another ghost to travel</p>`
-    : `<p class="gm-rail-caption">Click a ghost along the history of the public web. Each mark is a declared death.</p>`;
+    ? `<p class="gm-rail-caption"><strong>${esc(selected.title)}</strong> died ${esc(selected.declaredDead)}${era ? ` · ${esc(era.label)}` : ""} · frames for every year below</p>`
+    : `<p class="gm-rail-caption">Click a ghost on the rail, then read every frame grouped by year below.</p>`;
 
   return `<section class="gm-timeline-stage" aria-label="Internet history timeline" style="--lanes:${laneCount}">
     <div class="gm-era-row" aria-hidden="true">${eras}</div>
@@ -274,7 +281,7 @@ function renderEraRail(list, selectedId) {
   </section>`;
 }
 
-function renderCorridor(list, sectionOf) {
+function renderCorridor(list, sectionOf, { selectedId = null } = {}) {
   const parts = [];
   let last = null;
   let i = 0;
@@ -285,7 +292,7 @@ function renderCorridor(list, sectionOf) {
       last = key;
       i += 1;
     }
-    parts.push(frame(ex, i));
+    parts.push(frame(ex, i, { focus: Boolean(selectedId && ex.id === selectedId) }));
     i += 1;
   }
   return parts.join("");
@@ -293,15 +300,29 @@ function renderCorridor(list, sectionOf) {
 
 const data = await fetch("./exhibits.json").then((r) => r.json());
 const hall = document.getElementById("hall");
+const pagerEl = document.getElementById("hall-pager");
 let exhibits = data.exhibits || [];
+/** Paginated By-wall catalog (hung ∪ hunt-contacted watch). */
+let hallPage = null;
 
+const bootParams = new URLSearchParams(location.search);
 let view = "walls";
-let wallFilter = "all";
+let wallFilter = bootParams.get("wall") || "all";
 let selectedId = null;
+let showAllDomains = false;
+let page = Math.max(1, Number(bootParams.get("page")) || 1);
+const PAGE_SIZE = 24;
+
+const bootView = bootParams.get("view");
+if (bootView === "domain" || bootView === "timeline" || bootView === "walls") {
+  view = bootView;
+}
+showAllDomains = view === "domain" && bootParams.get("all") === "1";
 
 function ordered() {
   let list = exhibits.slice();
-  if (wallFilter !== "all") {
+  // Domain directory lists every domain; wall filters apply on the domain page.
+  if (view !== "domain" && wallFilter !== "all") {
     list = list.filter((ex) => ex.wall === wallFilter);
   }
   if (view === "timeline") {
@@ -325,19 +346,71 @@ function ordered() {
   return list;
 }
 
-function updateGhostCount(visible) {
-  const el = document.getElementById("ghost-count");
-  const meta = document.getElementById("ghost-count-meta");
-  if (!el) return;
-  const total = exhibits.length;
-  const shown = visible ?? total;
-  el.textContent = String(total);
-  if (meta) {
-    meta.textContent =
-      wallFilter === "all" || shown === total
-        ? "hung"
-        : `showing ${shown}`;
+let census = {
+  total: exhibits.length,
+  hung: exhibits.filter((e) => e.wall !== "banished").length,
+  banished: exhibits.filter((e) => e.wall === "banished").length,
+  watchlist: 0,
+};
+
+function updateGhostCount() {
+  paintCensus(census, { hungFallback: exhibits.length });
+}
+
+async function refreshCensus() {
+  try {
+    census = await fetchCensus();
+    updateGhostCount();
+    if (view === "domain") render();
+  } catch {
+    /* keep last */
   }
+}
+
+function syncUrl() {
+  const url = new URL(location.href);
+  if (view === "walls") url.searchParams.delete("view");
+  else url.searchParams.set("view", view);
+  if (view === "domain" && showAllDomains) url.searchParams.set("all", "1");
+  else url.searchParams.delete("all");
+  if (view === "walls" && page > 1) url.searchParams.set("page", String(page));
+  else url.searchParams.delete("page");
+  if (view !== "domain" && wallFilter !== "all") url.searchParams.set("wall", wallFilter);
+  else url.searchParams.delete("wall");
+  history.replaceState({}, "", url);
+}
+
+async function fetchHallPage() {
+  const u = new URL("/api/hall", location.origin);
+  u.searchParams.set("page", String(page));
+  u.searchParams.set("pageSize", String(PAGE_SIZE));
+  u.searchParams.set("wall", wallFilter || "all");
+  u.searchParams.set("t", String(Date.now()));
+  const data = await fetch(u, { cache: "no-store" }).then((r) => {
+    if (!r.ok) throw new Error(String(r.status));
+    return r.json();
+  });
+  hallPage = data;
+  if (data.page && data.page !== page) page = data.page;
+  return data;
+}
+
+function renderPager(payload) {
+  if (!pagerEl) return;
+  const usePager = view === "walls" && payload && payload.pages > 1;
+  pagerEl.hidden = !usePager;
+  if (!usePager) {
+    pagerEl.innerHTML = "";
+    return;
+  }
+  const { page: p, pages, total } = payload;
+  const prevDisabled = p <= 1 ? " disabled" : "";
+  const nextDisabled = p >= pages ? " disabled" : "";
+  pagerEl.innerHTML = `
+    <button type="button" class="gm-pager-btn" data-page="${p - 1}"${prevDisabled}>Previous</button>
+    <p class="gm-pager-status">Page ${p} of ${pages} · ${total} ghosts</p>
+    <button type="button" class="gm-pager-btn" data-page="${p + 1}"${nextDisabled}>Next</button>
+  `;
 }
 
 function ensureSelection(list) {
@@ -352,37 +425,55 @@ function ensureSelection(list) {
 
 function render() {
   const list = ordered();
-  updateGhostCount(list.length);
+  updateGhostCount();
   hall.classList.toggle("gm-hall--timeline", view === "timeline");
   hall.classList.toggle("gm-hall--domain", view === "domain");
   hall.classList.toggle("gm-hall--rail", view === "timeline");
   document.body.classList.toggle("gm-view-timeline", view === "timeline");
+  document.body.classList.toggle("gm-view-domain", view === "domain");
+  const wallFilters = document.getElementById("wall-filters");
+  if (wallFilters) wallFilters.hidden = view === "domain";
   hall.classList.remove("is-hung");
 
   if (view === "timeline") {
     ensureSelection(list);
-    const focus = list.find((ex) => ex.id === selectedId) || list[0];
-    const neighbors = list.filter((ex) => {
-      if (!focus) return false;
-      const y = deathYear(ex);
-      return y != null && y === deathYear(focus) && ex.id !== focus.id;
-    });
-    const neighborNote = neighbors.length
-      ? `<p class="gm-same-year">Also declared dead in ${esc(String(deathYear(focus)))}: ${neighbors
-          .map(
-            (ex) =>
-              `<button type="button" class="gm-inline-ghost" data-ghost-id="${esc(ex.id)}">${esc(ex.title)}</button>`,
-          )
-          .join(" · ")}</p>`
-      : "";
+    const corridor = renderCorridor(
+      list,
+      (ex) => {
+        const y = deathYear(ex);
+        return y != null ? String(y) : "Undated";
+      },
+      { selectedId },
+    );
     hall.innerHTML =
       renderEraRail(list, selectedId) +
-      (focus ? frame(focus, 0, { focus: true }) : "") +
-      neighborNote;
+      `<div class="gm-timeline-frames">${corridor}</div>`;
+    renderPager(null);
   } else if (view === "domain") {
-    hall.innerHTML = renderCorridor(list, (ex) => majorDomain(ex));
+    hall.innerHTML = renderDomainDirectory(list, census.byDomain, {
+      limit: 10,
+      showAll: showAllDomains,
+    });
+    renderPager(null);
+  } else if (hallPage?.exhibits) {
+    const frames = hallPage.exhibits;
+    hall.innerHTML = frames.length
+      ? frames.map((ex, i) => frame(ex, i)).join("")
+      : `<p class="gm-lede">No ghosts on this page.</p>`;
+    renderPager(hallPage);
   } else {
     hall.innerHTML = list.map((ex, i) => frame(ex, i)).join("");
+    renderPager(null);
+  }
+
+  const filtersBar = document.getElementById("wall-filters");
+  if (filtersBar) {
+    for (const b of filtersBar.querySelectorAll("[data-filter]")) {
+      b.setAttribute(
+        "aria-pressed",
+        (b.getAttribute("data-filter") || "all") === wallFilter ? "true" : "false",
+      );
+    }
   }
 
   requestAnimationFrame(() => {
@@ -392,6 +483,23 @@ function render() {
       btn?.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
     }
   });
+}
+
+async function showWallsPage() {
+  try {
+    await fetchHallPage();
+  } catch {
+    const filtered =
+      wallFilter === "all" ? exhibits : exhibits.filter((e) => e.wall === wallFilter);
+    hallPage = {
+      page: 1,
+      pages: 1,
+      total: filtered.length,
+      exhibits: filtered,
+    };
+  }
+  syncUrl();
+  render();
 }
 
 hall.addEventListener("click", (e) => {
@@ -404,7 +512,20 @@ hall.addEventListener("click", (e) => {
   card?.scrollIntoView({ behavior: "smooth", block: "nearest" });
 });
 
-render();
+if (pagerEl) {
+  pagerEl.addEventListener("click", (e) => {
+    const btn = e.target.closest("[data-page]");
+    if (!btn || btn.disabled) return;
+    const next = Number(btn.getAttribute("data-page"));
+    if (!Number.isFinite(next) || next < 1) return;
+    page = next;
+    showWallsPage();
+    hall.scrollIntoView({ behavior: "smooth", block: "start" });
+  });
+}
+
+if (view === "walls") showWallsPage();
+else render();
 
 const filters = document.getElementById("wall-filters");
 if (filters) {
@@ -412,40 +533,60 @@ if (filters) {
     const btn = e.target.closest("[data-filter]");
     if (!btn) return;
     wallFilter = btn.getAttribute("data-filter") || "all";
-    for (const b of filters.querySelectorAll("[data-filter]")) {
-      b.setAttribute("aria-pressed", b === btn ? "true" : "false");
+    page = 1;
+    if (view === "walls") showWallsPage();
+    else {
+      syncUrl();
+      render();
     }
-    render();
   });
 }
 
 const views = document.getElementById("view-modes");
 if (views) {
+  for (const b of views.querySelectorAll("[data-view]")) {
+    b.setAttribute("aria-pressed", b.getAttribute("data-view") === view ? "true" : "false");
+  }
   views.addEventListener("click", (e) => {
     const btn = e.target.closest("[data-view]");
     if (!btn) return;
     view = btn.getAttribute("data-view") || "walls";
+    showAllDomains = false;
+    page = 1;
     for (const b of views.querySelectorAll("[data-view]")) {
       b.setAttribute("aria-pressed", b === btn ? "true" : "false");
     }
-    render();
+    if (view === "walls") showWallsPage();
+    else {
+      syncUrl();
+      render();
+    }
   });
 }
 
-/** Keep the left frame honest when the hall grows without a full reload. */
+/** Keep the census box honest when hunt / recheck update the hall. */
 async function refreshExhibits() {
   try {
     const next = await fetch(`./exhibits.json?t=${Date.now()}`, { cache: "no-store" }).then((r) =>
       r.json(),
     );
     const list = next.exhibits || [];
-    if (list.length === exhibits.length && list.every((ex, i) => ex.id === exhibits[i]?.id)) {
+    if (
+      list.length === exhibits.length &&
+      list.every((ex, i) => ex.id === exhibits[i]?.id && ex.wall === exhibits[i]?.wall)
+    ) {
+      await refreshCensus();
+      if (view === "walls") await showWallsPage();
       return;
     }
     exhibits = list;
-    render();
+    if (view === "walls") await showWallsPage();
+    else render();
+    await refreshCensus();
   } catch {
     /* keep last good hang */
   }
 }
+setInterval(refreshCensus, 15_000);
 setInterval(refreshExhibits, 60_000);
+refreshCensus();

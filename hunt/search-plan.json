@@ -1,0 +1,156 @@
+{
+  "builtAt": "2026-08-12T13:05:34.338Z",
+  "algorithm": "funeral-site-search-v1",
+  "note": "site:{learned funeral host} + shutdown language. Official search APIs only. Bing Web Search API retired 2025-08-11.",
+  "providers": {
+    "brave": false,
+    "google": false,
+    "bing": false
+  },
+  "queries": [
+    {
+      "q": "site:blog.google \"shutting down\"",
+      "host": "blog.google",
+      "keyword": "shutting down",
+      "kind": "site-phrase"
+    },
+    {
+      "q": "site:blog.google \"end of support\"",
+      "host": "blog.google",
+      "keyword": "end of support",
+      "kind": "site-phrase"
+    },
+    {
+      "q": "site:blog.google \"discontinued\"",
+      "host": "blog.google",
+      "keyword": "discontinued",
+      "kind": "site-phrase"
+    },
+    {
+      "q": "site:blog.google \"retirement\"",
+      "host": "blog.google",
+      "keyword": "retirement",
+      "kind": "site-phrase"
+    },
+    {
+      "q": "site:blog.google \"sunset\"",
+      "host": "blog.google",
+      "keyword": "sunset",
+      "kind": "site-phrase"
+    },
+    {
+      "q": "site:googleblog.blogspot.com \"shutting down\"",
+      "host": "googleblog.blogspot.com",
+      "keyword": "shutting down",
+      "kind": "site-phrase"
+    },
+    {
+      "q": "site:googleblog.blogspot.com \"end of support\"",
+      "host": "googleblog.blogspot.com",
+      "keyword": "end of support",
+      "kind": "site-phrase"
+    },
+    {
+      "q": "site:googleblog.blogspot.com \"discontinued\"",
+      "host": "googleblog.blogspot.com",
+      "keyword": "discontinued",
+      "kind": "site-phrase"
+    },
+    {
+      "q": "site:googleblog.blogspot.com \"retirement\"",
+      "host": "googleblog.blogspot.com",
+      "keyword": "retirement",
+      "kind": "site-phrase"
+    },
+    {
+      "q": "site:googleblog.blogspot.com \"sunset\"",
+      "host": "googleblog.blogspot.com",
+      "keyword": "sunset",
+      "kind": "site-phrase"
+    },
+    {
+      "q": "site:github.blog \"shutting down\"",
+      "host": "github.blog",
+      "keyword": "shutting down",
+      "kind": "site-phrase"
+    },
+    {
+      "q": "site:github.blog \"end of support\"",
+      "host": "github.blog",
+      "keyword": "end of support",
+      "kind": "site-phrase"
+    },
+    {
+      "q": "site:github.blog \"discontinued\"",
+      "host": "github.blog",
+      "keyword": "discontinued",
+      "kind": "site-phrase"
+    },
+    {
+      "q": "site:github.blog \"retirement\"",
+      "host": "github.blog",
+      "keyword": "retirement",
+      "kind": "site-phrase"
+    },
+    {
+      "q": "site:github.blog \"sunset\"",
+      "host": "github.blog",
+      "keyword": "sunset",
+      "kind": "site-phrase"
+    },
+    {
+      "q": "site:adobe.com \"shutting down\"",
+      "host": "adobe.com",
+      "keyword": "shutting down",
+      "kind": "site-phrase"
+    },
+    {
+      "q": "site:adobe.com \"end of support\"",
+      "host": "adobe.com",
+      "keyword": "end of support",
+      "kind": "site-phrase"
+    },
+    {
+      "q": "site:adobe.com \"discontinued\"",
+      "host": "adobe.com",
+      "keyword": "discontinued",
+      "kind": "site-phrase"
+    },
+    {
+      "q": "site:adobe.com \"retirement\"",
+      "host": "adobe.com",
+      "keyword": "retirement",
+      "kind": "site-phrase"
+    },
+    {
+      "q": "site:adobe.com \"sunset\"",
+      "host": "adobe.com",
+      "keyword": "sunset",
+      "kind": "site-phrase"
+    },
+    {
+      "q": "site:learn.microsoft.com \"shutting down\"",
+      "host": "learn.microsoft.com",
+      "keyword": "shutting down",
+      "kind": "site-phrase"
+    },
+    {
+      "q": "site:learn.microsoft.com \"end of support\"",
+      "host": "learn.microsoft.com",
+      "keyword": "end of support",
+      "kind": "site-phrase"
+    },
+    {
+      "q": "site:learn.microsoft.com \"discontinued\"",
+      "host": "learn.microsoft.com",
+      "keyword": "discontinued",
+      "kind": "site-phrase"
+    },
+    {
+      "q": "site:learn.microsoft.com \"retirement\"",
+      "host": "learn.microsoft.com",
+      "keyword": "retirement",
+      "kind": "site-phrase"
+    }
+  ]
+}

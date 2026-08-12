@@ -15,6 +15,7 @@ const WALLS = new Set([
   "auth-ghost",
   "successor-facade",
   "buried",
+  "banished",
   "unprobed",
 ]);
 

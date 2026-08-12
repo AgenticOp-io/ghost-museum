@@ -3,6 +3,7 @@ const WALLS = {
   "auth-ghost": "Auth ghost",
   "successor-facade": "Successor facade",
   buried: "Buried",
+  banished: "Banished",
   unprobed: "Unprobed",
 };
 
@@ -43,18 +44,14 @@ function row(f) {
   </article>`;
 }
 
-const meta = document.getElementById("hunt-meta");
 const list = document.getElementById("hunt-list");
 
 try {
   const data = await fetch("/api/hunt/findings").then((r) => r.json());
   const findings = data.findings || [];
-  meta.textContent = findings.length
-    ? `${findings.length} latest findings · watchlist ${data.watchlistSize ?? "-"} · last pass ${data.lastPass?.finishedAt || "-"}`
-    : "No findings yet - hunt may still be on its first slow pass.";
   list.innerHTML = findings.length
     ? findings.map(row).join("")
     : `<p class="gm-lede">Empty queue. The bot only writes after each GET.</p>`;
 } catch {
-  meta.textContent = "Could not load hunt findings (is the museum server running?).";
+  list.innerHTML = `<p class="gm-lede">Could not load hunt findings.</p>`;
 }

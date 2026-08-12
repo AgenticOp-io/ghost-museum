@@ -1,0 +1,884 @@
+{
+  "learnedAt": "2026-08-12T12:47:51.876Z",
+  "algorithm": "ghost-report-model-v2",
+  "note": "Learned from hung exhibits + ghost-class hunt findings. Bounds autoseed to funeral hosts and probe shapes that historically produce ghosts. Probe URLs must be extracted or short product-token templates — never title-invented hosts.",
+  "funeralHosts": [
+    {
+      "host": "blog.google",
+      "weight": 23
+    },
+    {
+      "host": "googleblog.blogspot.com",
+      "weight": 13
+    },
+    {
+      "host": "github.blog",
+      "weight": 9
+    },
+    {
+      "host": "adobe.com",
+      "weight": 8
+    },
+    {
+      "host": "learn.microsoft.com",
+      "weight": 5
+    },
+    {
+      "host": "news.xbox.com",
+      "weight": 5
+    },
+    {
+      "host": "blog.youtube",
+      "weight": 5
+    },
+    {
+      "host": "blog.angular.io",
+      "weight": 5
+    },
+    {
+      "host": "maps.googleblog.com",
+      "weight": 5
+    },
+    {
+      "host": "polymer-project.org",
+      "weight": 5
+    },
+    {
+      "host": "developers.googleblog.com",
+      "weight": 5
+    },
+    {
+      "host": "en.wikipedia.org",
+      "weight": 4
+    },
+    {
+      "host": "workspaceupdates.googleblog.com",
+      "weight": 4
+    },
+    {
+      "host": "blogs.windows.com",
+      "weight": 4
+    },
+    {
+      "host": "support.microsoft.com",
+      "weight": 4
+    },
+    {
+      "host": "store.google.com",
+      "weight": 4
+    },
+    {
+      "host": "stadia.google.com",
+      "weight": 3
+    },
+    {
+      "host": "blog.x.com",
+      "weight": 3
+    },
+    {
+      "host": "india.googleblog.com",
+      "weight": 3
+    },
+    {
+      "host": "opensource.googleblog.com",
+      "weight": 3
+    },
+    {
+      "host": "parseplatform.github.io",
+      "weight": 3
+    },
+    {
+      "host": "blog.delicious.com",
+      "weight": 2
+    },
+    {
+      "host": "support.google.com",
+      "weight": 2
+    },
+    {
+      "host": "firebase.google.com",
+      "weight": 2
+    },
+    {
+      "host": "devcenter.heroku.com",
+      "weight": 2
+    },
+    {
+      "host": "blog.parseplatform.org",
+      "weight": 2
+    },
+    {
+      "host": "blog.getpebble.com",
+      "weight": 2
+    },
+    {
+      "host": "developers.yubico.com",
+      "weight": 2
+    },
+    {
+      "host": "yahoo.tumblr.com",
+      "weight": 2
+    },
+    {
+      "host": "techcommunity.microsoft.com",
+      "weight": 1
+    },
+    {
+      "host": "devblogs.microsoft.com",
+      "weight": 1
+    },
+    {
+      "host": "about.fb.com",
+      "weight": 1
+    },
+    {
+      "host": "engineering.fb.com",
+      "weight": 1
+    },
+    {
+      "host": "blog.twitter.com",
+      "weight": 1
+    },
+    {
+      "host": "www.aboutamazon.com",
+      "weight": 1
+    },
+    {
+      "host": "aws.amazon.com",
+      "weight": 1
+    },
+    {
+      "host": "blog.adobe.com",
+      "weight": 1
+    },
+    {
+      "host": "blog.heroku.com",
+      "weight": 1
+    }
+  ],
+  "funeralBases": [
+    {
+      "base": "blog.google",
+      "weight": 25
+    },
+    {
+      "base": "googleblog.com",
+      "weight": 23
+    },
+    {
+      "base": "blogspot.com",
+      "weight": 14
+    },
+    {
+      "base": "microsoft.com",
+      "weight": 12
+    },
+    {
+      "base": "google.com",
+      "weight": 11
+    },
+    {
+      "base": "github.blog",
+      "weight": 10
+    },
+    {
+      "base": "adobe.com",
+      "weight": 9
+    },
+    {
+      "base": "xbox.com",
+      "weight": 6
+    },
+    {
+      "base": "blog.youtube",
+      "weight": 6
+    },
+    {
+      "base": "angular.io",
+      "weight": 6
+    },
+    {
+      "base": "polymer-project.org",
+      "weight": 5
+    },
+    {
+      "base": "windows.com",
+      "weight": 5
+    },
+    {
+      "base": "x.com",
+      "weight": 4
+    },
+    {
+      "base": "wikipedia.org",
+      "weight": 4
+    },
+    {
+      "base": "github.io",
+      "weight": 3
+    },
+    {
+      "base": "heroku.com",
+      "weight": 3
+    },
+    {
+      "base": "delicious.com",
+      "weight": 2
+    },
+    {
+      "base": "parseplatform.org",
+      "weight": 2
+    },
+    {
+      "base": "getpebble.com",
+      "weight": 2
+    },
+    {
+      "base": "yubico.com",
+      "weight": 2
+    },
+    {
+      "base": "tumblr.com",
+      "weight": 2
+    },
+    {
+      "base": "fb.com",
+      "weight": 2
+    },
+    {
+      "base": "twitter.com",
+      "weight": 1
+    },
+    {
+      "base": "aboutamazon.com",
+      "weight": 1
+    },
+    {
+      "base": "amazon.com",
+      "weight": 1
+    }
+  ],
+  "preferredShapes": [
+    {
+      "kind": "subdomain",
+      "wins": 42,
+      "tries": 50,
+      "rate": 0.84
+    },
+    {
+      "kind": "apex",
+      "wins": 30,
+      "tries": 38,
+      "rate": 0.7894736842105263
+    },
+    {
+      "kind": "path",
+      "wins": 7,
+      "tries": 11,
+      "rate": 0.6363636363636364
+    },
+    {
+      "kind": "other",
+      "wins": 0,
+      "tries": 0,
+      "rate": 0
+    }
+  ],
+  "preferredBases": [
+    {
+      "base": "windows.net",
+      "ghost": 3,
+      "fail": 0,
+      "score": 1
+    },
+    {
+      "base": "atom.io",
+      "ghost": 3,
+      "fail": 0,
+      "score": 1
+    },
+    {
+      "base": "adobe.com",
+      "ghost": 3,
+      "fail": 0,
+      "score": 1
+    },
+    {
+      "base": "angularjs.org",
+      "ghost": 3,
+      "fail": 0,
+      "score": 1
+    },
+    {
+      "base": "panoramio.com",
+      "ghost": 3,
+      "fail": 0,
+      "score": 1
+    },
+    {
+      "base": "polymer-project.org",
+      "ghost": 3,
+      "fail": 0,
+      "score": 1
+    },
+    {
+      "base": "domains.google",
+      "ghost": 2,
+      "fail": 0,
+      "score": 1
+    },
+    {
+      "base": "vine.co",
+      "ghost": 2,
+      "fail": 0,
+      "score": 1
+    },
+    {
+      "base": "googleapis.com",
+      "ghost": 2,
+      "fail": 0,
+      "score": 1
+    },
+    {
+      "base": "mixer.com",
+      "ghost": 2,
+      "fail": 0,
+      "score": 1
+    },
+    {
+      "base": "orkut.com",
+      "ghost": 2,
+      "fail": 0,
+      "score": 1
+    },
+    {
+      "base": "goo.gl",
+      "ghost": 2,
+      "fail": 0,
+      "score": 1
+    },
+    {
+      "base": "parse.com",
+      "ghost": 2,
+      "fail": 0,
+      "score": 1
+    },
+    {
+      "base": "microsoft.com",
+      "ghost": 2,
+      "fail": 0,
+      "score": 1
+    },
+    {
+      "base": "clubhouse.com",
+      "ghost": 1,
+      "fail": 0,
+      "score": 1
+    },
+    {
+      "base": "delicious.com",
+      "ghost": 1,
+      "fail": 0,
+      "score": 1
+    },
+    {
+      "base": "dependabot.com",
+      "ghost": 1,
+      "fail": 0,
+      "score": 1
+    },
+    {
+      "base": "g.co",
+      "ghost": 1,
+      "fail": 0,
+      "score": 1
+    },
+    {
+      "base": "heroku.com",
+      "ghost": 1,
+      "fail": 0,
+      "score": 1
+    },
+    {
+      "base": "nest.com",
+      "ghost": 1,
+      "fail": 0,
+      "score": 1
+    },
+    {
+      "base": "parseplatform.org",
+      "ghost": 1,
+      "fail": 0,
+      "score": 1
+    },
+    {
+      "base": "pebble.com",
+      "ghost": 1,
+      "fail": 0,
+      "score": 1
+    },
+    {
+      "base": "skype.com",
+      "ghost": 1,
+      "fail": 0,
+      "score": 1
+    },
+    {
+      "base": "spectrum.chat",
+      "ghost": 1,
+      "fail": 0,
+      "score": 1
+    },
+    {
+      "base": "stumbleupon.com",
+      "ghost": 1,
+      "fail": 0,
+      "score": 1
+    },
+    {
+      "base": "xbox.com",
+      "ghost": 1,
+      "fail": 0,
+      "score": 1
+    },
+    {
+      "base": "google.com",
+      "ghost": 31,
+      "fail": 1,
+      "score": 0.96875
+    },
+    {
+      "base": "live.com",
+      "ghost": 1,
+      "fail": 1,
+      "score": 0.5
+    },
+    {
+      "base": "yahoo.com",
+      "ghost": 1,
+      "fail": 2,
+      "score": 0.3333333333333333
+    }
+  ],
+  "ownerWins": [
+    {
+      "owner": "Curated",
+      "weight": 33
+    },
+    {
+      "owner": "Google",
+      "weight": 22
+    },
+    {
+      "owner": "Web",
+      "weight": 6
+    },
+    {
+      "owner": "Microsoft",
+      "weight": 4
+    },
+    {
+      "owner": "Google → Squarespace",
+      "weight": 2
+    },
+    {
+      "owner": "Twitter / X",
+      "weight": 2
+    },
+    {
+      "owner": "Google CDN / Adobe Flash era",
+      "weight": 2
+    },
+    {
+      "owner": "GitHub",
+      "weight": 2
+    },
+    {
+      "owner": "Adobe",
+      "weight": 2
+    },
+    {
+      "owner": "Facebook / Parse",
+      "weight": 2
+    },
+    {
+      "owner": "Misc",
+      "weight": 1
+    },
+    {
+      "owner": "Yahoo",
+      "weight": 1
+    }
+  ],
+  "sourceWins": {
+    "authority": 41
+  },
+  "keywords": [
+    "shutting down",
+    "shut down",
+    "shutdown",
+    "discontinued",
+    "discontinuing",
+    "end of support",
+    "end-of-support",
+    "end of life",
+    "end-of-life",
+    "retirement",
+    "retiring",
+    "sunset",
+    "sunsetting",
+    "goodbye",
+    "farewell",
+    "deprecated",
+    "deprecating",
+    "no longer available",
+    "will be turned off",
+    "turning off",
+    "killed",
+    "winding down"
+  ],
+  "exampleCount": 60,
+  "examples": [
+    {
+      "id": "stadia",
+      "kind": "hung",
+      "wall": "still-answering",
+      "probeUrl": "https://stadia.google.com/gg/",
+      "obituary": "https://stadia.google.com/gg/",
+      "owner": "Google"
+    },
+    {
+      "id": "google-domains",
+      "kind": "hung",
+      "wall": "still-answering",
+      "probeUrl": "https://domains.google/",
+      "obituary": "https://blog.google/products/google-domains/squarespace-to-acquire-google-domains-registrations/",
+      "owner": "Google → Squarespace"
+    },
+    {
+      "id": "vine",
+      "kind": "hung",
+      "wall": "still-answering",
+      "probeUrl": "https://vine.co/",
+      "obituary": "https://blog.x.com/en_us/a/2016/important-news-about-vine",
+      "owner": "Twitter / X"
+    },
+    {
+      "id": "swfobject",
+      "kind": "hung",
+      "wall": "still-answering",
+      "probeUrl": "https://ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js",
+      "obituary": "https://www.adobe.com/products/flashplayer/end-of-life.html",
+      "owner": "Google CDN / Adobe Flash era"
+    },
+    {
+      "id": "azure-ad-graph",
+      "kind": "hung",
+      "wall": "auth-ghost",
+      "probeUrl": "https://graph.windows.net/myorganization/users?api-version=1.6",
+      "obituary": "https://learn.microsoft.com/en-us/graph/migrate-azure-ad-graph-overview",
+      "owner": "Microsoft"
+    },
+    {
+      "id": "mixer",
+      "kind": "hung",
+      "wall": "successor-facade",
+      "probeUrl": "https://mixer.com/",
+      "obituary": "https://news.xbox.com/en-us/2020/06/22/an-update-on-mixer/",
+      "owner": "Microsoft"
+    },
+    {
+      "id": "atom",
+      "kind": "hung",
+      "wall": "successor-facade",
+      "probeUrl": "https://atom.io/",
+      "obituary": "https://github.blog/news-insights/product-news/sunsetting-atom/",
+      "owner": "GitHub"
+    },
+    {
+      "id": "orkut",
+      "kind": "hung",
+      "wall": "still-answering",
+      "probeUrl": "https://www.orkut.com/",
+      "obituary": "https://india.googleblog.com/2014/06/farewell-orkut.html",
+      "owner": "Google"
+    },
+    {
+      "id": "google-code",
+      "kind": "hung",
+      "wall": "still-answering",
+      "probeUrl": "https://code.google.com/",
+      "obituary": "https://opensource.googleblog.com/2015/03/farewell-to-google-code.html",
+      "owner": "Google"
+    },
+    {
+      "id": "google-wave",
+      "kind": "hung",
+      "wall": "successor-facade",
+      "probeUrl": "https://wave.google.com/",
+      "obituary": "https://googleblog.blogspot.com/2010/08/update-on-google-wave.html",
+      "owner": "Google"
+    },
+    {
+      "id": "google-plus",
+      "kind": "hung",
+      "wall": "successor-facade",
+      "probeUrl": "https://plus.google.com/",
+      "obituary": "https://blog.google/technology/safety-security/shutting-down-google-plus-for-consumer/",
+      "owner": "Google"
+    },
+    {
+      "id": "flash-get-adobe",
+      "kind": "hung",
+      "wall": "successor-facade",
+      "probeUrl": "https://get.adobe.com/flashplayer/",
+      "obituary": "https://www.adobe.com/products/flashplayer/end-of-life.html",
+      "owner": "Adobe"
+    },
+    {
+      "id": "google-play-music",
+      "kind": "hung",
+      "wall": "successor-facade",
+      "probeUrl": "https://play.google.com/music/",
+      "obituary": "https://blog.youtube/news-and-events/youtube-music-will-soon-be-new-home/",
+      "owner": "Google"
+    },
+    {
+      "id": "allo-google",
+      "kind": "hung",
+      "wall": "successor-facade",
+      "probeUrl": "https://allo.google.com/",
+      "obituary": "https://blog.google/products/allo/allo-will-no-longer-be-available/",
+      "owner": "Google"
+    },
+    {
+      "id": "angularjs-org",
+      "kind": "hung",
+      "wall": "still-answering",
+      "probeUrl": "https://angularjs.org/",
+      "obituary": "https://blog.angular.io/discontinued-long-term-support-for-angularjs-cc066b82e65a",
+      "owner": "Google"
+    },
+    {
+      "id": "panoramio",
+      "kind": "hung",
+      "wall": "still-answering",
+      "probeUrl": "https://www.panoramio.com/",
+      "obituary": "https://maps.googleblog.com/2016/09/saying-goodbye-to-panoramio.html",
+      "owner": "Google"
+    },
+    {
+      "id": "polymer-project",
+      "kind": "hung",
+      "wall": "successor-facade",
+      "probeUrl": "https://www.polymer-project.org/",
+      "obituary": "https://www.polymer-project.org/blog/2020-02-05-polymer-project.html",
+      "owner": "Google"
+    },
+    {
+      "id": "goo-gl",
+      "kind": "hung",
+      "wall": "still-answering",
+      "probeUrl": "https://goo.gl/",
+      "obituary": "https://developers.googleblog.com/en/google-url-shortener-links-will-no-longer-be-available/",
+      "owner": "Google"
+    },
+    {
+      "id": "parse",
+      "kind": "hung",
+      "wall": "buried",
+      "probeUrl": "https://api.parse.com/1/health",
+      "obituary": "https://parseplatform.github.io/",
+      "owner": "Facebook / Parse"
+    },
+    {
+      "id": "allo-google",
+      "kind": "verified",
+      "wall": "successor-facade",
+      "probeUrl": "https://allo.google.com/",
+      "obituary": "https://blog.google/products/allo/allo-will-no-longer-be-available/",
+      "owner": "Curated",
+      "source": "probe-hints"
+    },
+    {
+      "id": "angularjs-org",
+      "kind": "verified",
+      "wall": "still-answering",
+      "probeUrl": "https://angularjs.org/",
+      "obituary": "https://blog.angular.io/discontinued-long-term-support-for-angularjs-cc066b82e65a",
+      "owner": "Curated",
+      "source": "probe-hints"
+    },
+    {
+      "id": "atom-io",
+      "kind": "verified",
+      "wall": "successor-facade",
+      "probeUrl": "https://atom.io/",
+      "obituary": "https://github.blog/news-insights/product-news/sunsetting-atom/",
+      "owner": "Curated",
+      "source": "probe-hints"
+    },
+    {
+      "id": "azure-ad-graph",
+      "kind": "verified",
+      "wall": "auth-ghost",
+      "probeUrl": "https://graph.windows.net/",
+      "obituary": "https://learn.microsoft.com/en-us/graph/migrate-azure-ad-graph-overview",
+      "owner": "Curated",
+      "source": "probe-hints"
+    },
+    {
+      "id": "clubhouse-app",
+      "kind": "verified",
+      "wall": "still-answering",
+      "probeUrl": "https://www.clubhouse.com/",
+      "obituary": "https://en.wikipedia.org/wiki/Clubhouse_(app)",
+      "owner": "Web",
+      "source": "seeds/web.json"
+    },
+    {
+      "id": "delicious",
+      "kind": "verified",
+      "wall": "auth-ghost",
+      "probeUrl": "https://delicious.com/",
+      "obituary": "https://blog.delicious.com/",
+      "owner": "Curated",
+      "source": "probe-hints"
+    },
+    {
+      "id": "dependabot-preview",
+      "kind": "verified",
+      "wall": "successor-facade",
+      "probeUrl": "https://dependabot.com/",
+      "obituary": "https://github.blog/2021-04-29-goodbye-dependabot-preview-hello-dependabot/",
+      "owner": "Curated",
+      "source": "probe-hints"
+    },
+    {
+      "id": "duo-google",
+      "kind": "verified",
+      "wall": "successor-facade",
+      "probeUrl": "https://duo.google.com/",
+      "obituary": "https://blog.google/products/duo/meet-the-new-google-meet/",
+      "owner": "Curated",
+      "source": "probe-hints"
+    },
+    {
+      "id": "feedburner",
+      "kind": "verified",
+      "wall": "still-answering",
+      "probeUrl": "https://feedburner.google.com/",
+      "obituary": "https://support.google.com/feedburner/answer/1220285",
+      "owner": "Curated",
+      "source": "probe-hints"
+    },
+    {
+      "id": "firebase-dynamic-links",
+      "kind": "verified",
+      "wall": "successor-facade",
+      "probeUrl": "https://console.firebase.google.com/",
+      "obituary": "https://firebase.google.com/support/dynamic-links-faq",
+      "owner": "Curated",
+      "source": "probe-hints"
+    },
+    {
+      "id": "flash-get-adobe",
+      "kind": "verified",
+      "wall": "successor-facade",
+      "probeUrl": "https://get.adobe.com/flashplayer/",
+      "obituary": "https://www.adobe.com/products/flashplayer/end-of-life.html",
+      "owner": "Curated",
+      "source": "probe-hints"
+    },
+    {
+      "id": "google-answers",
+      "kind": "verified",
+      "wall": "successor-facade",
+      "probeUrl": "https://answers.google.com/",
+      "obituary": "https://googleblog.blogspot.com/2006/11/adieu-to-google-answers.html",
+      "owner": "Curated",
+      "source": "probe-hints"
+    },
+    {
+      "id": "google-currents",
+      "kind": "verified",
+      "wall": "successor-facade",
+      "probeUrl": "https://currents.google.com/",
+      "obituary": "https://workspaceupdates.googleblog.com/2022/02/transition-from-currents-to-spaces.html",
+      "owner": "Curated",
+      "source": "probe-hints"
+    },
+    {
+      "id": "google-glass-explorer",
+      "kind": "verified",
+      "wall": "successor-facade",
+      "probeUrl": "https://www.google.com/glass/",
+      "obituary": "https://blog.google/products/google-ar-vr/a-new-chapter-for-glass/",
+      "owner": "Curated",
+      "source": "probe-hints"
+    },
+    {
+      "id": "google-notebook",
+      "kind": "verified",
+      "wall": "successor-facade",
+      "probeUrl": "https://www.google.com/notebook/",
+      "obituary": "https://googleblog.blogspot.com/2011/11/spring-cleaning-in-fall.html",
+      "owner": "Web",
+      "source": "seeds/web.json"
+    },
+    {
+      "id": "google-play-music",
+      "kind": "verified",
+      "wall": "successor-facade",
+      "probeUrl": "https://play.google.com/music/",
+      "obituary": "https://blog.youtube/news-and-events/youtube-music-will-soon-become-only/",
+      "owner": "Web",
+      "source": "seeds/web.json"
+    },
+    {
+      "id": "google-plus",
+      "kind": "verified",
+      "wall": "successor-facade",
+      "probeUrl": "https://plus.google.com/",
+      "obituary": "https://blog.google/technology/safety-security/expediting-changes-google/",
+      "owner": "Web",
+      "source": "seeds/web.json"
+    },
+    {
+      "id": "google-reader",
+      "kind": "verified",
+      "wall": "successor-facade",
+      "probeUrl": "https://www.google.com/reader/",
+      "obituary": "https://googleblog.blogspot.com/2013/03/a-second-spring-of-cleaning.html",
+      "owner": "Web",
+      "source": "seeds/web.json"
+    },
+    {
+      "id": "google-url-shortener-goo",
+      "kind": "verified",
+      "wall": "still-answering",
+      "probeUrl": "https://g.co/",
+      "obituary": "https://developers.googleblog.com/en/google-url-shortener-links-will-no-longer-be-available/",
+      "owner": "Curated",
+      "source": "probe-hints"
+    },
+    {
+      "id": "google-video",
+      "kind": "verified",
+      "wall": "successor-facade",
+      "probeUrl": "https://video.google.com/",
+      "obituary": "https://googleblog.blogspot.com/2012/07/spring-cleaning-in-summer.html",
+      "owner": "Curated",
+      "source": "probe-hints"
+    },
+    {
+      "id": "hangouts-classic",
+      "kind": "verified",
+      "wall": "successor-facade",
+      "probeUrl": "https://hangouts.google.com/",
+      "obituary": "https://workspaceupdates.googleblog.com/2021/08/hangouts-will-be-turned-off.html",
+      "owner": "Curated",
+      "source": "probe-hints"
+    }
+  ]
+}

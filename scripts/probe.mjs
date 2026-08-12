@@ -1,93 +1,90 @@
 #!/usr/bin/env node
 /**
- * Refresh last-probe fields. GET only. Public URLs. No auth bypass.
- * Follows redirects manually so each hop is recorded honestly.
+ * Refresh last-probe fields and reclassify walls (including banished).
+ * GET only. Public URLs. No auth bypass.
  */
-import { readFileSync, writeFileSync } from "node:fs";
+import { readFileSync, writeFileSync, existsSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
+import { probeUrl, classifyWall, summarizeChain, formatProbeError } from "./lib/probe.mjs";
+import { buildCensusPayload } from "./lib/census.mjs";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const path = join(root, "exhibits", "exhibits.json");
 const sitePath = join(root, "site", "exhibits.json");
+const censusPath = join(root, "site", "census.json");
+const watchPath = join(root, "hunt", "watchlist.json");
 const data = JSON.parse(readFileSync(path, "utf8"));
-const ua = data.userAgent || "GhostMuseum/0.1 (exhibit probe)";
-const MAX_HOPS = 8;
+const ua = data.userAgent || "StillAnswering/0.1 (exhibit probe; +https://ghosts.agenticop.io/)";
 
 function sleep(ms) {
   return new Promise((r) => setTimeout(r, ms));
 }
 
-async function probe(url) {
-  const chain = [];
-  let current = url;
-  let titleTag = null;
-  let bodyStatus = null;
-
-  for (let hop = 0; hop < MAX_HOPS; hop++) {
-    const res = await fetch(current, {
-      method: "GET",
-      redirect: "manual",
-      headers: { "user-agent": ua, accept: "*/*" },
-      signal: AbortSignal.timeout(15000),
-    });
-
-    const loc = res.headers.get("location");
-    const isRedirect = res.status >= 300 && res.status < 400 && loc;
-    chain.push({
-      url: current,
-      status: res.status,
-      ...(isRedirect ? { location: new URL(loc, current).href } : {}),
-    });
-
-    if (isRedirect) {
-      current = new URL(loc, current).href;
-      continue;
+function writeCensus(data) {
+  const watch = existsSync(watchPath)
+    ? JSON.parse(readFileSync(watchPath, "utf8")).watchlist || []
+    : [];
+  const findingsPath = join(root, "hunt", "findings.jsonl");
+  const findings = [];
+  if (existsSync(findingsPath)) {
+    for (const line of readFileSync(findingsPath, "utf8").split(/\r?\n/)) {
+      if (!line) continue;
+      try {
+        findings.push(JSON.parse(line));
+      } catch {
+        /* skip */
+      }
     }
-
-    bodyStatus = res.status;
-    const ct = (res.headers.get("content-type") || "").toLowerCase();
-    if (ct.includes("text/html") || ct.includes("application/xhtml")) {
-      const text = await res.text();
-      const m = text.match(/<title[^>]*>([^<]+)<\/title>/i);
-      titleTag = m ? m[1].trim().replace(/\s+/g, " ") : null;
-    } else {
-      // Drain body so the socket can close cleanly; do not parse binaries.
-      await res.arrayBuffer();
-    }
-    break;
   }
-
-  if (bodyStatus == null && chain.length) {
-    bodyStatus = chain[chain.length - 1].status;
+  let lastPass = null;
+  try {
+    const lp = join(root, "hunt", "last-pass.json");
+    if (existsSync(lp)) lastPass = JSON.parse(readFileSync(lp, "utf8"));
+  } catch {
+    /* ignore */
   }
-
-  return {
-    httpStatus: bodyStatus,
-    finalUrl: chain.length ? chain[chain.length - 1].url : url,
-    redirectChain: chain,
-    titleTag,
-  };
-}
-
-function summarize(chain) {
-  if (!chain?.length) return "";
-  return chain.map((h) => h.status).join(" → ");
+  const census = buildCensusPayload({
+    museum: data.museum || "Still Answering",
+    exhibits: data.exhibits || [],
+    watch,
+    findings,
+    lastPass,
+  });
+  writeFileSync(censusPath, JSON.stringify(census, null, 2) + "\n");
+  return census;
 }
 
 const probedAt = new Date().toISOString();
 for (const ex of data.exhibits) {
+  const prev = ex.wall;
   try {
-    const r = await probe(ex.probeUrl);
+    const r = await probeUrl(ex.probeUrl, ua);
     ex.httpStatus = r.httpStatus;
     ex.finalUrl = r.finalUrl;
     ex.redirectChain = r.redirectChain;
     if (r.titleTag) ex.titleTag = r.titleTag;
+    if (r.tlsWarning) ex.tlsWarning = r.tlsWarning;
+    else delete ex.tlsWarning;
     delete ex.probeError;
-    console.log(`${ex.id}\t${summarize(r.redirectChain)}\t${r.finalUrl}`);
+    const next = classifyWall(ex, r, null);
+    ex.wall = next;
+    ex.lastRecheckAt = probedAt;
+    if (next === "banished" && prev !== "banished") {
+      ex.banishedAt = probedAt;
+      ex.previousWall = prev;
+    }
+    console.log(`${ex.id}\t${prev}→${next}\t${summarizeChain(r.redirectChain)}\t${r.finalUrl}${r.tlsWarning ? "\ttls:"+r.tlsWarning : ""}`);
   } catch (err) {
-    ex.probeError = String(err.message || err);
-    console.error(`${ex.id}\tFAIL\t${ex.probeError}`);
+    ex.probeError = formatProbeError(err);
+    ex.lastRecheckAt = probedAt;
+    const next = classifyWall(ex, null, ex.probeError);
+    ex.wall = next;
+    if (next === "banished" && prev !== "banished") {
+      ex.banishedAt = probedAt;
+      ex.previousWall = prev;
+    }
+    console.error(`${ex.id}\t${prev}→${next}\tFAIL\t${ex.probeError}`);
   }
   await sleep(400);
 }
@@ -95,4 +92,5 @@ data.probedAt = probedAt;
 const json = JSON.stringify(data, null, 2) + "\n";
 writeFileSync(path, json);
 writeFileSync(sitePath, json);
-console.log(`wrote ${path} @ ${probedAt}`);
+const census = writeCensus(data);
+console.log(`wrote ${path} @ ${probedAt} · census total=${census.total}`);

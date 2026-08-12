@@ -13,17 +13,32 @@
   <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
 <body class="gm-nominate-page">
-  <div class="gm-shell">
-    <header class="gm-top">
-      <a class="gm-mark" href="./index.html">Still Answering</a>
-      <nav class="gm-nav" aria-label="Museum">
+  <header class="gm-masthead gm-masthead--wide">
+    <a class="gm-side-frame gm-nominate-frame" href="./nominate.html">
+      <span class="gm-nominate-label">Nominate<br />a ghost</span>
+    </a>
+    <div class="gm-mast-main">
+      <p class="gm-brand-title"><a href="./index.html">Still Answering</a></p>
+      <p class="gm-hero-tag">
+        <span class="gm-hero-line">Sunset is a press release.</span>
+        <span class="gm-hero-line">Ghosts are a runtime.</span>
+      </p>
+      <nav class="gm-nav" aria-label="Hall">
         <a href="./index.html">Hall</a>
         <a href="./about.html">Plaque</a>
         <a href="./nominate.html" aria-current="page">Nominate</a>
         <a href="./hunt.html">Hunt</a>
+        <a href="./curate.html">Curate</a>
       </nav>
-    </header>
+    </div>
+    <aside class="gm-side-frame gm-count-frame" aria-live="polite" aria-atomic="true" aria-label="Ghost census">
+      <p class="gm-side-kicker gm-count-wall">Ghosts</p>
+      <p class="gm-count-num" id="ghost-count">…</p>
+      <p class="gm-count-meta" id="ghost-count-meta">all</p>
+    </aside>
+  </header>
 
+  <div class="gm-shell">
     <main class="gm-nominate-main">
       <section class="gm-nominate-hero">
         <p class="gm-kicker">Offer a frame</p>
@@ -85,5 +100,6 @@
     </footer>
   </div>
   <script src="./nominate.js" type="module"></script>
+  <script src="./gm-census-boot.js" type="module"></script>
 </body>
 </html>

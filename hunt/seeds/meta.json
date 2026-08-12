@@ -1,0 +1,66 @@
+{
+  "owner": "Meta",
+  "purpose": "Meta / Facebook / Instagram sunsets.",
+  "seeds": [
+    {
+      "id": "facebook-paper",
+      "title": "Facebook Paper",
+      "probeUrl": "https://www.facebook.com/paper/",
+      "obituary": "https://about.fb.com/news/2014/01/introducing-paper-stories-from-facebook/"
+    },
+    {
+      "id": "facebook-rooms",
+      "title": "Facebook Rooms",
+      "probeUrl": "https://www.facebook.com/rooms/",
+      "obituary": "https://about.fb.com/news/2016/11/news-feed-fyi-rooms-is-shutting-down/"
+    },
+    {
+      "id": "facebook-camera",
+      "title": "Facebook Camera",
+      "probeUrl": "https://www.facebook.com/camera",
+      "obituary": "https://about.fb.com/news/2014/05/introducing-the-facebook-camera-app/"
+    },
+    {
+      "id": "facebook-poke",
+      "title": "Facebook Poke",
+      "probeUrl": "https://www.facebook.com/poke",
+      "obituary": "https://en.wikipedia.org/wiki/Facebook_Poke"
+    },
+    {
+      "id": "instagram-direct-standalone",
+      "title": "Instagram Direct standalone era door",
+      "probeUrl": "https://www.instagram.com/direct/inbox/",
+      "obituary": "https://about.instagram.com/blog/announcements/"
+    },
+    {
+      "id": "oculus-home-web",
+      "title": "Oculus Home web",
+      "probeUrl": "https://www.oculus.com/home/",
+      "obituary": "https://www.meta.com/blog/"
+    },
+    {
+      "id": "facebook-notes-legacy",
+      "title": "Facebook Notes legacy composer",
+      "probeUrl": "https://www.facebook.com/notes/",
+      "obituary": "https://about.fb.com/news/2015/12/notes-a-new-way-to-share-your-stories/"
+    },
+    {
+      "id": "workplace-from-meta",
+      "title": "Workplace from Meta",
+      "probeUrl": "https://work.facebook.com/",
+      "obituary": "https://about.fb.com/news/2024/05/the-future-of-workplace/"
+    },
+    {
+      "id": "fb-mentions",
+      "title": "Facebook Mentions",
+      "probeUrl": "https://www.facebook.com/mentions/",
+      "obituary": "https://en.wikipedia.org/wiki/Facebook_Mentions"
+    },
+    {
+      "id": "slingshot-facebook",
+      "title": "Slingshot",
+      "probeUrl": "https://www.facebook.com/slingshot",
+      "obituary": "https://en.wikipedia.org/wiki/Slingshot_(app)"
+    }
+  ]
+}

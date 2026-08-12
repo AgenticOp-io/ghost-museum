@@ -1,0 +1,54 @@
+{
+  "owner": "Apple",
+  "purpose": "Apple service doors with cited funerals.",
+  "seeds": [
+    {
+      "id": "apple-ping",
+      "title": "iTunes Ping",
+      "probeUrl": "https://www.apple.com/itunes/ping/",
+      "obituary": "https://www.apple.com/newsroom/2012/09/12Apple-Unveils-New-iTunes/"
+    },
+    {
+      "id": "mobileme",
+      "title": "MobileMe",
+      "probeUrl": "https://www.me.com/",
+      "obituary": "https://www.apple.com/newsroom/2011/06/06Apple-Introduces-iCloud/"
+    },
+    {
+      "id": "apple-iweb",
+      "title": "iWeb",
+      "probeUrl": "https://www.apple.com/ilife/iweb/",
+      "obituary": "https://www.apple.com/newsroom/2011/06/06Apple-Introduces-iCloud/"
+    },
+    {
+      "id": "apple-aworks",
+      "title": "AppleWorks",
+      "probeUrl": "https://www.apple.com/appleworks/",
+      "obituary": "https://en.wikipedia.org/wiki/AppleWorks"
+    },
+    {
+      "id": "apple-dashboard",
+      "title": "Dashboard widgets",
+      "probeUrl": "https://www.apple.com/downloads/dashboard/",
+      "obituary": "https://support.apple.com/guide/mac-help/use-dashboard-widgets-mchlp1186/mac"
+    },
+    {
+      "id": "apple-game-center-web",
+      "title": "Game Center web",
+      "probeUrl": "https://www.apple.com/game-center/",
+      "obituary": "https://www.apple.com/newsroom/"
+    },
+    {
+      "id": "icloud-find-my-iphone-classic",
+      "title": "Find My iPhone classic web",
+      "probeUrl": "https://www.icloud.com/#find",
+      "obituary": "https://support.apple.com/guide/find-devices/welcome/web"
+    },
+    {
+      "id": "apple-airport-utility-web",
+      "title": "AirPort support door",
+      "probeUrl": "https://support.apple.com/airport",
+      "obituary": "https://www.apple.com/newsroom/2018/11/apple-discontinues-airport-base-stations/"
+    }
+  ]
+}

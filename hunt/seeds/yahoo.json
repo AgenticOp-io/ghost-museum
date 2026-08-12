@@ -1,0 +1,66 @@
+{
+  "owner": "Yahoo",
+  "purpose": "Yahoo product doors after sunsets / spinouts.",
+  "seeds": [
+    {
+      "id": "yahoo-answers",
+      "title": "Yahoo Answers",
+      "probeUrl": "https://answers.yahoo.com/",
+      "obituary": "https://www.verizon.com/about/news/yahoo-answers-shutting-down"
+    },
+    {
+      "id": "yahoo-messenger",
+      "title": "Yahoo Messenger",
+      "probeUrl": "https://messenger.yahoo.com/",
+      "obituary": "https://yahoo.tumblr.com/post/185191890781/yahoo-messenger-will-be-discontinued"
+    },
+    {
+      "id": "yahoo-groups",
+      "title": "Yahoo Groups",
+      "probeUrl": "https://groups.yahoo.com/",
+      "obituary": "https://www.verizon.com/about/news/yahoo-groups-shutting-down"
+    },
+    {
+      "id": "yahoo-toolbar",
+      "title": "Yahoo Toolbar",
+      "probeUrl": "https://toolbar.yahoo.com/",
+      "obituary": "https://en.wikipedia.org/wiki/Yahoo!_Toolbar"
+    },
+    {
+      "id": "yahoo-pipes",
+      "title": "Yahoo Pipes",
+      "probeUrl": "https://pipes.yahoo.com/",
+      "obituary": "https://yahoo.tumblr.com/post/147207391956/we-are-retiring-yahoo-pipes"
+    },
+    {
+      "id": "yahoo-geocities",
+      "title": "GeoCities",
+      "probeUrl": "https://geocities.yahoo.com/",
+      "obituary": "https://en.wikipedia.org/wiki/Yahoo!_GeoCities"
+    },
+    {
+      "id": "yahoo-upcoming",
+      "title": "Upcoming.org (Yahoo)",
+      "probeUrl": "https://upcoming.org/",
+      "obituary": "https://en.wikipedia.org/wiki/Upcoming"
+    },
+    {
+      "id": "yahoo-buzz",
+      "title": "Yahoo Buzz",
+      "probeUrl": "https://buzz.yahoo.com/",
+      "obituary": "https://en.wikipedia.org/wiki/Yahoo!_Buzz"
+    },
+    {
+      "id": "yahoo-kickstart",
+      "title": "Yahoo Kickstart",
+      "probeUrl": "https://kickstart.yahoo.net/",
+      "obituary": "https://en.wikipedia.org/wiki/Yahoo!"
+    },
+    {
+      "id": "flickr-yahoo-mail",
+      "title": "Flickr Yahoo-era sign-in door",
+      "probeUrl": "https://www.flickr.com/signin",
+      "obituary": "https://blog.flickr.net/en/2018/04/20/flickr-free-accounts-1-000-photos/"
+    }
+  ]
+}

@@ -1,0 +1,96 @@
+{
+  "owner": "Microsoft",
+  "purpose": "Real probe surfaces for Microsoft sunsets — not hostname fan-out.",
+  "seeds": [
+    {
+      "id": "ie-download-microsoft",
+      "title": "Internet Explorer download",
+      "probeUrl": "https://www.microsoft.com/en-us/download/internet-explorer.aspx",
+      "obituary": "https://blogs.windows.com/windowsexperience/2022/06/15/internet-explorer-11-desktop-app-retirement-faq/"
+    },
+    {
+      "id": "kaizala-microsoft",
+      "title": "Microsoft Kaizala",
+      "probeUrl": "https://www.microsoft.com/en-us/microsoft-365/kaizala",
+      "obituary": "https://techcommunity.microsoft.com/blog/microsoft_365blog/microsoft-kaizala-will-be-retired-on-september-30-2023/2460504"
+    },
+    {
+      "id": "skype-for-business-online",
+      "title": "Skype for Business Online",
+      "probeUrl": "https://www.skype.com/en/business/",
+      "obituary": "https://techcommunity.microsoft.com/blog/microsoftteamsblog/skype-for-business-online-retirement/2153227"
+    },
+    {
+      "id": "microsoft-so-cl",
+      "title": "So.cl",
+      "probeUrl": "https://www.so.cl/",
+      "obituary": "https://blogs.bing.com/search/2017/03/06/so-cl-is-shutting-down"
+    },
+    {
+      "id": "windows-live-spaces",
+      "title": "Windows Live Spaces",
+      "probeUrl": "https://spaces.live.com/",
+      "obituary": "https://en.wikipedia.org/wiki/Windows_Live_Spaces"
+    },
+    {
+      "id": "microsoft-codeplex",
+      "title": "CodePlex",
+      "probeUrl": "https://www.codeplex.com/",
+      "obituary": "https://devblogs.microsoft.com/visualstudio/saying-goodbye-to-codeplex/"
+    },
+    {
+      "id": "microsoft-healthvault",
+      "title": "Microsoft HealthVault",
+      "probeUrl": "https://account.healthvault.com/",
+      "obituary": "https://blogs.microsoft.com/blog/2019/04/05/microsoft-healthvault-to-retire/"
+    },
+    {
+      "id": "msn-encarta",
+      "title": "Encarta",
+      "probeUrl": "https://encarta.msn.com/",
+      "obituary": "https://en.wikipedia.org/wiki/Encarta"
+    },
+    {
+      "id": "microsoft-money",
+      "title": "Microsoft Money",
+      "probeUrl": "https://www.microsoft.com/en-us/download/details.aspx?id=20738",
+      "obituary": "https://en.wikipedia.org/wiki/Microsoft_Money"
+    },
+    {
+      "id": "azure-ad-graph-explorer",
+      "title": "Azure AD Graph Explorer",
+      "probeUrl": "https://graphexplorer.azurewebsites.net/",
+      "obituary": "https://learn.microsoft.com/en-us/graph/migrate-azure-ad-graph-overview"
+    },
+    {
+      "id": "xbox-music-web",
+      "title": "Xbox Music web",
+      "probeUrl": "https://music.xbox.com/",
+      "obituary": "https://news.xbox.com/en-us/2015/07/06/xbox-music-is-now-groove/"
+    },
+    {
+      "id": "msn-groups",
+      "title": "MSN Groups",
+      "probeUrl": "https://groups.msn.com/",
+      "obituary": "https://en.wikipedia.org/wiki/MSN_Groups"
+    },
+    {
+      "id": "microsoft-student",
+      "title": "Microsoft Student",
+      "probeUrl": "https://www.microsoft.com/student",
+      "obituary": "https://en.wikipedia.org/wiki/Microsoft_Student"
+    },
+    {
+      "id": "windows-live-mesh",
+      "title": "Windows Live Mesh",
+      "probeUrl": "https://www.mesh.com/",
+      "obituary": "https://en.wikipedia.org/wiki/Windows_Live_Mesh"
+    },
+    {
+      "id": "microsoft-office-live",
+      "title": "Office Live Workspace",
+      "probeUrl": "https://workspace.officelive.com/",
+      "obituary": "https://en.wikipedia.org/wiki/Office_Live"
+    }
+  ]
+}

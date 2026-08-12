@@ -1,65 +1,72 @@
 #!/usr/bin/env node
 /**
- * Curate ranking for hunt findings + nominations.
- * Scores candidates for human review. NEVER writes exhibits / never auto-hangs.
+ * Curate desk (v2) — authority ranking for Still Answering.
+ * Prefers multi-vendor seed packs + hunt evidence. NEVER auto-hangs.
  *
- *   node scripts/curate.mjs
- *   node scripts/curate.mjs --top 15
- *   node scripts/curate.mjs --json > hunt/curate-rank.json
+ *   npm run curate
+ *   npm run curate -- --top 40
+ *   npm run curate -- --desk          # strong+consider only → site/curate.json
+ *   npm run curate -- --min strong
  */
 import { readFileSync, writeFileSync, existsSync, readdirSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
+import { majorDomain, hostOf as sharedHostOf } from "../site/gm-shared.js";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const exhibitsPath = join(root, "exhibits", "exhibits.json");
 const findingsPath = join(root, "hunt", "findings.jsonl");
+const watchPath = join(root, "hunt", "watchlist.json");
 const nominationsDir = join(root, "nominations");
 const outPath = join(root, "hunt", "curate-rank.json");
+const deskPath = join(root, "site", "curate.json");
 
 const args = process.argv.slice(2);
 const topN = (() => {
   const i = args.indexOf("--top");
-  return i >= 0 ? Number(args[i + 1]) || 20 : 20;
+  return i >= 0 ? Number(args[i + 1]) || 40 : 40;
+})();
+const desk = args.includes("--desk");
+const minBand = (() => {
+  const i = args.indexOf("--min");
+  if (i >= 0) return args[i + 1] || "consider";
+  return desk ? "consider" : "weak";
 })();
 const asJson = args.includes("--json");
 
-const hung = JSON.parse(readFileSync(exhibitsPath, "utf8"));
-const hungIds = new Set((hung.exhibits || []).map((e) => e.id));
-const hungHosts = new Set();
-const hungDomains = new Map(); // domain -> count
-const hungYears = new Map();
+const BAND_ORDER = { strong: 3, consider: 2, review: 1, weak: 0 };
 
 function hostOf(url) {
   try {
-    return new URL(url).hostname.toLowerCase().replace(/^www\./, "");
+    return sharedHostOf(url).toLowerCase().replace(/^www\./, "");
   } catch {
     return "";
   }
 }
 
-function majorDomain(host) {
-  const h = String(host || "").toLowerCase();
-  if (!h) return "unknown";
-  if (/(^|\.)google\.com$|(^|\.)youtube\.com$|^goo\.gl$|^g\.co$/.test(h)) return "google.com";
-  if (/(^|\.)microsoft\.com$|(^|\.)windows\.net$|(^|\.)live\.com$|(^|\.)xbox\.com$|(^|\.)msn\.com$/.test(h))
-    return "microsoft.com";
-  if (/(^|\.)github\.com$|(^|\.)github\.io$/.test(h)) return "github.com";
-  if (/(^|\.)adobe\.com$/.test(h)) return "adobe.com";
-  if (/(^|\.)yahoo\.com$/.test(h)) return "yahoo.com";
-  if (/(^|\.)facebook\.com$|(^|\.)fb\.com$/.test(h)) return "facebook.com";
-  const parts = h.split(".").filter(Boolean);
-  if (parts.length <= 2) return h;
-  return parts.slice(-2).join(".");
-}
+const hung = JSON.parse(readFileSync(exhibitsPath, "utf8"));
+const hungIds = new Set((hung.exhibits || []).map((e) => e.id));
+const hungHosts = new Set();
+const hungDomains = new Map();
+const hungYears = new Map();
 
 for (const ex of hung.exhibits || []) {
   const host = hostOf(ex.probeUrl);
   if (host) hungHosts.add(host);
-  const d = majorDomain(host);
+  const d = majorDomain(ex);
   hungDomains.set(d, (hungDomains.get(d) || 0) + 1);
   const y = String(ex.declaredDead || "").slice(0, 4);
   if (/^\d{4}$/.test(y)) hungYears.set(y, (hungYears.get(y) || 0) + 1);
+}
+
+const watchById = new Map();
+if (existsSync(watchPath)) {
+  try {
+    const w = JSON.parse(readFileSync(watchPath, "utf8"));
+    for (const row of w.watchlist || []) if (row?.id) watchById.set(row.id, row);
+  } catch {
+    /* ignore */
+  }
 }
 
 function loadFindings() {
@@ -70,14 +77,23 @@ function loadFindings() {
     try {
       const f = JSON.parse(line);
       if (!f?.id) continue;
-      // Keep latest hunt per id
       const prev = byId.get(f.id);
       if (!prev || String(f.huntedAt || "") > String(prev.huntedAt || "")) byId.set(f.id, f);
     } catch {
-      /* skip bad line */
+      /* skip */
     }
   }
-  return [...byId.values()].map((f) => ({ ...f, source: "hunt" }));
+  return [...byId.values()].map((f) => {
+    const w = watchById.get(f.id);
+    return {
+      ...f,
+      source: f.source || w?.source || "hunt",
+      owner: f.owner || w?.owner || null,
+      title: f.title || w?.title || f.id,
+      obituary: f.obituary || w?.obituary || null,
+      fromSeedPack: Boolean(w?.source?.startsWith("seeds/")),
+    };
+  });
 }
 
 function loadNominations() {
@@ -98,7 +114,9 @@ function loadNominations() {
         finalUrl: n.finalUrl || null,
         redirectChain: n.redirectChain || null,
         suggestedWall: n.suggestedWall || n.wall || null,
+        owner: n.owner || "Nominate",
         source: "nominate",
+        fromSeedPack: false,
       });
     } catch {
       /* skip */
@@ -107,17 +125,35 @@ function loadNominations() {
   return out;
 }
 
-/**
- * Score a candidate. Higher = more worth hanging.
- * Hard rejects return score -Infinity with reasons.
- */
+/** Seed-pack rows that hunt has not probed yet — still rankable for curator priority. */
+function loadUnprobedSeeds() {
+  const findings = new Set(loadFindings().map((f) => f.id));
+  const out = [];
+  for (const w of watchById.values()) {
+    if (!w?.source?.startsWith("seeds/")) continue;
+    if (findings.has(w.id) || hungIds.has(w.id)) continue;
+    out.push({
+      id: w.id,
+      title: w.title || w.id,
+      probeUrl: w.probeUrl,
+      obituary: w.obituary,
+      note: w.note || null,
+      owner: w.owner || null,
+      source: w.source,
+      fromSeedPack: true,
+      httpStatus: null,
+      suggestedWall: "unprobed",
+    });
+  }
+  return out;
+}
+
 function scoreCandidate(c) {
   const reasons = [];
   const host = hostOf(c.probeUrl);
-  const domain = majorDomain(host);
+  const domain = majorDomain({ probeUrl: c.probeUrl });
   let score = 0;
 
-  // --- Hard gates (museum honesty) ---
   if (!c.probeUrl) {
     return { score: -Infinity, decision: "reject", reasons: ["missing probeUrl"] };
   }
@@ -144,13 +180,30 @@ function scoreCandidate(c) {
     reasons.push("note flags uncertainty / living product");
   }
 
-  // --- Probe evidence ---
+  const src = String(c.source || "");
+  if (src.startsWith("seeds/")) {
+    score += 28;
+    reasons.push("authority seed pack");
+  } else if (src === "probe-hints") {
+    score += 16;
+    reasons.push("curated probe-hint");
+  } else if (src === "nominate") {
+    score += 12;
+    reasons.push("public nomination");
+  } else if (/-vast$/.test(src)) {
+    score -= 45;
+    reasons.push("vast fan-out (demoted)");
+  } else if (/-deep$/.test(src)) {
+    score -= 18;
+    reasons.push("catalog host guess");
+  }
+
   if (c.probeError) {
     score -= 40;
     reasons.push("probe error");
   } else if (c.httpStatus == null) {
-    score -= 20;
-    reasons.push("no http status yet");
+    score -= 8;
+    reasons.push("awaiting hunt probe");
   } else {
     score += 15;
     reasons.push(`status ${c.httpStatus}`);
@@ -160,12 +213,11 @@ function scoreCandidate(c) {
   const hops = chain.length;
   const wall = c.suggestedWall || inferWall(c);
 
-  // Wall drama: incomplete funerals rank highest
   const wallScore = {
     "still-answering": 40,
     "auth-ghost": 38,
     "successor-facade": 36,
-    buried: 12, // contrast only — keep few
+    buried: 12,
     unprobed: 0,
   };
   score += wallScore[wall] ?? 0;
@@ -176,10 +228,9 @@ function scoreCandidate(c) {
     reasons.push(`${hops} redirect hops`);
   }
 
-  // Interesting status classes
   if (c.httpStatus === 200 && hops <= 1) {
     score += 10;
-    reasons.push("still-200 without redirect (strong ghost)");
+    reasons.push("still-200 without redirect");
   }
   if (c.httpStatus === 401 || c.httpStatus === 403) {
     score += 8;
@@ -187,19 +238,22 @@ function scoreCandidate(c) {
   }
   if (c.httpStatus === 404) {
     score -= 15;
-    reasons.push("404 tomb — weak unless unique story");
+    reasons.push("404 tomb");
   }
   if (c.httpStatus === 410) {
     score -= 5;
-    reasons.push("honest 410 — buried contrast only");
+    reasons.push("honest 410");
   }
   if (c.httpStatus === 400) {
     score += 6;
-    reasons.push("socket refuses with 400 (alive but hostile)");
+    reasons.push("hostile 400");
   }
 
-  // --- Hall diversity ---
   const domainCount = hungDomains.get(domain) || 0;
+  if (domain === "google.com") {
+    score -= 10;
+    reasons.push("google already over-represented");
+  }
   if (domainCount >= 6) {
     score -= 30;
     reasons.push(`hall saturated for ${domain} (${domainCount})`);
@@ -207,13 +261,12 @@ function scoreCandidate(c) {
     score -= 12;
     reasons.push(`many ${domain} frames already (${domainCount})`);
   } else if (domainCount === 0) {
-    score += 14;
+    score += 18;
     reasons.push(`new major domain ${domain}`);
   } else {
-    score += 4;
+    score += 6;
   }
 
-  // Era coverage: boost underrepresented death years
   const year = String(c.declaredDead || c.huntedAt || "").slice(0, 4);
   if (/^\d{4}$/.test(year)) {
     const yc = hungYears.get(year) || 0;
@@ -226,12 +279,12 @@ function scoreCandidate(c) {
     }
   }
 
-  // Prefer named products over generic doors
-  if (c.title && !/^https?:/i.test(c.title) && c.title.length > 2) {
-    score += 4;
+  if (c.title && !/^https?:/i.test(c.title) && c.title.length > 2) score += 4;
+  if (c.owner && !/google/i.test(c.owner)) {
+    score += 6;
+    reasons.push(`owner ${c.owner}`);
   }
 
-  // Deduplicate soft: same final host as another hung frame
   const finalHost = hostOf(c.finalUrl || "");
   if (finalHost && [...hungHosts].some((h) => h === finalHost)) {
     score -= 10;
@@ -243,14 +296,7 @@ function scoreCandidate(c) {
   else if (score >= 35) decision = "consider";
   else if (score < 10) decision = "weak";
 
-  return {
-    score,
-    decision,
-    wall,
-    domain,
-    host,
-    reasons,
-  };
+  return { score, decision, wall, domain, host, reasons };
 }
 
 function inferWall(c) {
@@ -263,51 +309,76 @@ function inferWall(c) {
   return "unprobed";
 }
 
-const candidates = [...loadFindings(), ...loadNominations()];
+const candidates = [...loadFindings(), ...loadNominations(), ...loadUnprobedSeeds()];
 const ranked = candidates
   .map((c) => {
     const s = scoreCandidate(c);
     return {
       id: c.id,
       title: c.title || c.id,
+      owner: c.owner || null,
       source: c.source,
+      fromSeedPack: Boolean(c.fromSeedPack),
       probeUrl: c.probeUrl,
       obituary: c.obituary,
       httpStatus: c.httpStatus ?? null,
       finalUrl: c.finalUrl || null,
       huntedAt: c.huntedAt || null,
       note: c.note || null,
+      hangHint: `npm run hang -- --id ${c.id}`,
       ...s,
     };
   })
   .filter((r) => r.decision !== "skip" && r.decision !== "reject")
-  .sort((a, b) => b.score - a.score);
+  .filter((r) => (BAND_ORDER[r.decision] ?? 0) >= (BAND_ORDER[minBand] ?? 0))
+  .sort((a, b) => b.score - a.score || a.domain.localeCompare(b.domain));
 
 const rejected = candidates
-  .map((c) => ({ id: c.id, ...scoreCandidate(c) }))
+  .map((c) => ({ id: c.id, source: c.source, ...scoreCandidate(c) }))
   .filter((r) => r.decision === "reject" || r.decision === "skip");
+
+const byDecision = { strong: 0, consider: 0, review: 0, weak: 0 };
+for (const r of ranked) byDecision[r.decision] = (byDecision[r.decision] || 0) + 1;
 
 const report = {
   museum: "Still Answering",
   curatedAt: new Date().toISOString(),
-  algorithm: "ghost-curate-v1",
-  note: "Ranking only. Never auto-hangs. Curator must probe + accept before exhibits change.",
+  algorithm: "ghost-curate-v2",
+  authority: "hunt/seeds/* → hunt → curate desk → hang:auto (strong + fresh probe)",
+  note: "Ranking feeds auto-hang. Strong + ghost-class (or buried) + fresh GET → exhibits. Prefer seed packs. Manual: npm run hang -- --id <id> --commit",
   hallSize: hung.exhibits?.length ?? 0,
   candidateCount: candidates.length,
+  byDecision,
   ranked: ranked.slice(0, topN),
-  rejectedSample: rejected.slice(0, 30),
+  rejectedSample: rejected.slice(0, 20),
 };
 
 writeFileSync(outPath, JSON.stringify(report, null, 2) + "\n");
 
+const deskPayload = {
+  museum: report.museum,
+  curatedAt: report.curatedAt,
+  algorithm: report.algorithm,
+  authority: report.authority,
+  hallSize: report.hallSize,
+  byDecision: report.byDecision,
+  queue: ranked
+    .filter((r) => r.decision === "strong" || r.decision === "consider")
+    .slice(0, Math.max(topN, 60)),
+};
+writeFileSync(deskPath, JSON.stringify(deskPayload, null, 2) + "\n");
+
 if (asJson) {
-  process.stdout.write(JSON.stringify(report, null, 2) + "\n");
+  process.stdout.write(JSON.stringify(desk ? deskPayload : report, null, 2) + "\n");
 } else {
-  console.log(`curate-rank v1 · hall ${report.hallSize} · candidates ${candidates.length} · top ${Math.min(topN, ranked.length)}`);
+  console.log(
+    `curate-rank v2 · hall ${report.hallSize} · candidates ${candidates.length} · showing ${Math.min(topN, ranked.length)} (min=${minBand})`,
+  );
   console.log(`wrote ${outPath}`);
-  for (const r of ranked.slice(0, topN)) {
+  console.log(`wrote ${deskPath} (desk queue ${deskPayload.queue.length})`);
+  for (const r of ranked.slice(0, Math.min(topN, 25))) {
     console.log(
-      `${String(r.score).padStart(4)}  ${r.decision.padEnd(8)}  ${r.wall || "-"}  ${r.id}\t${r.probeUrl}`,
+      `${String(r.score).padStart(3)} ${r.decision.padEnd(8)} ${r.domain.padEnd(18)} ${r.id} · ${r.wall} · ${r.source || "?"}`,
     );
   }
 }

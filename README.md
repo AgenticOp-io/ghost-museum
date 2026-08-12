@@ -17,10 +17,21 @@ Exhibits are real probes, not invented facades. Source of truth: `exhibits/exhib
 | Successor facade | Redirects to a different living product |
 | Buried | `410` / gone — they actually held a funeral |
 
+## Grow the hall
+
+```bash
+npm run authority          # discover → autoseed → search:seed → broad → curate → hang:auto → validate
+npm run search:seed -- --dry-run
+npm run hang:auto
+```
+
+Authority docs: `docs/AUTHORITY.md` · bounded search: `docs/SEARCH.md`.
+
 ## Local
 
 ```bash
 npx --yes serve site
+# or: npm run demo
 ```
 
 Refresh probes (GET only, records redirect hops, syncs `site/exhibits.json`):
@@ -32,9 +43,10 @@ npm run validate
 
 ## Rules
 
-1. Do not invent exhibits — probe first, or label `unprobed`.
+1. Do not invent exhibits — probe first (auto-hang re-probes).
 2. Never document how to keep using a ghost.
 3. Own this lane only — not Chrysalis, WISP, Helix, or AgenticOps chrome.
+4. Official search APIs only for discovery expansion — no SERP scraping.
 
 ## GCE / hostname
 

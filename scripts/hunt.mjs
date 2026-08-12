@@ -12,6 +12,7 @@
 import { readFileSync, writeFileSync, appendFileSync, mkdirSync, existsSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
+import { probeUrl, formatProbeError } from "./lib/probe.mjs";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const watchPath = join(root, "hunt", "watchlist.json");
@@ -20,7 +21,6 @@ const findingsPath = join(outDir, "findings.jsonl");
 const ua = "GhostMuseum-Hunt/0.1 (curator probe; +https://ghosts.agenticop.io/)";
 const DELAY_MS = Number(process.env.GM_HUNT_DELAY_MS || 1000);
 const PASS_PAUSE_MS = Number(process.env.GM_HUNT_PASS_PAUSE_MS || 60_000);
-const MAX_HOPS = 8;
 
 mkdirSync(outDir, { recursive: true });
 
@@ -35,47 +35,7 @@ function jitter(base) {
 }
 
 async function probe(url) {
-  const chain = [];
-  let current = url;
-  let titleTag = null;
-  let bodyStatus = null;
-
-  for (let hop = 0; hop < MAX_HOPS; hop++) {
-    const res = await fetch(current, {
-      method: "GET",
-      redirect: "manual",
-      headers: { "user-agent": ua, accept: "*/*" },
-      signal: AbortSignal.timeout(20000),
-    });
-    const loc = res.headers.get("location");
-    const isRedirect = res.status >= 300 && res.status < 400 && loc;
-    chain.push({
-      url: current,
-      status: res.status,
-      ...(isRedirect ? { location: new URL(loc, current).href } : {}),
-    });
-    if (isRedirect) {
-      current = new URL(loc, current).href;
-      continue;
-    }
-    bodyStatus = res.status;
-    const ct = (res.headers.get("content-type") || "").toLowerCase();
-    if (ct.includes("text/html") || ct.includes("application/xhtml")) {
-      const text = await res.text();
-      const m = text.match(/<title[^>]*>([^<]+)<\/title>/i);
-      titleTag = m ? m[1].trim().replace(/\s+/g, " ").slice(0, 160) : null;
-    } else {
-      await res.arrayBuffer();
-    }
-    break;
-  }
-
-  return {
-    httpStatus: bodyStatus ?? chain.at(-1)?.status ?? null,
-    finalUrl: chain.length ? chain[chain.length - 1].url : url,
-    redirectChain: chain,
-    titleTag,
-  };
+  return probeUrl(url, ua, { timeoutMs: Number(process.env.GM_HUNT_TIMEOUT_MS || 20_000) });
 }
 
 function suggestWall(r) {
@@ -103,12 +63,13 @@ async function huntOne(item) {
       redirectChain: r.redirectChain,
       suggestedWall: suggestWall(r),
       note: item.note || null,
+      ...(r.tlsWarning ? { tlsWarning: r.tlsWarning } : {}),
       autoHang: false,
       status: "pending-review",
     };
     appendFileSync(findingsPath, JSON.stringify(finding) + "\n");
     console.log(
-      `${item.id}\t${finding.suggestedWall}\t${r.redirectChain.map((h) => h.status).join("→")}\t${r.finalUrl}`,
+      `${item.id}\t${finding.suggestedWall}\t${r.redirectChain.map((h) => h.status).join("→")}\t${r.finalUrl}${r.tlsWarning ? "\ttls:" + r.tlsWarning : ""}`,
     );
     return finding;
   } catch (err) {
@@ -116,7 +77,7 @@ async function huntOne(item) {
       id: item.id,
       probeUrl: item.probeUrl,
       huntedAt: started,
-      probeError: String(err.message || err),
+      probeError: formatProbeError(err),
       autoHang: false,
       status: "pending-review",
     };

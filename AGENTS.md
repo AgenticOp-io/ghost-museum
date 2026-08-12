@@ -14,17 +14,41 @@ Lane: `engines/ghost-museum` in the AgenticOps umbrella.
 4. **Own this lane only.** Do not edit `brand/agenticops-web`, Chrysalis, WISPTools, FDE, or Helix from a Still Answering task.
 5. **Brand separation.** Still Answering has its own visual language (gallery, frames, tungsten). Do not import `agenticops.css` / `ao-layout.js`.
 
+## Authority (how the hall grows)
+
+**Canonical:** `docs/AUTHORITY.md`
+
+```
+hunt/seeds/* + discover + autoseed → seed-watchlist:broad → hunt → curate:desk → hang:auto
+```
+
+| Do | Don’t |
+|----|--------|
+| Edit `hunt/seeds/*.json` first | Treat `--vast` as breadth |
+| `npm run discover` / `autoseed` / `search:seed` / `authority` | Open-web crawl / SERP scraping |
+| `npm run hang:auto` (strong + fresh probe) | Invent frames without probe |
+| `npm run hang -- --id … --commit` for one-offs | Hang without obituary citation |
+
 ## Layout
 
 | Path | Role |
 |------|------|
-| `exhibits/exhibits.json` | Source of truth for the hall |
+| `exhibits/exhibits.json` | Source of truth for hung frames |
+| `hunt/seeds/` | Authority seed packs (multi-vendor) |
+| `hunt/watchlist.json` | Broad hunt queue |
+| `site/curate.json` | Curate desk queue |
 | `site/` | Static museum |
 | `scripts/probe.mjs` | Refresh last-probe fields + redirect chain |
 | `scripts/validate.mjs` | Schema / honesty gate |
-| `scripts/demo-server.mjs` | Static hall + `POST /api/nominate` |
+| `scripts/curate.mjs` | Rank findings/seeds → desk |
+| `scripts/hang.mjs` | Draft / commit one exhibit |
+| `scripts/recheck.mjs` | Monthly live recheck → `banished` wall |
+| `scripts/demo-server.mjs` | Static hall + nominate + `/api/census` + `/api/curate` |
 | `site/nominate.html` | Public nomination form (no login) |
+| `site/curate.html` | Curator desk UI |
 | `docs/SCHEMA.md` | Exhibit field contract |
+| `docs/AUTHORITY.md` | Growth pipeline |
+| `docs/CURATE.md` | Ranking contract |
 | `docs/NOMINATIONS.md` | Nominate + hunt intake |
 
 ## Probe

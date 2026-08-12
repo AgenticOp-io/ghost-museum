@@ -1,7 +1,7 @@
 {
   "museum": "Still Answering",
   "tagline": "Sunset is a press release. Ghosts are a runtime.",
-  "probedAt": "2026-08-12T04:06:22.958Z",
+  "probedAt": "2026-08-12T12:58:53.998Z",
   "userAgent": "GhostMuseum/0.1 (exhibit probe)",
   "exhibits": [
     {
@@ -455,6 +455,645 @@
         {
           "url": "https://api.parse.com/1/health",
           "status": 410
+        }
+      ]
+    },
+    {
+      "id": "clubhouse-app",
+      "wall": "still-answering",
+      "title": "Clubhouse",
+      "owner": "Web",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://en.wikipedia.org/wiki/Clubhouse_(app)",
+      "probeUrl": "https://www.clubhouse.com/",
+      "httpStatus": 200,
+      "finalUrl": "https://www.clubhouse.com/",
+      "titleTag": "Clubhouse",
+      "note": "Seed pack web.json. Probe before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://www.clubhouse.com/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "stumbleupon",
+      "wall": "still-answering",
+      "title": "StumbleUpon",
+      "owner": "Misc",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://en.wikipedia.org/wiki/StumbleUpon",
+      "probeUrl": "https://www.stumbleupon.com/",
+      "httpStatus": 200,
+      "finalUrl": "https://www.stumbleupon.com/",
+      "titleTag": "StumbleUpon",
+      "note": "Seed pack misc.json. Probe before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://www.stumbleupon.com/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "heroku-button",
+      "wall": "successor-facade",
+      "title": "Heroku Button",
+      "owner": "Web",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://devcenter.heroku.com/articles/heroku-button",
+      "probeUrl": "https://heroku.com/deploy",
+      "httpStatus": 200,
+      "finalUrl": "https://www.heroku.com/unsupported-button-deploy/",
+      "titleTag": "Unsupported Button Deploy | Heroku",
+      "note": "Seed pack web.json. Probe before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://heroku.com/deploy",
+          "status": 301,
+          "location": "https://www.heroku.com/deploy/"
+        },
+        {
+          "url": "https://www.heroku.com/deploy/",
+          "status": 302,
+          "location": "https://www.heroku.com/unsupported-button-deploy"
+        },
+        {
+          "url": "https://www.heroku.com/unsupported-button-deploy",
+          "status": 301,
+          "location": "https://www.heroku.com/unsupported-button-deploy/"
+        },
+        {
+          "url": "https://www.heroku.com/unsupported-button-deploy/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "yahoo-messenger",
+      "wall": "successor-facade",
+      "title": "Yahoo Messenger",
+      "owner": "Yahoo",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://yahoo.tumblr.com/post/185191890781/yahoo-messenger-will-be-discontinued",
+      "probeUrl": "https://messenger.yahoo.com/",
+      "httpStatus": 200,
+      "finalUrl": "https://www.yahoo.com/",
+      "titleTag": "Yahoo | Mail, Weather, Search, Politics, News, Finance, Sports &amp; Videos",
+      "note": "Seed pack yahoo.json. Probe before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://messenger.yahoo.com/",
+          "status": 301,
+          "location": "https://www.yahoo.com/"
+        },
+        {
+          "url": "https://www.yahoo.com/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "nest-protect-app",
+      "wall": "still-answering",
+      "title": "Works with Nest classic",
+      "owner": "Curated",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://store.google.com/magazine/works_with_nest_retirement",
+      "probeUrl": "https://home.nest.com/",
+      "httpStatus": 200,
+      "finalUrl": "https://home.nest.com/",
+      "titleTag": "Log into the Nest&nbsp;app",
+      "note": "Works with Nest sunset - living Nest home may still answer.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://home.nest.com/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "parse-dashboard",
+      "wall": "still-answering",
+      "title": "Parse Platform",
+      "owner": "Curated",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://blog.parseplatform.org/",
+      "probeUrl": "https://parseplatform.org/",
+      "httpStatus": 200,
+      "finalUrl": "https://parseplatform.org/",
+      "titleTag": "Parse Platform - Open Source Backend",
+      "note": "Community successor may still be living - contrast with buried parse.com.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://parseplatform.org/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "pebble",
+      "wall": "successor-facade",
+      "title": "Pebble",
+      "owner": "Curated",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://blog.getpebble.com/",
+      "probeUrl": "https://www.pebble.com/",
+      "httpStatus": 200,
+      "finalUrl": "https://support.google.com/product-documentation/answer/14074079",
+      "titleTag": "Fitbit.com Updates (Mexico &amp; LATAM) - Help",
+      "note": "Curated probe hint. Probe before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://www.pebble.com/",
+          "status": 301,
+          "location": "https://www.fitbit.com/"
+        },
+        {
+          "url": "https://www.fitbit.com/",
+          "status": 302,
+          "location": "https://www.fitbit.com/mx/home"
+        },
+        {
+          "url": "https://www.fitbit.com/mx/home",
+          "status": 301,
+          "location": "https://support.google.com/product-documentation/answer/14074079"
+        },
+        {
+          "url": "https://support.google.com/product-documentation/answer/14074079",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "delicious",
+      "wall": "auth-ghost",
+      "title": "Delicious",
+      "owner": "Curated",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://blog.delicious.com/",
+      "probeUrl": "https://delicious.com/",
+      "httpStatus": 403,
+      "finalUrl": "https://delicious.com/",
+      "titleTag": "Just a moment...",
+      "note": "Bookmarking ghost - confirm current operator vs funeral before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://delicious.com/",
+          "status": 403
+        }
+      ]
+    },
+    {
+      "id": "dependabot-preview",
+      "wall": "successor-facade",
+      "title": "Dependabot Preview",
+      "owner": "Curated",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://github.blog/2021-04-29-goodbye-dependabot-preview-hello-dependabot/",
+      "probeUrl": "https://dependabot.com/",
+      "httpStatus": 200,
+      "finalUrl": "https://github.com/security/advanced-security",
+      "titleTag": "GitHub Advanced Security · Built-in protection for every repository · GitHub",
+      "note": "Brand may redirect into GitHub - successor facade candidate.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://dependabot.com/",
+          "status": 301,
+          "location": "https://github.com/features/security/"
+        },
+        {
+          "url": "https://github.com/features/security/",
+          "status": 301,
+          "location": "https://github.com/security/advanced-security"
+        },
+        {
+          "url": "https://github.com/security/advanced-security",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "spectrum-chat",
+      "wall": "successor-facade",
+      "title": "Spectrum",
+      "owner": "Curated",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://github.blog/2022-08-10-sunsetting-spectrum/",
+      "probeUrl": "https://spectrum.chat/",
+      "httpStatus": 200,
+      "finalUrl": "https://github.com/features/discussions/",
+      "titleTag": "GitHub Discussions · Developer Collaboration &amp; Communication Tool · GitHub",
+      "note": "Curated probe hint. Probe before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://spectrum.chat/",
+          "status": 301,
+          "location": "https://github.com/features/discussions/"
+        },
+        {
+          "url": "https://github.com/features/discussions/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "microsoft-silverlight",
+      "wall": "successor-facade",
+      "title": "Microsoft Silverlight",
+      "owner": "Curated",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://support.microsoft.com/en-us/windows/silverlight-end-of-support-0aa3cfef-6244-4c83-a0bb-1a0c5e2f2a6b",
+      "probeUrl": "https://www.microsoft.com/silverlight/",
+      "httpStatus": 200,
+      "finalUrl": "https://learn.microsoft.com/en-us/lifecycle/products/silverlight-5",
+      "titleTag": "Silverlight 5 - Microsoft Lifecycle | Microsoft Learn",
+      "note": "Curated probe hint. Probe before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://www.microsoft.com/silverlight/",
+          "status": 301,
+          "location": "https://learn.microsoft.com/lifecycle/products/silverlight-5"
+        },
+        {
+          "url": "https://learn.microsoft.com/lifecycle/products/silverlight-5",
+          "status": 302,
+          "location": "https://learn.microsoft.com/en-us/lifecycle/products/silverlight-5"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/lifecycle/products/silverlight-5",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "outlook-com-classic",
+      "wall": "successor-facade",
+      "title": "Outlook.com classic mail door",
+      "owner": "Curated",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://blogs.windows.com/windowsexperience/2012/07/31/introducing-the-new-outlook-com/",
+      "probeUrl": "https://mail.live.com/",
+      "httpStatus": 200,
+      "finalUrl": "https://outlook.live.com/mail/",
+      "titleTag": "Outlook",
+      "note": "Classic Hotmail/Live mail hostname - often a facade into Outlook.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://mail.live.com/",
+          "status": 301,
+          "location": "https://outlook.live.com/mail/"
+        },
+        {
+          "url": "https://outlook.live.com/mail/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "skype-web-classic",
+      "wall": "successor-facade",
+      "title": "Skype Web",
+      "owner": "Curated",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://support.microsoft.com/en-us/office/skype-is-retiring-in-may-2025-25fa8625-794a-42f7-a849-eb9518b7d65c",
+      "probeUrl": "https://web.skype.com/",
+      "httpStatus": 200,
+      "finalUrl": "https://teams.live.com/v2/unsupported-browser#env=life&browserOverrides={%22firefox%22:{%22isSupported%22:true,%22minVersion%22:%2297.0%22},%22safari%22:{%22isSupported%22:true,%22minVersion%22:%2216.0%22}}",
+      "titleTag": "Unsupported Browser | Microsoft Teams",
+      "note": "Living product until retirement date - hunt to watch the funeral, not hang early.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://web.skype.com/",
+          "status": 301,
+          "location": "https://teams.live.com/v2"
+        },
+        {
+          "url": "https://teams.live.com/v2",
+          "status": 301,
+          "location": "https://teams.live.com/v2/"
+        },
+        {
+          "url": "https://teams.live.com/v2/",
+          "status": 302,
+          "location": "https://teams.live.com/v2/unsupported-browser#env=life&browserOverrides={%22firefox%22:{%22isSupported%22:true,%22minVersion%22:%2297.0%22},%22safari%22:{%22isSupported%22:true,%22minVersion%22:%2216.0%22}}"
+        },
+        {
+          "url": "https://teams.live.com/v2/unsupported-browser#env=life&browserOverrides={%22firefox%22:{%22isSupported%22:true,%22minVersion%22:%2297.0%22},%22safari%22:{%22isSupported%22:true,%22minVersion%22:%2216.0%22}}",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "xbox-live-indie",
+      "wall": "successor-facade",
+      "title": "Xbox Live Indie Games",
+      "owner": "Curated",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://news.xbox.com/en-us/2013/08/12/xbox-live-indie-games-coming-to-an-end/",
+      "probeUrl": "https://marketplace.xbox.com/",
+      "httpStatus": 200,
+      "finalUrl": "https://www.xbox.com/es-MX/games/browse",
+      "titleTag": "Explorar todos los juegos | Xbox",
+      "note": "Marketplace door may still answer - confirm before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://marketplace.xbox.com/",
+          "status": 301,
+          "location": "https://www.xbox.com/games/browse"
+        },
+        {
+          "url": "https://www.xbox.com/games/browse",
+          "status": 307,
+          "location": "https://www.xbox.com/es-MX/games/browse"
+        },
+        {
+          "url": "https://www.xbox.com/es-MX/games/browse",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "google-notebook",
+      "wall": "successor-facade",
+      "title": "Google Notebook",
+      "owner": "Web",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://googleblog.blogspot.com/2011/11/spring-cleaning-in-fall.html",
+      "probeUrl": "https://www.google.com/notebook/",
+      "httpStatus": 200,
+      "finalUrl": "https://notebooklm.google/",
+      "note": "Seed pack web.json. Probe before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://www.google.com/notebook/",
+          "status": 301,
+          "location": "https://notebooklm.google/"
+        },
+        {
+          "url": "https://notebooklm.google/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "google-url-shortener-goo",
+      "wall": "still-answering",
+      "title": "g.co (shortener surface)",
+      "owner": "Curated",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://developers.googleblog.com/en/google-url-shortener-links-will-no-longer-be-available/",
+      "probeUrl": "https://g.co/",
+      "httpStatus": 200,
+      "finalUrl": "https://g.co/",
+      "titleTag": "g.co",
+      "note": "Curated probe hint. Probe before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://g.co/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "feedburner",
+      "wall": "still-answering",
+      "title": "FeedBurner",
+      "owner": "Curated",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://support.google.com/feedburner/answer/1220285",
+      "probeUrl": "https://feedburner.google.com/",
+      "httpStatus": 200,
+      "finalUrl": "https://feedburner.google.com/",
+      "titleTag": "Feedburner",
+      "note": "Legacy feed door - probe whether the hostname still answers.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://feedburner.google.com/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "hangouts-classic",
+      "wall": "successor-facade",
+      "title": "Hangouts",
+      "owner": "Curated",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://workspaceupdates.googleblog.com/2021/08/hangouts-will-be-turned-off.html",
+      "probeUrl": "https://hangouts.google.com/",
+      "httpStatus": 200,
+      "finalUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://mail.google.com/chat/u/0/&emr=1&followup=https://mail.google.com/chat/u/0/&osid=1&passive=1209600&service=mail&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S1161409572:1786539524192903",
+      "note": "Curated probe hint. Probe before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://hangouts.google.com/",
+          "status": 302,
+          "location": "https://mail.google.com/chat"
+        },
+        {
+          "url": "https://mail.google.com/chat",
+          "status": 302,
+          "location": "https://mail.google.com/chat/"
+        },
+        {
+          "url": "https://mail.google.com/chat/",
+          "status": 301,
+          "location": "https://mail.google.com/chat/u/0/"
+        },
+        {
+          "url": "https://mail.google.com/chat/u/0/",
+          "status": 302,
+          "location": "https://accounts.google.com/ServiceLogin?service=mail&passive=1209600&osid=1&continue=https://mail.google.com/chat/u/0/&followup=https://mail.google.com/chat/u/0/&emr=1"
+        },
+        {
+          "url": "https://accounts.google.com/ServiceLogin?service=mail&passive=1209600&osid=1&continue=https://mail.google.com/chat/u/0/&followup=https://mail.google.com/chat/u/0/&emr=1",
+          "status": 302,
+          "location": "https://accounts.google.com/v3/signin/identifier?continue=https://mail.google.com/chat/u/0/&emr=1&followup=https://mail.google.com/chat/u/0/&osid=1&passive=1209600&service=mail&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S1161409572:1786539524192903"
+        },
+        {
+          "url": "https://accounts.google.com/v3/signin/identifier?continue=https://mail.google.com/chat/u/0/&emr=1&followup=https://mail.google.com/chat/u/0/&osid=1&passive=1209600&service=mail&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S1161409572:1786539524192903",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "duo-google",
+      "wall": "successor-facade",
+      "title": "Google Duo",
+      "owner": "Curated",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://blog.google/products/duo/meet-the-new-google-meet/",
+      "probeUrl": "https://duo.google.com/",
+      "httpStatus": 200,
+      "finalUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://meet.google.com/landing?calling%3D1&followup=https://meet.google.com/landing?calling%3D1&osid=1&passive=1209600&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S1795814135:1786539525907385",
+      "note": "Curated probe hint. Probe before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://duo.google.com/",
+          "status": 302,
+          "location": "https://meet.google.com/landing?calling=1"
+        },
+        {
+          "url": "https://meet.google.com/landing?calling=1",
+          "status": 302,
+          "location": "https://accounts.google.com/ServiceLogin?passive=1209600&osid=1&continue=https://meet.google.com/landing?calling%3D1&followup=https://meet.google.com/landing?calling%3D1"
+        },
+        {
+          "url": "https://accounts.google.com/ServiceLogin?passive=1209600&osid=1&continue=https://meet.google.com/landing?calling%3D1&followup=https://meet.google.com/landing?calling%3D1",
+          "status": 302,
+          "location": "https://accounts.google.com/v3/signin/identifier?continue=https://meet.google.com/landing?calling%3D1&followup=https://meet.google.com/landing?calling%3D1&osid=1&passive=1209600&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S1795814135:1786539525907385"
+        },
+        {
+          "url": "https://accounts.google.com/v3/signin/identifier?continue=https://meet.google.com/landing?calling%3D1&followup=https://meet.google.com/landing?calling%3D1&osid=1&passive=1209600&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S1795814135:1786539525907385",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "google-currents",
+      "wall": "successor-facade",
+      "title": "Google Currents",
+      "owner": "Curated",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://workspaceupdates.googleblog.com/2022/02/transition-from-currents-to-spaces.html",
+      "probeUrl": "https://currents.google.com/",
+      "httpStatus": 200,
+      "finalUrl": "https://accounts.google.com/v3/signin/identifier?continue=https://chat.google.com/&emr=1&osid=1&passive=1209600&service=dynamite&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S-232899405:1786539527367006",
+      "note": "Curated probe hint. Probe before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://currents.google.com/",
+          "status": 301,
+          "location": "https://chat.google.com/"
+        },
+        {
+          "url": "https://chat.google.com/",
+          "status": 302,
+          "location": "https://accounts.google.com/ServiceLogin?service=dynamite&passive=1209600&osid=1&continue=https://chat.google.com/&emr=1"
+        },
+        {
+          "url": "https://accounts.google.com/ServiceLogin?service=dynamite&passive=1209600&osid=1&continue=https://chat.google.com/&emr=1",
+          "status": 302,
+          "location": "https://accounts.google.com/v3/signin/identifier?continue=https://chat.google.com/&emr=1&osid=1&passive=1209600&service=dynamite&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S-232899405:1786539527367006"
+        },
+        {
+          "url": "https://accounts.google.com/v3/signin/identifier?continue=https://chat.google.com/&emr=1&osid=1&passive=1209600&service=dynamite&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S-232899405:1786539527367006",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "u2f-security-keys-docs",
+      "wall": "successor-facade",
+      "title": "U2F / legacy Titan docs door",
+      "owner": "Curated",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://developers.yubico.com/U2F/",
+      "probeUrl": "https://cloud.google.com/security-key",
+      "httpStatus": 200,
+      "finalUrl": "https://cloud.google.com/security/products/titan-security-key",
+      "titleTag": "Titan Security Key | Google Cloud",
+      "note": "Legacy auth surface - confirm product funeral before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://cloud.google.com/security-key",
+          "status": 301,
+          "location": "https://cloud.google.com/titan-security-key/"
+        },
+        {
+          "url": "https://cloud.google.com/titan-security-key/",
+          "status": 301,
+          "location": "https://cloud.google.com/titan-security-key"
+        },
+        {
+          "url": "https://cloud.google.com/titan-security-key",
+          "status": 301,
+          "location": "https://cloud.google.com/security/products/titan-security-key"
+        },
+        {
+          "url": "https://cloud.google.com/security/products/titan-security-key",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "spaces-google",
+      "wall": "successor-facade",
+      "title": "Google Spaces",
+      "owner": "Curated",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://blog.google/products/g-suite/google-spaces-is-shutting-down/",
+      "probeUrl": "https://spaces.google.com/",
+      "httpStatus": 200,
+      "finalUrl": "https://workspace.google.com/",
+      "note": "Curated probe hint. Probe before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://spaces.google.com/",
+          "status": 301,
+          "location": "https://get.google.com/spaces/"
+        },
+        {
+          "url": "https://get.google.com/spaces/",
+          "status": 301,
+          "location": "https://workspace.google.com/"
+        },
+        {
+          "url": "https://workspace.google.com/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "nest-secure",
+      "wall": "successor-facade",
+      "title": "Nest Secure",
+      "owner": "Curated",
+      "declaredDead": "2026-08-12",
+      "obituary": "https://store.google.com/magazine/nest_secure_retirement",
+      "probeUrl": "https://store.google.com/product/nest_secure",
+      "httpStatus": 200,
+      "finalUrl": "https://store.google.com/?hl=es-419",
+      "note": "Curated probe hint. Probe before hang.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://store.google.com/product/nest_secure",
+          "status": 301,
+          "location": "https://store.google.com/product/nest_secure?hl=es-419"
+        },
+        {
+          "url": "https://store.google.com/product/nest_secure?hl=es-419",
+          "status": 302,
+          "location": "https://store.google.com/?hl=es-419"
+        },
+        {
+          "url": "https://store.google.com/?hl=es-419",
+          "status": 200
         }
       ]
     }

@@ -1,0 +1,54 @@
+{
+  "owner": "Adobe",
+  "purpose": "Adobe runtime and cloud sunsets.",
+  "seeds": [
+    {
+      "id": "adobe-flash-player-page",
+      "title": "Adobe Flash Player product page",
+      "probeUrl": "https://www.adobe.com/products/flashplayer.html",
+      "obituary": "https://www.adobe.com/products/flashplayer/end-of-life.html"
+    },
+    {
+      "id": "adobe-flash-enterprise",
+      "title": "Flash Player enterprise distribution",
+      "probeUrl": "https://www.adobe.com/products/flashplayer/distribution3.html",
+      "obituary": "https://blog.adobe.com/en/publish/2017/07/25/adobe-flash-update"
+    },
+    {
+      "id": "adobe-shockwave",
+      "title": "Adobe Shockwave",
+      "probeUrl": "https://get.adobe.com/shockwave/",
+      "obituary": "https://helpx.adobe.com/shockwave/shockwave-end-of-life.html"
+    },
+    {
+      "id": "adobe-muse",
+      "title": "Adobe Muse",
+      "probeUrl": "https://www.adobe.com/products/muse.html",
+      "obituary": "https://blog.adobe.com/en/publish/2018/03/26/the-future-of-adobe-muse"
+    },
+    {
+      "id": "adobe-flash-builder",
+      "title": "Flash Builder",
+      "probeUrl": "https://www.adobe.com/products/flash-builder.html",
+      "obituary": "https://blog.adobe.com/en/publish/2019/05/30/the-future-of-adobe-air"
+    },
+    {
+      "id": "adobe-story",
+      "title": "Adobe Story",
+      "probeUrl": "https://story.adobe.com/",
+      "obituary": "https://helpx.adobe.com/story/kb/adobe-story-end-of-life.html"
+    },
+    {
+      "id": "adobe-browserlab",
+      "title": "BrowserLab",
+      "probeUrl": "https://browserlab.adobe.com/",
+      "obituary": "https://en.wikipedia.org/wiki/Adobe_BrowserLab"
+    },
+    {
+      "id": "phonegap-build",
+      "title": "PhoneGap Build",
+      "probeUrl": "https://build.phonegap.com/",
+      "obituary": "https://blog.phonegap.com/update-on-phonegap-build-and-phonegap-apps-status-d8d4a8320e3a"
+    }
+  ]
+}
