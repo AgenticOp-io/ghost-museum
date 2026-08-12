@@ -36,18 +36,27 @@ npm run validate
 2. Never document how to keep using a ghost.
 3. Own this lane only — not Chrysalis, WISP, Helix, or AgenticOps chrome.
 
-## GCE demo (no hostname)
+## GCE / hostname
 
-Static hall on **agenticop-master**, demo port only (not :80/:443):
+- Demo port (agenticop-master): `powershell -File scripts/gce-deploy-demo.ps1` → http://35.224.146.25:27474/
+- Named host (chrysalis-test-vm nginx): `powershell -File scripts/gce-deploy-ghosts-host.ps1`
+- DNS (GoDaddy API): set `GODADDY_API_KEY` + `GODADDY_API_SECRET`, then `powershell -File scripts/godaddy-set-ghosts-dns.ps1`
+- TLS after DNS: certbot webroot on the VM (see deploy script output)
+- Target URL: https://ghosts.agenticop.io/
 
-```powershell
-powershell -File scripts/gce-deploy-demo.ps1
+## Hunt bot
+
+```bash
+npm run hunt              # one slow pass (~55s between GETs)
+npm run hunt -- --loop    # keep hunting
 ```
 
-View: http://35.224.146.25:27474/
+Writes `hunt/findings.jsonl` for curator review. Never auto-hangs.
 
-Default port `27474` reuses an existing `http-server` firewall allow. Dedicated `:19191` needs a project admin to create `allow-ghost-museum` (`compute.firewalls.create`).
+## Turnstile
+
+Requires a **Cloudflare account** to create site/secret keys. Optional until keys exist — honeypot + rate limit still apply. Set `TURNSTILE_SECRET_KEY` on the server and `window.__GM_TURNSTILE_SITEKEY` (or meta tag) in the page.
 
 ## License
 
-Apache-2.0. Private remote for now; open the hall when a hostname is assigned.
+Apache-2.0.

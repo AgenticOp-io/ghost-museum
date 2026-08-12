@@ -1,6 +1,8 @@
 .bare/
 node_modules/
 nominations/
+hunt/findings.jsonl
+hunt/last-pass.json
 .DS_Store
 Thumbs.db
 *.log

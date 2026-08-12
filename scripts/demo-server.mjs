@@ -13,10 +13,13 @@ const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const siteRoot = process.env.GM_SITE_ROOT || join(root, "site");
 const nomDir = process.env.GM_NOMINATIONS_DIR || join(root, "nominations");
 const PORT = Number(process.env.GM_PORT || 27474);
+const BIND = process.env.GM_BIND || "0.0.0.0";
 const MIN_MS = 2500;
 const MAX_NOTE = 500;
 const RATE_WINDOW_MS = 60 * 60 * 1000;
 const RATE_MAX = 5;
+const TURNSTILE_SECRET = process.env.TURNSTILE_SECRET_KEY || "";
+const TURNSTILE_REQUIRED = process.env.TURNSTILE_REQUIRED === "1" || Boolean(TURNSTILE_SECRET);
 
 const MIME = {
   ".html": "text/html; charset=utf-8",
@@ -38,6 +41,25 @@ function clientIp(req) {
   const xf = req.headers["x-forwarded-for"];
   if (typeof xf === "string" && xf.trim()) return xf.split(",")[0].trim();
   return req.socket.remoteAddress || "unknown";
+}
+
+async function verifyTurnstile(token, ip) {
+  if (!TURNSTILE_SECRET) return { ok: true, skipped: true };
+  if (!token) return { ok: false, error: "Turnstile token missing." };
+  const body = new URLSearchParams({
+    secret: TURNSTILE_SECRET,
+    response: token,
+    remoteip: ip,
+  });
+  const res = await fetch("https://challenges.cloudflare.com/turnstile/v0/siteverify", {
+    method: "POST",
+    headers: { "content-type": "application/x-www-form-urlencoded" },
+    body,
+    signal: AbortSignal.timeout(10000),
+  });
+  const data = await res.json();
+  if (!data.success) return { ok: false, error: "Turnstile check failed." };
+  return { ok: true };
 }
 
 function rateOk(ip) {
@@ -115,6 +137,11 @@ async function handleNominate(req, res) {
     data = JSON.parse(raw || "{}");
   } catch {
     return sendJson(res, 400, { ok: false, error: "Invalid JSON." });
+  }
+
+  if (TURNSTILE_REQUIRED) {
+    const ts = await verifyTurnstile(String(data.turnstileToken || data["cf-turnstile-response"] || ""), ip);
+    if (!ts.ok) return sendJson(res, 400, { ok: false, error: ts.error || "Bot check failed." });
   }
 
   // Honeypot — bots fill hidden "company" / website fields.
@@ -209,6 +236,6 @@ const server = createServer(async (req, res) => {
   }
 });
 
-server.listen(PORT, "0.0.0.0", () => {
-  console.log(`Ghost Museum demo http://0.0.0.0:${PORT}/ (site=${siteRoot})`);
+server.listen(PORT, BIND, () => {
+  console.log(`Ghost Museum demo http://${BIND}:${PORT}/ (site=${siteRoot}) turnstile=${TURNSTILE_SECRET ? "on" : "off"}`);
 });
