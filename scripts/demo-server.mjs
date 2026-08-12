@@ -1,15 +1,44 @@
 #!/usr/bin/env node
 /**
  * Static hall + nomination intake. No login.
- * Anti-bot: honeypot, min fill time, IP rate limit, field validation.
+ * Anti-bot: Turnstile siteverify + honeypot + fill-time + IP rate limit.
  * Nominations are offers only — never auto-hung.
  */
 import { createServer } from "node:http";
-import { readFileSync, writeFileSync, mkdirSync, appendFileSync, existsSync, statSync } from "node:fs";
+import {
+  readFileSync,
+  writeFileSync,
+  mkdirSync,
+  appendFileSync,
+  existsSync,
+  statSync,
+} from "node:fs";
 import { dirname, join, extname, normalize } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
+
+function loadDotEnv(path) {
+  if (!existsSync(path)) return;
+  for (const line of readFileSync(path, "utf8").split(/\r?\n/)) {
+    if (!line || line.trim().startsWith("#")) continue;
+    const i = line.indexOf("=");
+    if (i < 1) continue;
+    const k = line.slice(0, i).trim();
+    let v = line.slice(i + 1).trim();
+    if (
+      (v.startsWith('"') && v.endsWith('"')) ||
+      (v.startsWith("'") && v.endsWith("'"))
+    ) {
+      v = v.slice(1, -1);
+    }
+    if (!(k in process.env)) process.env[k] = v;
+  }
+}
+
+loadDotEnv(join(root, ".env"));
+if (process.env.GM_ENV_FILE) loadDotEnv(process.env.GM_ENV_FILE);
+
 const siteRoot = process.env.GM_SITE_ROOT || join(root, "site");
 const nomDir = process.env.GM_NOMINATIONS_DIR || join(root, "nominations");
 const PORT = Number(process.env.GM_PORT || 27474);
@@ -18,8 +47,15 @@ const MIN_MS = 2500;
 const MAX_NOTE = 500;
 const RATE_WINDOW_MS = 60 * 60 * 1000;
 const RATE_MAX = 5;
-const TURNSTILE_SECRET = process.env.TURNSTILE_SECRET_KEY || "";
-const TURNSTILE_REQUIRED = process.env.TURNSTILE_REQUIRED === "1" || Boolean(TURNSTILE_SECRET);
+const EXPECTED_ACTION = "nominate";
+const TURNSTILE_SECRET =
+  process.env.TURNSTILE_SECRET || process.env.TURNSTILE_SECRET_KEY || "";
+const expectedHostnames = new Set(
+  (process.env.TURNSTILE_HOSTNAMES || "ghosts.agenticop.io,35.224.146.25,localhost,127.0.0.1")
+    .split(",")
+    .map((h) => h.trim().toLowerCase())
+    .filter(Boolean),
+);
 
 const MIME = {
   ".html": "text/html; charset=utf-8",
@@ -41,25 +77,6 @@ function clientIp(req) {
   const xf = req.headers["x-forwarded-for"];
   if (typeof xf === "string" && xf.trim()) return xf.split(",")[0].trim();
   return req.socket.remoteAddress || "unknown";
-}
-
-async function verifyTurnstile(token, ip) {
-  if (!TURNSTILE_SECRET) return { ok: true, skipped: true };
-  if (!token) return { ok: false, error: "Turnstile token missing." };
-  const body = new URLSearchParams({
-    secret: TURNSTILE_SECRET,
-    response: token,
-    remoteip: ip,
-  });
-  const res = await fetch("https://challenges.cloudflare.com/turnstile/v0/siteverify", {
-    method: "POST",
-    headers: { "content-type": "application/x-www-form-urlencoded" },
-    body,
-    signal: AbortSignal.timeout(10000),
-  });
-  const data = await res.json();
-  if (!data.success) return { ok: false, error: "Turnstile check failed." };
-  return { ok: true };
 }
 
 function rateOk(ip) {
@@ -110,6 +127,51 @@ function sendJson(res, status, obj) {
   res.end(body);
 }
 
+/**
+ * Canonical Turnstile siteverify (Spin existing-widget flow).
+ * Requires success, expected action, and an approved frontend hostname.
+ */
+async function verifyTurnstile(token, ip) {
+  if (!TURNSTILE_SECRET || expectedHostnames.size === 0) {
+    return { ok: false, status: 503, error: "Turnstile is not configured on the server." };
+  }
+  if (
+    typeof token !== "string" ||
+    token.length === 0 ||
+    token.length > 2048
+  ) {
+    return { ok: false, status: 403, error: "Bot check failed." };
+  }
+
+  let result;
+  try {
+    const r = await fetch("https://challenges.cloudflare.com/turnstile/v0/siteverify", {
+      method: "POST",
+      headers: { "content-type": "application/x-www-form-urlencoded" },
+      signal: AbortSignal.timeout(10_000),
+      body: new URLSearchParams({
+        secret: TURNSTILE_SECRET,
+        response: token,
+        remoteip: ip,
+      }),
+    });
+    if (!r.ok) throw new Error(`siteverify ${r.status}`);
+    result = await r.json();
+  } catch {
+    return { ok: false, status: 403, error: "Bot check failed." };
+  }
+
+  const hostname = String(result.hostname || "").toLowerCase();
+  if (
+    !result.success ||
+    result.action !== EXPECTED_ACTION ||
+    !expectedHostnames.has(hostname)
+  ) {
+    return { ok: false, status: 403, error: "Bot check failed." };
+  }
+  return { ok: true };
+}
+
 function safeSitePath(urlPath) {
   let p = decodeURIComponent(urlPath.split("?")[0]);
   if (p === "/") p = "/index.html";
@@ -122,7 +184,10 @@ function safeSitePath(urlPath) {
 async function handleNominate(req, res) {
   const ip = clientIp(req);
   if (!rateOk(ip)) {
-    return sendJson(res, 429, { ok: false, error: "Too many nominations from this network. Try later." });
+    return sendJson(res, 429, {
+      ok: false,
+      error: "Too many nominations from this network. Try later.",
+    });
   }
 
   let raw;
@@ -139,14 +204,15 @@ async function handleNominate(req, res) {
     return sendJson(res, 400, { ok: false, error: "Invalid JSON." });
   }
 
-  if (TURNSTILE_REQUIRED) {
-    const ts = await verifyTurnstile(String(data.turnstileToken || data["cf-turnstile-response"] || ""), ip);
-    if (!ts.ok) return sendJson(res, 400, { ok: false, error: ts.error || "Bot check failed." });
+  // Honeypot — bots fill hidden fields; silent drop.
+  if (data.company || data.website || data.url) {
+    return sendJson(res, 200, { ok: true });
   }
 
-  // Honeypot — bots fill hidden "company" / website fields.
-  if (data.company || data.website || data.url) {
-    return sendJson(res, 200, { ok: true }); // silent success
+  const token = String(data["cf-turnstile-response"] || data.turnstileToken || "");
+  const ts = await verifyTurnstile(token, ip);
+  if (!ts.ok) {
+    return sendJson(res, ts.status || 403, { ok: false, error: ts.error || "Bot check failed." });
   }
 
   const started = Number(data.startedAt);
@@ -160,7 +226,10 @@ async function handleNominate(req, res) {
   const contact = String(data.contact || "").trim();
 
   if (!isHttpUrl(probeUrl) || !isHttpUrl(obituary)) {
-    return sendJson(res, 400, { ok: false, error: "Probe URL and obituary must be public http(s) links." });
+    return sendJson(res, 400, {
+      ok: false,
+      error: "Probe URL and obituary must be public http(s) links.",
+    });
   }
   if (note.length > MAX_NOTE) {
     return sendJson(res, 400, { ok: false, error: `Note must be ≤ ${MAX_NOTE} characters.` });
@@ -168,10 +237,16 @@ async function handleNominate(req, res) {
   if (contact && contact.length > 200) {
     return sendJson(res, 400, { ok: false, error: "Contact is too long." });
   }
-  // Soft reject integration language
   const blob = `${note} ${probeUrl}`.toLowerCase();
-  if (/\b(api[_ -]?key|bearer\s|password|curl\s+-u|how to (keep|still) (use|call|integrate))\b/.test(blob)) {
-    return sendJson(res, 400, { ok: false, error: "Nominations cannot include credentials or integration instructions." });
+  if (
+    /\b(api[_ -]?key|bearer\s|password|curl\s+-u|how to (keep|still) (use|call|integrate))\b/.test(
+      blob,
+    )
+  ) {
+    return sendJson(res, 400, {
+      ok: false,
+      error: "Nominations cannot include credentials or integration instructions.",
+    });
   }
 
   const entry = {
@@ -186,8 +261,7 @@ async function handleNominate(req, res) {
     doNotIntegrate: true,
   };
 
-  const line = JSON.stringify(entry) + "\n";
-  appendFileSync(join(nomDir, "nominations.jsonl"), line);
+  appendFileSync(join(nomDir, "nominations.jsonl"), JSON.stringify(entry) + "\n");
   writeFileSync(join(nomDir, `${entry.id}.json`), JSON.stringify(entry, null, 2) + "\n");
 
   return sendJson(res, 200, {
@@ -222,7 +296,10 @@ const server = createServer(async (req, res) => {
       });
       return res.end();
     }
-    if (req.method === "POST" && (req.url === "/api/nominate" || req.url?.startsWith("/api/nominate?"))) {
+    if (
+      req.method === "POST" &&
+      (req.url === "/api/nominate" || req.url?.startsWith("/api/nominate?"))
+    ) {
       return await handleNominate(req, res);
     }
     if (req.method === "GET" || req.method === "HEAD") {
@@ -237,5 +314,7 @@ const server = createServer(async (req, res) => {
 });
 
 server.listen(PORT, BIND, () => {
-  console.log(`Ghost Museum demo http://${BIND}:${PORT}/ (site=${siteRoot}) turnstile=${TURNSTILE_SECRET ? "on" : "off"}`);
+  console.log(
+    `Ghost Museum demo http://${BIND}:${PORT}/ turnstile=${TURNSTILE_SECRET ? "on" : "MISSING_SECRET"} action=${EXPECTED_ACTION}`,
+  );
 });

@@ -55,7 +55,7 @@ Writes `hunt/findings.jsonl` for curator review. Never auto-hangs.
 
 ## Turnstile
 
-Requires a **Cloudflare account** to create site/secret keys. Optional until keys exist — honeypot + rate limit still apply. Set `TURNSTILE_SECRET_KEY` on the server and `window.__GM_TURNSTILE_SITEKEY` (or meta tag) in the page.
+Requires a **Cloudflare account** (widget already created). Sitekey is public in `site/nominate.html`. Set `TURNSTILE_SECRET` in `.env` (see `.env.example`) or on the GCE process — never commit or paste the secret into chat. Optional: `TURNSTILE_HOSTNAMES`.
 
 ## License
 

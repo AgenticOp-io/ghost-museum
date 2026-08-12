@@ -521,6 +521,12 @@ a:hover { color: #fff6dd; }
   position: relative;
   z-index: 1;
 }
+.gm-turnstile,
+.cf-turnstile {
+  position: relative;
+  z-index: 1;
+  min-height: 65px;
+}
 .gm-form-actions {
   display: flex;
   flex-direction: column;

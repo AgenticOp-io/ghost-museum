@@ -11,17 +11,33 @@ Ghost Museum hangs frames from **two intake paths**. Same gate for both.
 
 **No login.** Nominations are offers, not accounts. Curator probes before anything hangs.
 
+## Turnstile
+
+Widget sitekey (public) is embedded on `/nominate.html` with `data-action="nominate"`.
+
+Server-side siteverify (canonical) requires:
+
+| Env | Role |
+|-----|------|
+| `TURNSTILE_SECRET` | Widget secret — **never** in the browser or git |
+| `TURNSTILE_HOSTNAMES` | Comma list of allowed frontend hostnames from siteverify |
+
+Copy `.env.example` → `.env` (gitignored) or set the same vars on the GCE process. Do not paste the secret into chat.
+
+Without `TURNSTILE_SECRET`, `POST /api/nominate` fails closed (503).
+
 ## On-page form
 
 `site/nominate.html` → `POST /api/nominate` (demo server).
 
-Anti-bot (no CAPTCHA account required for v1):
+Anti-bot:
 
-1. Honeypot fields (`company` / `website`) — silent drop if filled
-2. Minimum fill time (~2.5s)
-3. Per-IP rate limit (5 / hour)
-4. Reject credentials / “how to keep using” language
-5. Body size cap
+1. Cloudflare Turnstile (siteverify: success + action `nominate` + hostname allowlist)
+2. Honeypot fields (`company` / `website`) — silent drop if filled
+3. Minimum fill time (~2.5s)
+4. Per-IP rate limit (5 / hour)
+5. Reject credentials / “how to keep using” language
+6. Body size cap
 
 Stored under `nominations/` as JSONL + per-id JSON. **Never** written into `exhibits/` by the API.
 
@@ -40,7 +56,3 @@ Stored under `nominations/` as JSONL + per-id JSON. **Never** written into `exhi
 - Load-test / fuzz suggestions
 - Private or authenticated-only endpoints
 - Frames with no funeral citation
-
-## Later (optional)
-
-Cloudflare Turnstile on the form when on a real hostname — still no user login.
