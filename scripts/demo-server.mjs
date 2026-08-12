@@ -359,6 +359,6 @@ const server = createServer(async (req, res) => {
 
 server.listen(PORT, BIND, () => {
   console.log(
-    `Ghost Museum demo http://${BIND}:${PORT}/ turnstile=${TURNSTILE_SECRET ? "on" : "MISSING_SECRET"} action=${EXPECTED_ACTION}`,
+    `Still Answering http://${BIND}:${PORT}/ turnstile=${TURNSTILE_SECRET ? "on" : "MISSING_SECRET"} action=${EXPECTED_ACTION}`,
   );
 });

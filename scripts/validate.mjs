@@ -48,7 +48,7 @@ function isHttpUrl(s) {
 const data = JSON.parse(readFileSync(path, "utf8"));
 const site = JSON.parse(readFileSync(sitePath, "utf8"));
 
-if (data.museum !== "Ghost Museum") fail('museum must be "Ghost Museum"');
+if (data.museum !== "Still Answering") fail('museum must be "Still Answering"');
 if (!data.tagline) fail("missing tagline");
 if (!Array.isArray(data.exhibits) || !data.exhibits.length) {
   fail("exhibits must be a non-empty array");

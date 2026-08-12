@@ -158,7 +158,273 @@
       "title": "Skype Web",
       "probeUrl": "https://web.skype.com/",
       "obituary": "https://support.microsoft.com/en-us/office/skype-is-retiring-in-may-2025-25fa8625-794a-42f7-a849-eb9518b7d65c",
-      "note": "Living product until retirement date — hunt to watch the funeral, not hang early."
+      "note": "Living product until retirement date - hunt to watch the funeral, not hang early."
+    },
+    {
+      "id": "google-buzz",
+      "title": "Google Buzz",
+      "probeUrl": "https://www.google.com/buzz",
+      "obituary": "https://googleblog.blogspot.com/2011/10/fall-sweep.html",
+      "matchName": "Google Buzz"
+    },
+    {
+      "id": "google-talk",
+      "title": "Google Talk",
+      "probeUrl": "https://talk.google.com/",
+      "obituary": "https://workspaceupdates.googleblog.com/2017/06/hangouts-chat-and-hangouts-meet.html",
+      "matchName": "Google Talk"
+    },
+    {
+      "id": "google-answers",
+      "title": "Google Answers",
+      "probeUrl": "https://answers.google.com/",
+      "obituary": "https://googleblog.blogspot.com/2006/11/adieu-to-google-answers.html",
+      "matchName": "Google Answers"
+    },
+    {
+      "id": "google-notebook",
+      "title": "Google Notebook",
+      "probeUrl": "https://www.google.com/notebook/",
+      "obituary": "https://googleblog.blogspot.com/2011/11/spring-cleaning-in-fall.html",
+      "matchName": "Google Notebook"
+    },
+    {
+      "id": "google-code-search",
+      "title": "Google Code Search",
+      "probeUrl": "https://www.google.com/codesearch",
+      "obituary": "https://googleblog.blogspot.com/2011/10/fall-sweep.html",
+      "matchName": "Google Code Search"
+    },
+    {
+      "id": "google-latitude",
+      "title": "Google Latitude",
+      "probeUrl": "https://www.google.com/latitude/",
+      "obituary": "https://googleblog.blogspot.com/2013/07/latitude-retired.html",
+      "matchName": "Google Latitude"
+    },
+    {
+      "id": "google-video",
+      "title": "Google Video",
+      "probeUrl": "https://video.google.com/",
+      "obituary": "https://googleblog.blogspot.com/2012/07/spring-cleaning-in-summer.html",
+      "matchName": "Google Video"
+    },
+    {
+      "id": "knol",
+      "title": "Knol",
+      "probeUrl": "https://knol.google.com/",
+      "obituary": "https://googleblog.blogspot.com/2011/11/spring-cleaning-in-fall.html",
+      "matchName": "Knol"
+    },
+    {
+      "id": "feedburner",
+      "title": "FeedBurner",
+      "probeUrl": "https://feedburner.google.com/",
+      "obituary": "https://support.google.com/feedburner/answer/1220285",
+      "note": "Legacy feed door - probe whether the hostname still answers."
+    },
+    {
+      "id": "geocities-yahoo",
+      "title": "Yahoo GeoCities",
+      "probeUrl": "https://www.geocities.yahoo.com/",
+      "obituary": "https://www.theverge.com/2019/10/26/20933202/geocities-shutdown-anniversary-web-history",
+      "matchName": "GeoCities"
+    },
+    {
+      "id": "yahoo-messenger",
+      "title": "Yahoo Messenger",
+      "probeUrl": "https://messenger.yahoo.com/",
+      "obituary": "https://yahoo.tumblr.com/post/174118295567/yahoo-messenger-will-no-longer-be-available",
+      "matchName": "Yahoo Messenger"
+    },
+    {
+      "id": "aim",
+      "title": "AOL Instant Messenger",
+      "probeUrl": "https://www.aim.com/",
+      "obituary": "https://help.aol.com/articles/aim-discontinued",
+      "matchName": "AOL Instant Messenger"
+    },
+    {
+      "id": "hipchat",
+      "title": "HipChat",
+      "probeUrl": "https://www.hipchat.com/",
+      "obituary": "https://www.atlassian.com/blog/announcements/goodbye-hipchat-connect-stride",
+      "matchName": "HipChat"
+    },
+    {
+      "id": "stride-atlassian",
+      "title": "Stride",
+      "probeUrl": "https://www.stride.com/",
+      "obituary": "https://www.atlassian.com/blog/announcements/journey-with-stride-ends",
+      "matchName": "Stride"
+    },
+    {
+      "id": "rdio",
+      "title": "Rdio",
+      "probeUrl": "https://www.rdio.com/",
+      "obituary": "https://blog.rdio.com/",
+      "note": "Music service funeral - probe hostname; verify living obituary URL before hang."
+    },
+    {
+      "id": "grooveshark",
+      "title": "Grooveshark",
+      "probeUrl": "https://grooveshark.com/",
+      "obituary": "https://www.theverge.com/2015/4/30/8521999/grooveshark-shuts-down",
+      "matchName": "Grooveshark"
+    },
+    {
+      "id": "friendfeed",
+      "title": "FriendFeed",
+      "probeUrl": "https://friendfeed.com/",
+      "obituary": "https://blog.facebook.com/blog.php?post=10150278932602131",
+      "matchName": "FriendFeed"
+    },
+    {
+      "id": "meebo",
+      "title": "Meebo",
+      "probeUrl": "https://www.meebo.com/",
+      "obituary": "https://googleblog.blogspot.com/2012/06/spring-cleaning-for-spring.html",
+      "matchName": "Meebo"
+    },
+    {
+      "id": "delicious",
+      "title": "Delicious",
+      "probeUrl": "https://delicious.com/",
+      "obituary": "https://blog.delicious.com/",
+      "note": "Bookmarking ghost - confirm current operator vs funeral before hang."
+    },
+    {
+      "id": "stumbleupon",
+      "title": "StumbleUpon",
+      "probeUrl": "https://www.stumbleupon.com/",
+      "obituary": "https://www.theverge.com/2018/5/24/17389096/stumbleupon-shutting-down",
+      "matchName": "StumbleUpon"
+    },
+    {
+      "id": "microsoft-silverlight",
+      "title": "Microsoft Silverlight",
+      "probeUrl": "https://www.microsoft.com/silverlight/",
+      "obituary": "https://support.microsoft.com/en-us/windows/silverlight-end-of-support-0aa3cfef-6244-4c83-a0bb-1a0c5e2f2a6b",
+      "matchName": "Silverlight"
+    },
+    {
+      "id": "internet-explorer",
+      "title": "Internet Explorer",
+      "probeUrl": "https://www.microsoft.com/en-us/download/internet-explorer.aspx",
+      "obituary": "https://blogs.windows.com/windowsexperience/2022/06/15/internet-explorer-11-desktop-app-retirement-faq/",
+      "matchName": "Internet Explorer"
+    },
+    {
+      "id": "windows-live-spaces",
+      "title": "Windows Live Spaces",
+      "probeUrl": "https://spaces.live.com/",
+      "obituary": "https://blogs.windows.com/windowsexperience/2010/09/27/windows-live-spaces-moving-to-wordpress-com/",
+      "matchName": "Windows Live Spaces"
+    },
+    {
+      "id": "xbox-live-indie",
+      "title": "Xbox Live Indie Games",
+      "probeUrl": "https://marketplace.xbox.com/",
+      "obituary": "https://news.xbox.com/en-us/2013/08/12/xbox-live-indie-games-coming-to-an-end/",
+      "note": "Marketplace door may still answer - confirm before hang."
+    },
+    {
+      "id": "google-glass-explorer",
+      "title": "Google Glass Explorer",
+      "probeUrl": "https://www.google.com/glass/",
+      "obituary": "https://blog.google/products/google-ar-vr/a-new-chapter-for-glass/",
+      "matchName": "Google Glass"
+    },
+    {
+      "id": "google-hangouts-chat-api",
+      "title": "Classic Hangouts API door",
+      "probeUrl": "https://developers.google.com/hangouts/",
+      "obituary": "https://workspaceupdates.googleblog.com/2019/06/transition-from-classic-hangouts-to-chat.html",
+      "note": "Docs/API surface for a retired chat product - probe only."
+    },
+    {
+      "id": "parse-dashboard",
+      "title": "Parse Platform",
+      "probeUrl": "https://parseplatform.org/",
+      "obituary": "https://blog.parseplatform.org/",
+      "note": "Community successor may still be living - contrast with buried parse.com."
+    },
+    {
+      "id": "heroku-button",
+      "title": "Heroku Button / deploy door",
+      "probeUrl": "https://heroku.com/deploy",
+      "obituary": "https://blog.heroku.com/next-chapter",
+      "note": "Salesforce sold Heroku - watch the hostname, do not invent a funeral early."
+    },
+    {
+      "id": "atom-io",
+      "title": "Atom editor site",
+      "probeUrl": "https://atom.io/",
+      "obituary": "https://github.blog/news-insights/product-news/sunsetting-atom/",
+      "matchName": "Atom"
+    },
+    {
+      "id": "spectrum-chat",
+      "title": "Spectrum",
+      "probeUrl": "https://spectrum.chat/",
+      "obituary": "https://github.blog/2022-08-10-sunsetting-spectrum/",
+      "matchName": "Spectrum"
+    },
+    {
+      "id": "dependabot-preview",
+      "title": "Dependabot Preview",
+      "probeUrl": "https://dependabot.com/",
+      "obituary": "https://github.blog/2021-04-29-goodbye-dependabot-preview-hello-dependabot/",
+      "note": "Brand may redirect into GitHub - successor facade candidate."
+    },
+    {
+      "id": "clubhouse-app",
+      "title": "Clubhouse",
+      "probeUrl": "https://www.clubhouse.com/",
+      "obituary": "https://blog.clubhouse.com/",
+      "note": "Product still may answer - only hang if a real sunset is cited."
+    },
+    {
+      "id": "pebble",
+      "title": "Pebble",
+      "probeUrl": "https://www.pebble.com/",
+      "obituary": "https://blog.getpebble.com/",
+      "matchName": "Pebble"
+    },
+    {
+      "id": "nest-protect-app",
+      "title": "Works with Nest classic",
+      "probeUrl": "https://home.nest.com/",
+      "obituary": "https://store.google.com/magazine/works_with_nest_retirement",
+      "note": "Works with Nest sunset - living Nest home may still answer."
+    },
+    {
+      "id": "u2f-security-keys-docs",
+      "title": "U2F / legacy Titan docs door",
+      "probeUrl": "https://cloud.google.com/security-key",
+      "obituary": "https://developers.yubico.com/U2F/",
+      "note": "Legacy auth surface - confirm product funeral before hang."
+    },
+    {
+      "id": "azure-ad-graph",
+      "title": "Azure AD Graph",
+      "probeUrl": "https://graph.windows.net/",
+      "obituary": "https://learn.microsoft.com/en-us/graph/migrate-azure-ad-graph-overview",
+      "matchName": "Azure Active Directory Graph"
+    },
+    {
+      "id": "outlook-com-classic",
+      "title": "Outlook.com classic mail door",
+      "probeUrl": "https://mail.live.com/",
+      "obituary": "https://blogs.windows.com/windowsexperience/2012/07/31/introducing-the-new-outlook-com/",
+      "note": "Classic Hotmail/Live mail hostname - often a facade into Outlook."
+    },
+    {
+      "id": "msn-messenger",
+      "title": "MSN Messenger",
+      "probeUrl": "https://messenger.msn.com/",
+      "obituary": "https://blogs.windows.com/windowsexperience/2012/11/06/signing-off-on-messenger/",
+      "matchName": "MSN Messenger"
     }
   ]
 }

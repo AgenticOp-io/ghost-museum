@@ -1,7 +1,7 @@
 {
-  "museum": "Ghost Museum",
+  "museum": "Still Answering",
   "tagline": "Sunset is a press release. Ghosts are a runtime.",
-  "probedAt": "2026-08-12T01:58:29.920Z",
+  "probedAt": "2026-08-12T04:06:22.958Z",
   "userAgent": "GhostMuseum/0.1 (exhibit probe)",
   "exhibits": [
     {
@@ -241,6 +241,199 @@
         {
           "url": "https://support.google.com/answer/1083134?hl=en",
           "status": 200
+        }
+      ]
+    },
+    {
+      "id": "google-plus",
+      "wall": "successor-facade",
+      "title": "Google+",
+      "owner": "Google",
+      "declaredDead": "2019-04-02",
+      "obituary": "https://blog.google/technology/safety-security/shutting-down-google-plus-for-consumer/",
+      "obituaryNote": "Google shut down consumer Google+ in April 2019.",
+      "probeUrl": "https://plus.google.com/",
+      "httpStatus": 200,
+      "finalUrl": "https://workspaceupdates.googleblog.com/2023/04/new-community-features-for-google-chat-and-an-update-currents%20.html",
+      "titleTag": "Google Workspace Updates: New community features for Google Chat and an update on Currents",
+      "note": "plus.google.com still answers — by walking you to a Workspace blog about Chat and Currents. The name on the door is Plus. The room is the funeral program.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://plus.google.com/",
+          "status": 301,
+          "location": "https://workspaceupdates.googleblog.com/2023/04/new-community-features-for-google-chat-and-an-update-currents%20.html"
+        },
+        {
+          "url": "https://workspaceupdates.googleblog.com/2023/04/new-community-features-for-google-chat-and-an-update-currents%20.html",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "flash-get-adobe",
+      "wall": "successor-facade",
+      "title": "Adobe Flash Player download",
+      "owner": "Adobe",
+      "declaredDead": "2020-12-31",
+      "obituary": "https://www.adobe.com/products/flashplayer/end-of-life.html",
+      "obituaryNote": "Adobe ended Flash Player distribution December 31, 2020.",
+      "probeUrl": "https://get.adobe.com/flashplayer/",
+      "httpStatus": 200,
+      "finalUrl": "https://www.adobe.com/products/flashplayer/end-of-life-alternative.html",
+      "titleTag": "Adobe Flash Player End of Life",
+      "note": "The download door still exists. It 301s into Adobe’s Flash end-of-life page. A storefront that only sells the obituary.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://get.adobe.com/flashplayer/",
+          "status": 301,
+          "location": "https://www.adobe.com/products/flashplayer/end-of-life-alternative.html"
+        },
+        {
+          "url": "https://www.adobe.com/products/flashplayer/end-of-life-alternative.html",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "google-play-music",
+      "wall": "successor-facade",
+      "title": "Google Play Music",
+      "owner": "Google",
+      "declaredDead": "2020-12-01",
+      "obituary": "https://blog.youtube/news-and-events/youtube-music-will-soon-be-new-home/",
+      "obituaryNote": "Google moved Play Music users to YouTube Music and shut the service down.",
+      "probeUrl": "https://play.google.com/music/",
+      "httpStatus": 200,
+      "finalUrl": "https://music.youtube.com/",
+      "titleTag": "Tu navegador está obsoleto; actualízalo",
+      "note": "play.google.com/music still answers — straight into YouTube Music. The old listening room opens someone else’s product.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://play.google.com/music/",
+          "status": 301,
+          "location": "https://music.youtube.com/"
+        },
+        {
+          "url": "https://music.youtube.com/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "allo-google",
+      "wall": "successor-facade",
+      "title": "Google Allo",
+      "owner": "Google",
+      "declaredDead": "2019-03-12",
+      "obituary": "https://blog.google/products/allo/allo-will-no-longer-be-available/",
+      "obituaryNote": "Google shut Allo down in March 2019.",
+      "probeUrl": "https://allo.google.com/",
+      "httpStatus": 200,
+      "finalUrl": "https://www.android.com/google-messages/",
+      "titleTag": "Prueba Mensajes de Google y guarda lo importante",
+      "note": "allo.google.com still answers by walking into Google Messages. Another polite successor facade.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://allo.google.com/",
+          "status": 301,
+          "location": "https://www.android.com/google-messages/"
+        },
+        {
+          "url": "https://www.android.com/google-messages/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "angularjs-org",
+      "wall": "still-answering",
+      "title": "AngularJS",
+      "owner": "Google",
+      "declaredDead": "2021-12-31",
+      "obituary": "https://blog.angular.io/discontinued-long-term-support-for-angularjs-cc066b82e65a",
+      "obituaryNote": "AngularJS long-term support ended December 31, 2021.",
+      "probeUrl": "https://angularjs.org/",
+      "httpStatus": 200,
+      "finalUrl": "https://angularjs.org/",
+      "titleTag": "AngularJS — Superheroic JavaScript MVW Framework",
+      "note": "The framework’s funeral was scheduled. angularjs.org still returns 200. Docs for a runtime that was supposed to be finished.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://angularjs.org/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "panoramio",
+      "wall": "still-answering",
+      "title": "Panoramio",
+      "owner": "Google",
+      "declaredDead": "2016-11-04",
+      "obituary": "https://maps.googleblog.com/2016/09/saying-goodbye-to-panoramio.html",
+      "obituaryNote": "Google said goodbye to Panoramio in 2016.",
+      "probeUrl": "https://www.panoramio.com/",
+      "httpStatus": 200,
+      "finalUrl": "https://www.panoramio.com/",
+      "titleTag": "Panoramio is no longer available",
+      "note": "A photo network with a 2016 funeral. panoramio.com still answers 200.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://www.panoramio.com/",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "polymer-project",
+      "wall": "successor-facade",
+      "title": "Polymer Project",
+      "owner": "Google",
+      "declaredDead": "2020-02-05",
+      "obituary": "https://www.polymer-project.org/blog/2020-02-05-polymer-project.html",
+      "obituaryNote": "Polymer Project pointed developers toward Lit and related successors.",
+      "probeUrl": "https://www.polymer-project.org/",
+      "httpStatus": 200,
+      "finalUrl": "https://polymer-library.polymer-project.org/3.0/docs/devguide/feature-overview",
+      "titleTag": "Polymer library - Polymer Project",
+      "note": "polymer-project.org still answers — by walking into library docs. The project name on the door; the docs of what replaced it inside.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://www.polymer-project.org/",
+          "status": 301,
+          "location": "https://polymer-library.polymer-project.org/3.0/docs/devguide/feature-overview"
+        },
+        {
+          "url": "https://polymer-library.polymer-project.org/3.0/docs/devguide/feature-overview",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "id": "goo-gl",
+      "wall": "still-answering",
+      "title": "Google URL Shortener (goo.gl)",
+      "owner": "Google",
+      "declaredDead": "2019-03-30",
+      "obituary": "https://developers.googleblog.com/en/google-url-shortener-links-will-no-longer-be-available/",
+      "obituaryNote": "Google shut down goo.gl link creation and later limited resolution.",
+      "probeUrl": "https://goo.gl/",
+      "httpStatus": 400,
+      "finalUrl": "https://goo.gl/",
+      "titleTag": "Invalid Dynamic Link",
+      "note": "The shortener had a funeral. goo.gl still answers — with 400 Invalid Dynamic Link, not 410. The socket speaks. It refuses. It is not gone.",
+      "doNotIntegrate": true,
+      "redirectChain": [
+        {
+          "url": "https://goo.gl/",
+          "status": 400
         }
       ]
     },

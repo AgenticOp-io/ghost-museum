@@ -1,4 +1,4 @@
-# Agent instructions — Ghost Museum
+# Agent instructions — Still Answering
 
 Lane: `engines/ghost-museum` in the AgenticOps umbrella.
 
@@ -9,10 +9,10 @@ Lane: `engines/ghost-museum` in the AgenticOps umbrella.
 ## Hard rules
 
 1. **Do not invent exhibits.** Every frame needs a real probe (`status`, `finalUrl`, `probedAt`) or an honest `buried` / `unprobed` label.
-2. **Do not integrate.** The stamp on every frame is the product. Never document “how to keep using” a ghost.
+2. **Evidence only.** Never document “how to keep using” a ghost. Frames are funerals with sockets, not integration tips.
 3. **GET/HEAD only** on public URLs. No auth bypass, no fuzzing, no credential stuffing, no load tests against ghosts.
-4. **Own this lane only.** Do not edit `brand/agenticops-web`, Chrysalis, WISPTools, FDE, or Helix from a Ghost Museum task.
-5. **Brand separation.** Ghost Museum has its own visual language (gallery, frames, tungsten). Do not import `agenticops.css` / `ao-layout.js`.
+4. **Own this lane only.** Do not edit `brand/agenticops-web`, Chrysalis, WISPTools, FDE, or Helix from a Still Answering task.
+5. **Brand separation.** Still Answering has its own visual language (gallery, frames, tungsten). Do not import `agenticops.css` / `ao-layout.js`.
 
 ## Layout
 
@@ -36,10 +36,16 @@ npm run validate
 
 Writes `probedAt` / `httpStatus` / `finalUrl` / `redirectChain` into `exhibits/exhibits.json` and syncs `site/exhibits.json`. Re-render is automatic (`site/museum.js` loads the JSON).
 
-## GCE demo
+## GCE host
+
+```powershell
+powershell -File scripts/gce-deploy-ghosts-host.ps1
+```
+
+Public: **https://ghosts.agenticop.io/** on **chrysalis-test-vm** (nginx → `:19191`).
+
+Optional secondary hall on **agenticop-master** `:27474`:
 
 ```powershell
 powershell -File scripts/gce-deploy-demo.ps1
 ```
-
-Serves `site/` on **agenticop-master** `:27474` (demo port — not hub/Helix/FDE). URL: `http://35.224.146.25:27474/`.

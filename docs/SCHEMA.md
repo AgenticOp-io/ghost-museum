@@ -6,7 +6,7 @@ Source of truth: `exhibits/exhibits.json`. The hall loads `site/exhibits.json` (
 
 | Field | Required | Notes |
 |-------|----------|--------|
-| `museum` | yes | `"Ghost Museum"` |
+| `museum` | yes | `"Still Answering"` |
 | `tagline` | yes | Public tagline |
 | `probedAt` | after probe | ISO timestamp of last hall probe |
 | `userAgent` | yes | Sent on probes |
@@ -35,6 +35,6 @@ Source of truth: `exhibits/exhibits.json`. The hall loads `site/exhibits.json` (
 ## Rules
 
 1. Do not invent exhibits. Probe first, or label `unprobed`.
-2. Every frame is stamped DO NOT INTEGRATE in copy and data.
+2. Evidence only — never “how to keep using.” Schema keeps `doNotIntegrate: true` as a gate.
 3. GET only on public URLs. No auth bypass.
 4. `buried` is for completed funerals (`410` / gone) used as contrast.

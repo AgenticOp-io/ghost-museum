@@ -1,6 +1,6 @@
 # Nominations
 
-Ghost Museum hangs frames from **two intake paths**. Same gate for both.
+Still Answering hangs frames from **two intake paths**. Same gate for both.
 
 ## Paths
 
@@ -28,7 +28,7 @@ Without `TURNSTILE_SECRET`, `POST /api/nominate` fails closed (503).
 
 ## On-page form
 
-`site/nominate.html` → `POST /api/nominate` (demo server).
+`site/nominate.html` → `POST /api/nominate` (museum server).
 
 Anti-bot:
 

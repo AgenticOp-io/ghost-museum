@@ -3,6 +3,7 @@ node_modules/
 nominations/
 hunt/findings.jsonl
 hunt/last-pass.json
+hunt/curate-rank.json
 .DS_Store
 Thumbs.db
 *.log

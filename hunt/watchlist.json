@@ -1,48 +1,48 @@
 {
-  "museum": "Ghost Museum",
-  "purpose": "Curator watchlist for the slow hunt bot. Findings never auto-hang. Seeded from probe-hints (+ optional KilledByGoogle obituaries).",
+  "museum": "Still Answering",
+  "purpose": "Curator watchlist for the hunt bot (~1 probe/sec). Findings never auto-hang. Seeded from probe-hints (+ optional KilledByGoogle obituaries).",
   "watchlist": [
     {
       "id": "goo-gl",
       "title": "Google URL Shortener (goo.gl)",
       "probeUrl": "https://goo.gl/",
       "obituary": "https://developers.googleblog.com/en/google-url-shortener-links-will-no-longer-be-available/",
-      "note": "Root returned 400 earlier — re-check whether wall taxonomy should expand."
+      "note": "Root returned 400 earlier - re-check whether wall taxonomy should expand."
     },
     {
       "id": "google-plus",
       "title": "Google+",
       "probeUrl": "https://plus.google.com/",
       "obituary": "https://blog.google/technology/safety-security/shutting-down-google-plus-for-consumer/",
-      "note": "Likely successor façade into Workspace/Currents history."
+      "note": "Likely successor facade into Workspace/Currents history."
     },
     {
       "id": "inbox-google",
       "title": "Inbox by Gmail",
       "probeUrl": "https://inbox.google.com/",
       "obituary": "https://blog.google/products/gmail/inbox-signing-out/",
-      "note": "May façade into Gmail login — confirm before hanging."
+      "note": "May facade into Gmail login - confirm before hanging."
     },
     {
       "id": "flash-get-adobe",
       "title": "Adobe Flash Player download door",
       "probeUrl": "https://get.adobe.com/flashplayer/",
       "obituary": "https://www.adobe.com/products/flashplayer/end-of-life.html",
-      "note": "Download door after runtime funeral — may duplicate SWFObject story."
+      "note": "Download door after runtime funeral - may duplicate SWFObject story."
     },
     {
       "id": "picasaweb",
       "title": "Picasa Web Albums",
       "probeUrl": "https://picasaweb.google.com/",
       "obituary": "https://blog.google/products/photos/moving-on-from-picasa/",
-      "note": "Earlier probe 404'd after redirect — re-check."
+      "note": "Earlier probe 404'd after redirect - re-check."
     },
     {
       "id": "code-spaces-style-reader",
       "title": "Google Reader",
       "probeUrl": "https://www.google.com/reader/",
       "obituary": "https://googleblog.blogspot.com/2013/03/a-second-spring-of-cleaning.html",
-      "note": "404 tomb — may not fit buried(410) wall; log only unless taxonomy grows."
+      "note": "404 tomb - may not fit buried(410) wall; log only unless taxonomy grows."
     },
     {
       "id": "hangouts-classic",
@@ -56,7 +56,7 @@
       "title": "App Engine Python 2.7 runtime docs",
       "probeUrl": "https://cloud.google.com/appengine/docs/standard/python/runtime",
       "obituary": "https://cloud.google.com/appengine/docs/standard/python/runtime#python_27_support",
-      "note": "Docs surface for retired runtime — may be living docs, not a ghost hostname."
+      "note": "Docs surface for retired runtime - may be living docs, not a ghost hostname."
     },
     {
       "id": "google-reader",
@@ -119,7 +119,7 @@
       "title": "Firebase Dynamic Links console door",
       "probeUrl": "https://console.firebase.google.com/",
       "obituary": "https://firebase.google.com/support/dynamic-links-faq",
-      "note": "Console is living; Dynamic Links product sunset — may not be a ghost hostname. Log only unless a dedicated FDL host remains."
+      "note": "Console is living; Dynamic Links product sunset - may not be a ghost hostname. Log only unless a dedicated FDL host remains."
     },
     {
       "id": "google-currents",
@@ -175,8 +175,274 @@
       "title": "Skype Web",
       "probeUrl": "https://web.skype.com/",
       "obituary": "https://support.microsoft.com/en-us/office/skype-is-retiring-in-may-2025-25fa8625-794a-42f7-a849-eb9518b7d65c",
-      "note": "Living product until retirement date — hunt to watch the funeral, not hang early."
+      "note": "Living product until retirement date - hunt to watch the funeral, not hang early."
+    },
+    {
+      "id": "google-buzz",
+      "title": "Google Buzz",
+      "probeUrl": "https://www.google.com/buzz",
+      "obituary": "https://googleblog.blogspot.com/2011/10/fall-sweep.html",
+      "note": "Curated probe hint. Probe before hang."
+    },
+    {
+      "id": "google-talk",
+      "title": "Google Talk",
+      "probeUrl": "https://talk.google.com/",
+      "obituary": "https://workspaceupdates.googleblog.com/2017/06/hangouts-chat-and-hangouts-meet.html",
+      "note": "Curated probe hint. Probe before hang."
+    },
+    {
+      "id": "google-answers",
+      "title": "Google Answers",
+      "probeUrl": "https://answers.google.com/",
+      "obituary": "https://googleblog.blogspot.com/2006/11/adieu-to-google-answers.html",
+      "note": "Curated probe hint. Probe before hang."
+    },
+    {
+      "id": "google-notebook",
+      "title": "Google Notebook",
+      "probeUrl": "https://www.google.com/notebook/",
+      "obituary": "https://googleblog.blogspot.com/2011/11/spring-cleaning-in-fall.html",
+      "note": "Curated probe hint. Probe before hang."
+    },
+    {
+      "id": "google-code-search",
+      "title": "Google Code Search",
+      "probeUrl": "https://www.google.com/codesearch",
+      "obituary": "https://googleblog.blogspot.com/2011/10/fall-sweep.html",
+      "note": "Curated probe hint. Probe before hang."
+    },
+    {
+      "id": "google-latitude",
+      "title": "Google Latitude",
+      "probeUrl": "https://www.google.com/latitude/",
+      "obituary": "https://googleblog.blogspot.com/2013/07/latitude-retired.html",
+      "note": "Curated probe hint. Probe before hang."
+    },
+    {
+      "id": "google-video",
+      "title": "Google Video",
+      "probeUrl": "https://video.google.com/",
+      "obituary": "https://googleblog.blogspot.com/2012/07/spring-cleaning-in-summer.html",
+      "note": "Curated probe hint. Probe before hang."
+    },
+    {
+      "id": "knol",
+      "title": "Knol",
+      "probeUrl": "https://knol.google.com/",
+      "obituary": "https://googleblog.blogspot.com/2011/11/spring-cleaning-in-fall.html",
+      "note": "Curated probe hint. Probe before hang."
+    },
+    {
+      "id": "feedburner",
+      "title": "FeedBurner",
+      "probeUrl": "https://feedburner.google.com/",
+      "obituary": "https://support.google.com/feedburner/answer/1220285",
+      "note": "Legacy feed door - probe whether the hostname still answers."
+    },
+    {
+      "id": "geocities-yahoo",
+      "title": "Yahoo GeoCities",
+      "probeUrl": "https://www.geocities.yahoo.com/",
+      "obituary": "https://www.theverge.com/2019/10/26/20933202/geocities-shutdown-anniversary-web-history",
+      "note": "Curated probe hint. Probe before hang."
+    },
+    {
+      "id": "yahoo-messenger",
+      "title": "Yahoo Messenger",
+      "probeUrl": "https://messenger.yahoo.com/",
+      "obituary": "https://yahoo.tumblr.com/post/174118295567/yahoo-messenger-will-no-longer-be-available",
+      "note": "Curated probe hint. Probe before hang."
+    },
+    {
+      "id": "aim",
+      "title": "AOL Instant Messenger",
+      "probeUrl": "https://www.aim.com/",
+      "obituary": "https://help.aol.com/articles/aim-discontinued",
+      "note": "Curated probe hint. Probe before hang."
+    },
+    {
+      "id": "hipchat",
+      "title": "HipChat",
+      "probeUrl": "https://www.hipchat.com/",
+      "obituary": "https://www.atlassian.com/blog/announcements/goodbye-hipchat-connect-stride",
+      "note": "Curated probe hint. Probe before hang."
+    },
+    {
+      "id": "stride-atlassian",
+      "title": "Stride",
+      "probeUrl": "https://www.stride.com/",
+      "obituary": "https://www.atlassian.com/blog/announcements/journey-with-stride-ends",
+      "note": "Curated probe hint. Probe before hang."
+    },
+    {
+      "id": "rdio",
+      "title": "Rdio",
+      "probeUrl": "https://www.rdio.com/",
+      "obituary": "https://blog.rdio.com/",
+      "note": "Music service funeral - probe hostname; verify living obituary URL before hang."
+    },
+    {
+      "id": "grooveshark",
+      "title": "Grooveshark",
+      "probeUrl": "https://grooveshark.com/",
+      "obituary": "https://www.theverge.com/2015/4/30/8521999/grooveshark-shuts-down",
+      "note": "Curated probe hint. Probe before hang."
+    },
+    {
+      "id": "friendfeed",
+      "title": "FriendFeed",
+      "probeUrl": "https://friendfeed.com/",
+      "obituary": "https://blog.facebook.com/blog.php?post=10150278932602131",
+      "note": "Curated probe hint. Probe before hang."
+    },
+    {
+      "id": "meebo",
+      "title": "Meebo",
+      "probeUrl": "https://www.meebo.com/",
+      "obituary": "https://googleblog.blogspot.com/2012/06/spring-cleaning-for-spring.html",
+      "note": "Curated probe hint. Probe before hang."
+    },
+    {
+      "id": "delicious",
+      "title": "Delicious",
+      "probeUrl": "https://delicious.com/",
+      "obituary": "https://blog.delicious.com/",
+      "note": "Bookmarking ghost - confirm current operator vs funeral before hang."
+    },
+    {
+      "id": "stumbleupon",
+      "title": "StumbleUpon",
+      "probeUrl": "https://www.stumbleupon.com/",
+      "obituary": "https://www.theverge.com/2018/5/24/17389096/stumbleupon-shutting-down",
+      "note": "Curated probe hint. Probe before hang."
+    },
+    {
+      "id": "microsoft-silverlight",
+      "title": "Microsoft Silverlight",
+      "probeUrl": "https://www.microsoft.com/silverlight/",
+      "obituary": "https://support.microsoft.com/en-us/windows/silverlight-end-of-support-0aa3cfef-6244-4c83-a0bb-1a0c5e2f2a6b",
+      "note": "Curated probe hint. Probe before hang."
+    },
+    {
+      "id": "internet-explorer",
+      "title": "Internet Explorer",
+      "probeUrl": "https://www.microsoft.com/en-us/download/internet-explorer.aspx",
+      "obituary": "https://blogs.windows.com/windowsexperience/2022/06/15/internet-explorer-11-desktop-app-retirement-faq/",
+      "note": "Curated probe hint. Probe before hang."
+    },
+    {
+      "id": "windows-live-spaces",
+      "title": "Windows Live Spaces",
+      "probeUrl": "https://spaces.live.com/",
+      "obituary": "https://blogs.windows.com/windowsexperience/2010/09/27/windows-live-spaces-moving-to-wordpress-com/",
+      "note": "Curated probe hint. Probe before hang."
+    },
+    {
+      "id": "xbox-live-indie",
+      "title": "Xbox Live Indie Games",
+      "probeUrl": "https://marketplace.xbox.com/",
+      "obituary": "https://news.xbox.com/en-us/2013/08/12/xbox-live-indie-games-coming-to-an-end/",
+      "note": "Marketplace door may still answer - confirm before hang."
+    },
+    {
+      "id": "google-glass-explorer",
+      "title": "Google Glass Explorer",
+      "probeUrl": "https://www.google.com/glass/",
+      "obituary": "https://blog.google/products/google-ar-vr/a-new-chapter-for-glass/",
+      "note": "Curated probe hint. Probe before hang."
+    },
+    {
+      "id": "google-hangouts-chat-api",
+      "title": "Classic Hangouts API door",
+      "probeUrl": "https://developers.google.com/hangouts/",
+      "obituary": "https://workspaceupdates.googleblog.com/2019/06/transition-from-classic-hangouts-to-chat.html",
+      "note": "Docs/API surface for a retired chat product - probe only."
+    },
+    {
+      "id": "parse-dashboard",
+      "title": "Parse Platform",
+      "probeUrl": "https://parseplatform.org/",
+      "obituary": "https://blog.parseplatform.org/",
+      "note": "Community successor may still be living - contrast with buried parse.com."
+    },
+    {
+      "id": "heroku-button",
+      "title": "Heroku Button / deploy door",
+      "probeUrl": "https://heroku.com/deploy",
+      "obituary": "https://blog.heroku.com/next-chapter",
+      "note": "Salesforce sold Heroku - watch the hostname, do not invent a funeral early."
+    },
+    {
+      "id": "atom-io",
+      "title": "Atom editor site",
+      "probeUrl": "https://atom.io/",
+      "obituary": "https://github.blog/news-insights/product-news/sunsetting-atom/",
+      "note": "Curated probe hint. Probe before hang."
+    },
+    {
+      "id": "spectrum-chat",
+      "title": "Spectrum",
+      "probeUrl": "https://spectrum.chat/",
+      "obituary": "https://github.blog/2022-08-10-sunsetting-spectrum/",
+      "note": "Curated probe hint. Probe before hang."
+    },
+    {
+      "id": "dependabot-preview",
+      "title": "Dependabot Preview",
+      "probeUrl": "https://dependabot.com/",
+      "obituary": "https://github.blog/2021-04-29-goodbye-dependabot-preview-hello-dependabot/",
+      "note": "Brand may redirect into GitHub - successor facade candidate."
+    },
+    {
+      "id": "clubhouse-app",
+      "title": "Clubhouse",
+      "probeUrl": "https://www.clubhouse.com/",
+      "obituary": "https://blog.clubhouse.com/",
+      "note": "Product still may answer - only hang if a real sunset is cited."
+    },
+    {
+      "id": "pebble",
+      "title": "Pebble",
+      "probeUrl": "https://www.pebble.com/",
+      "obituary": "https://blog.getpebble.com/",
+      "note": "Curated probe hint. Probe before hang."
+    },
+    {
+      "id": "nest-protect-app",
+      "title": "Works with Nest classic",
+      "probeUrl": "https://home.nest.com/",
+      "obituary": "https://store.google.com/magazine/works_with_nest_retirement",
+      "note": "Works with Nest sunset - living Nest home may still answer."
+    },
+    {
+      "id": "u2f-security-keys-docs",
+      "title": "U2F / legacy Titan docs door",
+      "probeUrl": "https://cloud.google.com/security-key",
+      "obituary": "https://developers.yubico.com/U2F/",
+      "note": "Legacy auth surface - confirm product funeral before hang."
+    },
+    {
+      "id": "azure-ad-graph",
+      "title": "Azure AD Graph",
+      "probeUrl": "https://graph.windows.net/",
+      "obituary": "https://learn.microsoft.com/en-us/graph/migrate-azure-ad-graph-overview",
+      "note": "Already hung in hall - keep on watchlist for re-probe only."
+    },
+    {
+      "id": "outlook-com-classic",
+      "title": "Outlook.com classic mail door",
+      "probeUrl": "https://mail.live.com/",
+      "obituary": "https://blogs.windows.com/windowsexperience/2012/07/31/introducing-the-new-outlook-com/",
+      "note": "Classic Hotmail/Live mail hostname - often a facade into Outlook."
+    },
+    {
+      "id": "msn-messenger",
+      "title": "MSN Messenger",
+      "probeUrl": "https://messenger.msn.com/",
+      "obituary": "https://blogs.windows.com/windowsexperience/2012/11/06/signing-off-on-messenger/",
+      "note": "Curated probe hint. Probe before hang."
     }
   ],
-  "updatedAt": "2026-08-12T02:52:18.096Z"
+  "updatedAt": "2026-08-12T04:44:33.842Z"
 }

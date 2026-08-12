@@ -1,20 +1,20 @@
-# Ghost Museum
+# Still Answering
 
 **Sunset is a press release. Ghosts are a runtime.**
 
 A hall of interfaces that outlived their obituaries: hostnames that still answer, loaders for runtimes that had a funeral, APIs that return `401` instead of `410`.
 
-This is not a scanner and not an invitation to integrate. Each frame is stamped **DO NOT INTEGRATE**.
+This is not a scanner and not an invitation to integrate. The hall shows evidence of incomplete funerals — never how to keep calling them.
 
 ## Hall (first hanging)
 
-Exhibits are real probes, not invented façades. Source of truth: `exhibits/exhibits.json`. Schema: `docs/SCHEMA.md`.
+Exhibits are real probes, not invented facades. Source of truth: `exhibits/exhibits.json`. Schema: `docs/SCHEMA.md`.
 
 | Kind | Meaning |
 |------|---------|
 | Still answering | Original surface still returns `200` |
 | Auth ghost | Host lives; `401`/`403`, not `410` |
-| Successor façade | Redirects to a different living product |
+| Successor facade | Redirects to a different living product |
 | Buried | `410` / gone — they actually held a funeral |
 
 ## Local
@@ -38,11 +38,9 @@ npm run validate
 
 ## GCE / hostname
 
-- Demo port (agenticop-master): `powershell -File scripts/gce-deploy-demo.ps1` → http://35.224.146.25:27474/
-- Named host (chrysalis-test-vm nginx): `powershell -File scripts/gce-deploy-ghosts-host.ps1`
+- **Live:** https://ghosts.agenticop.io/ — `powershell -File scripts/gce-deploy-ghosts-host.ps1` (chrysalis-test-vm + nginx + Let’s Encrypt)
+- Secondary hall (agenticop-master `:27474`): `powershell -File scripts/gce-deploy-demo.ps1`
 - DNS (GoDaddy API): set `GODADDY_API_KEY` + `GODADDY_API_SECRET`, then `powershell -File scripts/godaddy-set-ghosts-dns.ps1`
-- TLS after DNS: certbot webroot on the VM (see deploy script output)
-- Target URL: https://ghosts.agenticop.io/
 
 ## Hunt bot
 

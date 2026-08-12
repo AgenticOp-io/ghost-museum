@@ -71,7 +71,7 @@ form.addEventListener("submit", async (e) => {
     setStatus(data.message || "Received. A curator will probe before anything hangs.", "ok");
     submitBtn.disabled = false;
   } catch {
-    setStatus("Network error — is the museum demo server running?", "err");
+    setStatus("Network error — is the museum server running?", "err");
     resetTurnstile();
     submitBtn.disabled = false;
   }

@@ -3,25 +3,30 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Ghost Museum — still answering</title>
-  <meta name="description" content="A hall of interfaces that outlived their obituaries. Sunset is a press release. Ghosts are a runtime. Do not integrate." />
+  <title>Still Answering</title>
+  <meta name="description" content="Still Answering — a hall of interfaces that outlived their obituaries. Sunset is a press release. Ghosts are a runtime." />
   <meta name="robots" content="noindex, nofollow" />
-  <meta property="og:title" content="Ghost Museum — still answering" />
-  <meta property="og:description" content="Sunset is a press release. Ghosts are a runtime. A hall of hostnames and APIs that outlived their obituaries. DO NOT INTEGRATE." />
+  <meta property="og:title" content="Still Answering" />
+  <meta property="og:description" content="Sunset is a press release. Ghosts are a runtime. A hall of hostnames and APIs that outlived their obituaries." />
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Ghost Museum" />
-  <meta name="twitter:description" content="Sunset is a press release. Ghosts are a runtime. Do not integrate." />
+  <meta name="twitter:title" content="Still Answering" />
+  <meta name="twitter:description" content="Sunset is a press release. Ghosts are a runtime." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&amp;family=IBM+Plex+Mono:wght@400;500&amp;family=IBM+Plex+Sans:wght@400;500&amp;display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="./museum.css" />
 </head>
 <body class="gm-hall-page">
+  <aside class="gm-count-frame" aria-live="polite" aria-atomic="true">
+    <p class="gm-count-wall">Ghosts</p>
+    <p class="gm-count-num" id="ghost-count">…</p>
+    <p class="gm-count-meta" id="ghost-count-meta">hung</p>
+  </aside>
   <div class="gm-shell">
     <header class="gm-top">
-      <a class="gm-mark" href="./index.html">Ghost Museum</a>
-      <nav class="gm-nav" aria-label="Museum">
+      <a class="gm-mark" href="./index.html">Still Answering</a>
+      <nav class="gm-nav" aria-label="Hall">
         <a href="./index.html" aria-current="page">Hall</a>
         <a href="./about.html">Plaque</a>
         <a href="./nominate.html">Nominate</a>
@@ -30,25 +35,33 @@
     </header>
 
     <section class="gm-hero">
-      <p class="gm-kicker">First hanging · <span id="exhibit-count">…</span> frames · demo</p>
-      <h1>Sunset is a press release.<br />Ghosts are a runtime.</h1>
-      <p>Products die in blog posts. Their sockets often do not. We probe public URLs, hang the evidence, and stamp every frame: do not build on the dead.</p>
+      <h1 class="gm-brand-title">Still Answering</h1>
+      <p class="gm-hero-tag">Sunset is a press release. Ghosts are a runtime.</p>
+      <p>Products die in blog posts. Their sockets often do not. We probe public URLs and hang the evidence — never a guide to keep calling the dead.</p>
       <p class="gm-hero-cta"><a href="./nominate.html">Nominate a ghost</a></p>
     </section>
 
-    <div class="gm-legend" id="wall-filters" aria-label="Wall filters">
-      <button type="button" class="gm-filter" data-filter="all" aria-pressed="true">All</button>
-      <button type="button" class="gm-filter" data-filter="still-answering" aria-pressed="false"><i class="still" aria-hidden="true"></i> Still answering</button>
-      <button type="button" class="gm-filter" data-filter="auth-ghost" aria-pressed="false"><i class="auth" aria-hidden="true"></i> Auth ghost</button>
-      <button type="button" class="gm-filter" data-filter="successor-facade" aria-pressed="false"><i class="facade" aria-hidden="true"></i> Successor façade</button>
-      <button type="button" class="gm-filter" data-filter="buried" aria-pressed="false"><i class="buried" aria-hidden="true"></i> Buried</button>
+    <div class="gm-toolbar">
+      <div class="gm-legend gm-views" id="view-modes" aria-label="Hall view">
+        <button type="button" class="gm-filter" data-view="walls" aria-pressed="true">By wall</button>
+        <button type="button" class="gm-filter" data-view="timeline" aria-pressed="false">Timeline</button>
+        <button type="button" class="gm-filter" data-view="domain" aria-pressed="false">By domain</button>
+      </div>
+      <div class="gm-legend" id="wall-filters" aria-label="Wall filters">
+        <button type="button" class="gm-filter" data-filter="all" aria-pressed="true">All</button>
+        <button type="button" class="gm-filter" data-filter="still-answering" aria-pressed="false"><i class="still" aria-hidden="true"></i> Still answering</button>
+        <button type="button" class="gm-filter" data-filter="auth-ghost" aria-pressed="false"><i class="auth" aria-hidden="true"></i> Auth ghost</button>
+        <button type="button" class="gm-filter" data-filter="successor-facade" aria-pressed="false"><i class="facade" aria-hidden="true"></i> Successor facade</button>
+        <button type="button" class="gm-filter" data-filter="buried" aria-pressed="false"><i class="buried" aria-hidden="true"></i> Buried</button>
+      </div>
     </div>
 
     <main id="hall" class="gm-hall" aria-label="Exhibits"></main>
 
     <footer class="gm-footer">
-      Last hanging probe: <span id="probed-at">…</span>
-      · GET only · DO NOT INTEGRATE
+      <a href="https://agenticop.io/" rel="noopener noreferrer">agenticop.io</a>
+      · Apache-2.0
+      · © 2026 AgenticOps
     </footer>
   </div>
   <script src="./museum.js" type="module"></script>

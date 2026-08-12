@@ -33,7 +33,7 @@ const hung = new Set(
 
 const watch = existsSync(watchPath)
   ? JSON.parse(readFileSync(watchPath, "utf8"))
-  : { museum: "Ghost Museum", watchlist: [] };
+  : { museum: "Still Answering", watchlist: [] };
 const byId = new Map(watch.watchlist.map((w) => [w.id, w]));
 
 const hints = JSON.parse(readFileSync(hintsPath, "utf8"));
@@ -57,33 +57,39 @@ for (const g of graveyard) {
 }
 
 let added = 0;
+let updated = 0;
 for (const h of hints.hints || []) {
   if (!h.probeUrl || !h.id) continue;
-  if (hung.has(h.id) || byId.has(h.id)) continue;
   const g = h.matchName ? obitByName.get(String(h.matchName).toLowerCase()) : null;
+  const obituary = h.obituary || g?.link || null;
+  if (!obituary) {
+    console.warn(`skip ${h.id}: no obituary`);
+    continue;
+  }
+  const prev = byId.get(h.id);
   const entry = {
     id: h.id,
     title: h.title || h.id,
     probeUrl: h.probeUrl,
-    obituary: h.obituary || g?.link || null,
+    obituary,
     note:
       h.note ||
+      prev?.note ||
       (g
         ? `Seeded from KilledByGoogle (${g.dateClose || "unknown close"}). Probe before hang.`
-        : "Curated probe hint. Probe before hang."),
+        : hung.has(h.id)
+          ? "Already hung in hall - keep on watchlist for re-probe only."
+          : "Curated probe hint. Probe before hang."),
   };
-  if (!entry.obituary) {
-    console.warn(`skip ${h.id}: no obituary`);
-    continue;
-  }
+  if (!prev) added++;
+  else updated++;
   byId.set(h.id, entry);
-  added++;
 }
 
-watch.museum = "Ghost Museum";
+watch.museum = "Still Answering";
 watch.purpose =
-  "Curator watchlist for the slow hunt bot. Findings never auto-hang. Seeded from probe-hints (+ optional KilledByGoogle obituaries).";
+  "Curator watchlist for the hunt bot (~1 probe/sec). Findings never auto-hang. Seeded from probe-hints (+ optional KilledByGoogle obituaries).";
 watch.updatedAt = new Date().toISOString();
 watch.watchlist = [...byId.values()];
 writeFileSync(watchPath, JSON.stringify(watch, null, 2) + "\n");
-console.log(`watchlist ${watch.watchlist.length} (+${added} new)`);
+console.log(`watchlist ${watch.watchlist.length} (+${added} new, ~${updated} refreshed)`);

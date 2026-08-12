@@ -1,11 +1,13 @@
 #!/usr/bin/env node
 /**
- * Slow hunt bot — GET only, museum UA, never auto-hangs.
+ * Hunt bot - GET only, museum UA, never auto-hangs.
  * Probes a curated watchlist and writes findings for curator review.
  *
- *   node scripts/hunt.mjs              # one slow pass
- *   node scripts/hunt.mjs --loop       # keep going (sleep between passes)
+ *   node scripts/hunt.mjs              # one pass
+ *   node scripts/hunt.mjs --loop       # keep going (short pause between passes)
  *   node scripts/hunt.mjs --once id    # single id
+ *
+ * Pace (defaults): ~1 probe/sec. Override with GM_HUNT_DELAY_MS / GM_HUNT_PASS_PAUSE_MS.
  */
 import { readFileSync, writeFileSync, appendFileSync, mkdirSync, existsSync } from "node:fs";
 import { dirname, join } from "node:path";
@@ -15,9 +17,9 @@ const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const watchPath = join(root, "hunt", "watchlist.json");
 const outDir = process.env.GM_HUNT_DIR || join(root, "hunt");
 const findingsPath = join(outDir, "findings.jsonl");
-const ua = "GhostMuseum-Hunt/0.1 (slow curator probe; +https://ghosts.agenticop.io/)";
-const DELAY_MS = Number(process.env.GM_HUNT_DELAY_MS || 55_000);
-const PASS_PAUSE_MS = Number(process.env.GM_HUNT_PASS_PAUSE_MS || 30 * 60_000);
+const ua = "GhostMuseum-Hunt/0.1 (curator probe; +https://ghosts.agenticop.io/)";
+const DELAY_MS = Number(process.env.GM_HUNT_DELAY_MS || 1000);
+const PASS_PAUSE_MS = Number(process.env.GM_HUNT_PASS_PAUSE_MS || 60_000);
 const MAX_HOPS = 8;
 
 mkdirSync(outDir, { recursive: true });
@@ -27,7 +29,9 @@ function sleep(ms) {
 }
 
 function jitter(base) {
-  return base + Math.floor(Math.random() * Math.min(20_000, base * 0.25));
+  // Keep ~1/sec mean; small jitter only (do not stretch into multi-second gaps).
+  const spread = Math.min(200, Math.max(40, Math.floor(base * 0.15)));
+  return base + Math.floor(Math.random() * spread);
 }
 
 async function probe(url) {

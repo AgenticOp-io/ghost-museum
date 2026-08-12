@@ -48,7 +48,8 @@ sleep 1
 curl -fsS -o /dev/null http://127.0.0.1:$Port/
 
 CONF_AVAIL=/etc/nginx/sites-available/ghosts-museum
-if [ -f /etc/letsencrypt/live/ghosts.agenticop.io/fullchain.pem ]; then
+# letsencrypt/live is root-only; plain test -f fails for the SSH user and would drop :443
+if sudo test -f /etc/letsencrypt/live/ghosts.agenticop.io/fullchain.pem; then
   sudo tee `$CONF_AVAIL > /dev/null <<'NGX'
 server {
     listen 80;
@@ -95,6 +96,9 @@ sudo ln -sfn `$CONF_AVAIL /etc/nginx/sites-enabled/ghosts-museum
 sudo nginx -t
 sudo systemctl reload nginx
 curl -fsS -o /dev/null -H 'Host: ghosts.agenticop.io' http://127.0.0.1/ && echo HOST_OK
+if sudo test -f /etc/letsencrypt/live/ghosts.agenticop.io/fullchain.pem; then
+  curl -fsSk -o /dev/null --resolve ghosts.agenticop.io:443:127.0.0.1 https://ghosts.agenticop.io/ && echo HTTPS_OK
+fi
 "@
 $remote = $remote -replace "`r`n", "`n"
 $b64 = [Convert]::ToBase64String([Text.Encoding]::UTF8.GetBytes($remote))
