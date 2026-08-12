@@ -1,118 +1,101 @@
 {
-  "museum": "Ghost Museum",
-  "purpose": "Curator watchlist for the slow hunt bot. Findings never auto-hang. Seeded from probe-hints (+ optional KilledByGoogle obituaries).",
-  "watchlist": [
+  "purpose": "Curated probe URLs for known sunsets. Obituaries may be filled from KilledByGoogle when seeding.",
+  "hints": [
     {
       "id": "goo-gl",
       "title": "Google URL Shortener (goo.gl)",
       "probeUrl": "https://goo.gl/",
       "obituary": "https://developers.googleblog.com/en/google-url-shortener-links-will-no-longer-be-available/",
-      "note": "Root returned 400 earlier — re-check whether wall taxonomy should expand."
+      "matchName": null
     },
     {
       "id": "google-plus",
       "title": "Google+",
       "probeUrl": "https://plus.google.com/",
       "obituary": "https://blog.google/technology/safety-security/shutting-down-google-plus-for-consumer/",
-      "note": "Likely successor façade into Workspace/Currents history."
+      "matchName": "Google+"
     },
     {
       "id": "inbox-google",
       "title": "Inbox by Gmail",
       "probeUrl": "https://inbox.google.com/",
       "obituary": "https://blog.google/products/gmail/inbox-signing-out/",
-      "note": "May façade into Gmail login — confirm before hanging."
+      "matchName": "Inbox by Gmail"
     },
     {
       "id": "flash-get-adobe",
       "title": "Adobe Flash Player download door",
       "probeUrl": "https://get.adobe.com/flashplayer/",
-      "obituary": "https://www.adobe.com/products/flashplayer/end-of-life.html",
-      "note": "Download door after runtime funeral — may duplicate SWFObject story."
+      "obituary": "https://www.adobe.com/products/flashplayer/end-of-life.html"
     },
     {
       "id": "picasaweb",
       "title": "Picasa Web Albums",
       "probeUrl": "https://picasaweb.google.com/",
       "obituary": "https://blog.google/products/photos/moving-on-from-picasa/",
-      "note": "Earlier probe 404'd after redirect — re-check."
-    },
-    {
-      "id": "code-spaces-style-reader",
-      "title": "Google Reader",
-      "probeUrl": "https://www.google.com/reader/",
-      "obituary": "https://googleblog.blogspot.com/2013/03/a-second-spring-of-cleaning.html",
-      "note": "404 tomb — may not fit buried(410) wall; log only unless taxonomy grows."
-    },
-    {
-      "id": "hangouts-classic",
-      "title": "Hangouts",
-      "probeUrl": "https://hangouts.google.com/",
-      "obituary": "https://workspaceupdates.googleblog.com/2021/08/hangouts-will-be-turned-off.html",
-      "note": "Successor into Chat/Meet likely."
-    },
-    {
-      "id": "appengine-python27-runtime-doc",
-      "title": "App Engine Python 2.7 runtime docs",
-      "probeUrl": "https://cloud.google.com/appengine/docs/standard/python/runtime",
-      "obituary": "https://cloud.google.com/appengine/docs/standard/python/runtime#python_27_support",
-      "note": "Docs surface for retired runtime — may be living docs, not a ghost hostname."
+      "matchName": "Picasa"
     },
     {
       "id": "google-reader",
       "title": "Google Reader",
       "probeUrl": "https://www.google.com/reader/",
       "obituary": "https://googleblog.blogspot.com/2013/03/a-second-spring-of-cleaning.html",
-      "note": "Curated probe hint. Probe before hang."
+      "matchName": "Google Reader"
+    },
+    {
+      "id": "hangouts-classic",
+      "title": "Hangouts",
+      "probeUrl": "https://hangouts.google.com/",
+      "obituary": "https://workspaceupdates.googleblog.com/2021/08/hangouts-will-be-turned-off.html",
+      "matchName": "Google Hangouts"
     },
     {
       "id": "google-play-music",
       "title": "Google Play Music",
       "probeUrl": "https://play.google.com/music/",
       "obituary": "https://blog.youtube/news-and-events/youtube-music-will-soon-be-new-home/",
-      "note": "Curated probe hint. Probe before hang."
+      "matchName": "Google Play Music"
     },
     {
       "id": "google-url-shortener-goo",
       "title": "g.co (shortener surface)",
       "probeUrl": "https://g.co/",
-      "obituary": "https://developers.googleblog.com/en/google-url-shortener-links-will-no-longer-be-available/",
-      "note": "Curated probe hint. Probe before hang."
+      "obituary": "https://developers.googleblog.com/en/google-url-shortener-links-will-no-longer-be-available/"
     },
     {
       "id": "duo-google",
       "title": "Google Duo",
       "probeUrl": "https://duo.google.com/",
       "obituary": "https://blog.google/products/duo/meet-the-new-google-meet/",
-      "note": "Curated probe hint. Probe before hang."
+      "matchName": "Google Duo"
     },
     {
       "id": "allo-google",
       "title": "Google Allo",
       "probeUrl": "https://allo.google.com/",
       "obituary": "https://blog.google/products/allo/allo-will-no-longer-be-available/",
-      "note": "Curated probe hint. Probe before hang."
+      "matchName": "Google Allo"
     },
     {
       "id": "spaces-google",
       "title": "Google Spaces",
       "probeUrl": "https://spaces.google.com/",
       "obituary": "https://blog.google/products/g-suite/google-spaces-is-shutting-down/",
-      "note": "Curated probe hint. Probe before hang."
+      "matchName": "Google Spaces"
     },
     {
       "id": "angularjs-org",
       "title": "AngularJS (angularjs.org)",
       "probeUrl": "https://angularjs.org/",
       "obituary": "https://blog.angular.io/discontinued-long-term-support-for-angularjs-cc066b82e65a",
-      "note": "Curated probe hint. Probe before hang."
+      "matchName": "AngularJS"
     },
     {
       "id": "polymer-project",
       "title": "Polymer Project",
       "probeUrl": "https://www.polymer-project.org/",
       "obituary": "https://www.polymer-project.org/blog/2020-02-05-polymer-project.html",
-      "note": "Curated probe hint. Probe before hang."
+      "matchName": "Polymer"
     },
     {
       "id": "firebase-dynamic-links",
@@ -126,49 +109,49 @@
       "title": "Google Currents",
       "probeUrl": "https://currents.google.com/",
       "obituary": "https://workspaceupdates.googleblog.com/2022/02/transition-from-currents-to-spaces.html",
-      "note": "Curated probe hint. Probe before hang."
+      "matchName": "Google Currents"
     },
     {
       "id": "nest-secure",
       "title": "Nest Secure",
       "probeUrl": "https://store.google.com/product/nest_secure",
       "obituary": "https://store.google.com/magazine/nest_secure_retirement",
-      "note": "Curated probe hint. Probe before hang."
+      "matchName": "Nest Secure"
     },
     {
       "id": "google-cloud-print",
       "title": "Google Cloud Print",
       "probeUrl": "https://www.google.com/cloudprint/",
       "obituary": "https://blog.google/products/chromeos/turning-down-google-cloud-print/",
-      "note": "Curated probe hint. Probe before hang."
+      "matchName": "Google Cloud Print"
     },
     {
       "id": "fusion-tables",
       "title": "Google Fusion Tables",
       "probeUrl": "https://tables.googlelabs.com/",
       "obituary": "https://support.google.com/fusiontables/answer/9180869",
-      "note": "Curated probe hint. Probe before hang."
+      "matchName": "Fusion Tables"
     },
     {
       "id": "panoramio",
       "title": "Panoramio",
       "probeUrl": "https://www.panoramio.com/",
       "obituary": "https://maps.googleblog.com/2016/09/saying-goodbye-to-panoramio.html",
-      "note": "Curated probe hint. Probe before hang."
+      "matchName": "Panoramio"
     },
     {
       "id": "igoogle",
       "title": "iGoogle",
       "probeUrl": "https://www.google.com/ig",
       "obituary": "https://googleblog.blogspot.com/2012/07/spring-cleaning-in-summer.html",
-      "note": "Curated probe hint. Probe before hang."
+      "matchName": "iGoogle"
     },
     {
       "id": "yahoo-pipes",
       "title": "Yahoo Pipes",
       "probeUrl": "https://pipes.yahoo.com/pipes/",
       "obituary": "https://yahoo.tumblr.com/post/145157828849/pipes-will-be-shut-down",
-      "note": "Curated probe hint. Probe before hang."
+      "matchName": null
     },
     {
       "id": "skype-web-classic",
@@ -177,6 +160,5 @@
       "obituary": "https://support.microsoft.com/en-us/office/skype-is-retiring-in-may-2025-25fa8625-794a-42f7-a849-eb9518b7d65c",
       "note": "Living product until retirement date — hunt to watch the funeral, not hang early."
     }
-  ],
-  "updatedAt": "2026-08-12T02:52:18.096Z"
+  ]
 }

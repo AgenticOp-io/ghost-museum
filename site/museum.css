@@ -557,6 +557,37 @@ a:hover { color: #fff6dd; }
 .gm-form-status[data-kind="ok"] { color: var(--still); }
 .gm-form-status[data-kind="err"] { color: var(--stamp); }
 
+.gm-hunt-meta {
+  text-align: center;
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  margin: 0 0 24px;
+}
+.gm-hunt-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
+  gap: 22px;
+  padding-bottom: 40px;
+}
+.gm-hunt-card {
+  background: var(--paper);
+  border: 8px solid var(--frame-dim);
+  box-shadow: 0 0 0 1px var(--frame);
+  padding: 18px 16px 14px;
+  min-height: 240px;
+  display: flex;
+  flex-direction: column;
+}
+.gm-hunt-card h2 {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 1.55rem;
+  font-weight: 500;
+  margin: 0 0 4px;
+}
+.gm-hunt-err { color: var(--stamp); font-size: 0.85rem; }
+
 @keyframes gm-fade {
   from { opacity: 0; }
   to { opacity: 1; }

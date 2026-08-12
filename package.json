@@ -9,6 +9,7 @@
     "validate": "node scripts/validate.mjs",
     "demo": "node scripts/demo-server.mjs",
     "hunt": "node scripts/hunt.mjs",
+    "seed-watchlist": "node scripts/seed-watchlist.mjs",
     "sync-exhibits": "node -e \"import('node:fs').then(fs=>fs.copyFileSync('exhibits/exhibits.json','site/exhibits.json'))\"",
     "check": "npm run validate"
   }

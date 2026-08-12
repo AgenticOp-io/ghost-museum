@@ -41,6 +41,7 @@ if (process.env.GM_ENV_FILE) loadDotEnv(process.env.GM_ENV_FILE);
 
 const siteRoot = process.env.GM_SITE_ROOT || join(root, "site");
 const nomDir = process.env.GM_NOMINATIONS_DIR || join(root, "nominations");
+const huntDir = process.env.GM_HUNT_DIR || join(root, "hunt");
 const PORT = Number(process.env.GM_PORT || 27474);
 const BIND = process.env.GM_BIND || "0.0.0.0";
 const MIN_MS = 2500;
@@ -271,6 +272,43 @@ async function handleNominate(req, res) {
   });
 }
 
+function handleHuntFindings(req, res) {
+  const findingsPath = join(huntDir, "findings.jsonl");
+  const watchPath = join(huntDir, "watchlist.json");
+  const lastPassPath = join(huntDir, "last-pass.json");
+  const lines = existsSync(findingsPath)
+    ? readFileSync(findingsPath, "utf8").split(/\r?\n/).filter(Boolean)
+    : [];
+  const parsed = [];
+  for (let i = lines.length - 1; i >= 0 && parsed.length < 40; i--) {
+    try {
+      parsed.push(JSON.parse(lines[i]));
+    } catch {
+      /* skip bad line */
+    }
+  }
+  let watchlistSize = null;
+  let lastPass = null;
+  try {
+    if (existsSync(watchPath)) {
+      watchlistSize = JSON.parse(readFileSync(watchPath, "utf8")).watchlist?.length ?? null;
+    }
+  } catch {
+    /* ignore */
+  }
+  try {
+    if (existsSync(lastPassPath)) lastPass = JSON.parse(readFileSync(lastPassPath, "utf8"));
+  } catch {
+    /* ignore */
+  }
+  return sendJson(res, 200, {
+    findings: parsed,
+    watchlistSize,
+    lastPass,
+    note: "Curator queue only — never auto-hangs.",
+  });
+}
+
 function handleStatic(req, res) {
   const file = safeSitePath(req.url || "/");
   if (!file) {
@@ -301,6 +339,12 @@ const server = createServer(async (req, res) => {
       (req.url === "/api/nominate" || req.url?.startsWith("/api/nominate?"))
     ) {
       return await handleNominate(req, res);
+    }
+    if (
+      req.method === "GET" &&
+      (req.url === "/api/hunt/findings" || req.url?.startsWith("/api/hunt/findings?"))
+    ) {
+      return handleHuntFindings(req, res);
     }
     if (req.method === "GET" || req.method === "HEAD") {
       return handleStatic(req, res);

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hunt desk · Ghost Museum</title>
+  <meta name="description" content="Slow hunt findings — curator queue only. Nothing auto-hangs." />
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500&amp;family=IBM+Plex+Mono:wght@400;500&amp;family=IBM+Plex+Sans:wght@400;500&amp;display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./museum.css" />
+</head>
+<body class="gm-hunt-page">
+  <div class="gm-shell">
+    <header class="gm-top">
+      <a class="gm-mark" href="./index.html">Ghost Museum</a>
+      <nav class="gm-nav" aria-label="Museum">
+        <a href="./index.html">Hall</a>
+        <a href="./about.html">Plaque</a>
+        <a href="./nominate.html">Nominate</a>
+        <a href="./hunt.html" aria-current="page">Hunt</a>
+      </nav>
+    </header>
+
+    <main class="gm-nominate-main">
+      <section class="gm-nominate-hero">
+        <p class="gm-kicker">Curator queue · not the hall</p>
+        <h1>Hunt desk.</h1>
+        <p class="gm-lede">The slow bot re-probes a watchlist of cited sunsets. Findings land here for review. Nothing auto-hangs. DO NOT INTEGRATE.</p>
+      </section>
+
+      <p class="gm-hunt-meta" id="hunt-meta">Loading findings…</p>
+      <div id="hunt-list" class="gm-hunt-list" aria-live="polite"></div>
+    </main>
+
+    <footer class="gm-footer">GET only · ~60s between probes · pending-review only</footer>
+  </div>
+  <script src="./hunt-desk.js" type="module"></script>
+</body>
+</html>
