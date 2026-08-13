@@ -3,54 +3,55 @@
 **This is how the hall grows.** Everything else is secondary.
 
 ```
-hunt/seeds/* + npm run discover + autoseed + search:seed
+hunt/seeds/* + discover + autoseed + search:seed
         ↓
 npm run seed-watchlist:broad
         ↓
 hunt/watchlist.json   ← honest breadth (not vast fan-out)
         ↓
-npm run hunt          ← GET-only evidence → findings.jsonl
+npm run hunt          ← GET-only evidence → findings.jsonl + findings-latest.json
         ↓
 npm run curate:desk   ← ranks seeds first → site/curate.json
         ↓
-npm run hang:auto     ← strong + ghost-class + fresh probe → exhibits/
+npm run hang:auto / hang:drain   ← strong+consider + ghost wall + fresh probe → exhibits/
         ↓
 npm run validate
 ```
 
-Shortcut: `npm run authority` / `authority:once` = one growth pass.
-Live daemon: `npm run authority:loop` (default every 6h) — see `scripts/gce-restart-authority.sh`.
+Shortcut: `npm run authority` / `authority:once` = one growth pass (**does not** run hang — hang-drain is separate).  
+Live: `npm run authority:loop` (default every 6h).
+
+Deep docs: [`CENSUS.md`](./CENSUS.md) · [`OPS.md`](./OPS.md) · [`HUNT.md`](./HUNT.md) · [`HANG.md`](./HANG.md) · [`ARCHITECTURE.md`](./ARCHITECTURE.md).
+
+---
 
 ## Automated growth (GCE)
 
 On **chrysalis-test-vm** (`/var/www/ghost-museum`):
 
-| Daemon | Script | Role |
-|--------|--------|------|
+| Daemon | Restart script | Role |
+|--------|----------------|------|
 | Museum | `gce-restart-museum.sh` | Static hall + APIs |
-| Hunt | `gce-restart-hunt.sh` | GET-probe watchlist forever |
-| Authority | `gce-restart-authority.sh` | discover → seed-fitness → watchlist → autoseed → curate every 6h |
-| Hang drain | `gce-restart-hang-drain.sh` | hang:auto catch-up every 90s while strong pending |
-| Search | `gce-restart-search.sh` | SerpAPI `search:seed` ~1 query / 31h, hard cap 25/mo |
+| Hunt | `gce-restart-hunt.sh` | Bounded GET passes forever |
+| Authority | `gce-restart-authority.sh` | discover → fitness → watchlist → autoseed → curate (~6h) |
+| Hang drain | `gce-restart-hang-drain.sh` | Timed hang:auto catch-up |
+| Search | `gce-restart-search.sh` | SerpAPI ~1 query / ~31h, hard cap 25/mo |
+| Watchdog | `gce-restart-watchdog.sh` | Restart stale/dead daemons |
+| Recheck | (manual/long-lived) | Monthly → `banished` |
 
 ```bash
-npm run authority:loop
-# or on host:
 bash scripts/gce-restart-authority.sh
+bash scripts/gce-restart-hang-drain.sh
+bash scripts/gce-restart-hunt.sh
+bash scripts/gce-restart-watchdog.sh
 bash scripts/gce-authority-status.sh
 ```
 
-Optional env (host `.env` or process env):
+Env defaults and triage: [`OPS.md`](./OPS.md).
 
-| Var | Default | Meaning |
-|-----|---------|---------|
-| `GM_AUTHORITY_PERIOD_MS` | `21600000` (6h) | Sleep between passes |
-| `GM_HANG_AUTO_MAX` | `80` | Max new hangs per drain |
-| `GM_HANG_DRAIN_MS` | `1800000` (30m) | Hang-drain steady pace when desk is clear |
-| `GM_HANG_CATCHUP_MS` | `90000` (90s) | Hang-drain pace while strong desk still pending |
-| `BRAVE_SEARCH_API_KEY` / `SERPAPI_API_KEY` / Google CSE | — | Enables `search:seed` hits |
+Hunt never auto-hangs. **Hang-drain** grows **hung**. **Authority + hunt + search** expand watch/evidence so **Ghosts** (`hung ∪ candidates`) can grow.
 
-Hunt never auto-hangs. **Hang-drain loop** grows hung frames; **authority** expands seeds/watchlist so hunt can grow the Ghosts total (hung ∪ ghost-class evidence).
+---
 
 ## What is authoritative
 
@@ -58,64 +59,58 @@ Hunt never auto-hangs. **Hang-drain loop** grows hung frames; **authority** expa
 |-------|------|------|
 | Seed packs | `hunt/seeds/*.json` | Curator-written probe + obituary |
 | Discover | `npm run discover` | Bounded catalogs + Wikidata + links on cited obituaries |
-| Seed fitness | `npm run seed:fitness` | Rank funeral hosts / phrases / sources from hung + findings |
-| Autoseed | `npm run autoseed` | Learn funeral hosts / probe shapes; poll those feeds only |
-| Search seed | `npm run search:seed` | Official Brave/Google CSE APIs; `site:` funeral hosts only |
+| Seed fitness | `npm run seed:fitness` | Rank funeral hosts / phrases / sources |
+| Autoseed | `npm run autoseed` | Learn funeral hosts; poll those feeds only |
+| Search seed | `npm run search:seed` | Official Brave / SerpAPI / CSE; `site:` funeral hosts |
 | Broad watchlist | `npm run seed-watchlist:broad` | Hints + seeds + deep catalog import |
-| Curate v2 | `scripts/curate.mjs` | Prefers `seeds/*`; demotes `*-vast` / `*-deep` |
-| Auto-hang | `npm run hang:auto` | Strong desk + fresh GET + hangable wall → `exhibits/` |
-| Hall frames | `exhibits/exhibits.json` | Only after probe (auto or manual hang) |
+| Curate v2 | `scripts/curate.mjs` | Prefers `seeds/*`; skips already-hung probe URLs |
+| Auto-hang | `npm run hang:auto` | Strong then consider + fresh GET + hangable wall |
+| Hall frames | `exhibits/exhibits.json` | Only after probe |
 
 ## What is not authority
 
 | Path | Why |
 |------|-----|
-| `npm run seed-watchlist:vast` / `--deep` | Invented catalog hosts; floods ENOTFOUND — opt-in only |
-| Deep catalog fan-out alone | Guessed hosts without seed curation |
-| Open-web crawl / search engines | Out of scope — see `docs/DISCOVER.md` |
+| `seed-watchlist:vast` / `--deep` alone | Invented hosts; floods ENOTFOUND — opt-in only |
+| Open-web crawl / HTML SERP scraping | Out of scope |
 | Hang without probe / obituary | Forbidden — invents frames |
+
+---
 
 ## Auto-hang gates
 
-`hang:auto` only commits when **all** hold:
-
-1. Curate decision ≥ `strong` (override with `--min consider`)
-2. Fresh GET succeeds
-3. Wall is hangable: `still-answering` / `auth-ghost` / `successor-facade` / `buried`
-4. Obituary URL present
-5. Id / hostname not already hung
-6. `doNotIntegrate: true` always
+See [`HANG.md`](./HANG.md). Summary: hangable wall + obituary + fresh GET + not already hung (id / normalized probe URL) + not on skip cooldown.
 
 ```bash
 npm run hang:auto
-npm run hang:auto -- --max 40
+npm run hang:auto -- --max 12
 npm run hang:auto -- --dry-run
-npm run hang -- --id <id> --commit   # one-off
+npm run hang -- --id <id> --commit
 ```
+
+---
 
 ## Operator loop
 
 ```bash
-# 1. Expand candidates + auto-hang strong ghosts
-npm run authority
-
-# 2. Optional: live hunt pass, then hang again
-npm run hunt
-npm run hang:auto
-
-# 3. Re-rank desk UI
-npm run curate:desk
+npm run authority          # expand watch + desk
+npm run hunt               # evidence
+npm run hang:auto          # frame strong/consider ghosts
+npm run curate:desk        # refresh UI desk
+npm run validate
 ```
 
-Public desk: `/curate.html` · API: `GET /api/curate`.
+Public desk: `/curate.html` · `GET /api/curate`.
+
+---
 
 ## Census (Ghosts box)
 
 | Field | Meaning |
 |-------|---------|
-| **total** (masthead hero) | Hall catalog size — hung ∪ ghost-class evidence |
-| **hung** | Framed ghosts (meta line) |
-| **candidates** | Ghost-class evidence not yet hung (`total − hung`) |
-| **watchlist** / **awaitingProbe** | Hunt queue size / still waiting on a GET |
+| **Ghosts** / `total` | Hall catalog — hung ∪ ghost-class evidence |
+| **hung** | Framed ghosts |
+| **candidates** | Ghost-class evidence not yet hung |
+| **watch** / **awaiting** | Hunt queue size / never-probed watch rows |
 
-Masthead shows **Ghosts** = hall total, then `hung · candidates · awaiting · watch`.
+Full semantics: [`CENSUS.md`](./CENSUS.md).

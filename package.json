@@ -15,6 +15,7 @@
     "hang": "node scripts/hang.mjs",
     "hang:auto": "node scripts/hang-auto.mjs",
     "hang:drain": "node scripts/hang-drain-loop.mjs",
+    "watchdog": "node scripts/process-watchdog.mjs",
     "search:seed": "node scripts/search-seed.mjs",
     "search:schedule": "node scripts/search-schedule-loop.mjs",
     "discover": "node scripts/discover.mjs",

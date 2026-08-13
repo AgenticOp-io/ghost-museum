@@ -3,11 +3,12 @@
  * Refresh last-probe fields and reclassify walls (including banished).
  * GET only. Public URLs. No auth bypass.
  */
-import { readFileSync, writeFileSync, existsSync } from "node:fs";
+import { readFileSync, existsSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { probeUrl, classifyWall, summarizeChain, formatProbeError } from "./lib/probe.mjs";
 import { buildCensusPayload } from "./lib/census.mjs";
+import { atomicWrite, atomicWriteJson } from "./lib/atomic-write.mjs";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const path = join(root, "exhibits", "exhibits.json");
@@ -51,7 +52,7 @@ function writeCensus(data) {
     findings,
     lastPass,
   });
-  writeFileSync(censusPath, JSON.stringify(census, null, 2) + "\n");
+  atomicWriteJson(censusPath, census);
   return census;
 }
 
@@ -90,7 +91,7 @@ for (const ex of data.exhibits) {
 }
 data.probedAt = probedAt;
 const json = JSON.stringify(data, null, 2) + "\n";
-writeFileSync(path, json);
-writeFileSync(sitePath, json);
+atomicWrite(path, json);
+atomicWrite(sitePath, json);
 const census = writeCensus(data);
 console.log(`wrote ${path} @ ${probedAt} · census total=${census.total}`);

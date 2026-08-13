@@ -237,7 +237,7 @@ function frame(ex, index, { focus = false } = {}) {
       : "";
   const year = deathYear(ex);
 
-  return `<article class="gm-frame ${esc(ex.wall)}${focus ? " is-focus" : ""}" id="${esc(ex.id)}" data-wall="${esc(ex.wall)}" data-dead="${esc(ex.declaredDead || "")}" data-year="${year ?? ""}" data-domain="${esc(domain)}" style="--i:${index}" tabindex="-1">
+  return `<article class="gm-frame ${esc(ex.wall)}${focus ? " is-focus" : ""}" id="${esc(ex.id)}" data-wall="${esc(ex.wall)}" data-dead="${esc(ex.declaredDead || "")}" data-year="${year ?? ""}" data-domain="${esc(domain)}" style="--i:${Math.min(index, 12)}" tabindex="-1">
     <div class="gm-frame-top">
       <p class="gm-wall">${esc(wall)}</p>
       ${probeChip(ex)}
@@ -332,21 +332,46 @@ function renderCorridor(list, sectionOf, { selectedId = null } = {}) {
   return parts.join("");
 }
 
-const data = await fetch("./exhibits.json").then((r) => r.json());
 const hall = document.getElementById("hall");
 const pagerEl = document.getElementById("hall-pager");
-let exhibits = data.exhibits || [];
+/** Hung frames for timeline / domain. Loaded on demand so By-wall can paint from /api/hall. */
+let exhibits = [];
+let exhibitsLoaded = false;
+let exhibitsLoading = null;
 /** Paginated By-wall catalog (hung ∪ hunt-contacted watch). */
 let hallPage = null;
+
+async function ensureExhibits() {
+  if (exhibitsLoaded) return exhibits;
+  if (exhibitsLoading) return exhibitsLoading;
+  exhibitsLoading = fetch(`./exhibits.json?t=${Date.now()}`, { cache: "no-store" })
+    .then((r) => {
+      if (!r.ok) throw new Error(String(r.status));
+      return r.json();
+    })
+    .then((data) => {
+      exhibits = data.exhibits || [];
+      exhibitsLoaded = true;
+      exhibitsLoading = null;
+      return exhibits;
+    })
+    .catch((err) => {
+      exhibitsLoading = null;
+      throw err;
+    });
+  return exhibitsLoading;
+}
 
 const bootParams = new URLSearchParams(location.search);
 let view = "walls";
 let wallFilter = bootParams.get("wall") || "all";
 let selectedId = null;
 let selectedYear = null;
+let yearPage = 1;
 let showAllDomains = false;
 let page = Math.max(1, Number(bootParams.get("page")) || 1);
 const PAGE_SIZE = 24;
+const YEAR_PAGE_SIZE = 24;
 
 const bootView = bootParams.get("view");
 if (bootView === "domain" || bootView === "timeline" || bootView === "walls") {
@@ -382,9 +407,9 @@ function ordered() {
 }
 
 let census = {
-  total: exhibits.length,
-  hung: exhibits.filter((e) => e.wall !== "banished").length,
-  banished: exhibits.filter((e) => e.wall === "banished").length,
+  total: 0,
+  hung: 0,
+  banished: 0,
   watchlist: 0,
 };
 
@@ -394,9 +419,9 @@ function updateGhostCount() {
 
 async function refreshCensus() {
   try {
-    census = await fetchCensus();
+    census = await fetchCensus({ slim: view !== "domain" });
     updateGhostCount();
-    if (view === "domain") render();
+    if (view === "domain" && exhibitsLoaded) render();
   } catch {
     /* keep last */
   }
@@ -478,17 +503,30 @@ function render() {
 
   if (view === "timeline") {
     ensureSelection(list);
-    const corridor = renderCorridor(
-      list,
-      (ex) => {
-        const y = deathYear(ex);
-        return y != null ? String(y) : "Undated";
-      },
-      { selectedId },
-    );
+    // Only paint one page of the selected death-year — never dump hundreds into the DOM.
+    const yearList = list.filter((ex) => deathYear(ex) === selectedYear);
+    const yearPages = Math.max(1, Math.ceil(yearList.length / YEAR_PAGE_SIZE));
+    if (yearPage > yearPages) yearPage = yearPages;
+    if (yearPage < 1) yearPage = 1;
+    const start = (yearPage - 1) * YEAR_PAGE_SIZE;
+    const pageList = yearList.slice(start, start + YEAR_PAGE_SIZE);
+    if (pageList.length && !pageList.some((ex) => ex.id === selectedId)) {
+      selectedId = pageList[0].id;
+    }
+    const corridor = pageList.length
+      ? renderCorridor(pageList, () => null, { selectedId })
+      : `<p class="gm-lede">No hung ghosts for ${selectedYear ?? "this year"}.</p>`;
+    const yearPager =
+      yearPages > 1
+        ? `<nav class="gm-pager gm-year-pager" aria-label="Frames for ${selectedYear}">
+            <button type="button" class="gm-pager-btn" data-year-page="${yearPage - 1}"${yearPage <= 1 ? " disabled" : ""}>Previous</button>
+            <p class="gm-pager-status">${selectedYear} · page ${yearPage} of ${yearPages} · ${yearList.length} hung</p>
+            <button type="button" class="gm-pager-btn" data-year-page="${yearPage + 1}"${yearPage >= yearPages ? " disabled" : ""}>Next</button>
+          </nav>`
+        : "";
     hall.innerHTML =
       renderEraRail(list, selectedYear) +
-      `<div class="gm-timeline-frames">${corridor}</div>`;
+      `<div class="gm-timeline-frames">${corridor}${yearPager}</div>`;
     renderPager(null);
   } else if (view === "domain") {
     hall.innerHTML = renderDomainDirectory(list, census.byDomain, {
@@ -503,7 +541,7 @@ function render() {
       : `<p class="gm-lede">No ghosts on this page.</p>`;
     renderPager(hallPage);
   } else {
-    hall.innerHTML = list.map((ex, i) => frame(ex, i)).join("");
+    hall.innerHTML = `<p class="gm-lede">Loading the hall…</p>`;
     renderPager(null);
   }
 
@@ -522,43 +560,62 @@ function render() {
     if (view === "timeline" && selectedYear != null) {
       const btn = hall.querySelector(`.gm-ghost[data-ghost-year="${selectedYear}"]`);
       btn?.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
-      const marker = [...hall.querySelectorAll(".gm-year span")].find(
-        (el) => el.textContent === String(selectedYear),
-      );
-      marker?.closest(".gm-year")?.scrollIntoView({ behavior: "smooth", block: "nearest" });
     }
   });
 }
 
 async function showWallsPage() {
+  if (!hallPage?.exhibits?.length) {
+    hall.innerHTML = `<p class="gm-lede">Loading the hall…</p>`;
+  }
   try {
     await fetchHallPage();
   } catch {
+    await ensureExhibits().catch(() => []);
     const filtered =
       wallFilter === "all" ? exhibits : exhibits.filter((e) => e.wall === wallFilter);
     hallPage = {
       page: 1,
       pages: 1,
       total: filtered.length,
-      exhibits: filtered,
+      exhibits: filtered.slice(0, PAGE_SIZE),
     };
   }
   syncUrl();
   render();
 }
 
+async function showCatalogView() {
+  hall.innerHTML = `<p class="gm-lede">Loading hung frames…</p>`;
+  try {
+    await ensureExhibits();
+  } catch {
+    hall.innerHTML = `<p class="gm-lede">Could not load exhibits.</p>`;
+    return;
+  }
+  syncUrl();
+  render();
+}
+
 hall.addEventListener("click", (e) => {
+  const yearBtn = e.target.closest("[data-year-page]");
+  if (yearBtn && view === "timeline") {
+    const next = Number(yearBtn.getAttribute("data-year-page"));
+    if (!Number.isFinite(next) || next < 1 || yearBtn.disabled) return;
+    yearPage = next;
+    render();
+    hall.querySelector(".gm-timeline-frames")?.scrollIntoView({ behavior: "smooth", block: "start" });
+    return;
+  }
   const btn = e.target.closest("[data-ghost-year]");
   if (!btn || view !== "timeline") return;
   const year = Number(btn.getAttribute("data-ghost-year"));
   if (!Number.isFinite(year)) return;
   selectedYear = year;
   selectedId = btn.getAttribute("data-ghost-id") || selectedId;
+  yearPage = 1;
   render();
-  const marker = [...hall.querySelectorAll(".gm-year span")].find(
-    (el) => el.textContent === String(selectedYear),
-  );
-  const card = marker?.closest(".gm-year") || document.getElementById(selectedId);
+  const card = document.getElementById(selectedId);
   card?.scrollIntoView({ behavior: "smooth", block: "nearest" });
 });
 
@@ -575,7 +632,7 @@ if (pagerEl) {
 }
 
 if (view === "walls") showWallsPage();
-else render();
+else showCatalogView();
 
 const filters = document.getElementById("wall-filters");
 if (filters) {
@@ -585,10 +642,7 @@ if (filters) {
     wallFilter = btn.getAttribute("data-filter") || "all";
     page = 1;
     if (view === "walls") showWallsPage();
-    else {
-      syncUrl();
-      render();
-    }
+    else showCatalogView();
   });
 }
 
@@ -607,31 +661,24 @@ if (views) {
       b.setAttribute("aria-pressed", b === btn ? "true" : "false");
     }
     if (view === "walls") showWallsPage();
-    else {
-      syncUrl();
-      render();
-    }
+    else showCatalogView();
   });
 }
 
 /** Keep the census box honest when hunt / recheck update the hall. */
 async function refreshExhibits() {
   try {
-    const next = await fetch(`./exhibits.json?t=${Date.now()}`, { cache: "no-store" }).then((r) =>
-      r.json(),
-    );
-    const list = next.exhibits || [];
-    if (
-      list.length === exhibits.length &&
-      list.every((ex, i) => ex.id === exhibits[i]?.id && ex.wall === exhibits[i]?.wall)
-    ) {
+    if (view === "walls") {
+      await showWallsPage();
       await refreshCensus();
-      if (view === "walls") await showWallsPage();
+      // Refresh cached hung list in the background for timeline/domain switches.
+      exhibitsLoaded = false;
+      ensureExhibits().catch(() => {});
       return;
     }
-    exhibits = list;
-    if (view === "walls") await showWallsPage();
-    else render();
+    exhibitsLoaded = false;
+    await ensureExhibits();
+    render();
     await refreshCensus();
   } catch {
     /* keep last good hang */

@@ -17,6 +17,8 @@ import { dirname, join, extname, normalize } from "node:path";
 import { fileURLToPath } from "node:url";
 import { buildCensusPayload } from "./lib/census.mjs";
 import { buildHallCatalog, paginateHall } from "./lib/hall.mjs";
+import { atomicWriteJson } from "./lib/atomic-write.mjs";
+import { loadLatestFindingsMap } from "./lib/findings-index.mjs";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 
@@ -347,40 +349,122 @@ function handleHuntFindings(req, res) {
   });
 }
 
-function loadFindings() {
-  const findingsPath = join(huntDir, "findings.jsonl");
-  const findings = [];
-  if (existsSync(findingsPath)) {
-    for (const line of readFileSync(findingsPath, "utf8").split(/\r?\n/)) {
-      if (!line) continue;
-      try {
-        findings.push(JSON.parse(line));
-      } catch {
-        /* skip */
-      }
+function fileMtime(path) {
+  try {
+    return existsSync(path) ? statSync(path).mtimeMs : 0;
+  } catch {
+    return 0;
+  }
+}
+
+/** Read JSON that may be mid-write; return fallback instead of spinning the event loop. */
+function readJsonSafe(path, fallback = null) {
+  if (!existsSync(path)) return fallback;
+  try {
+    return JSON.parse(readFileSync(path, "utf8"));
+  } catch (err) {
+    // One quick re-read after a short async-friendly delay isn't possible here;
+    // prefer last good cache / fallback over blocking Node with sleepSync.
+    try {
+      return JSON.parse(readFileSync(path, "utf8"));
+    } catch (err2) {
+      console.error(`readJsonSafe failed ${path}: ${err2?.message || err2}`);
+      return fallback;
     }
   }
+}
+
+const CACHE_TTL_MS = Number(process.env.GM_API_CACHE_MS || 10_000);
+const findingsCache = { mtime: 0, rows: [], at: 0 };
+const hallCache = { key: "", catalog: null, at: 0 };
+const censusCache = { key: "", payload: null, at: 0 };
+
+function loadFindings() {
+  const findingsPath = join(huntDir, "findings.jsonl");
+  const indexPath = join(huntDir, "findings-latest.json");
+  const mtime = Math.max(fileMtime(findingsPath), fileMtime(indexPath));
+  const now = Date.now();
+  if (
+    findingsCache.rows.length &&
+    (mtime === findingsCache.mtime || now - findingsCache.at < CACHE_TTL_MS)
+  ) {
+    return findingsCache.rows;
+  }
+  let findings = [];
+  try {
+    findings = [...loadLatestFindingsMap(root).values()];
+  } catch (err) {
+    console.error(`loadFindings index failed: ${err?.message || err}`);
+    findings = findingsCache.rows.length ? findingsCache.rows : [];
+  }
+  findingsCache.mtime = mtime;
+  findingsCache.rows = findings;
+  findingsCache.at = now;
   return findings;
 }
 
+function dataStamp() {
+  return [
+    fileMtime(join(siteRoot, "exhibits.json")),
+    fileMtime(join(huntDir, "watchlist.json")),
+    fileMtime(join(huntDir, "findings.jsonl")),
+    fileMtime(join(huntDir, "last-pass.json")),
+  ].join(":");
+}
+
 function buildCensus() {
+  const key = dataStamp();
+  const now = Date.now();
+  if (
+    censusCache.payload &&
+    (censusCache.key === key || now - censusCache.at < CACHE_TTL_MS)
+  ) {
+    return censusCache.payload;
+  }
+
   const exhibitsPath = join(siteRoot, "exhibits.json");
   const watchPath = join(huntDir, "watchlist.json");
   const lastPassPath = join(huntDir, "last-pass.json");
-  const exhibits = existsSync(exhibitsPath)
-    ? JSON.parse(readFileSync(exhibitsPath, "utf8")).exhibits || []
-    : [];
-  const watch = existsSync(watchPath)
-    ? JSON.parse(readFileSync(watchPath, "utf8")).watchlist || []
-    : [];
+  const exhibitsDoc = readJsonSafe(exhibitsPath, censusCache.payload ? null : { exhibits: [] });
+  const watchDoc = readJsonSafe(watchPath, { watchlist: [] });
+  if (!exhibitsDoc && censusCache.payload) return censusCache.payload;
+  const exhibits = exhibitsDoc?.exhibits || [];
+  const watch = watchDoc?.watchlist || [];
   const findings = loadFindings();
-  let lastPass = null;
-  try {
-    if (existsSync(lastPassPath)) lastPass = JSON.parse(readFileSync(lastPassPath, "utf8"));
-  } catch {
-    /* ignore */
+  const lastPass = readJsonSafe(lastPassPath, null);
+  const payload = buildCensusPayload({
+    museum: "Still Answering",
+    exhibits,
+    watch,
+    findings,
+    lastPass,
+  });
+  censusCache.key = key;
+  censusCache.payload = payload;
+  censusCache.at = now;
+  return payload;
+}
+
+function buildHall() {
+  const key = dataStamp();
+  const now = Date.now();
+  if (
+    hallCache.catalog &&
+    (hallCache.key === key || now - hallCache.at < CACHE_TTL_MS)
+  ) {
+    return hallCache.catalog;
   }
-  return buildCensusPayload({ museum: "Still Answering", exhibits, watch, findings, lastPass });
+  const exhibitsPath = join(siteRoot, "exhibits.json");
+  const watchPath = join(huntDir, "watchlist.json");
+  const exhibitsDoc = readJsonSafe(exhibitsPath, null);
+  if (!exhibitsDoc && hallCache.catalog) return hallCache.catalog;
+  const exhibits = exhibitsDoc?.exhibits || [];
+  const watch = readJsonSafe(watchPath, { watchlist: [] })?.watchlist || [];
+  const catalog = buildHallCatalog({ exhibits, watch, findings: loadFindings() });
+  hallCache.key = key;
+  hallCache.catalog = catalog;
+  hallCache.at = now;
+  return catalog;
 }
 
 function handleHall(req, res) {
@@ -388,15 +472,7 @@ function handleHall(req, res) {
   const page = Number(u.searchParams.get("page") || 1);
   const pageSize = Number(u.searchParams.get("pageSize") || 24);
   const wall = u.searchParams.get("wall") || "all";
-  const exhibitsPath = join(siteRoot, "exhibits.json");
-  const watchPath = join(huntDir, "watchlist.json");
-  const exhibits = existsSync(exhibitsPath)
-    ? JSON.parse(readFileSync(exhibitsPath, "utf8")).exhibits || []
-    : [];
-  const watch = existsSync(watchPath)
-    ? JSON.parse(readFileSync(watchPath, "utf8")).watchlist || []
-    : [];
-  const catalog = buildHallCatalog({ exhibits, watch, findings: loadFindings() });
+  const catalog = buildHall();
   const payload = paginateHall(catalog, { page, pageSize, wall });
   payload.museum = "Still Answering";
   payload.catalogSize = catalog.length;
@@ -404,10 +480,16 @@ function handleHall(req, res) {
   return sendJson(res, 200, payload);
 }
 
-function handleCensus(_req, res) {
-  const census = buildCensus();
+function handleCensus(req, res) {
+  const u = new URL(req.url || "/", "http://localhost");
+  const slim = u.searchParams.get("slim") === "1";
+  let census = buildCensus();
+  if (slim) {
+    const { byDomain, byOwner, ...rest } = census;
+    census = rest;
+  }
   try {
-    writeFileSync(join(siteRoot, "census.json"), JSON.stringify(census, null, 2) + "\n");
+    atomicWriteJson(join(siteRoot, "census.json"), census);
   } catch {
     /* best effort */
   }
@@ -419,11 +501,9 @@ function liveHungSets() {
   const hungIds = new Set();
   const hungProbes = new Set();
   try {
-    if (existsSync(exhibitsPath)) {
-      for (const e of JSON.parse(readFileSync(exhibitsPath, "utf8")).exhibits || []) {
-        if (e?.id) hungIds.add(e.id);
-        if (e?.probeUrl) hungProbes.add(e.probeUrl);
-      }
+    for (const e of readJsonSafe(exhibitsPath, { exhibits: [] })?.exhibits || []) {
+      if (e?.id) hungIds.add(e.id);
+      if (e?.probeUrl) hungProbes.add(e.probeUrl);
     }
   } catch {
     /* ignore */

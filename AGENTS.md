@@ -16,17 +16,17 @@ Lane: `engines/ghost-museum` in the AgenticOps umbrella.
 
 ## Authority (how the hall grows)
 
-**Canonical:** `docs/AUTHORITY.md`
+**Canonical:** `docs/AUTHORITY.md` · meter: `docs/CENSUS.md` · ops: `docs/OPS.md`
 
 ```
-hunt/seeds/* + discover + autoseed → seed-watchlist:broad → hunt → curate:desk → hang:auto
+hunt/seeds/* + discover + autoseed → seed-watchlist:broad → hunt → curate:desk → hang:auto / hang:drain
 ```
 
 | Do | Don’t |
 |----|--------|
 | Edit `hunt/seeds/*.json` first | Treat `--vast` as breadth |
-| `npm run discover` / `autoseed` / `search:seed` / `authority` / `authority:loop` | Open-web crawl / SERP scraping |
-| `npm run hang:auto` (strong + fresh probe) | Invent frames without probe |
+| `npm run discover` / `autoseed` / `search:seed` / `authority` / `hang:drain` | Open-web crawl / SERP HTML scraping |
+| `npm run hang:auto` (strong→consider + fresh probe) | Invent frames without probe |
 | `npm run hang -- --id … --commit` for one-offs | Hang without obituary citation |
 
 ## Layout
@@ -36,19 +36,25 @@ hunt/seeds/* + discover + autoseed → seed-watchlist:broad → hunt → curate:
 | `exhibits/exhibits.json` | Source of truth for hung frames |
 | `hunt/seeds/` | Authority seed packs (multi-vendor) |
 | `hunt/watchlist.json` | Broad hunt queue |
+| `hunt/findings.jsonl` | Append-only hunt evidence |
+| `hunt/findings-latest.json` | Latest-by-id index |
 | `site/curate.json` | Curate desk queue |
 | `site/` | Static museum |
 | `scripts/probe.mjs` | Refresh last-probe fields + redirect chain |
 | `scripts/validate.mjs` | Schema / honesty gate |
 | `scripts/curate.mjs` | Rank findings/seeds → desk |
-| `scripts/hang.mjs` | Draft / commit one exhibit |
-| `scripts/recheck.mjs` | Monthly live recheck → `banished` wall |
-| `scripts/demo-server.mjs` | Static hall + nominate + `/api/census` + `/api/curate` |
-| `site/nominate.html` | Public nomination form (no login) |
-| `site/curate.html` | Curator desk UI |
+| `scripts/hang.mjs` / `hang-auto.mjs` / `hang-drain-loop.mjs` | Draft / commit / continuous drain |
+| `scripts/hunt.mjs` | Bounded GET hunt |
+| `scripts/process-watchdog.mjs` | Restart stale daemons |
+| `scripts/recheck.mjs` | Monthly live recheck → `banished` |
+| `scripts/demo-server.mjs` | Static hall + nominate + census/hall/curate APIs |
+| `docs/CENSUS.md` | Ghosts meter semantics |
+| `docs/ARCHITECTURE.md` | System map |
+| `docs/OPS.md` | GCE daemons |
 | `docs/SCHEMA.md` | Exhibit field contract |
 | `docs/AUTHORITY.md` | Growth pipeline |
 | `docs/CURATE.md` | Ranking contract |
+| `docs/HUNT.md` / `docs/HANG.md` | Hunt + hang contracts |
 | `docs/NOMINATIONS.md` | Nominate + hunt intake |
 
 ## Probe

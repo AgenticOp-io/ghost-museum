@@ -43,4 +43,4 @@ Source of truth: `exhibits/exhibits.json`. The hall loads `site/exhibits.json` (
 3. GET only on public URLs. No auth bypass.
 4. `buried` is for completed funerals hung as contrast (`410` / gone).
 5. `banished` is for hung ghosts that a later recheck found gone (unreachable or `410`). Monthly live recheck: `npm run recheck -- --loop`.
-6. Census `hung` = framed ghosts. `candidates` / `total` use ghost-class hunt contacts only — seeds and non-ghost HTTP replies stay off the wall.
+6. Census `hung` = framed ghosts. `candidates` / `total` use ghost-class hunt contacts only — seeds and non-ghost HTTP replies stay off the wall. Full meter semantics: [`CENSUS.md`](./CENSUS.md).

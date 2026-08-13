@@ -7,9 +7,12 @@ pkill -f 'gce-hang-drain.sh' 2>/dev/null || true
 sleep 1
 cd /var/www/ghost-museum
 export GM_HUNT_DIR=/var/www/ghost-museum/hunt
-export GM_HANG_AUTO_MAX="${GM_HANG_AUTO_MAX:-80}"
-export GM_HANG_DRAIN_MS="${GM_HANG_DRAIN_MS:-1800000}"
-export GM_HANG_CATCHUP_MS="${GM_HANG_CATCHUP_MS:-90000}"
+# Small batches + short idle so the desk cannot sit idle for half an hour.
+export GM_HANG_AUTO_MAX="${GM_HANG_AUTO_MAX:-12}"
+export GM_HANG_DRAIN_MS="${GM_HANG_DRAIN_MS:-180000}"
+export GM_HANG_CATCHUP_MS="${GM_HANG_CATCHUP_MS:-45000}"
+export GM_HANG_CHILD_TIMEOUT_MS="${GM_HANG_CHILD_TIMEOUT_MS:-360000}"
+export GM_HANG_CURATE_EVERY="${GM_HANG_CURATE_EVERY:-3}"
 if [ -f /var/www/ghost-museum/.env ]; then
   set -a
   # shellcheck disable=SC1091
@@ -18,4 +21,4 @@ if [ -f /var/www/ghost-museum/.env ]; then
 fi
 nohup node scripts/hang-drain-loop.mjs >> /tmp/ghost-hang-drain.log 2>&1 &
 echo $! > /tmp/ghost-hang-drain.pid
-echo "hang-drain pid $(cat /tmp/ghost-hang-drain.pid) max=$GM_HANG_AUTO_MAX catchup_ms=$GM_HANG_CATCHUP_MS"
+echo "hang-drain pid $(cat /tmp/ghost-hang-drain.pid) max=$GM_HANG_AUTO_MAX catchup_ms=$GM_HANG_CATCHUP_MS idle_ms=$GM_HANG_DRAIN_MS"

@@ -3,6 +3,7 @@
  * Always fresh GET. Never invents. doNotIntegrate stays true.
  */
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from "node:fs";
+import { atomicWriteJson } from "./atomic-write.mjs";
 import { join } from "node:path";
 import { probeUrl, formatProbeError } from "./probe.mjs";
 
@@ -206,12 +207,12 @@ export async function hangOne({
   const { _draft, ...exhibit } = draft;
   museum.exhibits.push(exhibit);
   museum.probedAt = new Date().toISOString();
-  writeFileSync(exhibitsPath, JSON.stringify(museum, null, 2) + "\n");
-  writeFileSync(join(root, "site", "exhibits.json"), JSON.stringify(museum, null, 2) + "\n");
+  atomicWriteJson(exhibitsPath, museum);
+  atomicWriteJson(join(root, "site", "exhibits.json"), museum);
 
   draft._draft.commit = true;
   draft._draft.committedAt = museum.probedAt;
-  writeFileSync(draftPath, JSON.stringify(draft, null, 2) + "\n");
+  atomicWriteJson(draftPath, draft);
 
   if (!quiet) console.log(`Committed ${id} → exhibits/exhibits.json`);
   return { ok: true, draftPath, wall, exhibit, committed: true };

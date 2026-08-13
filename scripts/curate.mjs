@@ -12,6 +12,8 @@ import { readFileSync, writeFileSync, existsSync, readdirSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { majorDomain, hostOf as sharedHostOf } from "../site/gm-shared.js";
+import { loadLatestFindingsMap } from "./lib/findings-index.mjs";
+import { atomicWriteJson } from "./lib/atomic-write.mjs";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const exhibitsPath = join(root, "exhibits", "exhibits.json");
@@ -49,10 +51,29 @@ const hungIds = new Set((hung.exhibits || []).map((e) => e.id));
 const hungHosts = new Set();
 const hungDomains = new Map();
 const hungYears = new Map();
+const hungProbes = new Set();
+const hungProbeKeys = new Set();
+
+function probeKey(url) {
+  try {
+    const u = new URL(url);
+    u.hash = "";
+    u.hostname = u.hostname.replace(/^www\./i, "").toLowerCase();
+    u.pathname = u.pathname.replace(/\/+$/, "") || "/";
+    u.search = "";
+    return u.toString();
+  } catch {
+    return String(url || "");
+  }
+}
 
 for (const ex of hung.exhibits || []) {
   const host = hostOf(ex.probeUrl);
   if (host) hungHosts.add(host);
+  if (ex.probeUrl) {
+    hungProbes.add(ex.probeUrl);
+    hungProbeKeys.add(probeKey(ex.probeUrl));
+  }
   const d = majorDomain(ex);
   hungDomains.set(d, (hungDomains.get(d) || 0) + 1);
   const y = String(ex.declaredDead || "").slice(0, 4);
@@ -70,19 +91,7 @@ if (existsSync(watchPath)) {
 }
 
 function loadFindings() {
-  if (!existsSync(findingsPath)) return [];
-  const lines = readFileSync(findingsPath, "utf8").split(/\r?\n/).filter(Boolean);
-  const byId = new Map();
-  for (const line of lines) {
-    try {
-      const f = JSON.parse(line);
-      if (!f?.id) continue;
-      const prev = byId.get(f.id);
-      if (!prev || String(f.huntedAt || "") > String(prev.huntedAt || "")) byId.set(f.id, f);
-    } catch {
-      /* skip */
-    }
-  }
+  const byId = loadLatestFindingsMap(root);
   return [...byId.values()].map((f) => {
     const w = watchById.get(f.id);
     return {
@@ -163,6 +172,13 @@ function scoreCandidate(c) {
   if (hungIds.has(c.id)) {
     return { score: -Infinity, decision: "skip", reasons: ["already hung"] };
   }
+  // Same probe URL (incl. www / trailing-slash variants) is already framed — free the desk.
+  if (
+    (c.probeUrl && hungProbes.has(c.probeUrl)) ||
+    (c.probeUrl && hungProbeKeys.has(probeKey(c.probeUrl)))
+  ) {
+    return { score: -Infinity, decision: "skip", reasons: ["probeUrl already hung"] };
+  }
   // Same hostname may still hold multiple ghosts — demote, do not skip.
   if (host && hungHosts.has(host)) {
     score -= 18;
@@ -220,10 +236,16 @@ function scoreCandidate(c) {
     "auth-ghost": 38,
     "successor-facade": 36,
     buried: 12,
-    unprobed: 0,
+    // Unprobed seeds must not crowd out verified ghost evidence on the desk.
+    unprobed: -12,
   };
   score += wallScore[wall] ?? 0;
   reasons.push(`wall ${wall}`);
+
+  if (["still-answering", "auth-ghost", "successor-facade", "buried"].includes(wall) && host && !hungHosts.has(host)) {
+    score += 24;
+    reasons.push("new-host ghost evidence");
+  }
 
   if (hops > 1) {
     score += Math.min(12, hops * 3);
@@ -256,15 +278,22 @@ function scoreCandidate(c) {
   }
 
   const domainCount = hungDomains.get(domain) || 0;
+  const newHostOnDomain = Boolean(host && !hungHosts.has(host));
   if (domain === "google.com") {
-    score -= 10;
-    reasons.push("google already over-represented");
+    // Folded google.* hosts are common — light tax only when the hostname is new.
+    score -= newHostOnDomain ? 4 : 14;
+    reasons.push(newHostOnDomain ? "google family (new host)" : "google already over-represented");
   }
   if (domainCount >= 6) {
-    score -= 30;
-    reasons.push(`hall saturated for ${domain} (${domainCount})`);
+    // Keep room for distinct product hosts on saturated brands; crush only repeats.
+    score -= newHostOnDomain ? 10 : 30;
+    reasons.push(
+      newHostOnDomain
+        ? `busy domain ${domain} but new host (${domainCount} hung)`
+        : `hall saturated for ${domain} (${domainCount})`,
+    );
   } else if (domainCount >= 3) {
-    score -= 12;
+    score -= newHostOnDomain ? 4 : 12;
     reasons.push(`many ${domain} frames already (${domainCount})`);
   } else if (domainCount === 0) {
     score += 18;
@@ -365,7 +394,7 @@ const report = {
   rejectedSample: rejected.slice(0, 20),
 };
 
-writeFileSync(outPath, JSON.stringify(report, null, 2) + "\n");
+atomicWriteJson(outPath, report);
 
 const deskPayload = {
   museum: report.museum,
@@ -376,9 +405,9 @@ const deskPayload = {
   byDecision: report.byDecision,
   queue: ranked
     .filter((r) => r.decision === "strong" || r.decision === "consider")
-    .slice(0, Math.min(topN, 80)),
+    .slice(0, Math.min(Math.max(topN, 120), 160)),
 };
-writeFileSync(deskPath, JSON.stringify(deskPayload, null, 2) + "\n");
+atomicWriteJson(deskPath, deskPayload);
 
 if (asJson) {
   process.stdout.write(JSON.stringify(desk ? deskPayload : report, null, 2) + "\n");

@@ -48,9 +48,10 @@ export function paintCensus(census, { hungFallback = 0 } = {}) {
   if (kicker) kicker.textContent = "Ghosts";
 }
 
-export async function fetchCensus() {
+export async function fetchCensus({ slim = true } = {}) {
   try {
-    const next = await fetch(`/api/census?t=${Date.now()}`, { cache: "no-store" }).then((r) => {
+    const q = slim ? "slim=1&" : "";
+    const next = await fetch(`/api/census?${q}t=${Date.now()}`, { cache: "no-store" }).then((r) => {
       if (!r.ok) throw new Error(String(r.status));
       return r.json();
     });

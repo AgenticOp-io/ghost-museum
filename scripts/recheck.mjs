@@ -8,11 +8,12 @@
  *   node scripts/recheck.mjs --loop    # live monthly cadence
  *   node scripts/recheck.mjs --once id
  */
-import { readFileSync, writeFileSync, existsSync } from "node:fs";
+import { readFileSync, existsSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { probeUrl, classifyWall, summarizeChain } from "./lib/probe.mjs";
 import { buildCensusPayload } from "./lib/census.mjs";
+import { atomicWrite, atomicWriteJson } from "./lib/atomic-write.mjs";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const path = join(root, "exhibits", "exhibits.json");
@@ -47,14 +48,14 @@ function writeCensus(data) {
     exhibits: data.exhibits || [],
     watch,
   });
-  writeFileSync(censusPath, JSON.stringify(census, null, 2) + "\n");
+  atomicWriteJson(censusPath, census);
   return census;
 }
 
 function persist(data) {
   const json = JSON.stringify(data, null, 2) + "\n";
-  writeFileSync(path, json);
-  writeFileSync(sitePath, json);
+  atomicWrite(path, json);
+  atomicWrite(sitePath, json);
   return writeCensus(data);
 }
 
